@@ -26,7 +26,7 @@
 <link rel="shortcut icon" href="/images/avar.jpg">
 
 
-<title>hello world - 欢迎</title>
+<title>h常见命令 - 欢迎</title>
 
 <meta name="keywords" content="">
 
@@ -145,26 +145,45 @@
                 </p>
                 <p>一个热爱跑步的web前端练习生</p>
             </div>
-            <h2 class="post-title">Hello World</h2>
+            <h2 class="post-title">h常见命令</h2>
             <div class="post-meta">
-                本文共计434个字 |
+                本文共计558个字 |
                 您是第&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
             </div>
         </div>
         <div class="post-content markdown-body">
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+            <h3 id="一、-新建、删除文章"><a href="#一、-新建、删除文章" class="headerlink" title="一、 新建、删除文章"></a>一、 新建、删除文章</h3><p><strong>新建、删除或修改文章后，不需要重启hexo server，刷新一下即可预览。</strong></p>
+<ol>
+<li>新建文章</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo hexo new &quot;new-article&quot;</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>文字的标题也可以在对应的 md 文件中修改<br>之后在source/_posts目录下面，多了一个new-article.md的文件。</p>
+<ol>
+<li>删除文章</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">* 删除 db.json</span><br><span class="line">* 删除 xx.md 文章, 文件夹中搜索标题 xx 相关文件，html文件一并删除</span><br><span class="line">* 执行 hexo clean 、hexo g 、hexo d 即可</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<h3 id="二、清理缓存"><a href="#二、清理缓存" class="headerlink" title="二、清理缓存"></a>二、清理缓存</h3><p>清理缓存文件 db.json 和 已生成的静态文件 public<br>当你对站点的修改怎么都不起作用时，执行该命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo hexo clean</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<h3 id="三、生成静态文件"><a href="#三、生成静态文件" class="headerlink" title="三、生成静态文件"></a>三、生成静态文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo hexo generate</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+<p>该命令也可以简写成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo hexo g</span><br></pre></td></tr></table></figure>
+
+<h3 id="四、启动服务器"><a href="#四、启动服务器" class="headerlink" title="四、启动服务器"></a>四、启动服务器</h3><p>启动本地服务服务器，预览网页。默认情况下地址为 <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo hexo server</span><br></pre></td></tr></table></figure>
+
+<p>简写</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo hexo s</span><br></pre></td></tr></table></figure>
+
+<h3 id="五、部署网站"><a href="#五、部署网站" class="headerlink" title="五、部署网站"></a>五、部署网站</h3><p>生成网站静态文件，部署到远程仓库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>简写</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo hexo d</span><br></pre></td></tr></table></figure>
+
 
             
                 
@@ -178,6 +197,8 @@
         </div>
         
         <div class="post-tags">标签：
+            
+            <a href="/tags/%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4-hexo/">常见命令 hexo</a>
             
         </div>
         
