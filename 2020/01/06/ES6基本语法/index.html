@@ -1,0 +1,299 @@
+<!DOCTYPE HTML>
+<html class="no-js" lang="zh-CN">
+<head>
+    <!--[if lte IE 9]>
+<meta http-equiv="refresh" content="0;url=http://yoursite.com/warn.html">
+<![endif]-->
+<meta charset="utf-8">
+<meta http-equiv="X-DNS-Prefetch-Control" content="on">
+<link rel="dns-prefetch" href="http://yoursite.com">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+<link rel="prefetch" href="http://yoursite.com">
+<link rel="prefetch" href="//www.google-analytics.com">
+
+
+<link rel="prerender" href="http://yoursite.com">
+
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+<meta http-equiv="mobile-agent" content="format=html5; url=http://yoursite.com">
+<meta name="author" content="John Doe">
+
+<link rel="stylesheet" href="/css/JSimple.css">
+
+
+<link rel="shortcut icon" href="/images/avar.jpg">
+
+
+<title>es6基本语法 - 欢迎</title>
+
+<meta name="keywords" content="">
+
+<meta name="description " content="快乐的麻瓜---博客">
+
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                processEscapes: true
+            }
+        });
+    </script>
+
+
+    
+
+    
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+<div id="nav">
+    <nav class="nav-menu">
+        <a class="site-name current" href="/" title="淦">淦</a>
+        <a class="site-index current" href="/"><i class="fa fa-home"></i><span>首页</span></a>
+        <a href="/archives" title="归档"><i class="fa fa-archives"></i><span>归档</span></a>
+        <a href="/tags" title="标签"><i class="fa fa-tags"></i><span>标签</span></a>
+        <!-- custom single page of menus -->
+        
+        
+        <a href="/help" title="帮助">
+            <i class="fa fa-question-circle"></i>
+            <span>帮助</span>
+        </a>
+        
+    </nav>
+</div>
+
+<div class="nav-user">
+    <a class="btn-search" href="#"><i class="fa fa-search"></i></a>
+    <a class="btn-read-mode" href="#"><i class="fa fa-sun-o"></i></a>
+    <a class="btn-sns-qr" href="javascript:"><i class="fa fa-telegram"></i></a>
+</div>
+
+<div id="wrapper" class="clearfix">
+    <div id="body">
+        <div class="main" id="main">
+            <div id="cover">
+    <div class="cover-img"></div>
+    <div class="cover-info">
+        
+        <h1 class="cover-siteName">说IT</h1>
+        <h3 class="cover-siteTitle">用代码摇滚这个世界</h3>
+        <p class="cover-siteDesc">一个关注技术与跑步的IT博客</p>
+        <div class="cover-sns">
+            
+    &nbsp;&nbsp;<div class="btn btn-telegram">
+        <a href="http://t.me/kunyintang" target="_blank" title="telegram" ref="friend">
+            <i class="fa fa-telegram"></i>
+        </a>
+    </div>
+
+    &nbsp;&nbsp;<div class="btn btn-instagram">
+        <a href="https://www.instagram.com/mtangsir/" target="_blank" title="instagram" ref="friend">
+            <i class="fa fa-instagram"></i>
+        </a>
+    </div>
+
+    &nbsp;&nbsp;<div class="btn btn-twitter">
+        <a href="https://twitter.com/tangkunyin" target="_blank" title="twitter" ref="friend">
+            <i class="fa fa-twitter"></i>
+        </a>
+    </div>
+
+    &nbsp;&nbsp;<div class="btn btn-github">
+        <a href="https://github.com/tangkunyin" target="_blank" title="github" ref="friend">
+            <i class="fa fa-github"></i>
+        </a>
+    </div>
+
+
+        </div>
+    </div>
+</div>
+
+            <div class="page-title">
+    <ul>
+        <li><a href="/">最近</a></li>
+        
+        
+        
+        <li class="page-search">
+    <form id="search" class="search-form">
+        <input type="text"
+               readonly="readonly"
+               id="local-search-input-tip"
+               placeholder="读物检索~" />
+        <button type="button" disabled="disabled" class="search-form-submit"><i class="fa fa-search"></i></button>
+    </form>
+</li>
+
+    </ul>
+</div>
+<div class="main-inner">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <div class="post-header">
+            <div class="post-author clearfix">
+                <a class="avatar fleft" href="https://shuoit.net"
+                   target="_blank">
+                    <img width="48" src="/images/avar.jpg" alt="avatar"/>
+                </a>
+                <p><span class="label">作者</span>
+                    <a href="https://shuoit.net"
+                       target="_blank">快乐的麻瓜</a>
+                    <span title="最后编辑于&nbsp;2020-01-06">2020-01-06</span>
+                </p>
+                <p>一个热爱跑步的web前端练习生</p>
+            </div>
+            <h2 class="post-title">ES6基本语法</h2>
+            <div class="post-meta">
+                本文共计3970个字 |
+                您是第&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+            </div>
+        </div>
+        <div class="post-content markdown-body">
+            <h1 id="模块化-babel-js"><a href="#模块化-babel-js" class="headerlink" title="模块化 babel.js"></a>模块化 babel.js</h1><h2 id="export-default-是一个的话，就可以直接引入"><a href="#export-default-是一个的话，就可以直接引入" class="headerlink" title="export default 是一个的话，就可以直接引入"></a>export default 是一个的话，就可以直接引入</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;utils.js</span><br><span class="line">export default &#123;</span><br><span class="line">    name:&quot;Wang Junping&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;index.js</span><br><span class="line">import utils from &#39;.&#x2F;utils.js&#39;</span><br><span class="line">console.log(utils.name)  </span><br><span class="line">&#x2F;&#x2F;报错</span><br></pre></td></tr></table></figure>
+<p>使用 babel-node index.js就没问题了  我觉得应该是不支持 import语法吧</p>
+<p>##Babel 使用</p>
+<ol>
+<li><p>下载babel：cnpm install –save-dev babel-core babel-preset-es2015 babel-preset-latest</p>
+</li>
+<li><p>在根目录下新建 <code>.babelrc</code> 文件并写入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;presets&quot;: [&quot;es2015&quot;,&quot;latest&quot;],</span><br><span class="line">    &quot;plugins&quot;: []</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<ol start="3">
+<li>下载babel-cli <code>npm install -g babel-cli</code></li>
+</ol>
+<ol start="4">
+<li>在src文件夹下新建index.js,用ES6箭头函数语法写代码<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var arr &#x3D; [1,2,3].map((item) &#x3D;&gt; item+1)</span><br></pre></td></tr></table></figure></li>
+<li>命令行输入<code>babel ./src/index.js</code></li>
+</ol>
+<h2 id="开发环境-webpack"><a href="#开发环境-webpack" class="headerlink" title="开发环境- webpack"></a>开发环境- webpack</h2><ul>
+<li>npm install webpack babel-loader –save-dev</li>
+<li>配置 webpack.config.js</li>
+<li>配置 package.json中的scripts</li>
+<li>运行 npm start</li>
+</ul>
+<h1 id="Class和普通构造函数有什么区别"><a href="#Class和普通构造函数有什么区别" class="headerlink" title="Class和普通构造函数有什么区别"></a>Class和普通构造函数有什么区别</h1><h2 id="JS构造函数"><a href="#JS构造函数" class="headerlink" title="JS构造函数"></a>JS构造函数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function MathHandle (x,y) &#123;</span><br><span class="line">    this.x &#x3D; x;</span><br><span class="line">    this.y &#x3D; y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">MathHandle.prototype.add &#x3D; function (x,y) &#123;</span><br><span class="line">    return this.x + this.y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var m &#x3D; new MathHandle(2,3)</span><br><span class="line">console.log(m.add())  &#x2F;&#x2F;5</span><br></pre></td></tr></table></figure>
+
+<h2 id="Class语法"><a href="#Class语法" class="headerlink" title="Class语法"></a>Class语法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">class MathHandle &#123;</span><br><span class="line">    constructor(x,y) &#123;</span><br><span class="line">        this.x &#x3D; x;</span><br><span class="line">        this.y &#x3D; y;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    add() &#123;</span><br><span class="line">        return this.x + this.y;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const m &#x3D; new MathHandle(1,2);</span><br><span class="line">console.log(m.add()) &#x2F;&#x2F;3</span><br><span class="line"></span><br><span class="line">console.log(typeof MathHandle2) &#x2F;&#x2F; &quot;function&quot;</span><br><span class="line">console.log(MathHandle2.prototype.constructor &#x3D;&#x3D;&#x3D; MathHandle2) &#x2F;&#x2F;true</span><br><span class="line">console.log(m2.__proto__ &#x3D;&#x3D;&#x3D; MathHandle2.prototype) &#x2F;&#x2F;true</span><br></pre></td></tr></table></figure>
+<h4 id="所以Class本身是一个语法糖，本质还是构造函数"><a href="#所以Class本身是一个语法糖，本质还是构造函数" class="headerlink" title="所以Class本身是一个语法糖，本质还是构造函数"></a>所以Class本身是一个语法糖，本质还是构造函数</h4><h2 id="继承-JS"><a href="#继承-JS" class="headerlink" title="继承-JS"></a>继承-JS</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">function Animal () &#123;</span><br><span class="line">    this.eat &#x3D; function () &#123;</span><br><span class="line">        console.log(&quot;animal eat&quot;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;狗</span><br><span class="line">function Dog () &#123;</span><br><span class="line">    this.bark &#x3D; function () &#123;</span><br><span class="line">        console,log(&quot;dog bark&quot;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Dog.prototy &#x3D; new Animal()</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;哈士奇</span><br><span class="line">var hashiqi &#x3D; new Dog()</span><br></pre></td></tr></table></figure>
+
+<h2 id="继承-Class"><a href="#继承-Class" class="headerlink" title="继承 Class"></a>继承 Class</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">class Animal &#123;</span><br><span class="line">    constructor(name) &#123;</span><br><span class="line">        this.name &#x3D; name</span><br><span class="line">    &#125;</span><br><span class="line">    eat() &#123;</span><br><span class="line">        console.log(&#96;$&#123;this.name&#125; eat&#96;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Dog extends Animal &#123;</span><br><span class="line">    constructor(name) &#123;</span><br><span class="line">        super(name)         &#x2F;&#x2F;只要是extends的，super()是一定要加上的</span><br><span class="line">        this.name &#x3D; name</span><br><span class="line">    &#125;</span><br><span class="line">    say() &#123;</span><br><span class="line">        console.log(&#96;$&#123;this.name&#125; eat &#96;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const dog &#x3D; new Dog(&quot;哈士奇&quot;)</span><br><span class="line">dog.say()  &#x2F;&#x2F;哈士奇 bark </span><br><span class="line">dog.eat()  &#x2F;&#x2F;哈士奇 eat</span><br></pre></td></tr></table></figure>
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
+<li>Class 在语法上更加贴合面向对象的写法</li>
+<li>Class 在实现继承上更加易读、理解</li>
+<li>更易于写Java等后端语言的使用</li>
+<li>本质是语法糖，还是使用 prototype</li>
+</ul>
+<h1 id="Promise-的基本使用"><a href="#Promise-的基本使用" class="headerlink" title="Promise 的基本使用"></a>Promise 的基本使用</h1><h2 id="解决Callback-Hell"><a href="#解决Callback-Hell" class="headerlink" title="解决Callback Hell"></a>解决Callback Hell</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">function loadImg (src,callback,fail) &#123;</span><br><span class="line"></span><br><span class="line">    var img &#x3D; document.createElement(&#39;img&#39;);</span><br><span class="line"></span><br><span class="line">    img.onload &#x3D; function () &#123;</span><br><span class="line">        callback(img)</span><br><span class="line">    &#125;</span><br><span class="line">    img.onerror &#x3D; function () &#123;</span><br><span class="line">        fail()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    img.src &#x3D; src;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var src &#x3D; &quot;http:&#x2F;&#x2F;www.imooc.com&#x2F;static&#x2F;img&#x2F;index&#x2F;logo_new.png&quot;</span><br><span class="line"></span><br><span class="line">loadImg(src,function (img) &#123;</span><br><span class="line">    alert(img.width)</span><br><span class="line">&#125;,function () &#123;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用-Promise语法"><a href="#使用-Promise语法" class="headerlink" title="使用 Promise语法"></a>使用 Promise语法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">function loadImg (src) &#123;</span><br><span class="line">    const promise &#x3D; new Promise(function(resolve,reject) &#123;</span><br><span class="line">        var img &#x3D; document.createElement(&quot;img&quot;)</span><br><span class="line">        img.onload &#x3D; function () &#123;</span><br><span class="line">            resolve(img)</span><br><span class="line">        &#125;</span><br><span class="line">        img.onerror &#x3D; function () &#123;</span><br><span class="line">            reject()</span><br><span class="line">        &#125;</span><br><span class="line">        img.src &#x3D; src </span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    return promise</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var src &#x3D; &quot;http:&#x2F;&#x2F;www.imooc.com&#x2F;static&#x2F;img&#x2F;index&#x2F;logo_new.png&quot;</span><br><span class="line"></span><br><span class="line">loadImg(src)</span><br><span class="line">.then(function (img) &#123;</span><br><span class="line">    alert(img.width)</span><br><span class="line">    document.body.append(img)</span><br><span class="line">&#125;,function () &#123;</span><br><span class="line">    alert(&quot;loading fail&quot;)</span><br><span class="line">&#125;)</span><br><span class="line">.catch(function () &#123;</span><br><span class="line">    alert(&quot;error&quot;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="总结一下ES6-其他常用功能"><a href="#总结一下ES6-其他常用功能" class="headerlink" title="总结一下ES6 其他常用功能"></a>总结一下ES6 其他常用功能</h2><ul>
+<li><code>let/const</code></li>
+<li>多行字符串/模板变量 <code>${}</code></li>
+<li>解构赋值</li>
+<li>块级作用域</li>
+<li>函数默认参数</li>
+<li>箭头函数（清晰了this指向）</li>
+</ul>
+
+            
+                
+
+            
+        </div>
+        <div class="post-tool">
+            <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
+                <i class="fa fa-thumbs-up" aria-hidden="true"></i> 打赏
+            </a>
+        </div>
+        
+        <div class="post-tags">标签：
+            
+            <a href="/tags/ES6/">ES6</a>
+            
+        </div>
+        
+    </article>
+    
+        <p style="text-align: center">本文代表个人观点，内容仅供参考。若有不恰当之处，望不吝赐教！</p>
+    
+    
+    
+
+</div>
+
+<script src="/js/busuanzi.pure.mini.js"></script>
+
+
+
+        </div><!-- end #main-->
+    </div><!-- end #body -->
+    <footer class="footer">
+    <div class="footer-inner" style="text-align: center">
+        <p>
+            <a href="/about"  title="关于">关于</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <!-- 自定义链接 -->
+            <a href="/help" title="帮助" >帮助</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <a href="/links" title="友链">友链</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <a href="/sitemap.xml" title="地图">地图</a>
+        </p>
+        <p>
+            本站已建立&nbsp<a href="/timeline" id="siteBuildingTime"></a>&nbsp天，<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="licence">采用知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议创作</a><br/>
+            ©2017-<span id="cpYear"></span> 基于&nbsp<a href="http://hexo.io" target="_blank" rel="nofollow">Hexo</a>
+            ，主题采用&nbsp&nbsp<a href="https://github.com/tangkunyin/hexo-theme-jsimple" target="_blank" rel="bookmark">JSimple</a>
+            ，作者&nbsp<a href="https://shuoit.net" target="_blank" rel="friend">快乐的麻瓜</a>
+            ，Hosted by <a href="https://pages.github.com/" target="_blank" rel="nofollow">GitHub Pages</a>
+        </p>
+    </div>
+</footer>
+
+<script src="/js/SimpleCore.js"></script>
+
+
+</div>
+<!-- search pop -->
+<div class="popup search-popup local-search-popup">
+    <div class="local-search-header clearfix">
+        <span class="search-icon">
+            <i class="fa fa-search"></i>
+        </span>
+        <span class="popup-btn-close">
+            <i class="fa fa-times-circle"></i>
+        </span>
+        <div class="local-search-input-wrapper">
+            <input id="local-search-input"
+                   spellcheck="false"
+                   type="text"
+                   autocomplete="off"
+                   placeholder="请输入查询关键词"/>
+        </div>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+<div class="fixed-btn">
+    <a class="btn-gotop" href="javascript:"> <i class="fa fa-angle-up"></i></a>
+</div>
+<script>
+    $(function () {
+        var jsi_config = {
+            buildingTime: '01/20/2018',
+            current: $('.post-tags').length > 0 ? 'post' : 'archive',
+            snsQRCode: '/images/sns-qrcode.png',
+            donateImg: '/images/donate-qr.png',
+            localSearch: { dbPath: '' },
+            readMode: 'day'
+        };
+        
+        SimpleCore.init(jsi_config);
+        
+    });
+</script>
+<script src="/js/src/click.js"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/haruto.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body>
+</html>
