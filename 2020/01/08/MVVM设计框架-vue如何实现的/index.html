@@ -1,0 +1,352 @@
+<!DOCTYPE HTML>
+<html class="no-js" lang="zh-CN">
+<head>
+    <!--[if lte IE 9]>
+<meta http-equiv="refresh" content="0;url=http://yoursite.com/warn.html">
+<![endif]-->
+<meta charset="utf-8">
+<meta http-equiv="X-DNS-Prefetch-Control" content="on">
+<link rel="dns-prefetch" href="http://yoursite.com">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+<link rel="prefetch" href="http://yoursite.com">
+<link rel="prefetch" href="//www.google-analytics.com">
+
+
+<link rel="prerender" href="http://yoursite.com">
+
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+<meta http-equiv="mobile-agent" content="format=html5; url=http://yoursite.com">
+<meta name="author" content="John Doe">
+
+<link rel="stylesheet" href="/css/JSimple.css">
+
+
+<link rel="shortcut icon" href="/images/avar.jpg">
+
+
+<title>mvvm设计框架-vue如何实现的 - 欢迎</title>
+
+<meta name="keywords" content="">
+
+<meta name="description " content="快乐的麻瓜---博客">
+
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                processEscapes: true
+            }
+        });
+    </script>
+
+
+    
+
+    
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+<div id="nav">
+    <nav class="nav-menu">
+        <a class="site-name current" href="/" title="淦">淦</a>
+        <a class="site-index current" href="/"><i class="fa fa-home"></i><span>首页</span></a>
+        <a href="/archives" title="归档"><i class="fa fa-archives"></i><span>归档</span></a>
+        <a href="/tags" title="标签"><i class="fa fa-tags"></i><span>标签</span></a>
+        <!-- custom single page of menus -->
+        
+        
+        <a href="/help" title="帮助">
+            <i class="fa fa-question-circle"></i>
+            <span>帮助</span>
+        </a>
+        
+    </nav>
+</div>
+
+<div class="nav-user">
+    <a class="btn-search" href="#"><i class="fa fa-search"></i></a>
+    <a class="btn-read-mode" href="#"><i class="fa fa-sun-o"></i></a>
+    <a class="btn-sns-qr" href="javascript:"><i class="fa fa-telegram"></i></a>
+</div>
+
+<div id="wrapper" class="clearfix">
+    <div id="body">
+        <div class="main" id="main">
+            <div id="cover">
+    <div class="cover-img"></div>
+    <div class="cover-info">
+        
+        <h1 class="cover-siteName">说IT</h1>
+        <h3 class="cover-siteTitle">用代码摇滚这个世界</h3>
+        <p class="cover-siteDesc">一个关注技术与跑步的IT博客</p>
+        <div class="cover-sns">
+            
+    &nbsp;&nbsp;<div class="btn btn-telegram">
+        <a href="http://t.me/kunyintang" target="_blank" title="telegram" ref="friend">
+            <i class="fa fa-telegram"></i>
+        </a>
+    </div>
+
+    &nbsp;&nbsp;<div class="btn btn-instagram">
+        <a href="https://www.instagram.com/mtangsir/" target="_blank" title="instagram" ref="friend">
+            <i class="fa fa-instagram"></i>
+        </a>
+    </div>
+
+    &nbsp;&nbsp;<div class="btn btn-twitter">
+        <a href="https://twitter.com/tangkunyin" target="_blank" title="twitter" ref="friend">
+            <i class="fa fa-twitter"></i>
+        </a>
+    </div>
+
+    &nbsp;&nbsp;<div class="btn btn-github">
+        <a href="https://github.com/tangkunyin" target="_blank" title="github" ref="friend">
+            <i class="fa fa-github"></i>
+        </a>
+    </div>
+
+
+        </div>
+    </div>
+</div>
+
+            <div class="page-title">
+    <ul>
+        <li><a href="/">最近</a></li>
+        
+        
+        
+        <li class="page-search">
+    <form id="search" class="search-form">
+        <input type="text"
+               readonly="readonly"
+               id="local-search-input-tip"
+               placeholder="读物检索~" />
+        <button type="button" disabled="disabled" class="search-form-submit"><i class="fa fa-search"></i></button>
+    </form>
+</li>
+
+    </ul>
+</div>
+<div class="main-inner">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <div class="post-header">
+            <div class="post-author clearfix">
+                <a class="avatar fleft" href="https://shuoit.net"
+                   target="_blank">
+                    <img width="48" src="/images/avar.jpg" alt="avatar"/>
+                </a>
+                <p><span class="label">作者</span>
+                    <a href="https://shuoit.net"
+                       target="_blank">快乐的麻瓜</a>
+                    <span title="最后编辑于&nbsp;2020-01-08">2020-01-08</span>
+                </p>
+                <p>一个热爱跑步的web前端练习生</p>
+            </div>
+            <h2 class="post-title">MVVM设计框架-vue如何实现的</h2>
+            <div class="post-meta">
+                本文共计6011个字 |
+                您是第&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+            </div>
+        </div>
+        <div class="post-content markdown-body">
+            <h1 id="MVVM设计框架"><a href="#MVVM设计框架" class="headerlink" title="MVVM设计框架"></a>MVVM设计框架</h1><p>##问题</p>
+<ul>
+<li>说一下使用jQuery和使用vue、react等框架的区别</li>
+<li>说一下对<code>MVVM</code>的理解</li>
+<li>vue 中如何实现响应式</li>
+<li>vue 中如何解析模板</li>
+<li>vue 的整个实现流程</li>
+</ul>
+<h2 id="1-说一下使用jQuery和使用vue、react等框架的区别"><a href="#1-说一下使用jQuery和使用vue、react等框架的区别" class="headerlink" title="1. 说一下使用jQuery和使用vue、react等框架的区别"></a>1. 说一下使用jQuery和使用vue、react等框架的区别</h2><ul>
+<li>jQuery 实现 todo-list</li>
+<li>vue 实现 todo-list</li>
+<li>jQuery和框架的区别</li>
+</ul>
+<h3 id="jQuery-实现-todo-list"><a href="#jQuery-实现-todo-list" class="headerlink" title="jQuery 实现 todo-list"></a>jQuery 实现 todo-list</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;input type&#x3D;&quot;text&quot; name&#x3D;&quot;&quot; id&#x3D;&quot;text-title&quot;&gt;</span><br><span class="line">        &lt;button id&#x3D;&quot;btn&quot;&gt;提交&lt;&#x2F;button&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;ul id&#x3D;&quot;list&quot;&gt;&lt;&#x2F;ul&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    var textTitle &#x3D; $(&quot;#text-title&quot;)</span><br><span class="line">    var btn &#x3D; $(&quot;#btn&quot;)</span><br><span class="line">    var list &#x3D; $(&quot;#list&quot;)</span><br><span class="line"></span><br><span class="line">    btn.click(function () &#123;</span><br><span class="line">        &#x2F;&#x2F; dom 和数据耦合在一起</span><br><span class="line">        var title &#x3D; textTitle.val()</span><br><span class="line">        if(!title)&#123;</span><br><span class="line">            return;</span><br><span class="line">        &#125;</span><br><span class="line">        var li &#x3D; $(&#96;&lt;li&gt;$&#123;title&#125;&lt;&#x2F;li&gt;&#96;)</span><br><span class="line">        list.append(li)</span><br><span class="line">        textTitle.val(&#39;&#39;)</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="vue-实现-todo-list"><a href="#vue-实现-todo-list" class="headerlink" title="vue 实现 todo-list"></a>vue 实现 todo-list</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id&#x3D;&quot;app&quot;&gt;</span><br><span class="line">        &lt;input type&#x3D;&quot;text&quot; v-model&#x3D;&quot;title&quot;&gt;</span><br><span class="line">        &lt;button @click&#x3D;&quot;add&quot;&gt;submit&lt;&#x2F;button&gt;</span><br><span class="line">        &lt;ul&gt;</span><br><span class="line">            &lt;li v-for&#x3D;&quot;(item, index) in list&quot; :key&#x3D;&quot;index&quot;&gt;&#123;&#123;item&#125;&#125;&lt;&#x2F;li&gt;</span><br><span class="line">        &lt;&#x2F;ul&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line"></span><br><span class="line">    var vm &#x3D; new Vue(&#123;</span><br><span class="line">        el:&quot;#app&quot;,</span><br><span class="line">        data:&#123;</span><br><span class="line">            &#x2F;&#x2F; 数据驱动视图</span><br><span class="line">            title:&#39;&#39;,</span><br><span class="line">            list:[]</span><br><span class="line">        &#125;,</span><br><span class="line">        methods: &#123;</span><br><span class="line">            add()&#123;</span><br><span class="line">                &#x2F;&#x2F; 修改数据，视图的修改vue会帮你做</span><br><span class="line">                &#x2F;&#x2F; 利用diff算法去优化了DOM操作</span><br><span class="line">                this.list.push(this.title)</span><br><span class="line">                this.title &#x3D; &quot;&quot;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="这两个案例可以看出来两者的区别"><a href="#这两个案例可以看出来两者的区别" class="headerlink" title="这两个案例可以看出来两者的区别"></a>这两个案例可以看出来两者的区别</h3><ul>
+<li>数据和视图的分离，解耦（开放封闭原则）</li>
+<li>以数据驱动视图，只关心数据变化，DOM操作被封装</li>
+</ul>
+<h2 id="2-说一下对-MVVM-的理解"><a href="#2-说一下对-MVVM-的理解" class="headerlink" title="2. 说一下对 MVVM 的理解"></a>2. 说一下对 <code>MVVM</code> 的理解</h2><ul>
+<li><p>什么是MVC</p>
+<ul>
+<li>Model 数据</li>
+<li>View 用户视图</li>
+<li>Controller 控制器</li>
+</ul>
+</li>
+<li><p>MVVM</p>
+<ul>
+<li>Model  数据 Data</li>
+<li>View  视图HTML</li>
+<li>ViewModel <strong>连接View和Model</strong></li>
+</ul>
+</li>
+<li><p>MVVM不算是一种创新</p>
+</li>
+<li><p>但是其中的 <code>ViewModel</code> 是一种创新</p>
+</li>
+<li><p>真正的结合前端场景应用的创建</p>
+</li>
+</ul>
+<h3 id="MVVM框架的三大要素"><a href="#MVVM框架的三大要素" class="headerlink" title="MVVM框架的三大要素"></a>MVVM框架的三大要素</h3><ul>
+<li>响应式：vue如何监听到 data 的每个属性的变化？</li>
+<li>模板引擎： vue的模板如何被解析，指令如何处理？</li>
+<li>渲染： vue的模板如何被渲染成html？以及渲染过程</li>
+</ul>
+<h2 id="3-vue中如何实现响应式"><a href="#3-vue中如何实现响应式" class="headerlink" title="3. vue中如何实现响应式"></a>3. vue中如何实现响应式</h2><ul>
+<li><p>什么是响应式</p>
+<ul>
+<li>修改data属性之后，vue立刻监听到</li>
+<li>data 属性被代理到vm上</li>
+<li>演示</li>
+</ul>
+</li>
+<li><p>Object.defineProperty  将data属性代理到vm上</p>
+</li>
+<li><p>模拟</p>
+<h3 id="利用Object-defineProperty模拟响应式"><a href="#利用Object-defineProperty模拟响应式" class="headerlink" title="利用Object.defineProperty模拟响应式"></a>利用Object.defineProperty模拟响应式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">var obj &#x3D; &#123;</span><br><span class="line">    name: &quot;wang&quot;,</span><br><span class="line">    age: 22</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function Proxy (obj) &#123;</span><br><span class="line">    Object.keys(obj).forEach( (key) &#x3D;&gt; &#123;</span><br><span class="line">        &#x2F;&#x2F;这里是核心，把obj数据代理到w上</span><br><span class="line">        Object.defineProperty(vm,key,&#123;</span><br><span class="line">            get: function () &#123;</span><br><span class="line">                return obj[key];</span><br><span class="line">            &#125;,</span><br><span class="line">            set: function (newValue) &#123;</span><br><span class="line">                if(newValue &#x3D;&#x3D;&#x3D; obj[key])&#123;</span><br><span class="line">                    return obj[key]</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    obj[key] &#x3D; newValue</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<h2 id="4-Vue中如何解析模板"><a href="#4-Vue中如何解析模板" class="headerlink" title="4. Vue中如何解析模板"></a>4. Vue中如何解析模板</h2><ul>
+<li>模板是什么</li>
+<li><code>render</code> 函数</li>
+<li><code>render</code> 函数与 vdom</li>
+</ul>
+<h3 id="模板是什么"><a href="#模板是什么" class="headerlink" title="模板是什么"></a>模板是什么</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id&#x3D;&quot;app&quot;&gt;</span><br><span class="line">    &lt;input type&#x3D;&quot;text&quot; v-model&#x3D;&quot;title&quot;&gt;</span><br><span class="line">    &lt;button @click&#x3D;&quot;add&quot;&gt;submit&lt;&#x2F;button&gt;</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">        &lt;li v-for&#x3D;&quot;(item, index) in list&quot; :key&#x3D;&quot;index&quot;&gt;&#123;&#123;item&#125;&#125;&lt;&#x2F;li&gt;</span><br><span class="line">    &lt;&#x2F;ul&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>模板的本质就是字符串</strong></li>
+<li><strong>是有逻辑的字符串，v-if、v-for。。。  还可以嵌入JS变量</strong></li>
+<li><strong>类似html格式，但是有很大区别</strong></li>
+<li><strong>最终会被转换成html来显示</strong></li>
+<li><strong>最终必须转换成JS代码（有逻辑，JS是图灵完备语言）</strong></li>
+<li><strong>需要一个JS函数（render函数）</strong></li>
+</ul>
+<h3 id="render函数-with的用法"><a href="#render函数-with的用法" class="headerlink" title="render函数  with的用法"></a>render函数  with的用法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">var obj &#x3D; &#123;</span><br><span class="line">    name: &#39;张三&#39;,</span><br><span class="line">    age: 20,</span><br><span class="line">    getAddress: function () &#123;</span><br><span class="line">        alert(&#39;nanchang&#39;)</span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;不用with</span><br><span class="line"></span><br><span class="line">function fn() &#123;</span><br><span class="line">    alert(obj.name)</span><br><span class="line">    alert(obj.age)</span><br><span class="line">    obj.getAddress()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;使用with    不建议自己实际开发的时候使用</span><br><span class="line">&#x2F;&#x2F;vue 里面用了，但也只是它内部使用</span><br><span class="line">function fn2 () &#123;</span><br><span class="line">    with(obj) &#123;</span><br><span class="line">        alert(name)</span><br><span class="line">        alert(age)</span><br><span class="line">        getAddress()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-render-函数和-vnode"><a href="#5-render-函数和-vnode" class="headerlink" title="5. render 函数和 vnode"></a>5. render 函数和 vnode</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">vm._update(vnode) &#123;</span><br><span class="line">    const preVnode &#x3D; vm._vnode</span><br><span class="line">    vm._vnodee &#x3D; vnode</span><br><span class="line">    if(!preVnode) &#123;</span><br><span class="line">        vm.$el &#x3D; vm.__patch__(vm.$el, vnoded)</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        vm.$el &#x3D; vm.__patch__(preVnode, vnoded)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function updateComponent () &#123;</span><br><span class="line">    &#x2F;&#x2F;vm._render 即上面的render 函数，并返回vnode</span><br><span class="line">    vm._update(vm._render())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>updateComponent</code>中实现了vdom和patch</li>
+<li>页面首次渲染执行 <code>updateComponent</code></li>
+<li>data中每次修改属性值，执行updateComponent</li>
+</ul>
+<h2 id="6-Vue-的整个实现流程"><a href="#6-Vue-的整个实现流程" class="headerlink" title="6. Vue 的整个实现流程"></a>6. <code>Vue</code> 的整个实现流程</h2><ul>
+<li>第一步： 解析模板成<code>render</code>函数</li>
+<li>第二步： 响应式开始监听</li>
+<li>第三步： 首次渲染，显示页面，且绑定依赖<ul>
+<li>为什么监听 get，只监听set不行吗</li>
+<li>data 中有很多属性，有些会被用到，有些可能不会被用到</li>
+<li>未走 get 中的属性， set的时候我们也无需关心</li>
+<li>避免不必要的重新渲染</li>
+</ul>
+</li>
+<li>第四步： data属性变化，触发 <code>rerender</code>函数</li>
+</ul>
+<h3 id="根据Demo-说明"><a href="#根据Demo-说明" class="headerlink" title="根据Demo 说明"></a>根据Demo 说明</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">                                &#x2F;&#x2F;第一步： 解析模板成 render 函数</span><br><span class="line">    &lt;div id&#x3D;&quot;app&quot;&gt;</span><br><span class="line">        &lt;input type&#x3D;&quot;text&quot; v-model&#x3D;&quot;title&quot;&gt;</span><br><span class="line">        &lt;button @click&#x3D;&quot;add&quot;&gt;submit&lt;&#x2F;button&gt;</span><br><span class="line">        &lt;ul&gt;</span><br><span class="line">            &lt;li v-for&#x3D;&quot;(item, index) in list&quot; :key&#x3D;&quot;index&quot;&gt;&#123;&#123;item&#125;&#125;&lt;&#x2F;li&gt;</span><br><span class="line">        &lt;&#x2F;ul&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line"></span><br><span class="line">    var vm &#x3D; new Vue(&#123;</span><br><span class="line">        el:&quot;#app&quot;,</span><br><span class="line">        data:&#123;                  &#x2F;&#x2F;第二步： 响应式开始监听   将data中数据通过 Object.defineProperty 绑定到vm中</span><br><span class="line">            &#x2F;&#x2F; 数据驱动视图</span><br><span class="line">            title:&#39;&#39;,</span><br><span class="line">            list:[]</span><br><span class="line">        &#125;,</span><br><span class="line">        methods: &#123;</span><br><span class="line">            add()&#123;</span><br><span class="line">                &#x2F;&#x2F; 修改数据，视图的修改vue会帮你做</span><br><span class="line">                &#x2F;&#x2F; 利用diff算法去优化了DOM操作</span><br><span class="line">                this.list.push(this.title)</span><br><span class="line">                this.title &#x3D; &quot;&quot;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;&#x2F;script&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                                &#x2F;&#x2F;第三步： 首次渲染，显示页面，且绑定依赖</span><br></pre></td></tr></table></figure>
+
+            
+                
+
+            
+        </div>
+        <div class="post-tool">
+            <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
+                <i class="fa fa-thumbs-up" aria-hidden="true"></i> 打赏
+            </a>
+        </div>
+        
+        <div class="post-tags">标签：
+            
+            <a href="/tags/MVVM/">MVVM</a>
+            
+            <a href="/tags/vue/">vue</a>
+            
+        </div>
+        
+    </article>
+    
+        <p style="text-align: center">本文代表个人观点，内容仅供参考。若有不恰当之处，望不吝赐教！</p>
+    
+    
+    
+
+</div>
+
+<script src="/js/busuanzi.pure.mini.js"></script>
+
+
+
+        </div><!-- end #main-->
+    </div><!-- end #body -->
+    <footer class="footer">
+    <div class="footer-inner" style="text-align: center">
+        <p>
+            <a href="/about"  title="关于">关于</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <!-- 自定义链接 -->
+            <a href="/help" title="帮助" >帮助</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <a href="/links" title="友链">友链</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <a href="/sitemap.xml" title="地图">地图</a>
+        </p>
+        <p>
+            本站已建立&nbsp<a href="/timeline" id="siteBuildingTime"></a>&nbsp天，<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="licence">采用知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议创作</a><br/>
+            ©2017-<span id="cpYear"></span> 基于&nbsp<a href="http://hexo.io" target="_blank" rel="nofollow">Hexo</a>
+            ，主题采用&nbsp&nbsp<a href="https://github.com/tangkunyin/hexo-theme-jsimple" target="_blank" rel="bookmark">JSimple</a>
+            ，作者&nbsp<a href="https://shuoit.net" target="_blank" rel="friend">快乐的麻瓜</a>
+            ，Hosted by <a href="https://pages.github.com/" target="_blank" rel="nofollow">GitHub Pages</a>
+        </p>
+    </div>
+</footer>
+
+<script src="/js/SimpleCore.js"></script>
+
+
+</div>
+<!-- search pop -->
+<div class="popup search-popup local-search-popup">
+    <div class="local-search-header clearfix">
+        <span class="search-icon">
+            <i class="fa fa-search"></i>
+        </span>
+        <span class="popup-btn-close">
+            <i class="fa fa-times-circle"></i>
+        </span>
+        <div class="local-search-input-wrapper">
+            <input id="local-search-input"
+                   spellcheck="false"
+                   type="text"
+                   autocomplete="off"
+                   placeholder="请输入查询关键词"/>
+        </div>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+<div class="fixed-btn">
+    <a class="btn-gotop" href="javascript:"> <i class="fa fa-angle-up"></i></a>
+</div>
+<script>
+    $(function () {
+        var jsi_config = {
+            buildingTime: '01/20/2018',
+            current: $('.post-tags').length > 0 ? 'post' : 'archive',
+            snsQRCode: '/images/sns-qrcode.png',
+            donateImg: '/images/donate-qr.png',
+            localSearch: { dbPath: '' },
+            readMode: 'day'
+        };
+        
+        SimpleCore.init(jsi_config);
+        
+    });
+</script>
+<script src="/js/src/click.js"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/haruto.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body>
+</html>

@@ -1,0 +1,432 @@
+<!DOCTYPE HTML>
+<html class="no-js" lang="zh-CN">
+<head>
+    <!--[if lte IE 9]>
+<meta http-equiv="refresh" content="0;url=http://yoursite.com/warn.html">
+<![endif]-->
+<meta charset="utf-8">
+<meta http-equiv="X-DNS-Prefetch-Control" content="on">
+<link rel="dns-prefetch" href="http://yoursite.com">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+<link rel="prefetch" href="http://yoursite.com">
+<link rel="prefetch" href="//www.google-analytics.com">
+
+
+<link rel="prerender" href="http://yoursite.com">
+
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+<meta http-equiv="mobile-agent" content="format=html5; url=http://yoursite.com">
+<meta name="author" content="John Doe">
+
+<link rel="stylesheet" href="/css/JSimple.css">
+
+
+<link rel="shortcut icon" href="/images/avar.jpg">
+
+
+<title>关于 background的一些基本用法和使用技巧 - 欢迎</title>
+
+<meta name="keywords" content="">
+
+<meta name="description " content="快乐的麻瓜---博客">
+
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                processEscapes: true
+            }
+        });
+    </script>
+
+
+    
+
+    
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+<div id="nav">
+    <nav class="nav-menu">
+        <a class="site-name current" href="/" title="淦">淦</a>
+        <a class="site-index current" href="/"><i class="fa fa-home"></i><span>首页</span></a>
+        <a href="/archives" title="归档"><i class="fa fa-archives"></i><span>归档</span></a>
+        <a href="/tags" title="标签"><i class="fa fa-tags"></i><span>标签</span></a>
+        <!-- custom single page of menus -->
+        
+        
+        <a href="/help" title="帮助">
+            <i class="fa fa-question-circle"></i>
+            <span>帮助</span>
+        </a>
+        
+    </nav>
+</div>
+
+<div class="nav-user">
+    <a class="btn-search" href="#"><i class="fa fa-search"></i></a>
+    <a class="btn-read-mode" href="#"><i class="fa fa-sun-o"></i></a>
+    <a class="btn-sns-qr" href="javascript:"><i class="fa fa-telegram"></i></a>
+</div>
+
+<div id="wrapper" class="clearfix">
+    <div id="body">
+        <div class="main" id="main">
+            <div id="cover">
+    <div class="cover-img"></div>
+    <div class="cover-info">
+        
+        <h1 class="cover-siteName">说IT</h1>
+        <h3 class="cover-siteTitle">用代码摇滚这个世界</h3>
+        <p class="cover-siteDesc">一个关注技术与跑步的IT博客</p>
+        <div class="cover-sns">
+            
+    &nbsp;&nbsp;<div class="btn btn-telegram">
+        <a href="http://t.me/kunyintang" target="_blank" title="telegram" ref="friend">
+            <i class="fa fa-telegram"></i>
+        </a>
+    </div>
+
+    &nbsp;&nbsp;<div class="btn btn-instagram">
+        <a href="https://www.instagram.com/mtangsir/" target="_blank" title="instagram" ref="friend">
+            <i class="fa fa-instagram"></i>
+        </a>
+    </div>
+
+    &nbsp;&nbsp;<div class="btn btn-twitter">
+        <a href="https://twitter.com/tangkunyin" target="_blank" title="twitter" ref="friend">
+            <i class="fa fa-twitter"></i>
+        </a>
+    </div>
+
+    &nbsp;&nbsp;<div class="btn btn-github">
+        <a href="https://github.com/tangkunyin" target="_blank" title="github" ref="friend">
+            <i class="fa fa-github"></i>
+        </a>
+    </div>
+
+
+        </div>
+    </div>
+</div>
+
+            <div class="page-title">
+    <ul>
+        <li><a href="/">最近</a></li>
+        
+        
+        
+        <li class="page-search">
+    <form id="search" class="search-form">
+        <input type="text"
+               readonly="readonly"
+               id="local-search-input-tip"
+               placeholder="读物检索~" />
+        <button type="button" disabled="disabled" class="search-form-submit"><i class="fa fa-search"></i></button>
+    </form>
+</li>
+
+    </ul>
+</div>
+<div class="main-inner">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <div class="post-header">
+            <div class="post-author clearfix">
+                <a class="avatar fleft" href="https://shuoit.net"
+                   target="_blank">
+                    <img width="48" src="/images/avar.jpg" alt="avatar"/>
+                </a>
+                <p><span class="label">作者</span>
+                    <a href="https://shuoit.net"
+                       target="_blank">快乐的麻瓜</a>
+                    <span title="最后编辑于&nbsp;2020-01-13">2020-01-13</span>
+                </p>
+                <p>一个热爱跑步的web前端练习生</p>
+            </div>
+            <h2 class="post-title">关于 Background的一些基本用法和使用技巧</h2>
+            <div class="post-meta">
+                本文共计4797个字 |
+                您是第&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+            </div>
+        </div>
+        <div class="post-content markdown-body">
+            <h1 id="关于-Background的一些基本用法和使用技巧"><a href="#关于-Background的一些基本用法和使用技巧" class="headerlink" title="关于 Background的一些基本用法和使用技巧"></a>关于 Background的一些基本用法和使用技巧</h1><h2 id="1-基本属性和用法"><a href="#1-基本属性和用法" class="headerlink" title="1.基本属性和用法"></a>1.基本属性和用法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">    &lt;style&gt;</span><br><span class="line">        .box1&#123;</span><br><span class="line">            width: 1000px;</span><br><span class="line">            height: 1000px;</span><br><span class="line">            background-color:royalblue;</span><br><span class="line">            background-image: url(&#39;..&#x2F;images&#x2F;111.jpg&#39;);</span><br><span class="line">            background-position: 220px 220px;</span><br><span class="line">            background-repeat: no-repeat;</span><br><span class="line">            background-size: 100%;</span><br><span class="line">            background-attachment: fixed;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;&#x2F;style&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class&#x3D;&quot;box1&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>background-color</code> 背景颜色<ul>
+<li>单词直接表示：<code>background-color:red</code></li>
+<li>16j进制表示：<code>background-color:#fff</code> (两个相同的位数可以简写成一个  #fffffff==#fff)</li>
+<li>RGB彩色模式: <code>background-color:rgb(225,225,255)</code></li>
+</ul>
+</li>
+<li><code>background-image</code>：背景图片<ul>
+<li><code>background-image:url(&#39;../images/111.jpg&#39;)</code></li>
+</ul>
+</li>
+<li><code>background-size</code>:背景尺寸<ul>
+<li>百分比：<code>background-size:60%</code></li>
+<li>像素：<code>background-size:200px</code></li>
+<li><code>cover</code>: 把背景图片拓展到足够大，以使背景图片完全覆盖背景区域。背景图片也有可能某些部分无法显示出来</li>
+<li><code>contain</code>: 把背景图片拓展至最大尺寸，以使其高度和宽度完全适应内容区域</li>
+<li>当只有一个值的时候,默认为图片的宽度，高度按比例自适应</li>
+</ul>
+</li>
+<li><code>background-repeat</code> 背景图片重复<ul>
+<li>repeat(自动铺满)</li>
+<li>repeat-x（横向铺满）</li>
+<li>repeat-y（纵向铺满）</li>
+<li>no-repeat (不重复，只有一张)</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-多背景图片"><a href="#2-多背景图片" class="headerlink" title="2.多背景图片"></a>2.多背景图片</h2><p>在CSS2.1中，元素只能添加一张背景图片。然而在CSS3中我们可以给元素添加多张背景图片。兼容性如下：</p>
+<p><img src="https://user-gold-cdn.xitu.io/2020/1/12/16f98e9625a57357?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="图片"></p>
+<ul>
+<li>多张背景图片可以针对每一张设置单独的样式，对应的样式用逗号分开</li>
+<li>如果属性值比背景图片要少时，name没有对应值的图片的样式以第一个样式为准；</li>
+<li>多张背景图片的情况下这些图片从左到右层级一次减小，<code>background-color</code>最低</li>
+</ul>
+<h2 id="3-背景渐变：background-image-linear-gradient"><a href="#3-背景渐变：background-image-linear-gradient" class="headerlink" title="3. 背景渐变：background-image: linear-gradient"></a>3. 背景渐变：background-image: linear-gradient</h2><p>背景渐变是基于<code>background-image</code>来设置的，具体语法可以参考 <a href="https://developer.mozilla.org/es/docs/Web/CSS/linear-gradient" target="_blank" rel="noopener">MDN</a>。</p>
+<p>兼容性如下：</p>
+<p><img src="https://user-gold-cdn.xitu.io/2020/1/12/16f98e964271dc19?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="图片"></p>
+<ul>
+<li><code>background-imgage: linear-gradient</code>路径渐变（可以手动设置方向，默认是自下向上）</li>
+<li><code>background-image：repeating-linear-gradient</code> 重复径向渐变</li>
+</ul>
+<h2 id="4-背景定位-background-position"><a href="#4-背景定位-background-position" class="headerlink" title="4. 背景定位 background-position"></a>4. 背景定位 background-position</h2><p><code>background-position</code> 默认是定位在 <code>padding-box</code>的左上角</p>
+<ul>
+<li>其属性可以设置成一下几种<ul>
+<li>百分比%</li>
+<li>像素 px</li>
+<li>位置（top、right、bottom、left、center）<ul>
+<li>在只设置一个值的时候，另外一个值默认为<code>center</code> 或者50%。</li>
+<li><code>padding-box</code>的左上角坐标为（0,0）/（left，top）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">    &lt;style&gt;</span><br><span class="line">        .box1&#123;</span><br><span class="line">            &#x2F;* width: 400px; *&#x2F;</span><br><span class="line">            height: 400px;</span><br><span class="line">            background-image: url(&#39;..&#x2F;images&#x2F;222.jpg&#39;);</span><br><span class="line">            padding: 50px;</span><br><span class="line">            border: 1px solid red;</span><br><span class="line">            background-position: top;</span><br><span class="line">            &#x2F;* background-size: contain; *&#x2F;</span><br><span class="line">            background-repeat: no-repeat;</span><br><span class="line">            background-color: darkkhaki;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;&#x2F;style&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class&#x3D;&quot;box1&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="背景重复-background-repeat"><a href="#背景重复-background-repeat" class="headerlink" title="背景重复  background-repeat"></a>背景重复  background-repeat</h3><p><code>background-repeat</code> 除了常见的几个 repeat、repeat-x，repeat-y 以及 no-repeat 以外，还在CSS3 中新加了两个值： <code>space</code> 和 <code>round</code>。其兼容性如下图所示：</p>
+<p><img src="https://user-gold-cdn.xitu.io/2020/1/12/16f98e9699bfff12?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="图片"></p>
+<ul>
+<li><p>背景图片小于容器时</p>
+<ul>
+<li><p><code>background-repeat:space</code>   在保证不缩放的前提下尽可能多的重复图片，并等分图片中间的空隙</p>
+<p>​</p>
+<p><img src="https://user-gold-cdn.xitu.io/2020/1/12/16f98e969c5b3299?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="图片"></p>
+<p>​</p>
+</li>
+<li><p><code>background-repeat:round</code>   在尽可能多的重复图片的前提下，拉伸图片以铺满容器</p>
+<p>​</p>
+<p><img src="https://user-gold-cdn.xitu.io/2020/1/12/16f98e969dca9f46?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="图片"></p>
+<p>​</p>
+</li>
+</ul>
+</li>
+<li><p>背景图片大于容器时</p>
+<ul>
+<li><code>background-repeat:space</code>  在不缩放的前提下裁剪图片，只保留在容器内的部分</li>
+</ul>
+<p>​</p>
+<p><img src="https://user-gold-cdn.xitu.io/2020/1/12/16f98e969e234b0e?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="图片"></p>
+<p>​</p>
+<ul>
+<li><code>background-repeat:round</code>  缩小图片以铺满容器，长宽与容器尺寸一致（未按比例缩放，图片极有可能变形）</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://user-gold-cdn.xitu.io/2020/1/12/16f98e969efaad83?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="图片"></p>
+<h2 id="5-背景相对位置-background-origin"><a href="#5-背景相对位置-background-origin" class="headerlink" title="5. 背景相对位置  background-origin"></a>5. 背景相对位置  background-origin</h2><p><code>background-origin</code>规定 <code>background-position</code> 属性相对于什么位置来定位。属性值有 <code>content-box</code>、</p>
+<p>padding-<code>box</code> 、    <code>border-box</code> 三个。默认<code>是padding-box</code> </p>
+<h2 id="6-背景绘制区域-background-clip"><a href="#6-背景绘制区域-background-clip" class="headerlink" title="6.  背景绘制区域  background-clip"></a>6.  背景绘制区域  background-clip</h2><p><code>background-clip</code> 属性规定背景的绘制区域。默认值为 <code>border-box</code>，其属性值同 <code>background-origin</code> 一样，不过表现大不相同。其兼容性如下：</p>
+<p><img src="https://user-gold-cdn.xitu.io/2020/1/12/16f98e96cddbab0d?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="图片"></p>
+<ul>
+<li><p><code>background-clip: content-box</code></p>
+<p>​</p>
+<p><img src="https://user-gold-cdn.xitu.io/2020/1/12/16f98e96f1e720bf?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="图片"></p>
+<p>​</p>
+</li>
+<li><p><code>background-clip: padding-box</code></p>
+<p>​</p>
+<p><img src="https://user-gold-cdn.xitu.io/2020/1/12/16f98e96d043978a?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="图片"></p>
+<p>​</p>
+</li>
+<li><p>background-clip: border-box`</p>
+<p>​</p>
+<p><img src="https://user-gold-cdn.xitu.io/2020/1/12/16f98e96f56b4655?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="图片"></p>
+<p>​</p>
+</li>
+</ul>
+<h2 id="7-背景大小-background-size"><a href="#7-背景大小-background-size" class="headerlink" title="7. 背景大小  background-size"></a>7. 背景大小  background-size</h2><p>感觉这个属性很常见吧，其实它也是 CSS3 中新加的属性。 CSS2.1 中，背景图片大小是无法设置的。<code>background-size</code> 除了常见的设置大小和百分比之外，还有两个特殊的属性：<code>contain</code>  和 <code>cover</code></p>
+<ul>
+<li><p><code>background-size: contain</code>   图片长宽不相同时，把图片按比例缩小至较长的一方完全适应内容区域为止，多用于背景图片比元素大的情况。</p>
+<p>​</p>
+<p><img src="https://user-gold-cdn.xitu.io/2020/1/12/16f98e96f66b3c62?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="图片"></p>
+<p>​</p>
+</li>
+<li><p><code>background-size: cover</code>   图片长宽不相同时，把图片按比例放大至较短的一方完全适应内容区域为止，以使背景图像完全覆盖背景区域，多用于背景图片比元素小的情况。</p>
+<p>​</p>
+<p><img src="https://user-gold-cdn.xitu.io/2020/1/12/16f98e96fc2c4628?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="图片"></p>
+<p>​</p>
+</li>
+</ul>
+<h2 id="8-背景固定-background-attachment"><a href="#8-背景固定-background-attachment" class="headerlink" title="8.  背景固定   background-attachment"></a>8.  背景固定   background-attachment</h2><p>有时候在一些网站上会看到，滚动页面的时候，背景图片是固定的。那就是使用 <code>background-attachment: fixed</code>  做到的。</p>
+<ul>
+<li><code>background-attachment: fixed</code>    背景固定</li>
+</ul>
+<p><img src="https://user-gold-cdn.xitu.io/2020/1/12/16f98e96f9ef8d6f?imageslim" alt="图片"></p>
+<ul>
+<li><code>background-attachment: scroll</code>    背景随页面滚动而滚动（默认）</li>
+</ul>
+<p><img src="https://user-gold-cdn.xitu.io/2020/1/12/16f98e96fcc5c73c?imageslim" alt="图片"></p>
+<h2 id="9-扩展属性-background-element"><a href="#9-扩展属性-background-element" class="headerlink" title="9.  扩展属性   background: element"></a>9.  扩展属性   background: element</h2><p>一个特殊的扩展属性，可以将某个元素设置为另一元素的背景。惊不惊喜，意不意外！不过这个属性只有 FireFox 4+ 的浏览器可以使用，并且需要加上浏览器前缀。</p>
+<ul>
+<li><pre><code>background: element(#id)
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- demo1   作为背景的是非图片元素时，背景样式与原元素相同</span><br></pre></td></tr></table></figure>
+&lt;style&gt;
+    .div {
+      width: 200px;
+      height: 200px;
+      background: element(#button)  no-repeat;
+      background: -moz-element(#button)  no-repeat;
+  }
+  #button {
+      width: 150px;
+      height: 20px;
+      margin: 50px;
+      color: #0470f4;
+  }
+&lt;/style&gt;
+
+&lt;body&gt;
+  &lt;div class=&quot;div1&quot;&gt;
+      &lt;button id=&apos;button&apos;&gt;这是按钮&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/body&gt;
+
+</code></pre></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">![图片](https:&#x2F;&#x2F;user-gold-cdn.xitu.io&#x2F;2020&#x2F;1&#x2F;12&#x2F;16f98e971b209ffc?imageslim)</span><br><span class="line"></span><br><span class="line">- demo2  当设置为背景的元素是图片时，背景图不会随原图的大小样式改变而改变，不过平铺等背景样式依然是支持的</span><br></pre></td></tr></table></figure>
+  <style>
+      .div {
+        width: 200px;
+        height: 200px;
+        border: 10px dashed #0ff;
+        background: element(#img1);
+        background: -moz-element(#img1);
+    }
+    #img1 {
+        width: 50px;
+    }  
+  </style>
+
+  <body>
+    <div class="div1">
+        <img id='img1' src='img1' />
+    </div>
+  <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/haruto.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/haruto.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/haruto.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/haruto.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body>
+
+
+<p>```</p>
+
+            
+                
+
+            
+        </div>
+        <div class="post-tool">
+            <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
+                <i class="fa fa-thumbs-up" aria-hidden="true"></i> 打赏
+            </a>
+        </div>
+        
+        <div class="post-tags">标签：
+            
+            <a href="/tags/CSS/">CSS</a>
+            
+            <a href="/tags/background-ground/">background-ground</a>
+            
+        </div>
+        
+    </article>
+    
+        <p style="text-align: center">本文代表个人观点，内容仅供参考。若有不恰当之处，望不吝赐教！</p>
+    
+    
+    
+
+</div>
+
+<script src="/js/busuanzi.pure.mini.js"></script>
+
+
+
+        </div><!-- end #main-->
+    </div><!-- end #body -->
+    <footer class="footer">
+    <div class="footer-inner" style="text-align: center">
+        <p>
+            <a href="/about"  title="关于">关于</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <!-- 自定义链接 -->
+            <a href="/help" title="帮助" >帮助</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <a href="/links" title="友链">友链</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <a href="/sitemap.xml" title="地图">地图</a>
+        </p>
+        <p>
+            本站已建立&nbsp<a href="/timeline" id="siteBuildingTime"></a>&nbsp天，<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="licence">采用知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议创作</a><br/>
+            ©2017-<span id="cpYear"></span> 基于&nbsp<a href="http://hexo.io" target="_blank" rel="nofollow">Hexo</a>
+            ，主题采用&nbsp&nbsp<a href="https://github.com/tangkunyin/hexo-theme-jsimple" target="_blank" rel="bookmark">JSimple</a>
+            ，作者&nbsp<a href="https://shuoit.net" target="_blank" rel="friend">快乐的麻瓜</a>
+            ，Hosted by <a href="https://pages.github.com/" target="_blank" rel="nofollow">GitHub Pages</a>
+        </p>
+    </div>
+</footer>
+
+<script src="/js/SimpleCore.js"></script>
+
+
+</div>
+<!-- search pop -->
+<div class="popup search-popup local-search-popup">
+    <div class="local-search-header clearfix">
+        <span class="search-icon">
+            <i class="fa fa-search"></i>
+        </span>
+        <span class="popup-btn-close">
+            <i class="fa fa-times-circle"></i>
+        </span>
+        <div class="local-search-input-wrapper">
+            <input id="local-search-input"
+                   spellcheck="false"
+                   type="text"
+                   autocomplete="off"
+                   placeholder="请输入查询关键词"/>
+        </div>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+<div class="fixed-btn">
+    <a class="btn-gotop" href="javascript:"> <i class="fa fa-angle-up"></i></a>
+</div>
+<script>
+    $(function () {
+        var jsi_config = {
+            buildingTime: '01/20/2018',
+            current: $('.post-tags').length > 0 ? 'post' : 'archive',
+            snsQRCode: '/images/sns-qrcode.png',
+            donateImg: '/images/donate-qr.png',
+            localSearch: { dbPath: '' },
+            readMode: 'day'
+        };
+        
+        SimpleCore.init(jsi_config);
+        
+    });
+</script>
+<script src="/js/src/click.js"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/haruto.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body>
+</html>
