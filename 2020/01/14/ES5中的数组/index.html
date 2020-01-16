@@ -1,0 +1,483 @@
+<!DOCTYPE HTML>
+<html class="no-js" lang="zh-CN">
+<head>
+    <!--[if lte IE 9]>
+<meta http-equiv="refresh" content="0;url=http://yoursite.com/warn.html">
+<![endif]-->
+<meta charset="utf-8">
+<meta http-equiv="X-DNS-Prefetch-Control" content="on">
+<link rel="dns-prefetch" href="http://yoursite.com">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+<link rel="prefetch" href="http://yoursite.com">
+<link rel="prefetch" href="//www.google-analytics.com">
+
+
+<link rel="prerender" href="http://yoursite.com">
+
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+<meta http-equiv="mobile-agent" content="format=html5; url=http://yoursite.com">
+<meta name="author" content="John Doe">
+
+<link rel="stylesheet" href="/css/JSimple.css">
+
+
+<link rel="shortcut icon" href="/images/avar.jpg">
+
+
+<title>es5中的数组 - 欢迎</title>
+
+<meta name="keywords" content="">
+
+<meta name="description " content="快乐的麻瓜---博客">
+
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                processEscapes: true
+            }
+        });
+    </script>
+
+
+    
+
+    
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+<div id="nav">
+    <nav class="nav-menu">
+        <a class="site-name current" href="/" title="淦">淦</a>
+        <a class="site-index current" href="/"><i class="fa fa-home"></i><span>首页</span></a>
+        <a href="/archives" title="归档"><i class="fa fa-archives"></i><span>归档</span></a>
+        <a href="/tags" title="标签"><i class="fa fa-tags"></i><span>标签</span></a>
+        <!-- custom single page of menus -->
+        
+        
+        <a href="/help" title="帮助">
+            <i class="fa fa-question-circle"></i>
+            <span>帮助</span>
+        </a>
+        
+    </nav>
+</div>
+
+<div class="nav-user">
+    <a class="btn-search" href="#"><i class="fa fa-search"></i></a>
+    <a class="btn-read-mode" href="#"><i class="fa fa-sun-o"></i></a>
+    <a class="btn-sns-qr" href="javascript:"><i class="fa fa-telegram"></i></a>
+</div>
+
+<div id="wrapper" class="clearfix">
+    <div id="body">
+        <div class="main" id="main">
+            <div id="cover">
+    <div class="cover-img"></div>
+    <div class="cover-info">
+        
+        <h1 class="cover-siteName">说IT</h1>
+        <h3 class="cover-siteTitle">用代码摇滚这个世界</h3>
+        <p class="cover-siteDesc">一个关注技术与跑步的IT博客</p>
+        <div class="cover-sns">
+            
+    &nbsp;&nbsp;<div class="btn btn-telegram">
+        <a href="http://t.me/kunyintang" target="_blank" title="telegram" ref="friend">
+            <i class="fa fa-telegram"></i>
+        </a>
+    </div>
+
+    &nbsp;&nbsp;<div class="btn btn-instagram">
+        <a href="https://www.instagram.com/mtangsir/" target="_blank" title="instagram" ref="friend">
+            <i class="fa fa-instagram"></i>
+        </a>
+    </div>
+
+    &nbsp;&nbsp;<div class="btn btn-twitter">
+        <a href="https://twitter.com/tangkunyin" target="_blank" title="twitter" ref="friend">
+            <i class="fa fa-twitter"></i>
+        </a>
+    </div>
+
+    &nbsp;&nbsp;<div class="btn btn-github">
+        <a href="https://github.com/tangkunyin" target="_blank" title="github" ref="friend">
+            <i class="fa fa-github"></i>
+        </a>
+    </div>
+
+
+        </div>
+    </div>
+</div>
+
+            <div class="page-title">
+    <ul>
+        <li><a href="/">最近</a></li>
+        
+        
+        
+        <li class="page-search">
+    <form id="search" class="search-form">
+        <input type="text"
+               readonly="readonly"
+               id="local-search-input-tip"
+               placeholder="读物检索~" />
+        <button type="button" disabled="disabled" class="search-form-submit"><i class="fa fa-search"></i></button>
+    </form>
+</li>
+
+    </ul>
+</div>
+<div class="main-inner">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <div class="post-header">
+            <div class="post-author clearfix">
+                <a class="avatar fleft" href="https://shuoit.net"
+                   target="_blank">
+                    <img width="48" src="/images/avar.jpg" alt="avatar"/>
+                </a>
+                <p><span class="label">作者</span>
+                    <a href="https://shuoit.net"
+                       target="_blank">快乐的麻瓜</a>
+                    <span title="最后编辑于&nbsp;2020-01-14">2020-01-14</span>
+                </p>
+                <p>一个热爱跑步的web前端练习生</p>
+            </div>
+            <h2 class="post-title">ES5中的数组</h2>
+            <div class="post-meta">
+                本文共计15140个字 |
+                您是第&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+            </div>
+        </div>
+        <div class="post-content markdown-body">
+            <h1 id="Array类型"><a href="#Array类型" class="headerlink" title="Array类型"></a>Array类型</h1><p>　　除了Object之外，Array类型恐怕是ECMAScript中最常用的类型了。而且，ECMAScript中的数组与其他多数语言中的数组有着相当大的区别。虽然ECMAScript数组与其他语言中的数组都是数据的有序列表，但与其他语言不同的是，ECMAScript中数组的每一项可以保存任何类型的数据。也就是说，可以用数组的第一个位置来保存字符串，第二位置来保存数值，用第三个位置来保存对象。以此类推。而且，ECMAScript数组的大小是可以动态调整的，既可以随着数据的添加自动增长以容纳新增数据。</p>
+<p>　　创建数组的基本方式有两种。第一种是使用Array 构造函数,如下面的代码所示:<br>​    </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var colors &#x3D; new Array();</span><br><span class="line">var colors &#x3D; new Array(20);</span><br><span class="line">var colors &#x3D; new Array(&quot;red&quot;,&quot;blue&quot;,&quot;black&quot;);</span><br></pre></td></tr></table></figure>
+
+<p>   另外在使用Array构造函数时也可以省略new操作符。如下面乐子所示，省略new操作符的结果相同</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var colors &#x3D; Array(3);</span><br></pre></td></tr></table></figure>
+
+
+
+<p>创建数组的第二种基本方式是使用数组字面量表示法。数组字面量是由一堆包含数组项的方括号表示，多个数组之间以逗号隔开，如下所示：<br>​    </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var color&#x3D;[&quot;red&quot;,&quot;blue&quot;,&quot;green&quot;];</span><br><span class="line">var name&#x3D;[];			&#x2F;&#x2F;创建一个空数组</span><br><span class="line">var values&#x3D;[1,2,3,];	&#x2F;&#x2F;不要这样！这样会创建一个包含2或3项的数组</span><br><span class="line">var potions &#x3D; [,,,,]	&#x2F;&#x2F;不要这样！这样会创建一个包含5或6项的数组</span><br><span class="line"></span><br><span class="line">alert(colors.length);  	&#x2F;&#x2F;3</span><br><span class="line">alert(name.length);		&#x2F;&#x2F;0</span><br></pre></td></tr></table></figure>
+
+<p>   数组的length属性很有特性————他不是只读的。因此，通过设置这个属性，可以从数组末尾移除项或向数组中添加新项。请看下面的例子：<br>​    </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">colors.length&#x3D;2;</span><br><span class="line">alert(colors[2]); 	&#x2F;&#x2F;undefined</span><br><span class="line">colors.length&#x3D;3;</span><br><span class="line">alert(colors[2]); 	&#x2F;&#x2F;同样也会是undefined</span><br></pre></td></tr></table></figure>
+
+<p>   利用length属性也可以方便地在数组末尾添加新项，如下所示：<br>​    </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var colors  &#x3D; [&quot;red&quot;,&quot;blue&quot;,&quot;white&quot;];</span><br><span class="line">colors[colors.length]&#x3D;&quot;balck&quot;;		&#x2F;&#x2F;在位置3添加一个新的颜色  “black”</span><br><span class="line">colors[colors.length] &#x3D; &quot;brown&quot;; 	&#x2F;&#x2F;在位置4添加一个新的颜色  “brown”</span><br><span class="line"></span><br><span class="line">colors[99] &#x3D; &quot;green&quot;;</span><br><span class="line">alert(colros.length);		&#x2F;&#x2F;数组的长度变成了100 因为在位置99添加了一个颜色</span><br><span class="line">alert(colors[66]);			&#x2F;&#x2F;undefined  因为位置3到98都是不存在的  所以返回undefined</span><br></pre></td></tr></table></figure>
+
+<h2 id="检测数组"><a href="#检测数组" class="headerlink" title="检测数组"></a>检测数组</h2><p>  自从ECMAScript3做出规定以后，就出现了确定某个对象是不是数组的经典问题。对于一个网页，或者一个全局作用域而言，使用 instanceof操作符就能得到满意的结果。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if(value instanceof Array)&#123;</span><br><span class="line">	&#x2F;&#x2F;对数组执行某些操作</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>   instanceof操作符的问题在于，他假定只有一个全局执行环境。如果网页中包含多个框架，那实际上就存在两个以上不同的全局执行环境，从而存在两个以上不同版本的Array构造函数。如果你从一个框架向另一个框架中传入一个数组，name闯入的数组与在第二个框架中原生创建的数组分别具有各自不同的函数。</p>
+<p>为了解决这个问题，ECMAScript5新增了Array.isArray（）方法。这个方法的目的是最终确定某个值到底是不是数组，而不管他是在哪个全局执行环境中创建的。这个方法的用用法如下。<br>​    </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if（Array.isArray(value)）&#123;</span><br><span class="line">	&#x2F;&#x2F;对数组执行某些操作	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="转化方法"><a href="#转化方法" class="headerlink" title="转化方法"></a>转化方法</h3><p>如前所述，所有对象都具有toLocaleString(),toString()和valueOf（）方法。其中，调用valueOf（）返回的还是数组本身，而调用数组的toString（）方法会返回由数组中每个值的字符串形式拼接而成的一个以逗号分隔的字符串。实际上，为了创建这个字符串会调用数组每一项的toString（）方法。来看下面这个例子。<br>​    </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var colors  &#x3D; [&quot;red&quot;,&quot;blue&quot;,&quot;white&quot;];</span><br><span class="line">alert(colors.toString());		&#x2F;&#x2F;red,blue,white</span><br><span class="line">alert(colors.valueOf());		&#x2F;&#x2F;red,blue,white</span><br><span class="line">alert(colors);					&#x2F;&#x2F;red,blue,white  由于alert（）要接受字符串参数，所以他会在后台调用toString（）方法</span><br></pre></td></tr></table></figure>
+
+<p>  另外toLocaleString()方法也会经常返回与toString（）和valueOf（）方法相同的值，但也不总是如此。当调用数组toLocaleString（）方法时，她也会创建一个数组值得以逗号分隔的字符串。而与前两个方法唯一的不同之处在于，这一次为了取得每一项的值，调用的是每一项的toLocaleString（）方法，而不是toString（）方法。请看下面这个例子；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">var person1&#x3D;&#123;</span><br><span class="line">    toLocaleString:function()&#123;</span><br><span class="line">        return &quot;wang&quot;;</span><br><span class="line">    &#125;,</span><br><span class="line">    toString:function () &#123;</span><br><span class="line">        return &quot;wang&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">var person2&#x3D;&#123;</span><br><span class="line">    toLocaleString :function() &#123;</span><br><span class="line">        return &quot;junping&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    toString:function()&#123;</span><br><span class="line">        return &quot;jun&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">var people&#x3D;[person1,person2];</span><br><span class="line">alert(people);              &#x2F;&#x2F;wang,jun</span><br><span class="line">alert(people.toString());   &#x2F;&#x2F;wang,jun</span><br><span class="line">alert(people.toLocaleString());&#x2F;&#x2F;wang,junping</span><br></pre></td></tr></table></figure>
+
+<p>数组继承的toLocaleString（），toString（）和valueOf（）方法，在默认的情况下都会以逗号分隔的字符串的形式返回数组项。而如果使用join（）方法，则可以使用不同的分隔符来构建这个字符串。join（）方法只接收一个参数，即用做分隔符的字符串，然后返回所包含所有数组项的<br>字符串。请看下面的例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var colors  &#x3D;[&quot;red&quot;,&quot;blue&quot;,&quot;white&quot;];</span><br><span class="line">alert(colors.join(&quot;!&quot;));</span><br><span class="line">alert(colors.join(&quot;,&quot;));</span><br></pre></td></tr></table></figure>
+
+<p><strong>如果数组中的某一项是null或者undefined，name该值在join（），toLocaleString（），toString（）和valueOf（）方法返回的结果以空字符串表示。</strong></p>
+<h2 id="栈方法"><a href="#栈方法" class="headerlink" title="栈方法"></a>栈方法</h2><p>   push（）方法可以接收任意数量的参数，把他们逐个添加到数组末尾，并返回修改后数组的长度。而pop（）方法则从数组末尾移除最后一项，减少数组的length值，然后返回移除的项。请看下面的例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var colors&#x3D;new Array()；</span><br><span class="line">var count&#x3D;colors.push(&quot;red&quot;,&quot;blue&quot;,&quot;green&quot;);</span><br><span class="line">alert(count)		&#x2F;&#x2F;3    因为push（）会修改并返回最后的数组长度</span><br><span class="line"></span><br><span class="line">count &#x3D; colors.push(&quot;black&quot;);</span><br><span class="line">alert(count);		&#x2F;&#x2F;4</span><br><span class="line"></span><br><span class="line">var item &#x3D; colors.pop;		&#x2F;&#x2F;取得最后一项</span><br><span class="line">alert(item)				&#x2F;&#x2F;&quot;black&quot;</span><br><span class="line">alert(colors.length);		&#x2F;&#x2F;3</span><br></pre></td></tr></table></figure>
+
+<p><strong>可以将栈方法与其他数组方法连用，向下面这个例子一样：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var colors&#x3D;[&quot;red&quot;,&quot;blue&quot;];</span><br><span class="line">colors.push(&quot;brown&quot;);			&#x2F;&#x2F;添加一项</span><br><span class="line">colors[3]&#x3D;&quot;black&quot;;				&#x2F;&#x2F;添加第四项</span><br><span class="line">alert(colors.length)			&#x2F;&#x2F;4</span><br><span class="line"></span><br><span class="line">var item&#x3D;colors.pop();</span><br><span class="line">alert(item,colors.length);		&#x2F;&#x2F;&quot;black&quot;,3</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="队列方法"><a href="#队列方法" class="headerlink" title="队列方法"></a>队列方法</h2><p>栈数据结构的访问规则是LIFO（后进先出），而队数据结构的访问规则是FIFO（First-in-First-out，先进先出）。队列在列表末端添加，从列表的前端移除项。由于push（）就是在数组末端添加项，<strong>因此要模拟队列只需要数组前端取得项的方法。</strong>实现这一操作的数组方法就是shift（），它能够移除数组中的第一个项并返回该项，同时将属于组长度减1.结合使用shift（）方法和push（）方法，可以像使用队列一样使用数组。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var colors&#x3D;new Array()；</span><br><span class="line">var count&#x3D;colors.push(&quot;red&quot;,&quot;green&quot;);</span><br><span class="line">alert(count);				&#x2F;&#x2F;2</span><br><span class="line"></span><br><span class="line">count &#x3D; colors.push(&quot;black&quot;);</span><br><span class="line">alert(count);			&#x2F;&#x2F;3</span><br><span class="line"></span><br><span class="line">var item &#x3D; colors.shift();</span><br><span class="line">alert(item);			&#x2F;&#x2F;&quot;red&quot;  取得第一项并返回</span><br><span class="line">alert(colors.length);		&#x2F;&#x2F;2</span><br></pre></td></tr></table></figure>
+
+<p><strong>还有一个unshift（）方法。顾名思义，和shift（）方法的作用相反：他能在数组的前端添加一个项并返回新数组的长度。因此使用unshift（）方法和pop（）方法可以从相反的方向模拟队列</strong></p>
+<h2 id="重排序方法"><a href="#重排序方法" class="headerlink" title="重排序方法"></a>重排序方法</h2><p>数组中以及存在两个可以直接用来重排序的方法：reverse（）和sort（）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var values&#x3D;[1,2,3,4,5];</span><br><span class="line">values.reverse();</span><br><span class="line"></span><br><span class="line">alert(values);			&#x2F;&#x2F;5,4,3,2,1</span><br></pre></td></tr></table></figure>
+
+<p>这个0排列数组项————即最小的值在前面，依此到最大。<br><strong>为了实现排序，sort（）方法会调用每一个数0方法比较的也是字符串，如下所示：</strong>000</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#96;var values&#x3D;[0,2,8,10,15];</span><br><span class="line">values.sort();</span><br><span class="line">alert(values);		&#x2F;&#x2F;0,1,10,15,5</span><br></pre></td></tr></table></figure>
+
+<p><strong>但是你也看到了，如果我们想给数字排序的话，他会先把数字转化成字符串进行比较，就不会得到我们想要的从小到大的结果了</strong></p>
+<h4 id="因此sort（）方法可以接收一个比较函数作为参数，以便我们指定哪个值位于哪个值的前面"><a href="#因此sort（）方法可以接收一个比较函数作为参数，以便我们指定哪个值位于哪个值的前面" class="headerlink" title="因此sort（）方法可以接收一个比较函数作为参数，以便我们指定哪个值位于哪个值的前面"></a>因此sort（）方法可以接收一个比较函数作为参数，以便我们指定哪个值位于哪个值的前面</h4><p>比较函数接收两个参数，如果第一个参数应该位于第二个之前则返回一个负数，如果两个参数相等则返回0，如果第一个参数应该位于第二个之后则返回一个正数。一下就是一个简单的比较函数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function compare(value1,value2)&#123;</span><br><span class="line">    if(value1&lt;value2)&#123;</span><br><span class="line">        return -1;</span><br><span class="line">    &#125;else if(value1&gt;value2)&#123;</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>   这个比较函数可以适用于大多数的数据类型，只要将其作为参数传递给sort（）方法即可，如下面这个例子所示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var values&#x3D;[0,1,2,5,10,15,25,1020];</span><br><span class="line">values.sort();</span><br><span class="line">console.log(values);		&#x2F;&#x2F;0,1,1020,15,2,25,5</span><br><span class="line">values.sort(compare);</span><br><span class="line">console.log(values);</span><br></pre></td></tr></table></figure>
+
+<p>   当然也可以通过比较函数产生降序排列的结果，只要交换函数返回的值就可以</p>
+<p><strong>当然如果你想反转数原来的顺序，使用reverse（）方法要更快一些</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">compare2</span>(<span class="params">value1,value2</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(value1&lt;value2)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(value1&gt;value2)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    values.sort(compare2);</span><br><span class="line">    <span class="built_in">console</span>.log(values);        <span class="comment">//1020, 25, 15, 10, 5, 2, 1, 0</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>reverse()和sort()方法的返回值都是经过排序之后的数组</p>
+</blockquote>
+<p>   对于数值类型或者其他valueOf（）会返回数值类型的对象类型，可以使用一个更简单的比较函数。这个函数只要用第二个值减第一个值即可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function compare（value1,value2）&#123;</span><br><span class="line">	return value2 - value1;	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> slice()方法  它能够基于当前数组中的一或多个项创建一个新数组。slice（）方法可以接收一个<br> 或两个参数，即要返回项的起始和结束位置。在只有一个参数得到情况下，slice（）方法返回从该参数指定位置开始<br> 到当前数组末尾的所有项。如果有两个参数，该方法返回其实和结束为止之间的项————但不包括结束位置的项。</p>
+<p>注意，slice（）方法不会影响原数组。请看下面例子：<br>​        </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">console.log(&quot;slice()方法&quot;);</span><br><span class="line">   var color&#x3D;[&quot;red&quot;,&quot;green&quot;,&quot;blue&quot;,&quot;black&quot;,&quot;white&quot;];</span><br><span class="line">   var color1&#x3D;color.slice(1);</span><br><span class="line">   var color2&#x3D;color.slice(1,4);</span><br><span class="line"></span><br><span class="line">   console.log(color1);</span><br><span class="line">   console.log(color2);</span><br></pre></td></tr></table></figure>
+
+<p> 如果slice（）方法的參數中有一個是負數，则用数组的长度再加上参数来确定相应的为止<br> 比如在一个包含5项的数组上调用slice（-2，-1）与嗲用slice（3,4）得到的结果相同</p>
+<h2 id="下面我们来介绍splice（）方法，介个方法恐怕要算是最强大的数组方法了，他有很多种用法。splice（）的主要用途是想数组的中部插入项，但使用这种方法的方式则有如下3种"><a href="#下面我们来介绍splice（）方法，介个方法恐怕要算是最强大的数组方法了，他有很多种用法。splice（）的主要用途是想数组的中部插入项，但使用这种方法的方式则有如下3种" class="headerlink" title="下面我们来介绍splice（）方法，介个方法恐怕要算是最强大的数组方法了，他有很多种用法。splice（）的主要用途是想数组的中部插入项，但使用这种方法的方式则有如下3种"></a>下面我们来介绍splice（）方法，介个方法恐怕要算是最强大的数组方法了，他有很多种用法。splice（）的主要用途是想数组的中部插入项，但使用这种方法的方式则有如下3种</h2><ol>
+<li><strong>删除</strong>：可以删除任意数量的项，只需要指定2个参数：要删除的第一项的位置和要删除的项数</li>
+</ol>
+<p>例如：splice(0,2)会删除数组中的前两项。</p>
+<p>2.<strong>插入</strong>：可以向指定位置插入任意数量的项，只需要提供三个参数：起始位置，0（要删除的项数）和要插入的项。如果要插0</p>
+<p>例如：splice（2,0，”red”,”green”）会从当前数组的位置2开始插入字符串”red“和”green“。</p>
+<p>3.<strong>替换</strong> ：可以向指定位置插入任意数量的项，且同时删除任意数量的项，只需要指定3个参数：其实位置，要删除的项数和要插入的任意数量的项。插入的项数不必与删除的项数相等。例如：</p>
+<p>splice（2,1,”red”,”green”）会删除当前数组位置2的项，然后再从位置2开始插入字符串“red”和“green”。</p>
+<p><strong>splice()方法始终都会返回一个数组，该数组中包含从原始数组中删除的项（如果没有删除任何项，则返回一个空数组）。</strong></p>
+<p>下面代码展示了上述3中方法使用splice（）方法的方式。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">console.log(&quot;splice()方法&quot;)</span><br><span class="line">   var peoples&#x3D;[&quot;wang&quot;,&quot;tom&quot;,&quot;cat&quot;];</span><br><span class="line">   var removed&#x3D;peoples.splice(0,1);        &#x2F;&#x2F;删除了第一项</span><br><span class="line">   &#x2F;&#x2F; alert(peoples);</span><br><span class="line">   console.log(peoples);                   &#x2F;&#x2F;tom,cat  因为第一项被删除了</span><br><span class="line">   console.log(removed);                   &#x2F;&#x2F;wang      返回的数组只包含一项</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">removed&#x3D; peoples.splice(1,0,&quot;java&quot;,&quot;python&quot;);   </span><br><span class="line">console.log(peoples);                   &#x2F;&#x2F;[&quot;tom&quot;, &quot;java&quot;, &quot;python&quot;, &quot;cat&quot;]</span><br><span class="line">console.log(removed);                   &#x2F;&#x2F;返回的是一个空数组  因为没有删除</span><br><span class="line"></span><br><span class="line">removed&#x3D;peoples.splice(1,1,&quot;c++&quot;,&quot;js&quot;);</span><br><span class="line">console.log(peoples);                   &#x2F;&#x2F;[&quot;tom&quot;, &quot;c++&quot;, &quot;js&quot;, &quot;python&quot;, &quot;cat&quot;]</span><br><span class="line">console.log(removed);                   &#x2F;&#x2F;[&quot;java&quot;]  这个 bitch</span><br></pre></td></tr></table></figure>
+
+<h2 id="位置方法-indexOf（）-lastIndexOf（）"><a href="#位置方法-indexOf（）-lastIndexOf（）" class="headerlink" title="位置方法        indexOf（）,lastIndexOf（）"></a>位置方法        indexOf（）,lastIndexOf（）</h2><p>不和你多bb了  直接看例子吧  打字好累啊  手都酸了</p>
+<p> indexOf（）  lastIndexOf()<br> 两个参数：要查找的项和（可选的）表示查找起点位置的索引。</p>
+<p>   <strong>这两个方法都返回要查找的项在数组中的位置，或者没有找到的情况下返回-1.</strong><br>​        </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">console.log(&quot;位置方法  &quot;)</span><br><span class="line">   var numbers  &#x3D; [0,1,2,3,5,8,2,1,5];</span><br><span class="line"></span><br><span class="line">   console.log(numbers.indexOf(2));</span><br><span class="line">   console.log(numbers.lastIndexOf(8));</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">   console.log(numbers.indexOf(2,3));</span><br><span class="line">   console.log(numbers.lastIndexOf(8,6));</span><br><span class="line"></span><br><span class="line">   var person&#x3D;&#123;name:&quot;wang&quot;&#125;;</span><br><span class="line">   var people&#x3D;[&#123;name:&quot;wang&quot;&#125;];</span><br><span class="line"></span><br><span class="line">   var morePeople&#x3D;[people,&quot;jun&quot;];</span><br><span class="line"></span><br><span class="line">**我这里就不明白了  people和morePeople有什么区别**</span><br><span class="line"></span><br><span class="line">   console.log(people.indexOf(person));        &#x2F;&#x2F;-1</span><br><span class="line">   console.log(morePeople.indexOf(person));    &#x2F;&#x2F;0</span><br></pre></td></tr></table></figure>
+
+<p><strong>这里还是不不明白</strong></p>
+<h2 id="迭代方法"><a href="#迭代方法" class="headerlink" title="迭代方法"></a>迭代方法</h2><p>ECAMScript5为数组定义了5个迭代方法。每个方法都接收两个参数：要在每一项上运行的函数和（可选的）运行该函数的作用于对象————影响this的值。传入这些方法中的函数会接收三个参数：数组项的值，该项在数组中的位置和数组对象本身。根据使用的方法不同，这个函数执行后的返回值可能会也可能不会影响方法的返回值。以下是这5个迭代方法：</p>
+<ol>
+<li><strong>every（）：</strong>对数组中的每一项运行给定函数，如果该函数对每一项都返回true，则返回true。</li>
+<li><strong>filter（）：</strong>对数组中的每一项运行给定函数，返回该函数会返回true的项组成的数组。</li>
+<li><strong>forEach（）：</strong>对数组中的每一项运行给定函数。这个方法没有返回值。</li>
+<li><strong>map（）：</strong>对数组中的每一项运行给定函数，返回每次函数调用的结果组成的数组。</li>
+<li><strong>some（）：</strong>对数组中的每一项运行给定函数，如果该函数对一项返回true，则返回true</li>
+</ol>
+<blockquote>
+<p>在这些方法中，最相似的是every（）和some（）方法，他们都用于查询数组中的项是否满足某个条件。对every（）来说，传入的函数必须对每一项都返回true，这个方法才会返回true；否则，它就返回false。而some（）方法则是只要传入的函数对数组中的某一项返回true，就会返回true。请看下面的的例子：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var numbers&#x3D;[1,2,3,4,5,4,3,2,1];</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var everyResult &#x3D; numbers.every(function(item,index,array)&#123;</span><br><span class="line">    return item&gt;2;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">alert(everyResult);			&#x2F;&#x2F;false   因为只有部分项符合条件</span><br><span class="line"></span><br><span class="line">var someResult&#x3D;numbers.some(function(item,index,array)&#123;</span><br><span class="line">    return item&gt;2;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">alert(someResult);			&#x2F;&#x2F;true	只要至少有一个符合就会返回true</span><br></pre></td></tr></table></figure>
+
+<p><strong>下面来看看     filter（）方法：</strong>它利用指定的函数确定是否在返回的数组中包含某一项。例如：要返回一个所有数值都大于2的数组，可以使用如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var numbers&#x3D;[1,2,3,4,5,4,3,2,1];</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var filterResult  &#x3D; numbers.filter(function(item,index,array)&#123;</span><br><span class="line">         return (item&gt;2);</span><br><span class="line">     &#125;);</span><br><span class="line"></span><br><span class="line">     alert(filterResult);        &#x2F;&#x2F;3,4,5,4,3</span><br></pre></td></tr></table></figure>
+
+<p><strong>map（）方法也返回一个数组，而这个数组的每一项都是在原始数组中的对象上运行传入函数的结果。</strong></p>
+<p>例如，可以给书中的每一项乘以2，然后返回这些乘积组成的数组，如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var numbers&#x3D;[1,2,3,4,5,4,3,2,1];</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var mapResult &#x3D; numbers.map(function(item,index,array)&#123;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">    return (item*2);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">alert(mapResult);           &#x2F;&#x2F;2,4,6,8,10,8,6,4,2</span><br></pre></td></tr></table></figure>
+
+<p><strong>最后一个是forEach（）方法，</strong>它只是对数组中的每一项运行传入的函数。这个方法并没有返回值，本质上与使用for循环迭代数组一样。来看一个例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var numbers&#x3D;[1,2,3,4,5,4,3,2,1];</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">numbers.forEach(function(item,index,array)&#123;</span><br><span class="line">          &#x2F;&#x2F;执行某些操作</span><br><span class="line">      &#125;);</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>这些数组方法通过执行不同的操作，可以大大方便处理数组的任务。支持这些迭代方法的浏览器有<br>IE9、FireFox2+、Safari 3+、Opera 9.5+和Chrome</p>
+</blockquote>
+<h2 id="归并方法"><a href="#归并方法" class="headerlink" title="归并方法"></a>归并方法</h2><p>使用reduce（）方法可以执行求数组中所有值之和得到操作，比如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var values&#x3D;[1,2,3,4,5]</span><br><span class="line">var sum&#x3D;values.reduce(function(prev,cur,index,array)&#123;</span><br><span class="line">	return prev+cur</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">alert(sum);			&#x2F;&#x2F;15</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>第一次执行函数，prev是1，cur是2.第二次，prev是3（1+2的结果），cur是3（数组的第三项）。以此类推，最后返回结果</p>
+</blockquote>
+<p><strong>reduceRight()方法的作用类似，只不过方向相反而已。来看下面这个例子</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var values&#x3D;[1,2,3,4,5]</span><br><span class="line">var sum&#x3D;values.reduceRight(function(prev,cur,index,array)&#123;</span><br><span class="line">	return prev+cur</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">alert(sum);			&#x2F;&#x2F;15</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>使用reduce（）还是reduceRight()取决于从哪头开始遍历数组。除此之外，他们完全相同</p>
+</blockquote>
+<h2 id="Date类型"><a href="#Date类型" class="headerlink" title="Date类型"></a>Date类型</h2><p>   ECMAScript中的Date类型是在早期Java中的java.util.Date类型基础上构建的。为此Date类型使用UTC（国际协调时间）1970年1月1日午夜（零时）开始经过的毫秒来保存日期。在使用这种数据储存格式的条件下，Date类型保存的日期能够精确到1970年1月1日之前或之后的100000000年。</p>
+<p><strong>要创建一个日期对象，使用new操作符和Date构造函数即可，如下所示。</strong><br>​    </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var now &#x3D; new Date();</span><br><span class="line">console.log(now);</span><br></pre></td></tr></table></figure>
+
+<p>Date有两个方法：Date.parse()和Date.UTC()&gt;<br>其中，Date.parse()方法接收一个表示日期的字符串参数，然后尝试根据这个字符串返回相应日期的毫秒数。ECMA-262没有定义Date.parse()应该支持哪种日期格式，因此这个方法的行为因实现而异。将地区设置为美国的浏览器通常都接收下列日期格式：</p>
+<ol>
+<li><strong>“月/日/年”，如 6/13/2004</strong><br>2.** “英文月名，日，年”，如January 12，2004；**</li>
+</ol>
+<p>3.** “英文星期几 英文月名 日 年 时：分：秒 时区”，如Tue 25 2004 00:00:00 GMT-0700.**</p>
+<p>4.<strong>ISO 8601 拓展格式 YYYY-MM-DDTHH：mm：ss：sssZ（例如 2004-05-25T00:00:00:00）。只有兼容ECMAScript5的实现支持这种格式。</strong></p>
+<p>例如，要为2004年 5月25日创建一个日期对象，可以使用下面的代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var someDate &#x3D; new Date(Date.parse(&quot;May 25,2004&quot;));</span><br></pre></td></tr></table></figure>
+
+<p>如果传入的Date.parse()方法的字符串不能表示日期，那么他会返回NaN。实际上，如果直接将表示日期的字符串传递给Date构造函数，也会在后台调用Date.parse（）。换句话说，下面的代码与前面的例子是等价的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var someDate &#x3D; new Date(&quot;May 25,2004&quot;);</span><br></pre></td></tr></table></figure>
+
+<p>这行代码将会得到与前面相同的日期格式</p>
+<h5 id="Date-UTC（）方法同样也返回表示日期的毫秒数，但它与Date-parse（）在构建时使用不同的信息。Date-UTC（）得到参数分别是年份，基于0的月份（0开始，一月是0），月中的哪一天（1-31），小时数（0-23），分钟，秒以及毫秒数。在这些参数中，只有前两个参数（年和月）是必须的。如果没有提供月中的天数，则假设天数为1；如果省略其他参数，则统统为0-一下是两个使用Date，UTC（）方法的例子："><a href="#Date-UTC（）方法同样也返回表示日期的毫秒数，但它与Date-parse（）在构建时使用不同的信息。Date-UTC（）得到参数分别是年份，基于0的月份（0开始，一月是0），月中的哪一天（1-31），小时数（0-23），分钟，秒以及毫秒数。在这些参数中，只有前两个参数（年和月）是必须的。如果没有提供月中的天数，则假设天数为1；如果省略其他参数，则统统为0-一下是两个使用Date，UTC（）方法的例子：" class="headerlink" title="Date.UTC（）方法同样也返回表示日期的毫秒数，但它与Date.parse（）在构建时使用不同的信息。Date.UTC（）得到参数分别是年份，基于0的月份（0开始，一月是0），月中的哪一天（1-31），小时数（0-23），分钟，秒以及毫秒数。在这些参数中，只有前两个参数（年和月）是必须的。如果没有提供月中的天数，则假设天数为1；如果省略其他参数，则统统为0.一下是两个使用Date，UTC（）方法的例子："></a>Date.UTC（）方法同样也返回表示日期的毫秒数，但它与Date.parse（）在构建时使用不同的信息。Date.UTC（）得到参数分别是年份，基于0的月份（0开始，一月是0），月中的哪一天（1-31），小时数（0-23），分钟，秒以及毫秒数。在这些参数中，只有前两个参数（年和月）是必须的。如果没有提供月中的天数，则假设天数为1；如果省略其他参数，则统统为0.一下是两个使用Date，UTC（）方法的例子：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;GMT时间2000年1月1日午夜零点</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var y2k &#x3D; new Date(Date.UTC(2000,0));</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;GMT时间2005年5月5日下午5:55:55</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var allFives &#x3D; new Date(Date.UTC(2005,4,5,17,55,55));</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;也可以重写</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;GMT时间2000年1月1日午夜零点</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var y2k &#x3D; new Date(2000,0);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;GMT时间2005年5月5日下午5:55:55</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var allFives &#x3D; new Date(2005,4,5,17,55,55);</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>ECMAScript5中添加了Date.now（）方，返回表示调用这个方法时的日期和事件的毫秒数。这个方法简化了使用Date对象分析代码的工作。例如：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;取得开始时间</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">   var start &#x3D;Date.now(); </span><br><span class="line">   function doSomething()&#123;</span><br><span class="line">       for(var i&#x3D;0;i&lt;100;i++)&#123;</span><br><span class="line">           console.log(&quot;hello world!&quot;);</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;;</span><br><span class="line">   doSomething();</span><br><span class="line">&#x2F;&#x2F;取得结束时间</span><br><span class="line">   var stop &#x3D; Date.now();</span><br><span class="line">   var result &#x3D; stop - start;</span><br><span class="line">   console.log(&quot;调用这个函数输出 hello world！ 花了：&quot;+result+&quot;豪秒&quot;);</span><br></pre></td></tr></table></figure>
+
+<p>​    </p>
+<h3 id="支持Date-now（）方法的浏览器包括IE9-，Firefox3-，Safari3-，Opera10-5和Chrome。在不支持他的浏览器中，使用-操作符获取Date对象的时间戳，也可以达到同样的目的。"><a href="#支持Date-now（）方法的浏览器包括IE9-，Firefox3-，Safari3-，Opera10-5和Chrome。在不支持他的浏览器中，使用-操作符获取Date对象的时间戳，也可以达到同样的目的。" class="headerlink" title="支持Date.now（）方法的浏览器包括IE9+，Firefox3+，Safari3+，Opera10.5和Chrome。在不支持他的浏览器中，使用+操作符获取Date对象的时间戳，也可以达到同样的目的。"></a>支持Date.now（）方法的浏览器包括IE9+，Firefox3+，Safari3+，Opera10.5和Chrome。在不支持他的浏览器中，使用+操作符获取Date对象的时间戳，也可以达到同样的目的。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;取得开始时间</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var start &#x3D;+new Date();</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;调用函数</span><br><span class="line">doSomethin();</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;取得停止时间</span><br><span class="line"></span><br><span class="line">var stop&#x3D; +new Date();</span><br><span class="line">result  &#x3D; stop - start;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Date类型也重写了toLocaleString和toString（）和valueOf（）方法；前两种方法在不同的浏览器中返回的日期和事件格式可谓大相径庭。事实上，toLOcaleString和toString方法的差别尽在调试代码比较有用，而在现实日期和时间没有什么价值。<br>至于Date类型的valueOf（）方法，则根本不返回字符串，而是返回日期的毫秒表示。因此，可以方便使用比较操作符（大于或者小于）来比较日期值。请看下面的例子。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var date1 &#x3D; new Date(2007,0,1);</span><br><span class="line">var date2 &#x3D; new Date(2007,1,1);</span><br><span class="line"></span><br><span class="line">console.log(date1&lt;date2); &#x2F;&#x2F;   true</span><br><span class="line">console.log(date1&gt;date2); &#x2F;&#x2F;   false</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="日期格式化的方法"><a href="#日期格式化的方法" class="headerlink" title="日期格式化的方法"></a>日期格式化的方法</h3><p>Date类型还有一些专门用于将日期格式化为字符串的方法，这些方法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var time&#x3D;date1.toDateString();       &#x2F;&#x2F;用于特定的格式显示 星期几、月、日和年</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(time);				&#x2F;&#x2F;Mon Jan 01 2007</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">time&#x3D;date1.toTimeString();       &#x2F;&#x2F;以特定于实现的格式显示 时、分、秒和时区</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(time);            	&#x2F;&#x2F;00:00:00 GMT+0800 (中国标准时间)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">time&#x3D;date1.toLocaleDateString(); &#x2F;&#x2F;以特定于地区的格式显示星期几、月、日和年</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(time);            	&#x2F;&#x2F;2007&#x2F;1&#x2F;1</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">time&#x3D;date1.toLocaleTimeString(); &#x2F;&#x2F;以特定于实现的格式显示 时、分、秒</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(time);            	&#x2F;&#x2F;上午12:00:00</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">time&#x3D;date1.toUTCString();        &#x2F;&#x2F;以特定于实现的格式完整的UTC日期</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(time);            	&#x2F;&#x2F;Sun, 31 Dec 2006 16:00:00 GMT</span><br></pre></td></tr></table></figure>
+
+
+
+<p>与toLocaleString（）和toString（）方法一样，以上这些字符串格式方法的输出也是因浏览器而异的，因此没有哪一个方法能够用来在用户界面显示一致的日期时间。</p>
+<blockquote>
+<p><strong>除了前面介绍的方法之外，还有一个名叫toGMTString（）的方法，这是一个与toUTCString（）等价的方法，其存在目的在于确保向后兼容。不过，ECMAScript推荐现在编写代码一律用toUTCString（）方法。</strong></p>
+</blockquote>
+<h4 id="日期-时间组件方法"><a href="#日期-时间组件方法" class="headerlink" title="日期/时间组件方法"></a>日期/时间组件方法</h4><hr>
+
+            
+                
+
+            
+        </div>
+        <div class="post-tool">
+            <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
+                <i class="fa fa-thumbs-up" aria-hidden="true"></i> 打赏
+            </a>
+        </div>
+        
+        <div class="post-tags">标签：
+            
+            <a href="/tags/ES5/">ES5</a>
+            
+            <a href="/tags/%E6%95%B0%E7%BB%84/">数组</a>
+            
+        </div>
+        
+    </article>
+    
+        <p style="text-align: center">本文代表个人观点，内容仅供参考。若有不恰当之处，望不吝赐教！</p>
+    
+    
+    
+
+</div>
+
+<script src="/js/busuanzi.pure.mini.js"></script>
+
+
+
+        </div><!-- end #main-->
+    </div><!-- end #body -->
+    <footer class="footer">
+    <div class="footer-inner" style="text-align: center">
+        <p>
+            <a href="/about"  title="关于">关于</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <!-- 自定义链接 -->
+            <a href="/help" title="帮助" >帮助</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <a href="/links" title="友链">友链</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <a href="/sitemap.xml" title="地图">地图</a>
+        </p>
+        <p>
+            本站已建立&nbsp<a href="/timeline" id="siteBuildingTime"></a>&nbsp天，<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="licence">采用知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议创作</a><br/>
+            ©2017-<span id="cpYear"></span> 基于&nbsp<a href="http://hexo.io" target="_blank" rel="nofollow">Hexo</a>
+            ，主题采用&nbsp&nbsp<a href="https://github.com/tangkunyin/hexo-theme-jsimple" target="_blank" rel="bookmark">JSimple</a>
+            ，作者&nbsp<a href="https://shuoit.net" target="_blank" rel="friend">快乐的麻瓜</a>
+            ，Hosted by <a href="https://pages.github.com/" target="_blank" rel="nofollow">GitHub Pages</a>
+        </p>
+    </div>
+</footer>
+
+<script src="/js/SimpleCore.js"></script>
+
+
+</div>
+<!-- search pop -->
+<div class="popup search-popup local-search-popup">
+    <div class="local-search-header clearfix">
+        <span class="search-icon">
+            <i class="fa fa-search"></i>
+        </span>
+        <span class="popup-btn-close">
+            <i class="fa fa-times-circle"></i>
+        </span>
+        <div class="local-search-input-wrapper">
+            <input id="local-search-input"
+                   spellcheck="false"
+                   type="text"
+                   autocomplete="off"
+                   placeholder="请输入查询关键词"/>
+        </div>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+<div class="fixed-btn">
+    <a class="btn-gotop" href="javascript:"> <i class="fa fa-angle-up"></i></a>
+</div>
+<script>
+    $(function () {
+        var jsi_config = {
+            buildingTime: '01/20/2018',
+            current: $('.post-tags').length > 0 ? 'post' : 'archive',
+            snsQRCode: '/images/sns-qrcode.png',
+            donateImg: '/images/donate-qr.png',
+            localSearch: { dbPath: '' },
+            readMode: 'day'
+        };
+        
+        SimpleCore.init(jsi_config);
+        
+    });
+</script>
+<script src="/js/src/click.js"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/haruto.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body>
+</html>
