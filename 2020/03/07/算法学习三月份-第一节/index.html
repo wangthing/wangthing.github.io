@@ -26,7 +26,7 @@
 <link rel="shortcut icon" href="/images/avar.jpg">
 
 
-<title>算法学习三月份 - 欢迎</title>
+<title>算法学习三月份-第一节 - 欢迎</title>
 
 <meta name="keywords" content="">
 
@@ -145,9 +145,9 @@
                 </p>
                 <p>一个热爱跑步的web前端练习生</p>
             </div>
-            <h2 class="post-title">算法学习三月份</h2>
+            <h2 class="post-title">算法学习三月份-第一节</h2>
             <div class="post-meta">
-                本文共计3990个字 |
+                本文共计5366个字 |
                 您是第&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
             </div>
         </div>
@@ -206,34 +206,24 @@
 
 
 
+<h2 id="删除排序数组中的重复项"><a href="#删除排序数组中的重复项" class="headerlink" title="删除排序数组中的重复项"></a>删除排序数组中的重复项</h2><p>给定一个排序数组，你需要在 原地 删除重复出现的元素，使得每个元素只出现一次，返回移除后数组的新长度。</p>
+<p>不要使用额外的数组空间，你必须在 原地 修改输入数组 并在使用 O(1) 额外空间的条件下完成。</p>
+<p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array" target="_blank" rel="noopener">https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array</a></p>
+<p><strong>示例 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">给定数组 nums &#x3D; [1,1,2], </span><br><span class="line"></span><br><span class="line">函数应该返回新的长度 2, 并且原数组 nums 的前两个元素被修改为 1, 2。 </span><br><span class="line"></span><br><span class="line">你不需要考虑数组中超出新长度后面的元素</span><br></pre></td></tr></table></figure>
 
+<p>由于是<strong>原地修改</strong>，意味着不能使用额外的空间， 而且原地修改后数组的长度也会发生变化，导致我直接用下面的方法会得不出正确答案</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> removeDuplicates = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line">     nums.forEach(<span class="function">(<span class="params">item, index</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(nums.indexOf(item) !== index) &#123;</span><br><span class="line">          	<span class="comment">//这里修改了数组的长度，导致下一次循环会跳过原本的下一个索引</span></span><br><span class="line">            nums.splice(index, <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">return</span> nums.length</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
+<p>一开始还以为就是一个简单的数组去重，现在看来还是有点难度的，得继续往下思考；</p>
+<p>由于这个是排序好了的数组，所以我们每次把一个有重复的项目删除第一个之后的，利用 <code>lastIndexOf（）</code></p>
+<p>代码实现：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> removeDuplicates = <span class="function"><span class="keyword">function</span> (<span class="params">nums</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">    <span class="keyword">var</span> item = nums[i];</span><br><span class="line">    <span class="keyword">var</span> lastIdx = nums.lastIndexOf(item);</span><br><span class="line">    <span class="keyword">if</span>(lastIdx !== i) nums.splice(i+<span class="number">1</span>, lastIdx - i);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> nums.length;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p>但是这种方法虽然 <code>AC</code>了，不过耗时非常久，初步原因是因为在循环中还利用了 <code>lastIndexOf</code> 方法去查询，时间复杂度还是挺高的。得试试不用再次查询的方法。</p>
+<h3 id="下面这种方法直接遍历，-再和下一个比较，如果相等就去除"><a href="#下面这种方法直接遍历，-再和下一个比较，如果相等就去除" class="headerlink" title="下面这种方法直接遍历， 再和下一个比较，如果相等就去除"></a>下面这种方法直接遍历， 再和下一个比较，如果相等就去除</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> removeDuplicates = <span class="function"><span class="keyword">function</span> (<span class="params">nums</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span>(nums[i+<span class="number">1</span>] == nums[i]) &#123;</span><br><span class="line">      nums.splice(i+<span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line">      i--;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> nums.length;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<p>这种方法其实也挺费时的，上面的那种方法也有自己的优点，如果重复的个数十分多，利用一次 判断索引就可以达到去重这个值，个人觉得还是用 <code>lastIndexOf</code> 的方法比较合适些。</p>
 
             
                 
