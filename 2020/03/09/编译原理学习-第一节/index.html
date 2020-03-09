@@ -7,21 +7,21 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>git常见指令 - 欢迎</title>
+<title>编译原理学习-第一节 - 欢迎</title>
 
 
-    <meta name="description" content="git 年末大总结 原文链接：掘金 GitGit是目前世界上最先进的分布式版本控制系统。 1. 版本控制所谓版本控制就是在文件的修改历程中保留修改历史，让你可以方便地查询历史提交记录以及撤销之前对文件的修改操作。版本控制系统主要有集中式版本控制系统和分布式版本控制系统两种。 1.1 集中式版本控制系统集中式版本控制系统，版本库是集中存放在中央服务器的，工作时需要先从中央服务器取得最新的版本，然后开">
+    <meta name="description" content="首先带着以下问题进行学习  1、    翻译程序与解释程序之间根本区别是什么？2、    翻译程序与解释程序各自优势？3、    编译程序与翻译程序之间的关系？4、    词法分析中，“单词”的理解？具体包括哪几类？5、    语法分析中，“语法单位&#x2F;短语”的理解？具体包括哪些？6、    语法分析中，引入“语法树”这个工具，有什么好处？7、    语义法分析中，“静态语义”与“动态语义”的运行阶">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git常见指令">
-<meta property="og:url" content="http://yoursite.com/2019/12/26/git%E5%B8%B8%E8%A7%81%E6%8C%87%E4%BB%A4/index.html">
+<meta property="og:title" content="编译原理学习-第一节">
+<meta property="og:url" content="http://yoursite.com/2020/03/09/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0-%E7%AC%AC%E4%B8%80%E8%8A%82/index.html">
 <meta property="og:site_name" content="欢迎">
-<meta property="og:description" content="git 年末大总结 原文链接：掘金 GitGit是目前世界上最先进的分布式版本控制系统。 1. 版本控制所谓版本控制就是在文件的修改历程中保留修改历史，让你可以方便地查询历史提交记录以及撤销之前对文件的修改操作。版本控制系统主要有集中式版本控制系统和分布式版本控制系统两种。 1.1 集中式版本控制系统集中式版本控制系统，版本库是集中存放在中央服务器的，工作时需要先从中央服务器取得最新的版本，然后开">
+<meta property="og:description" content="首先带着以下问题进行学习  1、    翻译程序与解释程序之间根本区别是什么？2、    翻译程序与解释程序各自优势？3、    编译程序与翻译程序之间的关系？4、    词法分析中，“单词”的理解？具体包括哪几类？5、    语法分析中，“语法单位&#x2F;短语”的理解？具体包括哪些？6、    语法分析中，引入“语法树”这个工具，有什么好处？7、    语义法分析中，“静态语义”与“动态语义”的运行阶">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
-<meta property="article:published_time" content="2019-12-26T13:34:43.000Z">
-<meta property="article:modified_time" content="2019-12-26T13:43:25.985Z">
+<meta property="article:published_time" content="2020-03-09T02:09:18.000Z">
+<meta property="article:modified_time" content="2020-03-09T07:14:21.354Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="github">
+<meta property="article:tag" content="编译原理">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
 
@@ -81,7 +81,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="git常见指令" height="28">
+                <img src="/images/logo.svg" alt="编译原理学习-第一节" height="28">
             
             </a>
         </div>
@@ -137,13 +137,13 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-12-26T13:34:43.000Z">2019-12-26</time>
+                <time class="level-item has-text-grey" datetime="2020-03-09T02:09:18.000Z">2020-03-09</time>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    24 分钟 读完 (大约 3544 个字)
+                    8 分钟 读完 (大约 1219 个字)
                 </span>
                 
                 
@@ -152,125 +152,92 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                git常见指令
+                编译原理学习-第一节
             
         </h1>
         <div class="content">
-            <h1 id="git-年末大总结"><a href="#git-年末大总结" class="headerlink" title="git 年末大总结"></a>git 年末大总结</h1><p><img src="https://user-gold-cdn.xitu.io/2019/12/24/16f35d82d9848d00?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="在这里插入图片描述"></p>
-<p>原文链接：<a href="https://juejin.im/post/5e017f096fb9a016043a5c96#heading-21">掘金</a></p>
-<h2 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h2><p>Git是目前世界上最先进的分布式版本控制系统。</p>
-<h3 id="1-版本控制"><a href="#1-版本控制" class="headerlink" title="1. 版本控制"></a>1. 版本控制</h3><p>所谓版本控制就是在文件的修改历程中保留修改历史，让你可以方便地查询历史提交记录以及撤销之前对文件的修改操作。版本控制系统主要有集中式版本控制系统和分布式版本控制系统两种。</p>
-<h4 id="1-1-集中式版本控制系统"><a href="#1-1-集中式版本控制系统" class="headerlink" title="1.1 集中式版本控制系统"></a><strong>1.1 集中式版本控制系统</strong></h4><p>集中式版本控制系统，版本库是集中存放在中央服务器的，工作时需要先从中央服务器取得最新的版本，然后开始干活，干完活了，再把自己的活推送给中央服务器。</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/12/24/16f35d82dbc869cb?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="在这里插入图片描述"></p>
-<h4 id="1-2-分布式版本控制系统"><a href="#1-2-分布式版本控制系统" class="headerlink" title="1.2 分布式版本控制系统"></a><strong>1.2 分布式版本控制系统</strong></h4><p>分布式版本控制系统根本没有“中央服务器”，每个人的电脑上都是一个完整的版本库，这样，你工作的时候，就不需要联网了，因为版本库就在你自己的电脑上。既然每个人电脑上都有一个完整的版本库，那多个人如何协作呢？比方说你在自己电脑上改了文件A，你的同事也在他的电脑上改了文件A，这时，你们俩之间只需把各自的修改推送给对方，就可以互相看到对方的修改了。</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/12/24/16f35d82dcf34761?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="在这里插入图片描述"></p>
-<h3 id="2-Git理论基础"><a href="#2-Git理论基础" class="headerlink" title="2. Git理论基础"></a>2. Git理论基础</h3><p>学习git首先需要了解其中涉及到的四个重要概念：</p>
-<ol>
-<li>远程仓库(Remote Directory)</li>
-<li>工作目录（Working Directory）</li>
-<li>暂存区(Stage/Index)</li>
-<li>版本库(Repository或Git Directory)</li>
-</ol>
-<p>对于以上四个概念，我们依次理解。</p>
-<h4 id="2-1-远程仓库-Remote-Directory"><a href="#2-1-远程仓库-Remote-Directory" class="headerlink" title="2.1 远程仓库(Remote Directory)"></a>2.1 远程仓库(Remote Directory)</h4><p>远程仓库(Remote Directory)就是我们在远程服务器上面创建的一个仓库，通常这个仓库存储我们的代码，我们拿GitHub来做个demo，我们在GitHub上面创建一个远程仓库<a href="https://github.com/crazyandcoder/awesome-git">awesome-git</a>，这个仓库空空如也，刚创建的，等会我们便拿这个仓库进行学习git的相关操作。后面我们需要对这个仓库进行操作，如pull，push，branch，tag，reset等等命令，这些命令后面会详细了解。</p>
-<h4 id="2-2-工作目录（Working-Directory）"><a href="#2-2-工作目录（Working-Directory）" class="headerlink" title="2.2 工作目录（Working Directory）"></a>2.2 工作目录（Working Directory）</h4><p>在上个小节，我们创建了一个远程仓库<a href="https://github.com/crazyandcoder/awesome-git">awesome-git</a>，我们需要将它先放到本地进行相关操作，如存放在本地电脑awesome-git目录下，这个本地文件夹awesome-git就是我们的工作目录，这个就是我们平时存放项目代码的地方。</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/12/24/16f35d82de541579?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="在这里插入图片描述"></p>
-<h4 id="2-3-暂存区-Stage-Index"><a href="#2-3-暂存区-Stage-Index" class="headerlink" title="2.3 暂存区(Stage/Index)"></a>2.3 暂存区(Stage/Index)</h4><p>我们在上个小节中工作目录下面会看见一个.git的文件夹，其实这是一个隐藏的文件夹，这个文件夹是Git的版本库，他是存放Git管理信息的目录，初始化仓库的时候自动创建。暂存区英文叫stage, 或index。一般存放在 “.git目录下” 下的index文件（.git/index）中，所以我们把暂存区有时也叫作索引（index）。其次，Git为我们自动创建的第一个分支master，以及指向master的一个指针叫HEAD。</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/12/24/16f35d82df141096?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="在这里插入图片描述"></p>
-<h4 id="2-4-版本库-Repository或Git-Directory"><a href="#2-4-版本库-Repository或Git-Directory" class="headerlink" title="2.4 版本库(Repository或Git Directory)"></a>2.4 版本库(Repository或Git Directory)</h4><p>工作目录中有一个隐藏目录.git，这个就是Git的版本库。</p>
-<h3 id="3-Git工作流程"><a href="#3-Git工作流程" class="headerlink" title="3. Git工作流程"></a>3. Git工作流程</h3><p>我们用一张图来表示这四个区域之间的联系：</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/12/24/16f35d82df36273c?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="在这里插入图片描述"></p>
-<p>上面的这张图就是整个git的工作流程，整体如下：</p>
-<ol>
-<li>我们将文件存放到工作目录中，譬如我们新建的代码文件</li>
-<li>用git add把工作目录中的文件添加到暂存区，此时暂存区的目录树被更新</li>
-<li>用git commit提交就是把暂存区的所有内容提交到当前分支，如当前分支是master上面，此时master 分支会做相应的更新。</li>
-</ol>
-<p>经过以上三个步骤的操作，此时工作目录中的文件状态会经历三种过程：已修改（modified）=&gt; 已暂存（staged）=&gt; 已提交(committed)</p>
-<h4 id="3-1-实战练习"><a href="#3-1-实战练习" class="headerlink" title="3.1 实战练习"></a>3.1 实战练习</h4><p>上面一系列操作文件的状态会发生变化，我们来实际学习一下，上面我们创建的awesome-git这个仓库之后会生成一个README.md这个文件，打开看一下里面内容：里面只有一行“# awesome-git”</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/12/24/16f35d8305f7a551?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
-<p>我们在这个文件里面添加一行注释 “深入理解git” 变成下面：</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/12/24/16f35d83060903f8?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="在这里插入图片描述"></p>
-<p>此时我们更改了文件，我们通过一个命令 <strong>git status</strong> 来查看此时的文件状态：</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/12/24/16f35d8306f23aad?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
-<p>git add</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/12/24/16f35d83073d7bcd?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
-<p>git commit</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/12/24/16f35d830ce3345d?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="在这里插入图片描述"></p>
-<p>此刻我们经过一系列的操作，已经提交到master分支上了，同时工作区里面没有改动了：</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/12/24/16f35d830f5e0eda?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="在这里插入图片描述"></p>
-<p>经过一系列上述的操作，此刻文件已经放到了master分支上，接下来我们需要将这个文件push到远程仓库中去，</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/12/24/16f35d833075d639?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="在这里插入图片描述"></p>
-<p>git push</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/12/24/16f35d833511fe05?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="在这里插入图片描述"></p>
-<p>此刻已经推送到了远程仓库中去了。这是最简单git操作了，下面我们将在第7小节中讨论其他一系列复杂的操作。</p>
-<h3 id="4-Git分支管理"><a href="#4-Git分支管理" class="headerlink" title="4. Git分支管理"></a>4. Git分支管理</h3><p>我们开发项目一般都是进行在分支上面开发的，而不是直接在master分支，当开发完成之后我们再将在其他分支上面的代码合并到master分支。接下来我们将详细学习分支的常用操作。我们每次提交，Git都把它们串成一条时间线，这条时间线就是一个分支。截止到目前，只有一条时间线，在Git里，这个分支叫主分支，即master分支。HEAD严格来说不是指向提交，而是指向master，master才是指向提交的，所以，HEAD指向的就是当前分支。</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/12/24/16f35d833520a920?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="在这里插入图片描述"></p>
-<p>一开始的时候，master分支是一条线，Git用master指向最新的提交，每次提交，master分支都会向前移动一步，这样，随着你不断提交，master分支的线也越来越长。</p>
-<h4 id="4-1-新建分支"><a href="#4-1-新建分支" class="headerlink" title="4.1 新建分支"></a>4.1 新建分支</h4><p>我们通过以下命令来创建一个分支：</p>
-<h5 id="4-1-1-创建分支"><a href="#4-1-1-创建分支" class="headerlink" title="4.1.1 创建分支"></a>4.1.1 创建分支</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;新建dev分支</span><br><span class="line">git branch dev</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
+            <p>首先带着以下问题进行学习</p>
+<blockquote>
+<p>1、    翻译程序与解释程序之间根本区别是什么？<br>2、    翻译程序与解释程序各自优势？<br>3、    编译程序与翻译程序之间的关系？<br>4、    词法分析中，“单词”的理解？具体包括哪几类？<br>5、    语法分析中，“语法单位/短语”的理解？具体包括哪些？<br>6、    语法分析中，引入“语法树”这个工具，有什么好处？<br>7、    语义法分析中，“静态语义”与“动态语义”的运行阶段？<br>8、    为什么引入“中间代码”？<br>9、    代码优化从效率角度讲，应考虑哪几个要素？<br>10、“绝对地址的机器指令代码”与“可重定位的指令代码”的理解。</p>
+<p>判断题<br>1、编译程序是指将高级语言转化为机器语言的翻译程序。（ ）<br>2、编译程序属于系统软件。（ ）<br>3、在编译程序的设计中，代码优化是必须的。（ ）<br>4、在源代码的编译程序处理过程中，数组越界属于语义错误。（ ）<br>5、C语言的编译器可以用C语言来编写。（ ）</p>
+</blockquote>
+<h2 id="本课程的特点、难点和目的"><a href="#本课程的特点、难点和目的" class="headerlink" title="本课程的特点、难点和目的"></a>本课程的特点、难点和目的</h2><ul>
+<li>特点<ul>
+<li>抽象难懂</li>
+<li>算法多且算法复杂，不同于数据结构中的算法</li>
+</ul>
+</li>
+<li>难点<ul>
+<li>形式语言基本理论</li>
+<li>自动机基本理论</li>
+<li>语义分析（重点）</li>
+</ul>
+</li>
+<li>目的<ul>
+<li>训练抽象思维和形式化描述问题的能力</li>
+<li>加深对程序设计语言本质的理解</li>
+<li>了解一个变异程序的构造原理和方法</li>
+</ul>
+</li>
+</ul>
+<h2 id="计算机中的软件可以主要分为两类"><a href="#计算机中的软件可以主要分为两类" class="headerlink" title="计算机中的软件可以主要分为两类"></a>计算机中的软件可以主要分为两类</h2><ul>
+<li>系统软件（操作系统软件，对性能和准确率要求非常高）</li>
+<li>应用软件</li>
+</ul>
+<h2 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h2><p>编译原理指的是编译程序的构造原理和技术</p>
+<h3 id="计算机语言的分类"><a href="#计算机语言的分类" class="headerlink" title="计算机语言的分类"></a>计算机语言的分类</h3><ul>
+<li>低级语言<ul>
+<li>机器语言（唯一能被计算机执行的语言）</li>
+<li>汇编语言</li>
+</ul>
+</li>
+<li>高级语言<ul>
+<li>C、C++</li>
+<li>Java</li>
+<li>等等</li>
+</ul>
+</li>
+</ul>
+<p>​    我们用户用的都是高级设计语言，如果直接交给计算机执行的话肯定是不能够被计算机执行的，所以我们需要把高级语言程序或者汇编语言程序转换成计算机可以识别的机器语言。</p>
+<p>转化的方法就是 <strong>翻译或者解释</strong></p>
+<h3 id="翻译程序"><a href="#翻译程序" class="headerlink" title="翻译程序"></a>翻译程序</h3><blockquote>
+<p>它能够把某一种语言程序（称为源语言程序）转化成另一种语言程序（称为目标语言程序），而后者与前者在逻辑上是等价的</p>
+</blockquote>
+<h2 id="编译程序"><a href="#编译程序" class="headerlink" title="编译程序"></a>编译程序</h2><p>​    在翻译程序的基础之上， 如果源语言程序是一种 <code>C++ Java</code> 之类的高级语言，而目标语言是汇编语言或者机器语言之类的低级语言，那么这样的一个翻译程序就可以叫做 <code>编译程序</code></p>
+<p>​    而<code>汇编程序</code> 是用于特定计算机上的汇编语言的翻译程序</p>
+<h4 id="对编译程序的分类"><a href="#对编译程序的分类" class="headerlink" title="对编译程序的分类"></a>对编译程序的分类</h4><ul>
+<li><p>交叉编译程序</p>
+<p>源程序的编译和目标程序的执行不一定在同一种计算机上(比如在windows系统编译的程序要在 Linux系统上运行，甚至是Android系统)。当源程序由另外一种计算机的编译程序进行编译是，我们将此程序成为交叉编译程序。需要注意的是两个计算机是不是同一个操作系统，如果两个机器是同一个操作系统则不算是交叉编译程序。</p>
+</li>
+<li><p>诊断编译程序</p>
+<p>专门用于帮助程序开发和调试程序的编译程序</p>
+</li>
+<li><p>优化编译程序</p>
+<p>着重提高目标代码效率的编译程序</p>
+</li>
+</ul>
+<h2 id="解释程序"><a href="#解释程序" class="headerlink" title="解释程序"></a>解释程序</h2><p>定义： 把源程序作为一种输入，<strong>而且不会产生目标程序</strong>，而是边解释边执行源程序的本身。</p>
+<p>与编译程序的主要区别是： 会不会产生目标程序。</p>
+<h2 id="编译过程的概述"><a href="#编译过程的概述" class="headerlink" title="编译过程的概述"></a>编译过程的概述</h2><h3 id="编译程序的组成"><a href="#编译程序的组成" class="headerlink" title="编译程序的组成"></a>编译程序的组成</h3><p>举个例子：比如将一段英文翻译成中文，我们会经过一下一些步骤</p>
+<ul>
+<li>识别句子中的一个个单词         =》 词法分析</li>
+<li>分析一个句子的语法结构              =》语法分析</li>
+<li>分析句子的含义                              =》 语义分析</li>
+<li>进行初步翻译：                              =》 中间代码生成</li>
+<li>对译文进行修饰                               =》 中间代码优化</li>
+<li>写出最后的译文                              =》 目标程序生成</li>
+</ul>
+<h4 id="1-词法分析"><a href="#1-词法分析" class="headerlink" title="1. 词法分析"></a>1. 词法分析</h4><ul>
+<li>​</li>
+</ul>
 
-<h5 id="4-1-2-查看所有分支"><a href="#4-1-2-查看所有分支" class="headerlink" title="4.1.2 查看所有分支"></a>4.1.2 查看所有分支</h5><p>通过以上命令即可创建一个新分支dev，我们查看以下目前这个repo包含哪些branch</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;查看分支</span><br><span class="line">git branch </span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://user-gold-cdn.xitu.io/2019/12/24/16f35d8339a40f40?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="在这里插入图片描述"></p>
-<h4 id="4-2-切换分支"><a href="#4-2-切换分支" class="headerlink" title="4.2 切换分支"></a>4.2 切换分支</h4><p>可以看到目前存在两个分支，dev和master分支，master分支前面有个*号表示当前分支是在master上面。我们可以通过下面命令来切换分支：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;切换到dev分支</span><br><span class="line">git checkout dev</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://user-gold-cdn.xitu.io/2019/12/24/16f35d8339ff984c?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="在这里插入图片描述"></p>
-<h4 id="4-3-合并分支"><a href="#4-3-合并分支" class="headerlink" title="4.3 合并分支"></a>4.3 合并分支</h4><p>上面我们已经创建了新分支dev，假设我们在新分支上面开发了一些内容譬如新建一个文件dev.md，我们把这个文件提交到dev分支，通过以下命令即可完成：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;将dev.md这个文件添加到stage</span><br><span class="line">git add dev.md</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;将dev.md这个文件提交到dev分支</span><br><span class="line">git commit -m &quot;add new file to branch dev&quot;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-
-<p>![在这里插入图片描述](data:image/svg+xml;utf8,<?xml version="1.0"?><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="1176" height="428"></svg>)</p>
-<p><strong>1.首先要切回到master分支</strong></p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/12/24/16f35d83568428a0?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="在这里插入图片描述"></p>
-<p><strong>2.合并dev分支</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;合并语法</span><br><span class="line">git merge 分支名</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://user-gold-cdn.xitu.io/2019/12/24/16f35d8362ef10b2?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="在这里插入图片描述"></p>
-<p>冲突</p>
-<p><strong>3.解决冲突</strong></p>
-<p>首先，我们切回到dev分支，然后在dev.md这个文件中将里面的内容替换一下：</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/12/24/16f35d8357cbfcd3?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="在这里插入图片描述"></p>
-<p>替换成：</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/12/24/16f35d83634dbe98?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="在这里插入图片描述"></p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/12/24/16f35d8366b0be95?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="在这里插入图片描述"></p>
-<p>现在尝试合并dev分支就会出现冲突：</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/12/24/16f35d836c11f0e0?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="在这里插入图片描述"></p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/12/24/16f35d838484b5e1?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="在这里插入图片描述"></p>
-<p>Git用&lt;&lt;&lt;&lt;&lt;&lt;&lt;，=======，&gt;&gt;&gt;&gt;&gt;&gt;&gt;标记出不同分支的内容，我们只需要确认哪些部分是需要的，删除不需要的部分即可。最后再冲洗提交到master分支。</p>
-<p>我们可以通过下面的命令查看分支合并情况：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git log --graph --pretty&#x3D;oneline --abbrev-commit</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://user-gold-cdn.xitu.io/2019/12/24/16f35d8386cb4ca1?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="在这里插入图片描述"></p>
-<h4 id="4-4-删除分支"><a href="#4-4-删除分支" class="headerlink" title="4.4 删除分支"></a>4.4 删除分支</h4><p>在dev分支上面开发好了之后把代码合并到master分支上面，这个dev分支就不需要了，我们将它删除并查看一下分支情况，可以发现只有一个master分支了：</p>
-<p>![在这里插入图片描述](data:image/svg+xml;utf8,<?xml version="1.0"?><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="868" height="162"></svg>)</p>
-<h3 id="5-Git标签管理"><a href="#5-Git标签管理" class="headerlink" title="5. Git标签管理"></a>5. Git标签管理</h3><p>发布一个版本时，我们通常先在版本库中打一个标签（tag），这样，就唯一确定了打标签时刻的版本。 tag 和 branch 有点相似，两者有何区别呢？tag 对应某次 commit, 是一个点，是不可移动的，branch 对应一系列 commit，是很多点连成的一根线，有一个HEAD 指针，是可以依靠 HEAD 指针移动的。所以，两者的区别决定了使用方式，改动代码用 branch ,不改动只查看用 tag。</p>
-<p>tag 和 branch 的相互配合使用，有时候起到非常方便的效果，例如 已经发布了 v1.0 v2.0 v3.0 三个版本，这个时候，我突然想不改现有代码的前提下，在 v2.0 的基础上加个新功能，作为 v4.0 发布。就可以 检出 v2.0 的代码作为一个 branch ，然后作为开发分支。</p>
-<h4 id="5-1-新建tag"><a href="#5-1-新建tag" class="headerlink" title="5.1 新建tag"></a>5.1 新建tag</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 新建tag语法</span><br><span class="line">git tag &lt;tag名&gt;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://user-gold-cdn.xitu.io/2019/12/24/16f35d83ae462808?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="在这里插入图片描述"></p>
-<h4 id="5-2-查看tag"><a href="#5-2-查看tag" class="headerlink" title="5.2 查看tag"></a>5.2 查看tag</h4><p><strong>注意:</strong> 标签不是按时间顺序列出，而是按字母排序的。可以用以下语法进行查看标签信息</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 查看tag语法</span><br><span class="line">git tag </span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://user-gold-cdn.xitu.io/2019/12/24/16f35d83975e5261?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="在这里插入图片描述"></p>
-<h4 id="5-3-删除tag"><a href="#5-3-删除tag" class="headerlink" title="5.3 删除tag"></a>5.3 删除tag</h4><p>要删除掉你本地仓库上的标签，可以使用如下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;删除tag语法</span><br><span class="line"> git tag -d   &lt;tag名&gt;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://user-gold-cdn.xitu.io/2019/12/24/16f35d83ae462808?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="在这里插入图片描述"></p>
-<p>通过以上命令我们删除v1.0的tag 然后再查看以下tag，发现只剩下v2.0的tag了。</p>
-<h3 id="6-Git远程操作"><a href="#6-Git远程操作" class="headerlink" title="6. Git远程操作"></a>6. Git远程操作</h3><p>GitHub 是最大的 Git 版本库托管商，是成千上万的开发者和项目能够合作进行的中心。 大部分 Git 版本库都托管在 GitHub，很多开源项目使用 GitHub 实现 Git 托管、问题追踪、代码审查以及其它事情。 所以，尽管这不是 Git 开源项目的直接部分，但如果想要专业地使用 Git，你将不可避免地与 GitHub 打交道，所以这依然是一个绝好的学习机会。</p>
-<p>在GitHub上面新建一个test的repo，可以进行以下的命令操作，即可以将本地的东西提交到GitHub上面的test仓库中：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;新建一个readme.md文件</span><br><span class="line">echo &quot;# test&quot; &gt;&gt; README.md</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;初始化本地仓库</span><br><span class="line">git init</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;将readme.md这个文件加入到stage中去</span><br><span class="line">git add README.md</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;将readme.md这个文件放到master分支上去</span><br><span class="line">git commit -m &quot;first commit&quot;</span><br><span class="line">git remote add origin https:&#x2F;&#x2F;github.com&#x2F;crazyandcoder&#x2F;test.git</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;将这个推送到远程的master分支上去</span><br><span class="line">git push -u origin master</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-
-<h2 id=""><a href="#" class="headerlink" title=""></a></h2>
         </div>
         
         <div class="level is-size-7 is-uppercase">
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/github/" rel="tag">github</a>
+                    <a class="has-link-grey -link" href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" rel="tag">编译原理</a>
                 </div>
             </div>
         </div>
@@ -321,17 +288,10 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/12/27/vue-vuex-%E4%B8%8A%E6%89%8B/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">vue-vuex上手</span>
-            </a>
-        </div>
-        
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2019/12/24/Echarts%E5%90%84%E4%B8%AA%E9%85%8D%E7%BD%AE%E8%AF%A6%E7%BB%86%E8%AF%B4%E6%98%8E/">
-                <span class="level-item">Echarts各个配置详细说明</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/03/08/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AD%A6%E4%B9%A0-%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/">
+                <span class="level-item">算法数据结构学习-栈和队列</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -1390,7 +1350,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="git常见指令" height="28">
+                    <img src="/images/logo.svg" alt="编译原理学习-第一节" height="28">
                 
                 </a>
                 <p class="is-size-7">

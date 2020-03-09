@@ -87,16 +87,16 @@
             <div class="navbar-start">
                 
                 <a class="navbar-item is-active"
-                href="/">Home</a>
+                href="/">主页</a>
                 
                 <a class="navbar-item"
-                href="/archives">Archives</a>
+                href="/archives">成就</a>
                 
                 <a class="navbar-item"
-                href="/categories">Categories</a>
+                href="/categories">分类</a>
                 
                 <a class="navbar-item"
-                href="/tags">Tags</a>
+                href="/tags">标签</a>
                 
                 <a class="navbar-item"
                 href="/about">About</a>
@@ -106,7 +106,7 @@
             <div class="navbar-end">
                 
                     
-                    <a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                    <a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/wangthing/wangthing.github.io">
                         
                         <i class="fab fa-github"></i>
                         
@@ -115,7 +115,7 @@
                 
                 
                 
-                <a class="navbar-item search" title="Suche" href="javascript:;">
+                <a class="navbar-item search" title="搜索" href="javascript:;">
                     <i class="fas fa-search"></i>
                 </a>
                 
@@ -135,13 +135,128 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-03-09T02:09:18.000Z">2020-03-09</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    8 分钟 读完 (大约 1219 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2020/03/09/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0-%E7%AC%AC%E4%B8%80%E8%8A%82/">编译原理学习-第一节</a>
+            
+        </h1>
+        <div class="content">
+            <p>首先带着以下问题进行学习</p>
+<blockquote>
+<p>1、    翻译程序与解释程序之间根本区别是什么？<br>2、    翻译程序与解释程序各自优势？<br>3、    编译程序与翻译程序之间的关系？<br>4、    词法分析中，“单词”的理解？具体包括哪几类？<br>5、    语法分析中，“语法单位/短语”的理解？具体包括哪些？<br>6、    语法分析中，引入“语法树”这个工具，有什么好处？<br>7、    语义法分析中，“静态语义”与“动态语义”的运行阶段？<br>8、    为什么引入“中间代码”？<br>9、    代码优化从效率角度讲，应考虑哪几个要素？<br>10、“绝对地址的机器指令代码”与“可重定位的指令代码”的理解。</p>
+<p>判断题<br>1、编译程序是指将高级语言转化为机器语言的翻译程序。（ ）<br>2、编译程序属于系统软件。（ ）<br>3、在编译程序的设计中，代码优化是必须的。（ ）<br>4、在源代码的编译程序处理过程中，数组越界属于语义错误。（ ）<br>5、C语言的编译器可以用C语言来编写。（ ）</p>
+</blockquote>
+<h2 id="本课程的特点、难点和目的"><a href="#本课程的特点、难点和目的" class="headerlink" title="本课程的特点、难点和目的"></a>本课程的特点、难点和目的</h2><ul>
+<li>特点<ul>
+<li>抽象难懂</li>
+<li>算法多且算法复杂，不同于数据结构中的算法</li>
+</ul>
+</li>
+<li>难点<ul>
+<li>形式语言基本理论</li>
+<li>自动机基本理论</li>
+<li>语义分析（重点）</li>
+</ul>
+</li>
+<li>目的<ul>
+<li>训练抽象思维和形式化描述问题的能力</li>
+<li>加深对程序设计语言本质的理解</li>
+<li>了解一个变异程序的构造原理和方法</li>
+</ul>
+</li>
+</ul>
+<h2 id="计算机中的软件可以主要分为两类"><a href="#计算机中的软件可以主要分为两类" class="headerlink" title="计算机中的软件可以主要分为两类"></a>计算机中的软件可以主要分为两类</h2><ul>
+<li>系统软件（操作系统软件，对性能和准确率要求非常高）</li>
+<li>应用软件</li>
+</ul>
+<h2 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h2><p>编译原理指的是编译程序的构造原理和技术</p>
+<h3 id="计算机语言的分类"><a href="#计算机语言的分类" class="headerlink" title="计算机语言的分类"></a>计算机语言的分类</h3><ul>
+<li>低级语言<ul>
+<li>机器语言（唯一能被计算机执行的语言）</li>
+<li>汇编语言</li>
+</ul>
+</li>
+<li>高级语言<ul>
+<li>C、C++</li>
+<li>Java</li>
+<li>等等</li>
+</ul>
+</li>
+</ul>
+<p>​    我们用户用的都是高级设计语言，如果直接交给计算机执行的话肯定是不能够被计算机执行的，所以我们需要把高级语言程序或者汇编语言程序转换成计算机可以识别的机器语言。</p>
+<p>转化的方法就是 <strong>翻译或者解释</strong></p>
+<h3 id="翻译程序"><a href="#翻译程序" class="headerlink" title="翻译程序"></a>翻译程序</h3><blockquote>
+<p>它能够把某一种语言程序（称为源语言程序）转化成另一种语言程序（称为目标语言程序），而后者与前者在逻辑上是等价的</p>
+</blockquote>
+<h2 id="编译程序"><a href="#编译程序" class="headerlink" title="编译程序"></a>编译程序</h2><p>​    在翻译程序的基础之上， 如果源语言程序是一种 <code>C++ Java</code> 之类的高级语言，而目标语言是汇编语言或者机器语言之类的低级语言，那么这样的一个翻译程序就可以叫做 <code>编译程序</code></p>
+<p>​    而<code>汇编程序</code> 是用于特定计算机上的汇编语言的翻译程序</p>
+<h4 id="对编译程序的分类"><a href="#对编译程序的分类" class="headerlink" title="对编译程序的分类"></a>对编译程序的分类</h4><ul>
+<li><p>交叉编译程序</p>
+<p>源程序的编译和目标程序的执行不一定在同一种计算机上(比如在windows系统编译的程序要在 Linux系统上运行，甚至是Android系统)。当源程序由另外一种计算机的编译程序进行编译是，我们将此程序成为交叉编译程序。需要注意的是两个计算机是不是同一个操作系统，如果两个机器是同一个操作系统则不算是交叉编译程序。</p>
+</li>
+<li><p>诊断编译程序</p>
+<p>专门用于帮助程序开发和调试程序的编译程序</p>
+</li>
+<li><p>优化编译程序</p>
+<p>着重提高目标代码效率的编译程序</p>
+</li>
+</ul>
+<h2 id="解释程序"><a href="#解释程序" class="headerlink" title="解释程序"></a>解释程序</h2><p>定义： 把源程序作为一种输入，<strong>而且不会产生目标程序</strong>，而是边解释边执行源程序的本身。</p>
+<p>与编译程序的主要区别是： 会不会产生目标程序。</p>
+<h2 id="编译过程的概述"><a href="#编译过程的概述" class="headerlink" title="编译过程的概述"></a>编译过程的概述</h2><h3 id="编译程序的组成"><a href="#编译程序的组成" class="headerlink" title="编译程序的组成"></a>编译程序的组成</h3><p>举个例子：比如将一段英文翻译成中文，我们会经过一下一些步骤</p>
+<ul>
+<li>识别句子中的一个个单词         =》 词法分析</li>
+<li>分析一个句子的语法结构              =》语法分析</li>
+<li>分析句子的含义                              =》 语义分析</li>
+<li>进行初步翻译：                              =》 中间代码生成</li>
+<li>对译文进行修饰                               =》 中间代码优化</li>
+<li>写出最后的译文                              =》 目标程序生成</li>
+</ul>
+<h4 id="1-词法分析"><a href="#1-词法分析" class="headerlink" title="1. 词法分析"></a>1. 词法分析</h4><ul>
+<li>​</li>
+</ul>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2020-03-08T01:36:06.000Z">2020-03-08</time>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    3 分钟 lesen (Über 449 Worte)
+                    3 分钟 读完 (大约 449 个字)
                 </span>
                 
                 
@@ -206,7 +321,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    11 分钟 lesen (Über 1722 Worte)
+                    11 分钟 读完 (大约 1722 个字)
                 </span>
                 
                 
@@ -319,7 +434,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    16 分钟 lesen (Über 2386 Worte)
+                    16 分钟 读完 (大约 2386 个字)
                 </span>
                 
                 
@@ -449,7 +564,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    23 分钟 lesen (Über 3406 Worte)
+                    23 分钟 读完 (大约 3406 个字)
                 </span>
                 
                 
@@ -624,7 +739,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    2 分钟 lesen (Über 265 Worte)
+                    2 分钟 读完 (大约 265 个字)
                 </span>
                 
                 
@@ -696,7 +811,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    几秒 lesen (Über 0 Worte)
+                    几秒 读完 (大约 0 个字)
                 </span>
                 
                 
@@ -737,7 +852,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    3 分钟 lesen (Über 422 Worte)
+                    3 分钟 读完 (大约 422 个字)
                 </span>
                 
                 
@@ -834,7 +949,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    3 分钟 lesen (Über 398 Worte)
+                    3 分钟 读完 (大约 398 个字)
                 </span>
                 
                 
@@ -920,7 +1035,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    12 分钟 lesen (Über 1726 Worte)
+                    12 分钟 读完 (大约 1726 个字)
                 </span>
                 
                 
@@ -1076,175 +1191,15 @@
 
 
 
-    
-<div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-01-31T01:36:50.000Z">2020-01-31</time>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    16 分钟 lesen (Über 2408 Worte)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2020/01/31/%E6%88%91%E8%AF%BBVue%E6%BA%90%E7%A0%81-1/">我读Vue源码-1</a>
-            
-        </h1>
-        <div class="content">
-            <p>​    心态有点崩，刚刚写了一个小时居然没有保存，然后不小心关电脑了，前面写的一大堆废话都没了。不管了先从现在看的写，前面写的有空的话再不回来。多按按 <code>ctrl+s</code> ，别总是按 <code>ctrl+a ctrl+c  ctrl+v</code></p>
-<p>​    第二天过来补充，没想到昨天状态还不错，读到了快1200行，工具函数读完之后就到了响应式的实现了，响应式的实现主要是<strong>发布监听</strong>来实现，通过拦截传入的数据，赋值到this上面，然后通过 <code>Object.defineProperty()</code>来设置属性的 <code>getter、setter</code> 方法，在设置了 <code>__ob__</code>的值上面会在数据发生变化时通知 订阅 更新。当然还有特殊的对象比如数组，可以拦截 <code>sort splice push unshift</code> 等这些会改变数组的方法。</p>
-<h2 id="现在开始"><a href="#现在开始" class="headerlink" title="现在开始"></a>现在开始</h2><p>之前说过在710行出现 <code>uid</code> 之前的代码都是一些变量和工具函数的定义。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"> &#x2F;&#x2F; 阻止修改1现有属性的特性和值，也不能添加新的属性</span><br><span class="line"> var emptyObject &#x3D; Object.freeze(&#123;&#125;);</span><br><span class="line">  </span><br><span class="line">&#x2F;&#x2F;判断一个变量的值是不是 undefined或者是null</span><br><span class="line"> function isUndef (v) &#123;</span><br><span class="line">   return v &#x3D;&#x3D;&#x3D; undefined || v &#x3D;&#x3D;&#x3D; null</span><br><span class="line"> &#125;</span><br><span class="line">&#x2F;&#x2F;判断一个变量的值是否定义了，也就是不为undefine和null</span><br><span class="line"> function isDef (v) &#123;</span><br><span class="line">   return v !&#x3D;&#x3D; undefined &amp;&amp; v !&#x3D;&#x3D; null</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"> &#x2F;&#x2F;判断一个布尔值真假，也就是是不是真的等于 true</span><br><span class="line"> &#x2F;&#x2F;而不是 &#x3D;&#x3D; 会发生隐式转化后为true</span><br><span class="line"> function isTrue (v) &#123;</span><br><span class="line">   return v &#x3D;&#x3D;&#x3D; true</span><br><span class="line"> &#125;</span><br><span class="line">&#x2F;&#x2F;和上面是一样的</span><br><span class="line"> function isFalse (v) &#123;</span><br><span class="line">   return v &#x3D;&#x3D;&#x3D; false</span><br><span class="line"> &#125;</span><br><span class="line">  </span><br><span class="line">&#x2F;&#x2F; 判断是否为原始值</span><br><span class="line">&#x2F;&#x2F; ES5原始值有 string number boolean</span><br><span class="line">&#x2F;&#x2F; ES6新增了 symbol</span><br><span class="line"> function isPrimitive (value) &#123;</span><br><span class="line">   return (</span><br><span class="line">     typeof value &#x3D;&#x3D;&#x3D; &#39;string&#39; ||</span><br><span class="line">     typeof value &#x3D;&#x3D;&#x3D; &#39;number&#39; ||</span><br><span class="line">     &#x2F;&#x2F; $flow-disable-line</span><br><span class="line">     typeof value &#x3D;&#x3D;&#x3D; &#39;symbol&#39; ||</span><br><span class="line">     typeof value &#x3D;&#x3D;&#x3D; &#39;boolean&#39;</span><br><span class="line">   )</span><br><span class="line"> &#125;</span><br><span class="line"> 	</span><br><span class="line"> </span><br><span class="line"> &#x2F;&#x2F;判断是原始值还是对象，当我们知道值是</span><br><span class="line">&#x2F;&#x2F;json 兼容型</span><br><span class="line"> function isObject (obj) &#123;</span><br><span class="line">   return obj !&#x3D;&#x3D; null &amp;&amp; typeof obj &#x3D;&#x3D;&#x3D; &#39;object&#39;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>判断一个值的原始类型字符串，利用Objet原型上的 <code>toString()</code> 方法,因为Object下面各个对象都重写了自己的 <code>toString()</code> 方法，而Object上的就是返回原始类型的字符串的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var _toString &#x3D; Object.prototype.toString;</span><br><span class="line">  	  </span><br><span class="line">function toRawType (value) &#123;</span><br><span class="line">  return _toString.call(value).slice(8, -1)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>判断一个值是不是真的JavaScript对象，比如 node节点 <code>typeof</code> 返回的是 <code>object</code>,但是严格上来讲是 <code>NodeList</code> ，而不是我们认为的 json对象那种</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function isPlainObject (obj) &#123;</span><br><span class="line">     return _toString.call(obj) &#x3D;&#x3D;&#x3D; &#39;[object Object]&#39;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>判断是不是一个合格的数组下标</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function isValidArrayIndex (val) &#123;</span><br><span class="line">     var n &#x3D; parseFloat(String(val));</span><br><span class="line">     return n &gt;&#x3D; 0 &amp;&amp; Math.floor(n) &#x3D;&#x3D;&#x3D; n &amp;&amp; isFinite(val)</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>判断是不是一个 <code>Promise</code> 值</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function isPromise (val) &#123;</span><br><span class="line">  return (</span><br><span class="line">    isDef(val) &amp;&amp;</span><br><span class="line">    typeof val.then &#x3D;&#x3D;&#x3D; &#39;function&#39; &amp;&amp;</span><br><span class="line">    typeof val.catch &#x3D;&#x3D;&#x3D; &#39;function&#39;</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>把一个值转化成实际所呈现出来的字符串（不是很能理解）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function toString (val) &#123;</span><br><span class="line">  return val &#x3D;&#x3D; null			&#x2F;&#x2F;null或者undefined就返回空字符串而不是&#39;null&#39;、&#39;undefined&#39;</span><br><span class="line">  ? &#39;&#39;</span><br><span class="line">  :Array.isArray(val) || （isPlainObject(val) &amp;&amp; val.toString &#x3D;&#x3D;&#x3D; _toString）</span><br><span class="line">  &#x2F;&#x2F;是一个数组或者是原始对象的话就可以</span><br><span class="line">  	? JSON.stringify(val, null, 2)</span><br><span class="line">  	: String(val)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>将字符串转化为数字，如果转化失败，也就是 <code>NaN</code>，那么就直接返回字符串</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function toNumber (val) &#123;</span><br><span class="line">     var n &#x3D; parseFloat(val);</span><br><span class="line">     return isNaN(n) ? val : n</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>把传入的字符串创建一个 map，返回一个函数可以检查 key 是否存在于map当中，第二个参数来决定是否区分大小写</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function makeMap (str, expectLowercase) &#123;</span><br><span class="line">     	var map &#x3D; Object.create(null);&#x2F;&#x2F;创建一个真的空对象</span><br><span class="line">     	var list &#x3D; str.split(&#39;,&#39;);</span><br><span class="line">     	for(var i &#x3D; 0; i&lt;list.length; i++) &#123;</span><br><span class="line">         map[list[i]] &#x3D; true</span><br><span class="line">     	&#125;</span><br><span class="line">     	return expectLowercase</span><br><span class="line">     	? function (val) &#123; return map[val.toLowerCase()]&#125;</span><br><span class="line">     	: function (val) &#123; return map[val]&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>移除数组中的一项，当你不知道该项在数组中的索引的时候</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function remove (arr, item) &#123;</span><br><span class="line">  if(arr.length) &#123;</span><br><span class="line">    var index &#x3D; arr.indexOf(item);</span><br><span class="line">    if(index &gt; -1) &#123;</span><br><span class="line">      return arr.splice(index,1)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>检查一个对象是否自己有这个 属性</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var hasOwnProperty &#x3D; Object.prototype.hasOwnProperty;</span><br><span class="line">function hasOwn (obj, key) &#123;</span><br><span class="line">	return hasOwnProperty.call(obj,key);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>返回一个函数并该函数返回一个已经缓存的字符串，也就是结果吧</p>
-<ul>
-<li>利用了闭包将已经计算好了的结果缓存在一个 <code>catch</code> 对象</li>
-<li>在我们重复调用函数但是可能这些值我们已经计算过了，就直接返回缓存中存了的</li>
-<li>在下面有些方法中会使用到</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function catched (fn) &#123;</span><br><span class="line">     var catch &#x3D; Object.create(null);</span><br><span class="line">     return (function catchedFn (str) &#123;</span><br><span class="line">       var hit &#x3D; catch[str];</span><br><span class="line">       return hit || catch[str] &#x3D; fn(str);</span><br><span class="line">     &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>把用连字符分割字符串变成驼峰命名，比如   v-model&gt;vModel</p>
-</li>
-<li><p>将首字母变成大写</p>
-</li>
-<li><p>把驼峰命名字符串变成连字符链接 比如 aBc &gt; a-bc</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">var camelizeRE &#x3D; &#x2F;-(\w)&#x2F;g;</span><br><span class="line">var camelize &#x3D; cached(function (str) &#123;</span><br><span class="line">  return str.replace(camelizeRE, function (_, c) &#123; return c ? c.toUpperCase() : &#39;&#39;; &#125;)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">var capitalize &#x3D; cached(function (str) &#123;</span><br><span class="line">  return str.charAt(0).toUpperCase() + str.slice(1)</span><br><span class="line">&#125;);</span><br><span class="line">&#x2F;&#x2F;举个例子，如果我在下面</span><br><span class="line">var str &#x3D; capitalize(&#39;javascript&#39;);</span><br><span class="line">&#x2F;&#x2F;会将我传入的字符串 &#39;javascript&#39;变成&#39;Javascript&#39;</span><br><span class="line">&#x2F;&#x2F;同时由于我已经转化过一次了，将它存在缓存当中，catch也就是闭包所引用的</span><br><span class="line">var str1 &#x3D; capitalize(&#39;javascript&#39;)</span><br><span class="line">&#x2F;&#x2F;z这时候就是直接从缓存当中获取了</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">var hyphenateRE &#x3D; &#x2F;\B([A-Z])&#x2F;g;</span><br><span class="line">var hyphenate &#x3D; cached(function (str) &#123;</span><br><span class="line">  return str.replace(hyphenateRE, &#39;-$1&#39;).toLowerCase()</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>这是一个 <code>bind polyfill</code>,虽然大部分可以说是所有的浏览器都支持 <code>bind</code>，但是还是不排除有憨憨使用的浏览器太感人了，算是 <strong>优雅降级</strong>吧。不得不说 Vue的开发者想的太周到了，内力雄厚啊。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;绑定函数，并且改变上下文</span><br><span class="line">function polyfillBind (fn, ctx) &#123;</span><br><span class="line">     function boundFn (a) &#123;</span><br><span class="line">       var l &#x3D; arguments.length;</span><br><span class="line">       return l</span><br><span class="line">       ? l&gt;1</span><br><span class="line">         ? fn.apply(ctx,arguments)</span><br><span class="line">         : fn.call(ctx,a)</span><br><span class="line">       : fn.call(ctx)</span><br><span class="line">     &#125;</span><br><span class="line">     boundFn._length &#x3D; fn.length;</span><br><span class="line">     return boundFn</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;原始的bind</span><br><span class="line">function nativeBind （fn,ctx) &#123;</span><br><span class="line">     return fn.bind(ctx);</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;判断是否支持bind</span><br><span class="line">var bind &#x3D; Function.prototype.bind</span><br><span class="line">	? nativeBind</span><br><span class="line">	: polyfillBind</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ul>
-<ul>
-<li><p>把一个类数组变成一个数组</p>
-<blockquote>
-<p>当然也可以使用 <code>Array.prototype.slice.call(list)</code> ，如果不需要项下面这样可能会只要部分</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function toArray (list,start) &#123;</span><br><span class="line">     start &#x3D; start || 0;</span><br><span class="line">     var i &#x3D; list.length - start;</span><br><span class="line">     var ret &#x3D; new Array(i);</span><br><span class="line">     while (i--) &#123;</span><br><span class="line">       ret[i] &#x3D; list[i+start];</span><br><span class="line">     &#125;</span><br><span class="line">     return ret</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>把属性混入到目标属性</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function extend (to,_from) &#123;</span><br><span class="line">     for(var key in _from) &#123;</span><br><span class="line">       to[key] &#x3D; _from[key];</span><br><span class="line">     &#125;</span><br><span class="line">     return to</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>合并数组里面的对象到一个对象里面，是浅拷贝</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function toObject (arr) &#123;</span><br><span class="line">     var res &#x3D; &#123;&#125;;</span><br><span class="line">     for (var i &#x3D; 0; i &lt; arr.length; i++) &#123;</span><br><span class="line">       if(arr[i]) &#123;</span><br><span class="line">         extend(res,arr[i]);</span><br><span class="line">       &#125;</span><br><span class="line">     &#125;</span><br><span class="line">     return res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>下面这几个函数就比较让人摸不着头脑，不知道是干什么用的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;**</span><br><span class="line">    * Perform no operation.</span><br><span class="line">    * Stubbing args to make Flow happy without leaving useless transpiled code</span><br><span class="line">    * with ...rest (https:&#x2F;&#x2F;flow.org&#x2F;blog&#x2F;2017&#x2F;05&#x2F;07&#x2F;Strict-Function-Call-Arity&#x2F;).</span><br><span class="line">    *&#x2F;</span><br><span class="line">   function noop (a, b, c) &#123;&#125;</span><br><span class="line"> </span><br><span class="line">   &#x2F;**</span><br><span class="line">    * Always return false.</span><br><span class="line">    *&#x2F;</span><br><span class="line">   var no &#x3D; function (a, b, c) &#123; return false; &#125;;</span><br><span class="line"> </span><br><span class="line">   &#x2F;* eslint-enable no-unused-vars *&#x2F;</span><br><span class="line"> </span><br><span class="line">   &#x2F;**</span><br><span class="line">    * Return the same value.</span><br><span class="line">    *&#x2F;</span><br><span class="line">   var identity &#x3D; function (_) &#123; return _; &#125;;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>生成一个字符串，用 <code>,</code> 连接起来，用来连接数组对象中的 <code>stacticKeys key</code>值 ， <code>[{stacticKeys:1},{stacticKeys:2},{stacticKeys:3}]</code>变成一个字符串 <code>1,2，3</code>‘   <strong>还不知道使用来干啥的</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function genStaticKeys (module) &#123;</span><br><span class="line">     return module.reduce(function (keys, m) &#123;</span><br><span class="line">       return keys.concat(m.staticKeys || [])</span><br><span class="line">     &#125;, []).join(&#39;,&#39;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>判断两个值是不是 宽松的 相等，如果是两个不同的对象，虽然引用不同，==判断也是不相等的。但是他们看起来可能会一样  比如 <code>var a = {a:&#39;a&#39;}  var b = {a:&#39;a&#39;}</code>,还比如两个数组长度相等，且每一项相等</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">function looseEqual (a,b) &#123;</span><br><span class="line">     if (a &#x3D;&#x3D;&#x3D; b) return true;</span><br><span class="line">     var isObjectA &#x3D; isObject(A);</span><br><span class="line">     var isObjectB &#x3D; isObject(B);</span><br><span class="line">     if(isObjectA &amp;&amp; isObjectB) &#123;</span><br><span class="line">      &#x2F;&#x2F;如果都是对象进入这一步</span><br><span class="line">      try&#123;</span><br><span class="line">        	var isArrayA &#x3D; Array.isArray(a);</span><br><span class="line">       	var isArrayB &#x3D; Array.isArray(b);</span><br><span class="line">       	if (isArrayA &amp;&amp; isArrayB) &#123;</span><br><span class="line">             &#x2F;&#x2F;两个都是数组</span><br><span class="line">             return a.length &#x3D;&#x3D;&#x3D; b.length &amp;&amp; b.every(function (e, i) &#123;</span><br><span class="line">               return looseEqual(e,a[i]);&#x2F;&#x2F;长度相同，且递归判断每一项是否相等</span><br><span class="line">             &#125;)</span><br><span class="line">       	&#125;else if (a instance of Date &amp;&amp; b instanceof Date) &#123;</span><br><span class="line">             return a.getTime() &#x3D;&#x3D;&#x3D; b.getTime()</span><br><span class="line">             &#x2F;&#x2F;还可以判断两个date对象的时间是不是相等的</span><br><span class="line">       	&#125;else if(!isArrayA &amp;&amp; !isArrayB)&#123;</span><br><span class="line">             &#x2F;&#x2F;两个都不是数组，但是是对象</span><br><span class="line">             var keysA &#x3D; Object.keys(a);</span><br><span class="line">             var keysB &#x3D; Object.keys(b);</span><br><span class="line">             return keysA.length &#x3D;&#x3D;&#x3D; keysB.length &amp;&amp; keysB.every(function (key) &#123;</span><br><span class="line">               return looseEqual(a[key],b[key]);</span><br><span class="line">               &#x2F;&#x2F;a b 的keys长度相等，递归判断两者属性是否相等</span><br><span class="line">             &#125;)</span><br><span class="line">       	&#125; else &#123;</span><br><span class="line">             return false</span><br><span class="line">       	&#125;</span><br><span class="line">      &#125; catch(e) &#123;</span><br><span class="line">        return false;</span><br><span class="line">      &#125;</span><br><span class="line">       </span><br><span class="line">     &#125;else if(!isObjectA &amp;&amp; !isObjectB)&#123;</span><br><span class="line">       return String(a) &#x3D;&#x3D;&#x3D; String(b);</span><br><span class="line">     &#125;else &#123;</span><br><span class="line">       return false</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>判断数组中是否有一个值与传入的值相等,并返回第一个值的索引</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function looseIndexOf (arr,val) &#123;</span><br><span class="line">     for (var i &#x3D; 0; i&lt;arr.length; i++) &#123;</span><br><span class="line">       if(looseEqual(arr[i], val)) &#123;</span><br><span class="line">         return i;</span><br><span class="line">       &#125;</span><br><span class="line">     &#125;</span><br><span class="line">     return -1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>确保这个函数只被调用一次,闭包函数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function once (fn) &#123;</span><br><span class="line">     var called &#x3D; false;</span><br><span class="line">     return function () &#123;</span><br><span class="line">       if(!called) &#123;</span><br><span class="line">         called &#x3D; true;</span><br><span class="line">         fn.apply(this, arguments)</span><br><span class="line">       &#125;</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>下面一些都是一些标识符和配置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;ssr标记属性，ssr就是服务端渲染</span><br><span class="line">var SSR_ATTR &#x3D; &#39;data-server-rendered&#39;;</span><br><span class="line"> </span><br><span class="line"> 	&#x2F;&#x2F; 组件指令  定义指令 、 过滤器指令</span><br><span class="line">   var ASSET_TYPES &#x3D; [</span><br><span class="line">     &#39;component&#39;,</span><br><span class="line">     &#39;directive&#39;,</span><br><span class="line">     &#39;filter&#39;</span><br><span class="line">   ];</span><br><span class="line"> </span><br><span class="line">   var LIFECYCLE_HOOKS &#x3D; [</span><br><span class="line">     &#39;beforeCreate&#39;,	&#x2F;&#x2F;生命周期，开始实例化 vue 指令</span><br><span class="line">     &#39;created&#39;,		&#x2F;&#x2F;生命周期， 结束实例化 vue 指令</span><br><span class="line">     &#39;beforeMount&#39;,	&#x2F;&#x2F;生命周期，开始渲染虚拟 dom，挂载 event 事件 </span><br><span class="line">     &#39;mounted&#39;,		&#x2F;&#x2F;生命周期，渲染虚拟dom，挂载 event结束了 </span><br><span class="line">     &#39;beforeUpdate&#39;,	&#x2F;&#x2F;生命周期，开始更新view数据 指令</span><br><span class="line">     &#39;updated&#39;,		&#x2F;&#x2F;生命周期，结束更新view数据 指令</span><br><span class="line">     &#39;beforeDestroy&#39;,	&#x2F;&#x2F;生命周期，开始销毁 new 出来的实例</span><br><span class="line">     &#39;destroyed&#39;,		&#x2F;&#x2F;生命周期，结束销毁实例</span><br><span class="line">     &#39;activated&#39;,		&#x2F;&#x2F;keep-alive 组件激活时使用</span><br><span class="line">     &#39;deactivated&#39;,	&#x2F;&#x2F;keep-alive 组件停用时调用</span><br><span class="line">     &#39;errorCaptured&#39;,&#x2F;&#x2F; 具有此钩子的组件捕获其子组件树（不包括其自身）中的所有错误（不包括在异步回调中调用的那些）</span><br><span class="line">     &#39;serverPrefetch&#39; &#x2F;&#x2F; 暂时不清楚</span><br><span class="line">   ];</span><br><span class="line"> </span><br><span class="line">   &#x2F;*  *&#x2F;</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">   var config &#x3D; (&#123;</span><br><span class="line">     &#x2F;**</span><br><span class="line">      * Option merge strategies (used in core&#x2F;util&#x2F;options)</span><br><span class="line">      *&#x2F;</span><br><span class="line">     &#x2F;&#x2F; $flow-disable-line</span><br><span class="line">     &#x2F;&#x2F;合并对象策略</span><br><span class="line">     optionMergeStrategies: Object.create(null),</span><br><span class="line"> </span><br><span class="line">     &#x2F;**</span><br><span class="line">      * Whether to suppress warnings.</span><br><span class="line">      *&#x2F;</span><br><span class="line">     silent: false,</span><br><span class="line"> </span><br><span class="line">     &#x2F;**</span><br><span class="line">      * Show production mode tip message on boot?</span><br><span class="line">      *&#x2F;</span><br><span class="line">     productionTip: &quot;development&quot; !&#x3D;&#x3D; &#39;production&#39;,</span><br><span class="line"> </span><br><span class="line">     &#x2F;**</span><br><span class="line">      * Whether to enable devtools</span><br><span class="line">      *&#x2F;</span><br><span class="line">     devtools: &quot;development&quot; !&#x3D;&#x3D; &#39;production&#39;,</span><br><span class="line"> </span><br><span class="line">     &#x2F;**</span><br><span class="line">      * Whether to record perf</span><br><span class="line">      *&#x2F;</span><br><span class="line">     performance: false,</span><br><span class="line"> </span><br><span class="line">     &#x2F;**</span><br><span class="line">      * Error handler for watcher errors</span><br><span class="line">      *&#x2F;</span><br><span class="line">     errorHandler: null,</span><br><span class="line"> </span><br><span class="line">     &#x2F;**</span><br><span class="line">      * Warn handler for watcher warns</span><br><span class="line">      *&#x2F;</span><br><span class="line">     warnHandler: null,</span><br><span class="line"> </span><br><span class="line">     &#x2F;**</span><br><span class="line">      * Ignore certain custom elements</span><br><span class="line">      *&#x2F;</span><br><span class="line">     ignoredElements: [],</span><br><span class="line"> </span><br><span class="line">     &#x2F;**</span><br><span class="line">      * Custom user key aliases for v-on</span><br><span class="line">      *&#x2F;</span><br><span class="line">     &#x2F;&#x2F; $flow-disable-line</span><br><span class="line">     keyCodes: Object.create(null),</span><br><span class="line"> </span><br><span class="line">     &#x2F;**</span><br><span class="line">      * Check if a tag is reserved so that it cannot be registered as a</span><br><span class="line">      * component. This is platform-dependent and may be overwritten.</span><br><span class="line">      *&#x2F;</span><br><span class="line">     isReservedTag: no,</span><br><span class="line"> </span><br><span class="line">     &#x2F;**</span><br><span class="line">      * Check if an attribute is reserved so that it cannot be used as a component</span><br><span class="line">      * prop. This is platform-dependent and may be overwritten.</span><br><span class="line">      *&#x2F;</span><br><span class="line">     isReservedAttr: no,</span><br><span class="line"> </span><br><span class="line">     &#x2F;**</span><br><span class="line">      * Check if a tag is an unknown element.</span><br><span class="line">      * Platform-dependent.</span><br><span class="line">      *&#x2F;</span><br><span class="line">     isUnknownElement: no,</span><br><span class="line"> </span><br><span class="line">     &#x2F;**</span><br><span class="line">      * Get the namespace of an element</span><br><span class="line">      *&#x2F;</span><br><span class="line">     getTagNamespace: noop,</span><br><span class="line"> </span><br><span class="line">     &#x2F;**</span><br><span class="line">      * Parse the real tag name for the specific platform.</span><br><span class="line">      *&#x2F;</span><br><span class="line">     parsePlatformTagName: identity,</span><br><span class="line"> </span><br><span class="line">     &#x2F;**</span><br><span class="line">      * Check if an attribute must be bound using property, e.g. value</span><br><span class="line">      * Platform-dependent.</span><br><span class="line">      *&#x2F;</span><br><span class="line">     mustUseProp: no,</span><br><span class="line"> </span><br><span class="line">     &#x2F;**</span><br><span class="line">      * Perform updates asynchronously. Intended to be used by Vue Test Utils</span><br><span class="line">      * This will significantly reduce performance if set to false.</span><br><span class="line">      *&#x2F;</span><br><span class="line">     async: true,</span><br><span class="line"> </span><br><span class="line">     &#x2F;**</span><br><span class="line">      * Exposed for legacy reasons</span><br><span class="line">      *&#x2F;</span><br><span class="line">     _lifecycleHooks: LIFECYCLE_HOOKS</span><br><span class="line">   &#125;);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>检查一个字符串是否以$或者_开头</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function isReserved (str) &#123;</span><br><span class="line">     var c &#x3D; (str + &#39;&#39;).charCodeAt(0);</span><br><span class="line">     return c &#x3D;&#x3D;&#x3D; 0x24 || c &#x3D;&#x3D;&#x3D; 0x5F</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>定义对象的属性</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function def (obj, key, val, enumerable) &#123;</span><br><span class="line">     Object.defineProperty(obj,key,&#123;</span><br><span class="line">       value: val,</span><br><span class="line">       enumerable: !!enumerable,</span><br><span class="line">       writable: true,</span><br><span class="line">       configurable: true</span><br><span class="line">     &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>匹配不是 数字字母下划线 $符号   开头的（正则表达式还不是很会，下次再来看）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var bailRE &#x3D; new RegExp((&quot;[^&quot; + (unicodeRegExp.source) + &quot;.$_\\d]&quot;));</span><br><span class="line">   function parsePath (path) &#123;</span><br><span class="line">     if (bailRE.test(path)) &#123;</span><br><span class="line">       return</span><br><span class="line">     &#125;</span><br><span class="line">     var segments &#x3D; path.split(&#39;.&#39;);</span><br><span class="line">     return function (obj) &#123;</span><br><span class="line">       for (var i &#x3D; 0; i &lt; segments.length; i++) &#123;</span><br><span class="line">         if (!obj) &#123; return &#125;</span><br><span class="line">         obj &#x3D; obj[segments[i]];</span><br><span class="line">       &#125;</span><br><span class="line">       return obj</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>我们能不能用 <code>__proto__</code>  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var hasProto &#x3D; &#39;__proto__&#39; in &#123;&#125;;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>判断浏览器和设备</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var inBrowser &#x3D; typeof window !&#x3D;&#x3D; undefined 		&#x2F;&#x2F;判断是不是浏览器</span><br><span class="line">var inWeex &#x3D; typeof WXEnvironment !&#x3D;&#x3D; &#39;undefined&#39; &amp;&amp; !!WXEnvironment.platform;</span><br><span class="line">   var weexPlatform &#x3D; inWeex &amp;&amp; WXEnvironment.platform.toLowerCase();</span><br><span class="line">   var UA &#x3D; inBrowser &amp;&amp; window.navigator.userAgent.toLowerCase();</span><br><span class="line">   var isIE &#x3D; UA &amp;&amp; &#x2F;msie|trident&#x2F;.test(UA);</span><br><span class="line">   var isIE9 &#x3D; UA &amp;&amp; UA.indexOf(&#39;msie 9.0&#39;) &gt; 0;</span><br><span class="line">   var isEdge &#x3D; UA &amp;&amp; UA.indexOf(&#39;edge&#x2F;&#39;) &gt; 0;</span><br><span class="line">   var isAndroid &#x3D; (UA &amp;&amp; UA.indexOf(&#39;android&#39;) &gt; 0) || (weexPlatform &#x3D;&#x3D;&#x3D; &#39;android&#39;);</span><br><span class="line">   var isIOS &#x3D; (UA &amp;&amp; &#x2F;iphone|ipad|ipod|ios&#x2F;.test(UA)) || (weexPlatform &#x3D;&#x3D;&#x3D; &#39;ios&#39;);</span><br><span class="line">   var isChrome &#x3D; UA &amp;&amp; &#x2F;chrome\&#x2F;\d+&#x2F;.test(UA) &amp;&amp; !isEdge;</span><br><span class="line">   var isPhantomJS &#x3D; UA &amp;&amp; &#x2F;phantomjs&#x2F;.test(UA);</span><br><span class="line">   var isFF &#x3D; UA &amp;&amp; UA.match(&#x2F;firefox\&#x2F;(\d+)&#x2F;);</span><br><span class="line">   </span><br><span class="line">   &#x2F;&#x2F; Firefox has a &quot;watch&quot; function on Object.prototype...</span><br><span class="line">   var nativeWatch &#x3D; (&#123;&#125;).watch;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>兼容火狐浏览器的写法 （还是看不懂）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var supportsPassive &#x3D; false;</span><br><span class="line">if (inBrowser) &#123;</span><br><span class="line">  try &#123;</span><br><span class="line">    var opts &#x3D; &#123;&#125;;</span><br><span class="line">    Object.defineProperty(opts, &#39;passive&#39;, (&#123;</span><br><span class="line">      get: function get () &#123;</span><br><span class="line">        &#x2F;* istanbul ignore next *&#x2F;</span><br><span class="line">        supportsPassive &#x3D; true;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)); &#x2F;&#x2F; https:&#x2F;&#x2F;github.com&#x2F;facebook&#x2F;flow&#x2F;issues&#x2F;285</span><br><span class="line">    window.addEventListener(&#39;test-passive&#39;, null, opts);</span><br><span class="line">  &#125; catch (e) &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>#####这里好像是设置服务器渲染的，也还是不太懂</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; this needs to be lazy-evaled because vue may be required before</span><br><span class="line">&#x2F;&#x2F; vue-server-renderer can set VUE_ENV</span><br><span class="line">    &#x2F;&#x2F;vue 服务器渲染 可以设置   VUE_ENV</span><br><span class="line">    var _isServer;</span><br><span class="line">&#x2F;&#x2F;判断是不是node 服务器环境</span><br><span class="line">    var isServerRendering &#x3D; function () &#123;</span><br><span class="line">        if (_isServer &#x3D;&#x3D;&#x3D; undefined) &#123;</span><br><span class="line">            &#x2F;* istanbul ignore if *&#x2F;</span><br><span class="line">            &#x2F;&#x2F;如果不是浏览器 并且global 对象存在，那么有可能是node 脚本</span><br><span class="line">            if (!inBrowser &amp;&amp; typeof global !&#x3D;&#x3D; &#39;undefined&#39;) &#123;</span><br><span class="line">                &#x2F;&#x2F;</span><br><span class="line">                &#x2F;&#x2F; detect presence of vue-server-renderer and avoid</span><br><span class="line">                &#x2F;&#x2F; Webpack shimming the process</span><br><span class="line">                &#x2F;&#x2F;_isServer 设置是服务器渲染</span><br><span class="line">                _isServer &#x3D; global[&#39;process&#39;].env.VUE_ENV &#x3D;&#x3D;&#x3D; &#39;server&#39;;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                _isServer &#x3D; false;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return _isServer</span><br><span class="line">    &#125;;</span><br><span class="line">    </span><br><span class="line">    &#x2F;&#x2F; detect devtools 检测工具</span><br><span class="line">    var devtools &#x3D; inBrowser &amp;&amp; window.__VUE_DEVTOOLS_GLOBAL_HOOK__;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>判断该函数是不是系统内置函数</p>
-</li>
-<li><p>判断是否支持 <code>Symbol</code> 数据类型</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function isNative (Ctor) &#123;</span><br><span class="line">    return typeof Ctor &#x3D;&#x3D;&#x3D; &#39;function&#39; &amp;&amp; &#x2F;native code&#x2F;.test(Ctor.toString())</span><br><span class="line">  &#125;</span><br><span class="line">   </span><br><span class="line">   </span><br><span class="line">    var hasSymbol &#x3D;</span><br><span class="line">    typeof Symbol !&#x3D;&#x3D; &#39;undefined&#39; &amp;&amp; isNative(Symbol) &amp;&amp;</span><br><span class="line">    typeof Reflect !&#x3D;&#x3D; &#39;undefined&#39; &amp;&amp; isNative(Reflect.ownKeys);</span><br><span class="line">    &#x2F;&#x2F; Reflect.ownKeys方法用于返回对象的所有属性，基本等同于Object.getOwnPropertyNames与Object.getOwnPropertySymbols之和。</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>判断是否有ES6的 <code>Set</code>数据结构，如果没有自己写一个</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">var _Set;</span><br><span class="line">if( typeof Set !&#x3D;&#x3D; &#39;undefined&#39; &amp;&amp; isNative(Set)) &#123;</span><br><span class="line">     _Set &#x3D; Set;</span><br><span class="line">&#125; else &#123;</span><br><span class="line">&#x2F;&#x2F;a non-standard Set polyfill that only works with primitive keys. 非标准的</span><br><span class="line">     _Set &#x3D; (function () &#123;</span><br><span class="line">       function Set () &#123;</span><br><span class="line">         this.set &#x3D; Object.create(null);</span><br><span class="line">       &#125;</span><br><span class="line">       Set.prototype.has &#x3D; function has (key) &#123;</span><br><span class="line">         return this.set[key] &#x3D;&#x3D;&#x3D; true</span><br><span class="line">       &#125;;</span><br><span class="line">       Set.prototype.add &#x3D; function add (key) &#123;</span><br><span class="line">         this.set[key] &#x3D; true;</span><br><span class="line">       &#125;;</span><br><span class="line">       Set.prototype.clear &#x3D; function clear () &#123;</span><br><span class="line">         this.set &#x3D; Object.create(null);</span><br><span class="line">       &#125;;</span><br><span class="line">       return Set</span><br><span class="line">     &#125;)()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>一直到这里似乎都和<code>Vue</code> 本身没啥关系，这些都是工具函数，方便以后的使用，jQuery也有好多类似的方法。</p>
-<p>​</p>
-</li>
-</ul>
-
-        </div>
-        
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
 
     
 <div class="card card-transparent">
     <nav class="pagination is-centered" role="navigation" aria-label="pagination">
         <div class="pagination-previous is-invisible is-hidden-mobile">
-            <a class="is-flex-grow has-text-black-ter" href="/page/0/">Zurück</a>
+            <a class="is-flex-grow has-text-black-ter" href="/page/0/">上一页</a>
         </div>
         <div class="pagination-next">
-            <a class="is-flex-grow has-text-black-ter" href="/page/2/">Weiter</a>
+            <a class="is-flex-grow has-text-black-ter" href="/page/2/">下一页</a>
         </div>
         <ul class="pagination-list is-hidden-mobile">
             
@@ -1298,11 +1253,11 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Posts
+                        文章
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            26
+                            27
                         </p>
                     </a>
                 </div>
@@ -1310,7 +1265,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Kategorien
+                        分类
                     </p>
                     <a href="/categories">
                         <p class="title has-text-weight-normal">
@@ -1322,11 +1277,11 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Tags
+                        标签
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            34
+                            35
                         </p>
                     </a>
                 </div>
@@ -1335,7 +1290,7 @@
         
         <div class="level">
             <a class="level-item button is-link is-rounded" href="https://github.com/ppoffice" target="_blank" rel="noopener">
-                Folgen</a>
+                关注我</a>
         </div>
         
         
@@ -1388,7 +1343,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Links
+            链接
         </h3>
         <ul class="menu-list">
         
@@ -1425,7 +1380,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Kategorien
+                分类
             </h3>
             <ul class="menu-list">
             
@@ -1437,9 +1392,9 @@
         <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Tag Cloud
+            标签云
         </h3>
-        <a href="/tags/BOM/" style="font-size: 10px;">BOM</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/DOM/" style="font-size: 15px;">DOM</a> <a href="/tags/ES5/" style="font-size: 10px;">ES5</a> <a href="/tags/ES6/" style="font-size: 15px;">ES6</a> <a href="/tags/Echarts/" style="font-size: 10px;">Echarts</a> <a href="/tags/MVVM/" style="font-size: 10px;">MVVM</a> <a href="/tags/Promise/" style="font-size: 10px;">Promise</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/background-ground/" style="font-size: 10px;">background-ground</a> <a href="/tags/cookies/" style="font-size: 10px;">cookies</a> <a href="/tags/diff/" style="font-size: 10px;">diff</a> <a href="/tags/github/" style="font-size: 15px;">github</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/padding/" style="font-size: 10px;">padding</a> <a href="/tags/session/" style="font-size: 10px;">session</a> <a href="/tags/token/" style="font-size: 10px;">token</a> <a href="/tags/vue/" style="font-size: 20px;">vue</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/%E4%BA%8B%E4%BB%B6/" style="font-size: 10px;">事件</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 10px;">动态规划</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 10px;">博客</a> <a href="/tags/%E5%91%BD%E4%BB%A4/" style="font-size: 10px;">命令</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 10px;">数据结构</a> <a href="/tags/%E6%95%B0%E7%BB%84/" style="font-size: 10px;">数组</a> <a href="/tags/%E6%A0%88/" style="font-size: 10px;">栈</a> <a href="/tags/%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/" style="font-size: 10px;">源码阅读</a> <a href="/tags/%E7%9B%92%E6%A8%A1%E5%9E%8B/" style="font-size: 10px;">盒模型</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 20px;">算法</a> <a href="/tags/%E8%99%9A%E6%8B%9FDOM/" style="font-size: 10px;">虚拟DOM</a> <a href="/tags/%E8%B4%AA%E5%BF%83/" style="font-size: 10px;">贪心</a> <a href="/tags/%E9%93%BE%E8%A1%A8/" style="font-size: 10px;">链表</a> <a href="/tags/%E9%98%9F%E5%88%97/" style="font-size: 10px;">队列</a>
+        <a href="/tags/BOM/" style="font-size: 10px;">BOM</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/DOM/" style="font-size: 15px;">DOM</a> <a href="/tags/ES5/" style="font-size: 10px;">ES5</a> <a href="/tags/ES6/" style="font-size: 15px;">ES6</a> <a href="/tags/Echarts/" style="font-size: 10px;">Echarts</a> <a href="/tags/MVVM/" style="font-size: 10px;">MVVM</a> <a href="/tags/Promise/" style="font-size: 10px;">Promise</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/background-ground/" style="font-size: 10px;">background-ground</a> <a href="/tags/cookies/" style="font-size: 10px;">cookies</a> <a href="/tags/diff/" style="font-size: 10px;">diff</a> <a href="/tags/github/" style="font-size: 15px;">github</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/padding/" style="font-size: 10px;">padding</a> <a href="/tags/session/" style="font-size: 10px;">session</a> <a href="/tags/token/" style="font-size: 10px;">token</a> <a href="/tags/vue/" style="font-size: 20px;">vue</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/%E4%BA%8B%E4%BB%B6/" style="font-size: 10px;">事件</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 10px;">动态规划</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 10px;">博客</a> <a href="/tags/%E5%91%BD%E4%BB%A4/" style="font-size: 10px;">命令</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 10px;">数据结构</a> <a href="/tags/%E6%95%B0%E7%BB%84/" style="font-size: 10px;">数组</a> <a href="/tags/%E6%A0%88/" style="font-size: 10px;">栈</a> <a href="/tags/%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/" style="font-size: 10px;">源码阅读</a> <a href="/tags/%E7%9B%92%E6%A8%A1%E5%9E%8B/" style="font-size: 10px;">盒模型</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 20px;">算法</a> <a href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" style="font-size: 10px;">编译原理</a> <a href="/tags/%E8%99%9A%E6%8B%9FDOM/" style="font-size: 10px;">虚拟DOM</a> <a href="/tags/%E8%B4%AA%E5%BF%83/" style="font-size: 10px;">贪心</a> <a href="/tags/%E9%93%BE%E8%A1%A8/" style="font-size: 10px;">链表</a> <a href="/tags/%E9%98%9F%E5%88%97/" style="font-size: 10px;">队列</a>
     </div>
 </div>
     
@@ -1449,8 +1404,27 @@
             <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Letzte Einträge
+            最新文章
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2020/03/09/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0-%E7%AC%AC%E4%B8%80%E8%8A%82/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="编译原理学习-第一节">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-09T02:09:18.000Z">2020-03-09</time></div>
+                    <a href="/2020/03/09/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0-%E7%AC%AC%E4%B8%80%E8%8A%82/" class="title has-link-black-ter is-size-6 has-text-weight-normal">编译原理学习-第一节</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -1528,25 +1502,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2020/02/10/CSS-%E7%9B%92%E6%A8%A1%E5%9E%8B/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="CSS-盒模型">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-10T01:12:38.000Z">2020-02-10</time></div>
-                    <a href="/2020/02/10/CSS-%E7%9B%92%E6%A8%A1%E5%9E%8B/" class="title has-link-black-ter is-size-6 has-text-weight-normal">CSS-盒模型</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
         
@@ -1554,7 +1509,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archive
+            归档
         </h3>
         <ul class="menu-list">
         
@@ -1564,7 +1519,7 @@
                     <span class="level-item">三月 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">3</span>
+                    <span class="level-item tag">4</span>
                 </span>
             </a>
         </li>
@@ -1611,7 +1566,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Tags
+                标签
             </h3>
             <div class="field is-grouped is-grouped-multiline">
                 
@@ -1822,6 +1777,13 @@
                     <a class="tags has-addons" href="/tags/%E7%AE%97%E6%B3%95/">
                         <span class="tag">算法</span>
                         <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
+                        <span class="tag">编译原理</span>
+                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
@@ -1872,8 +1834,27 @@
         <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Letzte Einträge
+            最新文章
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2020/03/09/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0-%E7%AC%AC%E4%B8%80%E8%8A%82/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="编译原理学习-第一节">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-09T02:09:18.000Z">2020-03-09</time></div>
+                    <a href="/2020/03/09/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0-%E7%AC%AC%E4%B8%80%E8%8A%82/" class="title has-link-black-ter is-size-6 has-text-weight-normal">编译原理学习-第一节</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -1951,25 +1932,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2020/02/10/CSS-%E7%9B%92%E6%A8%A1%E5%9E%8B/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="CSS-盒模型">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-02-10T01:12:38.000Z">2020-02-10</time></div>
-                    <a href="/2020/02/10/CSS-%E7%9B%92%E6%A8%A1%E5%9E%8B/" class="title has-link-black-ter is-size-6 has-text-weight-normal">CSS-盒模型</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
     
@@ -1977,7 +1939,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archive
+            归档
         </h3>
         <ul class="menu-list">
         
@@ -1987,7 +1949,7 @@
                     <span class="level-item">三月 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">3</span>
+                    <span class="level-item tag">4</span>
                 </span>
             </a>
         </li>
@@ -2034,7 +1996,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Tags
+                标签
             </h3>
             <div class="field is-grouped is-grouped-multiline">
                 
@@ -2245,6 +2207,13 @@
                     <a class="tags has-addons" href="/tags/%E7%AE%97%E6%B3%95/">
                         <span class="tag">算法</span>
                         <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
+                        <span class="tag">编译原理</span>
+                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
@@ -2339,7 +2308,7 @@
 </footer>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
-<script>moment.locale("zh-cn");</script>
+<script>moment.locale("zh-CN");</script>
 
 
 <script>
@@ -2416,7 +2385,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 
-<a id="back-to-top" title="Zurück nach oben" href="javascript:;">
+<a id="back-to-top" title="回到顶端" href="javascript:;">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>
@@ -2440,7 +2409,7 @@ document.addEventListener('DOMContentLoaded', function () {
     <div class="searchbox ins-search">
     <div class="searchbox-container ins-search-container">
         <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="Tippen Sie etwas..." />
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
             <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="searchbox-result-wrapper ins-section-wrapper">
@@ -2452,11 +2421,11 @@ document.addEventListener('DOMContentLoaded', function () {
     (function (window) {
         var INSIGHT_CONFIG = {
             TRANSLATION: {
-                POSTS: 'Posts',
-                PAGES: 'Seiten',
-                CATEGORIES: 'Kategorien',
-                TAGS: 'Tags',
-                UNTITLED: '(Unbenannt)',
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
             },
             CONTENT_URL: '/content.json',
         };
