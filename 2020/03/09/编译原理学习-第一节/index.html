@@ -141,11 +141,15 @@
             <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2020-03-09T02:09:18.000Z">2020-03-09</time>
                 
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">编译原理</a>
+                </div>
+                
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    8 分钟 读完 (大约 1220 个字)
+                    13 分钟 读完 (大约 1948 个字)
                 </span>
                 
                 
@@ -209,10 +213,10 @@
 </ul>
 <p>​    我们用户用的都是高级设计语言，如果直接交给计算机执行的话肯定是不能够被计算机执行的，所以我们需要把高级语言程序或者汇编语言程序转换成计算机可以识别的机器语言。</p>
 <p>转化的方法就是 <strong>翻译或者解释</strong></p>
-<h3 id="翻译程序"><a href="#翻译程序" class="headerlink" title="翻译程序"></a>翻译程序</h3><blockquote>
+<h4 id="翻译程序"><a href="#翻译程序" class="headerlink" title="翻译程序"></a>翻译程序</h4><blockquote>
 <p>它能够把某一种语言程序（称为源语言程序）转化成另一种语言程序（称为目标语言程序），而后者与前者在逻辑上是等价的</p>
 </blockquote>
-<h2 id="编译程序"><a href="#编译程序" class="headerlink" title="编译程序"></a>编译程序</h2><p>​    在翻译程序的基础之上， 如果源语言程序是一种 <code>C++ Java</code> 之类的高级语言，而目标语言是汇编语言或者机器语言之类的低级语言，那么这样的一个翻译程序就可以叫做 <code>编译程序</code></p>
+<h2 id="编译程序"><a href="#编译程序" class="headerlink" title="编译程序"></a>编译程序</h2><p>​    在<strong>翻译程序</strong>的基础之上， 如果源语言程序是一种 <code>C++ Java</code> 之类的高级语言，而目标语言是汇编语言或者机器语言之类的低级语言，那么这样的一个翻译程序就可以叫做 <code>编译程序</code></p>
 <p>​    而<code>汇编程序</code> 是用于特定计算机上的汇编语言的翻译程序</p>
 <h4 id="对编译程序的分类"><a href="#对编译程序的分类" class="headerlink" title="对编译程序的分类"></a>对编译程序的分类</h4><ul>
 <li><p>交叉编译程序</p>
@@ -236,8 +240,73 @@
 <li>对译文进行修饰                               =》 中间代码优化</li>
 <li>写出最后的译文                              =》 目标程序生成</li>
 </ul>
-<h4 id="1-词法分析"><a href="#1-词法分析" class="headerlink" title="1. 词法分析"></a>1. 词法分析</h4><ul>
-<li>​</li>
+<h4 id="1-词法分析程序（扫描器）"><a href="#1-词法分析程序（扫描器）" class="headerlink" title="1. 词法分析程序（扫描器）"></a>1. 词法分析程序（扫描器）</h4><ul>
+<li><p>任务</p>
+<ul>
+<li><p>输入源程序，对构成源程序的字符串（<strong>从左到右</strong>）进行扫描和分解，识别出一个一个的基本语法单位（也称为单词符号或语法符号）</p>
+</li>
+<li><p>删除无用的空白字符串、回车符以及其他与输入介质相关的非实质性字符</p>
+</li>
+<li><p>删除注释。</p>
+</li>
+<li><p>进行词法检查，报告所发现的错误</p>
+<p>比如： <code>For i:=1 To 100 Do</code> 进行词法分析后</p>
+<blockquote>
+<p>保留字： Foo</p>
+<p>标识符： i</p>
+<p>赋值符： :=</p>
+<p>整常数:    1</p>
+<p>保留字:    To</p>
+<p>整常数:    100</p>
+<p>保留字:    Do</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>单词符号的表示和分类</p>
+<ul>
+<li>表示：二元组（Class， Value），类别和组</li>
+<li>分类：关键字（保留字），标识符， 数字、运算符、界符</li>
+</ul>
+</li>
+<li><p>词法分析阶段的工作依循的是语言的词法规则（即构词规则）。描述词法规则的有效工具是正规式和<code>有限自动机</code>。它是一种线性分析。 </p>
+</li>
+</ul>
+<h4 id="2-语法分析程序"><a href="#2-语法分析程序" class="headerlink" title="2. 语法分析程序"></a>2. 语法分析程序</h4><ul>
+<li><p>任务</p>
+<p>在词法分析的基础之上，根据语言的语法规则</p>
+</li>
+<li><p>分析方法</p>
+<p>完成这种分析，一般的途径是由语法分析程序试着为其构造一颗完整的语法树，如果构造失败说明有语法错误，最终的根节点就是一个程序。</p>
+<p><strong>描述方法：</strong></p>
+<p>在语法分析阶段的工作中依循的是语言的语法规则。描述语法规则的有效工具是 <strong>上下文无关文法（二型文法）。</strong> 它是一种层次结构分析。 </p>
+</li>
+</ul>
+<h4 id="3-语义分析程序"><a href="#3-语义分析程序" class="headerlink" title="3. 语义分析程序"></a>3. 语义分析程序</h4><ul>
+<li><p>任务：</p>
+<p>对语法分析程序所识别出的各类语法成分，分析其含义，以保证源程序在语义上的正确性。</p>
+</li>
+<li><p>语义的分类</p>
+<ul>
+<li>静态语义：指在编译阶段就能检查出的语义。典型静态语义包括声明和类型检查</li>
+<li>动态语义： 只有目标代码的运行阶段才能检察出的语义。</li>
+</ul>
+</li>
+</ul>
+<h4 id="4-中间代码生成"><a href="#4-中间代码生成" class="headerlink" title="4.中间代码生成"></a>4.中间代码生成</h4><ul>
+<li><p>任务：</p>
+<p>按语言的语义规则把各类语法范畴翻译成中间语言代码。（比如把 翻译成三元表达式）</p>
+</li>
+<li><p>中间代码的定义：</p>
+<p>所谓的 <code>中间代码</code> 是一种含义明确、便于处理的记号系统，是位于源代码和目标代码之间的代码形式，它独立于具体的硬件。这种记号系统比较容易转化成现代计算机的机器指令。简单的说，中间代码是一种独立于具体硬件的记号系统。</p>
+</li>
+<li><p>中间代码的形式</p>
+<p>四元式，三元式，间接三元式，逆波兰式等。</p>
+</li>
+</ul>
+<h4 id=""><a href="#" class="headerlink" title=""></a></h4><ul>
+<li><hr>
+</li>
 </ul>
 
         </div>
@@ -341,7 +410,7 @@
                     </p>
                     <a href="/categories">
                         <p class="title has-text-weight-normal">
-                            0
+                            1
                         </p>
                     </a>
                 </div>
@@ -448,7 +517,15 @@
                 分类
             </h3>
             <ul class="menu-list">
-            
+            <li>
+        <a class="level is-marginless" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
+            <span class="level-start">
+                <span class="level-item">编译原理</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li>
             </ul>
         </div>
     </div>
@@ -485,7 +562,7 @@
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-09T02:09:18.000Z">2020-03-09</time></div>
                     <a href="/2020/03/09/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0-%E7%AC%AC%E4%B8%80%E8%8A%82/" class="title has-link-black-ter is-size-6 has-text-weight-normal">编译原理学习-第一节</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">编译原理</a>
                     </p>
                 </div>
             </div>
@@ -915,7 +992,7 @@
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-09T02:09:18.000Z">2020-03-09</time></div>
                     <a href="/2020/03/09/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0-%E7%AC%AC%E4%B8%80%E8%8A%82/" class="title has-link-black-ter is-size-6 has-text-weight-normal">编译原理学习-第一节</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">编译原理</a>
                     </p>
                 </div>
             </div>

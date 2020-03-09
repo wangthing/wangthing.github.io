@@ -7,13 +7,13 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>标签: background-ground - 欢迎</title>
+<title>分类: 编译原理 - 欢迎</title>
 
 
     <meta name="description" content="快乐的麻瓜---博客">
 <meta property="og:type" content="website">
 <meta property="og:title" content="欢迎">
-<meta property="og:url" content="http://yoursite.com/tags/background-ground/index.html">
+<meta property="og:url" content="http://yoursite.com/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/index.html">
 <meta property="og:site_name" content="欢迎">
 <meta property="og:description" content="快乐的麻瓜---博客">
 <meta property="og:locale" content="zh_CN">
@@ -133,8 +133,9 @@
     <div class="card-content">
         <nav class="breadcrumb" aria-label="breadcrumbs">
         <ul>
-            <li><a href="/tags">标签</a></li>
-            <li class="is-active"><a href="#" aria-current="page">background-ground</a></li>
+            <li><a href="/categories">分类</a></li>
+            
+            <li class="is-active"><a href="#" aria-current="page">编译原理</a></li>
         </ul>
         </nav>
     </div>
@@ -147,13 +148,17 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-01-13T13:46:21.000Z">2020-01-13</time>
+                <time class="level-item has-text-grey" datetime="2020-03-09T02:09:18.000Z">2020-03-09</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">编译原理</a>
+                </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    11 分钟 读完 (大约 1700 个字)
+                    13 分钟 读完 (大约 1948 个字)
                 </span>
                 
                 
@@ -162,18 +167,22 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2020/01/13/%C2%96%C2%96%E5%85%B3%E4%BA%8E-Background%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95%E5%92%8C%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/">关于 Background的一些基本用法和使用技巧</a>
+                <a class="has-link-black-ter" href="/2020/03/09/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0-%E7%AC%AC%E4%B8%80%E8%8A%82/">编译原理学习-第一节</a>
             
         </h1>
         <div class="content">
-            <h1 id="关于-Background的一些基本用法和使用技巧"><a href="#关于-Background的一些基本用法和使用技巧" class="headerlink" title="关于 Background的一些基本用法和使用技巧"></a>关于 Background的一些基本用法和使用技巧</h1><h2 id="1-基本属性和用法"><a href="#1-基本属性和用法" class="headerlink" title="1.基本属性和用法"></a>1.基本属性和用法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">    &lt;style&gt;</span><br><span class="line">        .box1&#123;</span><br><span class="line">            width: 1000px;</span><br><span class="line">            height: 1000px;</span><br><span class="line">            background-color:royalblue;</span><br><span class="line">            background-image: url(&#39;..&#x2F;images&#x2F;111.jpg&#39;);</span><br><span class="line">            background-position: 220px 220px;</span><br><span class="line">            background-repeat: no-repeat;</span><br><span class="line">            background-size: 100%;</span><br><span class="line">            background-attachment: fixed;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;&#x2F;style&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class&#x3D;&quot;box1&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br></pre></td></tr></table></figure>
+            <p>首先带着以下问题进行学习</p>
+<blockquote>
+<p>1、    翻译程序与解释程序之间根本区别是什么？<br>2、    翻译程序与解释程序各自优势？<br>3、    编译程序与翻译程序之间的关系？<br>4、    词法分析中，“单词”的理解？具体包括哪几类？<br>5、    语法分析中，“语法单位/短语”的理解？具体包括哪些？<br>6、    语法分析中，引入“语法树”这个工具，有什么好处？<br>7、    语义法分析中，“静态语义”与“动态语义”的运行阶段？<br>8、    为什么引入“中间代码”？<br>9、    代码优化从效率角度讲，应考虑哪几个要素？<br>10、“绝对地址的机器指令代码”与“可重定位的指令代码”的理解。</p>
+<p>判断题<br>1、编译程序是指将高级语言转化为机器语言的翻译程序。（ ）<br>2、编译程序属于系统软件。（ ）<br>3、在编译程序的设计中，代码优化是必须的。（ ）<br>4、在源代码的编译程序处理过程中，数组越界属于语义错误。（ ）<br>5、C语言的编译器可以用C语言来编写。（ ）</p>
+</blockquote>
         </div>
         
         
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2020/01/13/%C2%96%C2%96%E5%85%B3%E4%BA%8E-Background%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95%E5%92%8C%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/#more">阅读更多</a>
+                <a class="button is-size-7 is-light" href="/2020/03/09/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0-%E7%AC%AC%E4%B8%80%E8%8A%82/#more">阅读更多</a>
                 </div>
             </div>
         </div>
