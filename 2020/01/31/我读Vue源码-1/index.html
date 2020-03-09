@@ -19,7 +19,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
 <meta property="article:published_time" content="2020-01-31T01:36:50.000Z">
-<meta property="article:modified_time" content="2020-02-01T11:04:30.719Z">
+<meta property="article:modified_time" content="2020-03-09T08:54:28.096Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Vue">
 <meta property="article:tag" content="源码阅读">
@@ -28,11 +28,13 @@
 
 
 
+<link rel="canonical" href="/images/head.jpg" />
 
 
 
 
-<link rel="icon" href="/images/favicon.svg">
+
+<link rel="icon" href="/images/head.jpg">
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
@@ -70,7 +72,7 @@
     <link rel="stylesheet" href="/css/progressbar.css">
 <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
     
-    
+    <script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     
 
 
@@ -94,7 +96,7 @@
                 href="/">主页</a>
                 
                 <a class="navbar-item"
-                href="/archives">成就</a>
+                href="/archives">归档</a>
                 
                 <a class="navbar-item"
                 href="/categories">分类</a>
@@ -103,7 +105,7 @@
                 href="/tags">标签</a>
                 
                 <a class="navbar-item"
-                href="/about">About</a>
+                href="/about">关于</a>
                 
             </div>
             
@@ -144,9 +146,14 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    16 分钟 读完 (大约 2408 个字)
+                    16 分钟 读完 (大约 2409 个字)
                 </span>
                 
+                
+                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_page_pv">0</span>次访问
+                </span>
                 
             </div>
         </div>
@@ -159,6 +166,8 @@
         <div class="content">
             <p>​    心态有点崩，刚刚写了一个小时居然没有保存，然后不小心关电脑了，前面写的一大堆废话都没了。不管了先从现在看的写，前面写的有空的话再不回来。多按按 <code>ctrl+s</code> ，别总是按 <code>ctrl+a ctrl+c  ctrl+v</code></p>
 <p>​    第二天过来补充，没想到昨天状态还不错，读到了快1200行，工具函数读完之后就到了响应式的实现了，响应式的实现主要是<strong>发布监听</strong>来实现，通过拦截传入的数据，赋值到this上面，然后通过 <code>Object.defineProperty()</code>来设置属性的 <code>getter、setter</code> 方法，在设置了 <code>__ob__</code>的值上面会在数据发生变化时通知 订阅 更新。当然还有特殊的对象比如数组，可以拦截 <code>sort splice push unshift</code> 等这些会改变数组的方法。</p>
+<a id="more"></a>
+
 <h2 id="现在开始"><a href="#现在开始" class="headerlink" title="现在开始"></a>现在开始</h2><p>之前说过在710行出现 <code>uid</code> 之前的代码都是一些变量和工具函数的定义。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"> &#x2F;&#x2F; 阻止修改1现有属性的特性和值，也不能添加新的属性</span><br><span class="line"> var emptyObject &#x3D; Object.freeze(&#123;&#125;);</span><br><span class="line">  </span><br><span class="line">&#x2F;&#x2F;判断一个变量的值是不是 undefined或者是null</span><br><span class="line"> function isUndef (v) &#123;</span><br><span class="line">   return v &#x3D;&#x3D;&#x3D; undefined || v &#x3D;&#x3D;&#x3D; null</span><br><span class="line"> &#125;</span><br><span class="line">&#x2F;&#x2F;判断一个变量的值是否定义了，也就是不为undefine和null</span><br><span class="line"> function isDef (v) &#123;</span><br><span class="line">   return v !&#x3D;&#x3D; undefined &amp;&amp; v !&#x3D;&#x3D; null</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"> &#x2F;&#x2F;判断一个布尔值真假，也就是是不是真的等于 true</span><br><span class="line"> &#x2F;&#x2F;而不是 &#x3D;&#x3D; 会发生隐式转化后为true</span><br><span class="line"> function isTrue (v) &#123;</span><br><span class="line">   return v &#x3D;&#x3D;&#x3D; true</span><br><span class="line"> &#125;</span><br><span class="line">&#x2F;&#x2F;和上面是一样的</span><br><span class="line"> function isFalse (v) &#123;</span><br><span class="line">   return v &#x3D;&#x3D;&#x3D; false</span><br><span class="line"> &#125;</span><br><span class="line">  </span><br><span class="line">&#x2F;&#x2F; 判断是否为原始值</span><br><span class="line">&#x2F;&#x2F; ES5原始值有 string number boolean</span><br><span class="line">&#x2F;&#x2F; ES6新增了 symbol</span><br><span class="line"> function isPrimitive (value) &#123;</span><br><span class="line">   return (</span><br><span class="line">     typeof value &#x3D;&#x3D;&#x3D; &#39;string&#39; ||</span><br><span class="line">     typeof value &#x3D;&#x3D;&#x3D; &#39;number&#39; ||</span><br><span class="line">     &#x2F;&#x2F; $flow-disable-line</span><br><span class="line">     typeof value &#x3D;&#x3D;&#x3D; &#39;symbol&#39; ||</span><br><span class="line">     typeof value &#x3D;&#x3D;&#x3D; &#39;boolean&#39;</span><br><span class="line">   )</span><br><span class="line"> &#125;</span><br><span class="line"> 	</span><br><span class="line"> </span><br><span class="line"> &#x2F;&#x2F;判断是原始值还是对象，当我们知道值是</span><br><span class="line">&#x2F;&#x2F;json 兼容型</span><br><span class="line"> function isObject (obj) &#123;</span><br><span class="line">   return obj !&#x3D;&#x3D; null &amp;&amp; typeof obj &#x3D;&#x3D;&#x3D; &#39;object&#39;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
 
@@ -300,31 +309,6 @@
         <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
         <div class="buttons is-centered">
             
-                
-<div class="notification is-danger">
-    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
-</div>
-
-                
-                
-<div class="notification is-danger">
-    You forgot to set the <code>qrcode</code> for Wechat. Please set it in <code>_config.yml</code>.
-</div>
-
-                
-                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
-
-<div class="notification is-danger">
-    You forgot to set the <code>business</code> and <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.
-</div>
-
-                
-                
-<div class="notification is-danger">
-    You forgot to set the <code>url</code> Patreon. Please set it in <code>_config.yml</code>.
-</div>
-
-                
         </div>
     </div>
 </div>
@@ -359,7 +343,7 @@
 
 
 
-<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left is-sticky">
     
         
 <div class="card widget">
@@ -369,22 +353,22 @@
                 <div>
                     
                     <figure class="image is-128x128 has-mb-6">
-                        <img class="" src="/images/avatar.png" alt="Your name">
+                        <img class="" src="/images/head.jpg" alt="wangthing">
                     </figure>
                     
                     <p class="is-size-4 is-block">
-                        Your name
+                        wangthing
                     </p>
                     
                     
                     <p class="is-size-6 is-block">
-                        Your title
+                        前端练习生
                     </p>
                     
                     
                     <p class="is-size-6 is-flex is-flex-center has-text-grey">
                         <i class="fas fa-map-marker-alt has-mr-7"></i>
-                        <span>Your location</span>
+                        <span>南昌</span>
                     </p>
                     
                 </div>
@@ -398,7 +382,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            27
+                            26
                         </p>
                     </a>
                 </div>
@@ -430,7 +414,7 @@
         </nav>
         
         <div class="level">
-            <a class="level-item button is-link is-rounded" href="https://github.com/ppoffice" target="_blank" rel="noopener">
+            <a class="level-item button is-link is-rounded" href="https://github.com/wangthing" target="_blank" rel="noopener">
                 关注我</a>
         </div>
         
@@ -439,7 +423,7 @@
         <div class="level is-mobile">
             
             <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
-                title="Github" href="https://github.com/ppoffice">
+                title="Github" href="https://github.com/wangthing">
                 
                 <i class="fab fa-github"></i>
                 
@@ -449,13 +433,6 @@
                 title="Facebook" href="https://facebook.com">
                 
                 <i class="fab fa-facebook"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
-                title="Twitter" href="https://twitter.com">
-                
-                <i class="fab fa-twitter"></i>
                 
             </a>
             
@@ -693,7 +670,7 @@
                     <span class="level-item">十二月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">7</span>
+                    <span class="level-item tag">6</span>
                 </span>
             </a>
         </li>
@@ -1123,7 +1100,7 @@
                     <span class="level-item">十二月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">7</span>
+                    <span class="level-item tag">6</span>
                 </span>
             </a>
         </li>
@@ -1410,6 +1387,11 @@
                 &copy; 2020 John Doe&nbsp;
                 Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> & <a
                         href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a>
+                
+                <br>
+                <span id="busuanzi_container_site_uv">
+                共<span id="busuanzi_value_site_uv">0</span>个访客
+                </span>
                 
                 </p>
             </div>

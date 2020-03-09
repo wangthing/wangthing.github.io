@@ -24,11 +24,13 @@
 
 
 
+<link rel="canonical" href="/images/head.jpg" />
 
 
 
 
-<link rel="icon" href="/images/favicon.svg">
+
+<link rel="icon" href="/images/head.jpg">
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
@@ -66,7 +68,7 @@
     <link rel="stylesheet" href="/css/progressbar.css">
 <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
     
-    
+    <script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     
 
 
@@ -90,7 +92,7 @@
                 href="/">主页</a>
                 
                 <a class="navbar-item"
-                href="/archives">成就</a>
+                href="/archives">归档</a>
                 
                 <a class="navbar-item"
                 href="/categories">分类</a>
@@ -99,7 +101,7 @@
                 href="/tags">标签</a>
                 
                 <a class="navbar-item"
-                href="/about">About</a>
+                href="/about">关于</a>
                 
             </div>
             
@@ -151,7 +153,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    3 分钟 读完 (大约 398 个字)
+                    3 分钟 读完 (大约 399 个字)
                 </span>
                 
                 
@@ -178,40 +180,16 @@
 <li><p>列出DP方程</p>
 </li>
 </ol>
-<h2 id="001-爬楼梯（Leecode-70）"><a href="#001-爬楼梯（Leecode-70）" class="headerlink" title="001 - 爬楼梯（Leecode-70）"></a>001 - 爬楼梯（Leecode-70）</h2><p>假设你正在爬楼梯。需要 <em>n</em> 阶你才能到达楼顶。</p>
-<p>每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？</p>
-<p><strong>注意：</strong>给定 <em>n</em> 是一个正整数。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入： 2</span><br><span class="line">输出： 2</span><br><span class="line">解释： 有两种方法可以爬到楼顶。</span><br><span class="line">1.  1 阶 + 1 阶</span><br><span class="line">2.  2 阶</span><br></pre></td></tr></table></figure>
-
-<p>可以分析得到，每一层的方法数可以看做前一层和前第二层的方法加起来，因为前面一层一步上去，前面第二层两步上去。由此可以发现这个问题就可以转换成斐波那契问题来求解。</p>
-<p>本问题其实常规解法可以分成多个子问题，爬第n阶楼梯的方法数量，等于 2 部分之和</p>
-<ol>
-<li>爬上 n-1n−1 阶楼梯的方法数量。因为再爬1阶就能到第n阶</li>
-<li>爬上 n-2n−2 阶楼梯的方法数量，因为再爬2阶就能到第n阶</li>
-</ol>
-<p>所以我们得到公式 dp[n] = dp[n-1] + dp[n-2]<br>同时需要初始化 dp[0]=1 和 dp[1]=1<br>时间复杂度：O(n)</p>
-<p>代码实现：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var climbStairs &#x3D; function(n) &#123;</span><br><span class="line">    let arr &#x3D; [1,2];</span><br><span class="line">    if(n&lt;&#x3D;2) return n;</span><br><span class="line">    for(let i &#x3D; 2; i&lt;n; i++) &#123;</span><br><span class="line">        arr[i] &#x3D; arr[i-1] + arr[i-2];</span><br><span class="line">    &#125;</span><br><span class="line">    return arr[n-1];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="002-三角形最小路径和-（Leecode-120）"><a href="#002-三角形最小路径和-（Leecode-120）" class="headerlink" title="002 - 三角形最小路径和 （Leecode-120）"></a>002 - 三角形最小路径和 （Leecode-120）</h2><p>题目描述：</p>
-<p>给定一个三角形，找出自顶向下的最小路径和。每一步只能移动到下一行中相邻的结点上。</p>
-<p>例如，给定三角形：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">     [2],</span><br><span class="line">    [3,4],</span><br><span class="line">   [6,5,7],</span><br><span class="line">  [4,1,8,3]</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-
-<p>自顶向下的最小路径和为 <code>11</code>（即，<strong>2 *<em>+ *</em>3</strong> + <strong>5 *<em>+ *</em>1</strong> = 11）。</p>
-<h3 id="思路一-直接用贪心算法"><a href="#思路一-直接用贪心算法" class="headerlink" title="思路一 直接用贪心算法"></a>思路一 直接用贪心算法</h3><p>从第一个开始，每次都取下一层相邻两个当中最小的那个，这样看了似乎每次都能取到最小的。但是很明显会存在该层虽然不是最小的，但是他之后会有更小的路径之和。就算你取到了这一层最小的，极端点来项，加入后面全是几万大小的。显而易见局部最优普并不能一直最优。人生也是如此，当前做出的决定可能是最费时间，最辛苦的，但是后面的路怎么样谁都说不定。</p>
-<h3 id="思路二-动态规划"><a href="#思路二-动态规划" class="headerlink" title="思路二 动态规划"></a>思路二 动态规划</h3><p>但是如果我们可以自顶而上往最前面推，依次遍历每层，当前路径等于当前值加上相邻前面两个路径的最小值，一直到最后，这样我们就可以做出最好的选择。可是人生的选择不可以从后往前来。</p>
-<ul>
-<li>定义： dp[i, j] :从下往上</li>
-<li>方程： dp[j] = triangle[i][j] + Math.min(dp[j], dp[j+1])</li>
-</ul>
-<h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;**</span><br><span class="line"> * @param &#123;number[][]&#125; triangle</span><br><span class="line"> * @return &#123;number&#125;</span><br><span class="line"> *&#x2F;</span><br><span class="line">var minimumTotal &#x3D; function(triangle) &#123; </span><br><span class="line">    &#x2F;&#x2F;使用动态规划，从下到上求解</span><br><span class="line">    var dp &#x3D; []</span><br><span class="line">    for(let i &#x3D; triangle.length - 1; i&gt;&#x3D;0; i--) &#123;</span><br><span class="line">        for(let j &#x3D; 0; j&lt;triangle[i].length; j++) &#123;</span><br><span class="line">            var min &#x3D; Math.min(dp[j], dp[j+1]);</span><br><span class="line">            dp[j] &#x3D; triangle[i][j] +  (min ? min : 0)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;    </span><br><span class="line">        </span><br><span class="line">    return dp[0];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2020/02/07/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%9A%84%E9%A2%98%E7%9B%AE/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -230,7 +208,7 @@
 
 
 
-<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left is-sticky">
     
         
 <div class="card widget">
@@ -240,22 +218,22 @@
                 <div>
                     
                     <figure class="image is-128x128 has-mb-6">
-                        <img class="" src="/images/avatar.png" alt="Your name">
+                        <img class="" src="/images/head.jpg" alt="wangthing">
                     </figure>
                     
                     <p class="is-size-4 is-block">
-                        Your name
+                        wangthing
                     </p>
                     
                     
                     <p class="is-size-6 is-block">
-                        Your title
+                        前端练习生
                     </p>
                     
                     
                     <p class="is-size-6 is-flex is-flex-center has-text-grey">
                         <i class="fas fa-map-marker-alt has-mr-7"></i>
-                        <span>Your location</span>
+                        <span>南昌</span>
                     </p>
                     
                 </div>
@@ -269,7 +247,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            27
+                            26
                         </p>
                     </a>
                 </div>
@@ -301,7 +279,7 @@
         </nav>
         
         <div class="level">
-            <a class="level-item button is-link is-rounded" href="https://github.com/ppoffice" target="_blank" rel="noopener">
+            <a class="level-item button is-link is-rounded" href="https://github.com/wangthing" target="_blank" rel="noopener">
                 关注我</a>
         </div>
         
@@ -310,7 +288,7 @@
         <div class="level is-mobile">
             
             <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
-                title="Github" href="https://github.com/ppoffice">
+                title="Github" href="https://github.com/wangthing">
                 
                 <i class="fab fa-github"></i>
                 
@@ -320,13 +298,6 @@
                 title="Facebook" href="https://facebook.com">
                 
                 <i class="fab fa-facebook"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
-                title="Twitter" href="https://twitter.com">
-                
-                <i class="fab fa-twitter"></i>
                 
             </a>
             
@@ -564,7 +535,7 @@
                     <span class="level-item">十二月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">7</span>
+                    <span class="level-item tag">6</span>
                 </span>
             </a>
         </li>
@@ -994,7 +965,7 @@
                     <span class="level-item">十二月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">7</span>
+                    <span class="level-item tag">6</span>
                 </span>
             </a>
         </li>
@@ -1281,6 +1252,11 @@
                 &copy; 2020 John Doe&nbsp;
                 Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> & <a
                         href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a>
+                
+                <br>
+                <span id="busuanzi_container_site_uv">
+                共<span id="busuanzi_value_site_uv">0</span>个访客
+                </span>
                 
                 </p>
             </div>

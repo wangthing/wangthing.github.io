@@ -24,11 +24,13 @@
 
 
 
+<link rel="canonical" href="/images/head.jpg" />
 
 
 
 
-<link rel="icon" href="/images/favicon.svg">
+
+<link rel="icon" href="/images/head.jpg">
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
@@ -66,7 +68,7 @@
     <link rel="stylesheet" href="/css/progressbar.css">
 <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
     
-    
+    <script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     
 
 
@@ -90,7 +92,7 @@
                 href="/">主页</a>
                 
                 <a class="navbar-item"
-                href="/archives">成就</a>
+                href="/archives">归档</a>
                 
                 <a class="navbar-item"
                 href="/categories">分类</a>
@@ -99,7 +101,7 @@
                 href="/tags">标签</a>
                 
                 <a class="navbar-item"
-                href="/about">About</a>
+                href="/about">关于</a>
                 
             </div>
             
@@ -151,7 +153,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    11 分钟 读完 (大约 1699 个字)
+                    11 分钟 读完 (大约 1700 个字)
                 </span>
                 
                 
@@ -165,188 +167,16 @@
         </h1>
         <div class="content">
             <h1 id="关于-Background的一些基本用法和使用技巧"><a href="#关于-Background的一些基本用法和使用技巧" class="headerlink" title="关于 Background的一些基本用法和使用技巧"></a>关于 Background的一些基本用法和使用技巧</h1><h2 id="1-基本属性和用法"><a href="#1-基本属性和用法" class="headerlink" title="1.基本属性和用法"></a>1.基本属性和用法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">    &lt;style&gt;</span><br><span class="line">        .box1&#123;</span><br><span class="line">            width: 1000px;</span><br><span class="line">            height: 1000px;</span><br><span class="line">            background-color:royalblue;</span><br><span class="line">            background-image: url(&#39;..&#x2F;images&#x2F;111.jpg&#39;);</span><br><span class="line">            background-position: 220px 220px;</span><br><span class="line">            background-repeat: no-repeat;</span><br><span class="line">            background-size: 100%;</span><br><span class="line">            background-attachment: fixed;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;&#x2F;style&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class&#x3D;&quot;box1&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><code>background-color</code> 背景颜色<ul>
-<li>单词直接表示：<code>background-color:red</code></li>
-<li>16j进制表示：<code>background-color:#fff</code> (两个相同的位数可以简写成一个  #fffffff==#fff)</li>
-<li>RGB彩色模式: <code>background-color:rgb(225,225,255)</code></li>
-</ul>
-</li>
-<li><code>background-image</code>：背景图片<ul>
-<li><code>background-image:url(&#39;../images/111.jpg&#39;)</code></li>
-</ul>
-</li>
-<li><code>background-size</code>:背景尺寸<ul>
-<li>百分比：<code>background-size:60%</code></li>
-<li>像素：<code>background-size:200px</code></li>
-<li><code>cover</code>: 把背景图片拓展到足够大，以使背景图片完全覆盖背景区域。背景图片也有可能某些部分无法显示出来</li>
-<li><code>contain</code>: 把背景图片拓展至最大尺寸，以使其高度和宽度完全适应内容区域</li>
-<li>当只有一个值的时候,默认为图片的宽度，高度按比例自适应</li>
-</ul>
-</li>
-<li><code>background-repeat</code> 背景图片重复<ul>
-<li>repeat(自动铺满)</li>
-<li>repeat-x（横向铺满）</li>
-<li>repeat-y（纵向铺满）</li>
-<li>no-repeat (不重复，只有一张)</li>
-</ul>
-</li>
-</ul>
-<h2 id="2-多背景图片"><a href="#2-多背景图片" class="headerlink" title="2.多背景图片"></a>2.多背景图片</h2><p>在CSS2.1中，元素只能添加一张背景图片。然而在CSS3中我们可以给元素添加多张背景图片。兼容性如下：</p>
-<p><img src="https://user-gold-cdn.xitu.io/2020/1/12/16f98e9625a57357?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="图片"></p>
-<ul>
-<li>多张背景图片可以针对每一张设置单独的样式，对应的样式用逗号分开</li>
-<li>如果属性值比背景图片要少时，name没有对应值的图片的样式以第一个样式为准；</li>
-<li>多张背景图片的情况下这些图片从左到右层级一次减小，<code>background-color</code>最低</li>
-</ul>
-<h2 id="3-背景渐变：background-image-linear-gradient"><a href="#3-背景渐变：background-image-linear-gradient" class="headerlink" title="3. 背景渐变：background-image: linear-gradient"></a>3. 背景渐变：background-image: linear-gradient</h2><p>背景渐变是基于<code>background-image</code>来设置的，具体语法可以参考 <a href="https://developer.mozilla.org/es/docs/Web/CSS/linear-gradient">MDN</a>。</p>
-<p>兼容性如下：</p>
-<p><img src="https://user-gold-cdn.xitu.io/2020/1/12/16f98e964271dc19?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="图片"></p>
-<ul>
-<li><code>background-imgage: linear-gradient</code>路径渐变（可以手动设置方向，默认是自下向上）</li>
-<li><code>background-image：repeating-linear-gradient</code> 重复径向渐变</li>
-</ul>
-<h2 id="4-背景定位-background-position"><a href="#4-背景定位-background-position" class="headerlink" title="4. 背景定位 background-position"></a>4. 背景定位 background-position</h2><p><code>background-position</code> 默认是定位在 <code>padding-box</code>的左上角</p>
-<ul>
-<li>其属性可以设置成一下几种<ul>
-<li>百分比%</li>
-<li>像素 px</li>
-<li>位置（top、right、bottom、left、center）<ul>
-<li>在只设置一个值的时候，另外一个值默认为<code>center</code> 或者50%。</li>
-<li><code>padding-box</code>的左上角坐标为（0,0）/（left，top）</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">    &lt;style&gt;</span><br><span class="line">        .box1&#123;</span><br><span class="line">            &#x2F;* width: 400px; *&#x2F;</span><br><span class="line">            height: 400px;</span><br><span class="line">            background-image: url(&#39;..&#x2F;images&#x2F;222.jpg&#39;);</span><br><span class="line">            padding: 50px;</span><br><span class="line">            border: 1px solid red;</span><br><span class="line">            background-position: top;</span><br><span class="line">            &#x2F;* background-size: contain; *&#x2F;</span><br><span class="line">            background-repeat: no-repeat;</span><br><span class="line">            background-color: darkkhaki;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;&#x2F;style&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class&#x3D;&quot;box1&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="背景重复-background-repeat"><a href="#背景重复-background-repeat" class="headerlink" title="背景重复  background-repeat"></a>背景重复  background-repeat</h3><p><code>background-repeat</code> 除了常见的几个 repeat、repeat-x，repeat-y 以及 no-repeat 以外，还在CSS3 中新加了两个值： <code>space</code> 和 <code>round</code>。其兼容性如下图所示：</p>
-<p><img src="https://user-gold-cdn.xitu.io/2020/1/12/16f98e9699bfff12?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="图片"></p>
-<ul>
-<li><p>背景图片小于容器时</p>
-<ul>
-<li><p><code>background-repeat:space</code>   在保证不缩放的前提下尽可能多的重复图片，并等分图片中间的空隙</p>
-<p>​</p>
-<p><img src="https://user-gold-cdn.xitu.io/2020/1/12/16f98e969c5b3299?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="图片"></p>
-<p>​</p>
-</li>
-<li><p><code>background-repeat:round</code>   在尽可能多的重复图片的前提下，拉伸图片以铺满容器</p>
-<p>​</p>
-<p><img src="https://user-gold-cdn.xitu.io/2020/1/12/16f98e969dca9f46?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="图片"></p>
-<p>​</p>
-</li>
-</ul>
-</li>
-<li><p>背景图片大于容器时</p>
-<ul>
-<li><code>background-repeat:space</code>  在不缩放的前提下裁剪图片，只保留在容器内的部分</li>
-</ul>
-<p>​</p>
-<p><img src="https://user-gold-cdn.xitu.io/2020/1/12/16f98e969e234b0e?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="图片"></p>
-<p>​</p>
-<ul>
-<li><code>background-repeat:round</code>  缩小图片以铺满容器，长宽与容器尺寸一致（未按比例缩放，图片极有可能变形）</li>
-</ul>
-</li>
-</ul>
-<p><img src="https://user-gold-cdn.xitu.io/2020/1/12/16f98e969efaad83?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="图片"></p>
-<h2 id="5-背景相对位置-background-origin"><a href="#5-背景相对位置-background-origin" class="headerlink" title="5. 背景相对位置  background-origin"></a>5. 背景相对位置  background-origin</h2><p><code>background-origin</code>规定 <code>background-position</code> 属性相对于什么位置来定位。属性值有 <code>content-box</code>、</p>
-<p>padding-<code>box</code> 、    <code>border-box</code> 三个。默认<code>是padding-box</code> </p>
-<h2 id="6-背景绘制区域-background-clip"><a href="#6-背景绘制区域-background-clip" class="headerlink" title="6.  背景绘制区域  background-clip"></a>6.  背景绘制区域  background-clip</h2><p><code>background-clip</code> 属性规定背景的绘制区域。默认值为 <code>border-box</code>，其属性值同 <code>background-origin</code> 一样，不过表现大不相同。其兼容性如下：</p>
-<p><img src="https://user-gold-cdn.xitu.io/2020/1/12/16f98e96cddbab0d?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="图片"></p>
-<ul>
-<li><p><code>background-clip: content-box</code></p>
-<p>​</p>
-<p><img src="https://user-gold-cdn.xitu.io/2020/1/12/16f98e96f1e720bf?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="图片"></p>
-<p>​</p>
-</li>
-<li><p><code>background-clip: padding-box</code></p>
-<p>​</p>
-<p><img src="https://user-gold-cdn.xitu.io/2020/1/12/16f98e96d043978a?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="图片"></p>
-<p>​</p>
-</li>
-<li><p>background-clip: border-box`</p>
-<p>​</p>
-<p><img src="https://user-gold-cdn.xitu.io/2020/1/12/16f98e96f56b4655?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="图片"></p>
-<p>​</p>
-</li>
-</ul>
-<h2 id="7-背景大小-background-size"><a href="#7-背景大小-background-size" class="headerlink" title="7. 背景大小  background-size"></a>7. 背景大小  background-size</h2><p>感觉这个属性很常见吧，其实它也是 CSS3 中新加的属性。 CSS2.1 中，背景图片大小是无法设置的。<code>background-size</code> 除了常见的设置大小和百分比之外，还有两个特殊的属性：<code>contain</code>  和 <code>cover</code></p>
-<ul>
-<li><p><code>background-size: contain</code>   图片长宽不相同时，把图片按比例缩小至较长的一方完全适应内容区域为止，多用于背景图片比元素大的情况。</p>
-<p>​</p>
-<p><img src="https://user-gold-cdn.xitu.io/2020/1/12/16f98e96f66b3c62?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="图片"></p>
-<p>​</p>
-</li>
-<li><p><code>background-size: cover</code>   图片长宽不相同时，把图片按比例放大至较短的一方完全适应内容区域为止，以使背景图像完全覆盖背景区域，多用于背景图片比元素小的情况。</p>
-<p>​</p>
-<p><img src="https://user-gold-cdn.xitu.io/2020/1/12/16f98e96fc2c4628?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="图片"></p>
-<p>​</p>
-</li>
-</ul>
-<h2 id="8-背景固定-background-attachment"><a href="#8-背景固定-background-attachment" class="headerlink" title="8.  背景固定   background-attachment"></a>8.  背景固定   background-attachment</h2><p>有时候在一些网站上会看到，滚动页面的时候，背景图片是固定的。那就是使用 <code>background-attachment: fixed</code>  做到的。</p>
-<ul>
-<li><code>background-attachment: fixed</code>    背景固定</li>
-</ul>
-<p><img src="https://user-gold-cdn.xitu.io/2020/1/12/16f98e96f9ef8d6f?imageslim" alt="图片"></p>
-<ul>
-<li><code>background-attachment: scroll</code>    背景随页面滚动而滚动（默认）</li>
-</ul>
-<p><img src="https://user-gold-cdn.xitu.io/2020/1/12/16f98e96fcc5c73c?imageslim" alt="图片"></p>
-<h2 id="9-扩展属性-background-element"><a href="#9-扩展属性-background-element" class="headerlink" title="9.  扩展属性   background: element"></a>9.  扩展属性   background: element</h2><p>一个特殊的扩展属性，可以将某个元素设置为另一元素的背景。惊不惊喜，意不意外！不过这个属性只有 FireFox 4+ 的浏览器可以使用，并且需要加上浏览器前缀。</p>
-<ul>
-<li><pre><code>background: element(#id)
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- demo1   作为背景的是非图片元素时，背景样式与原元素相同</span><br></pre></td></tr></table></figure>
-&lt;style&gt;
-    .div {
-      width: 200px;
-      height: 200px;
-      background: element(#button)  no-repeat;
-      background: -moz-element(#button)  no-repeat;
-  }
-  #button {
-      width: 150px;
-      height: 20px;
-      margin: 50px;
-      color: #0470f4;
-  }
-&lt;/style&gt;
-
-&lt;body&gt;
-  &lt;div class=&quot;div1&quot;&gt;
-      &lt;button id=&apos;button&apos;&gt;这是按钮&lt;/button&gt;
-  &lt;/div&gt;
-&lt;/body&gt;
-
-</code></pre></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">![图片](https:&#x2F;&#x2F;user-gold-cdn.xitu.io&#x2F;2020&#x2F;1&#x2F;12&#x2F;16f98e971b209ffc?imageslim)</span><br><span class="line"></span><br><span class="line">- demo2  当设置为背景的元素是图片时，背景图不会随原图的大小样式改变而改变，不过平铺等背景样式依然是支持的</span><br></pre></td></tr></table></figure>
-  <style>
-      .div {
-        width: 200px;
-        height: 200px;
-        border: 10px dashed #0ff;
-        background: element(#img1);
-        background: -moz-element(#img1);
-    }
-    #img1 {
-        width: 50px;
-    }  
-  </style>
-
-  <body>
-    <div class="div1">
-        <img id='img1' src='img1' />
-    </div>
-  <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/haruto.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/haruto.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/haruto.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/haruto.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body>
-
-
-<p>```</p>
-
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2020/01/13/%C2%96%C2%96%E5%85%B3%E4%BA%8E-Background%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95%E5%92%8C%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -365,7 +195,7 @@
 
 
 
-<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left is-sticky">
     
         
 <div class="card widget">
@@ -375,22 +205,22 @@
                 <div>
                     
                     <figure class="image is-128x128 has-mb-6">
-                        <img class="" src="/images/avatar.png" alt="Your name">
+                        <img class="" src="/images/head.jpg" alt="wangthing">
                     </figure>
                     
                     <p class="is-size-4 is-block">
-                        Your name
+                        wangthing
                     </p>
                     
                     
                     <p class="is-size-6 is-block">
-                        Your title
+                        前端练习生
                     </p>
                     
                     
                     <p class="is-size-6 is-flex is-flex-center has-text-grey">
                         <i class="fas fa-map-marker-alt has-mr-7"></i>
-                        <span>Your location</span>
+                        <span>南昌</span>
                     </p>
                     
                 </div>
@@ -404,7 +234,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            27
+                            26
                         </p>
                     </a>
                 </div>
@@ -436,7 +266,7 @@
         </nav>
         
         <div class="level">
-            <a class="level-item button is-link is-rounded" href="https://github.com/ppoffice" target="_blank" rel="noopener">
+            <a class="level-item button is-link is-rounded" href="https://github.com/wangthing" target="_blank" rel="noopener">
                 关注我</a>
         </div>
         
@@ -445,7 +275,7 @@
         <div class="level is-mobile">
             
             <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
-                title="Github" href="https://github.com/ppoffice">
+                title="Github" href="https://github.com/wangthing">
                 
                 <i class="fab fa-github"></i>
                 
@@ -455,13 +285,6 @@
                 title="Facebook" href="https://facebook.com">
                 
                 <i class="fab fa-facebook"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
-                title="Twitter" href="https://twitter.com">
-                
-                <i class="fab fa-twitter"></i>
                 
             </a>
             
@@ -699,7 +522,7 @@
                     <span class="level-item">十二月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">7</span>
+                    <span class="level-item tag">6</span>
                 </span>
             </a>
         </li>
@@ -1129,7 +952,7 @@
                     <span class="level-item">十二月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">7</span>
+                    <span class="level-item tag">6</span>
                 </span>
             </a>
         </li>
@@ -1416,6 +1239,11 @@
                 &copy; 2020 John Doe&nbsp;
                 Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> & <a
                         href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a>
+                
+                <br>
+                <span id="busuanzi_container_site_uv">
+                共<span id="busuanzi_value_site_uv">0</span>个访客
+                </span>
                 
                 </p>
             </div>

@@ -24,11 +24,13 @@
 
 
 
+<link rel="canonical" href="/images/head.jpg" />
 
 
 
 
-<link rel="icon" href="/images/favicon.svg">
+
+<link rel="icon" href="/images/head.jpg">
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
@@ -66,7 +68,7 @@
     <link rel="stylesheet" href="/css/progressbar.css">
 <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
     
-    
+    <script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     
 
 
@@ -90,7 +92,7 @@
                 href="/">主页</a>
                 
                 <a class="navbar-item"
-                href="/archives">成就</a>
+                href="/archives">归档</a>
                 
                 <a class="navbar-item"
                 href="/categories">分类</a>
@@ -99,7 +101,7 @@
                 href="/tags">标签</a>
                 
                 <a class="navbar-item"
-                href="/about">About</a>
+                href="/about">关于</a>
                 
             </div>
             
@@ -151,7 +153,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    3 分钟 读完 (大约 422 个字)
+                    3 分钟 读完 (大约 423 个字)
                 </span>
                 
                 
@@ -172,57 +174,17 @@
 <li>Event对象的常见应用</li>
 <li><strong>自定义事件</strong></li>
 </ul>
-<h2 id="DOM事件的级别"><a href="#DOM事件的级别" class="headerlink" title="DOM事件的级别"></a>DOM事件的级别</h2><ul>
-<li><code>DOM0</code> </li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">element.onclick &#x3D; function () &#123;</span><br><span class="line">     &#x2F;&#x2F;do something</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p><code>DOM2</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">element.addEventListener(&#39;click&#39;,function () &#123;&#125;, false)</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;最后一个参数为true代表捕获阶段触发，false代表冒泡阶段触发</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>DOM3</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">element.addEventListener(&#39;keyup&#39;, function () &#123;&#125;, false)</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<blockquote>
-<p>DOM1标准也存在，只是没有定义和事件有关的</p>
-</blockquote>
-<h2 id="事件模型"><a href="#事件模型" class="headerlink" title="事件模型"></a>事件模型</h2><p>先捕获再冒泡</p>
-<h2 id="事件流"><a href="#事件流" class="headerlink" title="事件流"></a>事件流</h2><p>浏览器在和用户交互的过程中，事件产生的流程</p>
-<p>第一阶段：捕获</p>
-<p>第二阶段：事件通过捕获到达目标阶段</p>
-<p>第三阶段：从目标阶段通过冒泡传递到window对象</p>
-<p>捕获：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"> window &#x3D;&gt; document &#x3D;&gt; html &#x3D;&gt; body &#x3D;&gt; target </span><br><span class="line"> var event &#x3D; document.getElementById(&#39;event&#39;);</span><br><span class="line"></span><br><span class="line">        window.addEventListener(&#39;click&#39;,function () &#123;</span><br><span class="line">            console.log(&#39;window capture!&#39;);</span><br><span class="line">        &#125;, true)        </span><br><span class="line"></span><br><span class="line">        document.addEventListener(&#39;click&#39;,function () &#123;</span><br><span class="line">            console.log(&quot;document capture&quot;);</span><br><span class="line">        &#125;, true)</span><br><span class="line">        document.documentElement.addEventListener(&#39;click&#39;, function () &#123;</span><br><span class="line">            console.log(&quot;HTML capture!&quot;);</span><br><span class="line">        &#125;, true)</span><br><span class="line">        document.body.addEventListener(&#39;click&#39;,function (e) &#123;</span><br><span class="line">            console.log(&quot;body capture&quot;);</span><br><span class="line">        &#125;,true)</span><br><span class="line">        event.addEventListener(&#39;click&#39;, function (e) &#123;</span><br><span class="line">            console.log(&quot;event&quot;);</span><br><span class="line">        &#125;, true)</span><br><span class="line">        </span><br><span class="line">        window capture!</span><br><span class="line">        document capture</span><br><span class="line"> 		HTML capture!</span><br><span class="line">7 		body capture</span><br><span class="line">		event</span><br></pre></td></tr></table></figure>
-
-<p>冒泡和上面相反</p>
-<h2 id="Event对象的常见应用"><a href="#Event对象的常见应用" class="headerlink" title="Event对象的常见应用"></a>Event对象的常见应用</h2><ul>
-<li><p><code>event.preventDefault()</code></p>
-<p>阻止默认的行为，比如 a标签的页面跳转</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var link &#x3D; document.getElementById(&#39;link&#39;)</span><br><span class="line">    link.onclick &#x3D; function (e) &#123;</span><br><span class="line">        e.preventDefault();</span><br><span class="line"> &#125;</span><br><span class="line"> form.onclick &#x3D; function (e) &#123;</span><br><span class="line">        e.preventDefault()</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-
-<p>​</p>
-</li>
-<li><p><code>event.stopPropagation()</code></p>
-</li>
-<li><p><code>event.stopImmediatePropogation()</code></p>
-</li>
-</ul>
-<p><strong>下面这两个主要是用于事件委托</strong></p>
-<ul>
-<li><code>event.currentTarget</code></li>
-<li><code>event.target</code></li>
-</ul>
-<h2 id="自定义事件"><a href="#自定义事件" class="headerlink" title="自定义事件"></a>自定义事件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var event &#x3D; new Event(&#39;custome&#39;)</span><br><span class="line">var btn1 &#x3D; document.getElementById(&#39;btn1&#39;)</span><br><span class="line">btn1.addEventListener(&#39;custome&#39;, function () &#123;</span><br><span class="line">     console.log(&#39;custome event&#39;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">btn1.dispatchEvent(event)</span><br></pre></td></tr></table></figure>
-
-<p>还有 <code>customEvent</code> 可以自定义事件，并且可以传递数据</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 首先创建一个事件</span><br><span class="line">let myEvent &#x3D; new CustomEvent(&quot;userLogin&quot;, &#123;</span><br><span class="line">    detail: &#123;</span><br><span class="line">        username: &quot;davidwalsh&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"> btn.addEventListener(&quot;userLogin&quot;, function(e) &#123;</span><br><span class="line"> console.info(&quot;Event is: &quot;, e);</span><br><span class="line"> console.info(&quot;Custom data is: &quot;, e.detail);</span><br><span class="line"> &#125;)</span><br><span class="line"></span><br><span class="line">myElement.dispatchEvent(myEvent);</span><br></pre></td></tr></table></figure>
-
-
+<h2 id="DOM事件的级别"><a href="#DOM事件的级别" class="headerlink" title="DOM事件的级别"></a>DOM事件的级别</h2>
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2020/02/09/DOM-%E4%BA%8B%E4%BB%B6/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -241,7 +203,7 @@
 
 
 
-<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left is-sticky">
     
         
 <div class="card widget">
@@ -251,22 +213,22 @@
                 <div>
                     
                     <figure class="image is-128x128 has-mb-6">
-                        <img class="" src="/images/avatar.png" alt="Your name">
+                        <img class="" src="/images/head.jpg" alt="wangthing">
                     </figure>
                     
                     <p class="is-size-4 is-block">
-                        Your name
+                        wangthing
                     </p>
                     
                     
                     <p class="is-size-6 is-block">
-                        Your title
+                        前端练习生
                     </p>
                     
                     
                     <p class="is-size-6 is-flex is-flex-center has-text-grey">
                         <i class="fas fa-map-marker-alt has-mr-7"></i>
-                        <span>Your location</span>
+                        <span>南昌</span>
                     </p>
                     
                 </div>
@@ -280,7 +242,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            27
+                            26
                         </p>
                     </a>
                 </div>
@@ -312,7 +274,7 @@
         </nav>
         
         <div class="level">
-            <a class="level-item button is-link is-rounded" href="https://github.com/ppoffice" target="_blank" rel="noopener">
+            <a class="level-item button is-link is-rounded" href="https://github.com/wangthing" target="_blank" rel="noopener">
                 关注我</a>
         </div>
         
@@ -321,7 +283,7 @@
         <div class="level is-mobile">
             
             <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
-                title="Github" href="https://github.com/ppoffice">
+                title="Github" href="https://github.com/wangthing">
                 
                 <i class="fab fa-github"></i>
                 
@@ -331,13 +293,6 @@
                 title="Facebook" href="https://facebook.com">
                 
                 <i class="fab fa-facebook"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
-                title="Twitter" href="https://twitter.com">
-                
-                <i class="fab fa-twitter"></i>
                 
             </a>
             
@@ -575,7 +530,7 @@
                     <span class="level-item">十二月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">7</span>
+                    <span class="level-item tag">6</span>
                 </span>
             </a>
         </li>
@@ -1005,7 +960,7 @@
                     <span class="level-item">十二月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">7</span>
+                    <span class="level-item tag">6</span>
                 </span>
             </a>
         </li>
@@ -1292,6 +1247,11 @@
                 &copy; 2020 John Doe&nbsp;
                 Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> & <a
                         href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a>
+                
+                <br>
+                <span id="busuanzi_container_site_uv">
+                共<span id="busuanzi_value_site_uv">0</span>个访客
+                </span>
                 
                 </p>
             </div>

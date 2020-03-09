@@ -10,16 +10,16 @@
 <title>virtual dom（虚拟DOM） - 欢迎</title>
 
 
-    <meta name="description" content="virtual dom（虚拟DOM） vdom是vue和React的核心，先讲哪个都绕不开它  vdom比较独立，使用也比较简单  如果面试问到vue和React的实现，vdom是肯定会问的  关于vdom的几个问题  vdom是什么？为什么会存在vdom？jQuery它不香吗？ vdom如何使用，核心API是什么？ 介绍一下 diff算法    1. 什么是vdom，为何使用vdom,如何用JS">
+    <meta name="description" content="virtual dom（虚拟DOM） vdom是vue和React的核心，先讲哪个都绕不开它  vdom比较独立，使用也比较简单  如果面试问到vue和React的实现，vdom是肯定会问的  关于vdom的几个问题  vdom是什么？为什么会存在vdom？jQuery它不香吗？ vdom如何使用，核心API是什么？ 介绍一下 diff算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="virtual dom（虚拟DOM）">
 <meta property="og:url" content="http://yoursite.com/2020/01/08/virtual-dom%EF%BC%88%E8%99%9A%E6%8B%9FDOM%EF%BC%89/index.html">
 <meta property="og:site_name" content="欢迎">
-<meta property="og:description" content="virtual dom（虚拟DOM） vdom是vue和React的核心，先讲哪个都绕不开它  vdom比较独立，使用也比较简单  如果面试问到vue和React的实现，vdom是肯定会问的  关于vdom的几个问题  vdom是什么？为什么会存在vdom？jQuery它不香吗？ vdom如何使用，核心API是什么？ 介绍一下 diff算法    1. 什么是vdom，为何使用vdom,如何用JS">
+<meta property="og:description" content="virtual dom（虚拟DOM） vdom是vue和React的核心，先讲哪个都绕不开它  vdom比较独立，使用也比较简单  如果面试问到vue和React的实现，vdom是肯定会问的  关于vdom的几个问题  vdom是什么？为什么会存在vdom？jQuery它不香吗？ vdom如何使用，核心API是什么？ 介绍一下 diff算法">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
 <meta property="article:published_time" content="2020-01-08T03:20:56.000Z">
-<meta property="article:modified_time" content="2020-01-08T03:22:13.394Z">
+<meta property="article:modified_time" content="2020-03-09T08:54:28.102Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="diff">
 <meta property="article:tag" content="虚拟DOM">
@@ -28,11 +28,13 @@
 
 
 
+<link rel="canonical" href="/images/head.jpg" />
 
 
 
 
-<link rel="icon" href="/images/favicon.svg">
+
+<link rel="icon" href="/images/head.jpg">
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
@@ -70,7 +72,7 @@
     <link rel="stylesheet" href="/css/progressbar.css">
 <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
     
-    
+    <script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     
 
 
@@ -94,7 +96,7 @@
                 href="/">主页</a>
                 
                 <a class="navbar-item"
-                href="/archives">成就</a>
+                href="/archives">归档</a>
                 
                 <a class="navbar-item"
                 href="/categories">分类</a>
@@ -103,7 +105,7 @@
                 href="/tags">标签</a>
                 
                 <a class="navbar-item"
-                href="/about">About</a>
+                href="/about">关于</a>
                 
             </div>
             
@@ -144,9 +146,14 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    8 分钟 读完 (大约 1184 个字)
+                    8 分钟 读完 (大约 1185 个字)
                 </span>
                 
+                
+                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_page_pv">0</span>次访问
+                </span>
                 
             </div>
         </div>
@@ -172,6 +179,8 @@
 </ul>
 </li>
 </ul>
+<a id="more"></a>
+
 <h2 id="1-什么是vdom，为何使用vdom-如何用JS模拟DOM结构"><a href="#1-什么是vdom，为何使用vdom-如何用JS模拟DOM结构" class="headerlink" title="1. 什么是vdom，为何使用vdom,如何用JS模拟DOM结构"></a>1. 什么是vdom，为何使用vdom,如何用JS模拟DOM结构</h2><ul>
 <li>virtual dom 虚拟DOM</li>
 <li>用JS模拟DOM结构</li>
@@ -251,31 +260,6 @@
         <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
         <div class="buttons is-centered">
             
-                
-<div class="notification is-danger">
-    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
-</div>
-
-                
-                
-<div class="notification is-danger">
-    You forgot to set the <code>qrcode</code> for Wechat. Please set it in <code>_config.yml</code>.
-</div>
-
-                
-                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
-
-<div class="notification is-danger">
-    You forgot to set the <code>business</code> and <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.
-</div>
-
-                
-                
-<div class="notification is-danger">
-    You forgot to set the <code>url</code> Patreon. Please set it in <code>_config.yml</code>.
-</div>
-
-                
         </div>
     </div>
 </div>
@@ -310,7 +294,7 @@
 
 
 
-<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left is-sticky">
     
         
 <div class="card widget">
@@ -320,22 +304,22 @@
                 <div>
                     
                     <figure class="image is-128x128 has-mb-6">
-                        <img class="" src="/images/avatar.png" alt="Your name">
+                        <img class="" src="/images/head.jpg" alt="wangthing">
                     </figure>
                     
                     <p class="is-size-4 is-block">
-                        Your name
+                        wangthing
                     </p>
                     
                     
                     <p class="is-size-6 is-block">
-                        Your title
+                        前端练习生
                     </p>
                     
                     
                     <p class="is-size-6 is-flex is-flex-center has-text-grey">
                         <i class="fas fa-map-marker-alt has-mr-7"></i>
-                        <span>Your location</span>
+                        <span>南昌</span>
                     </p>
                     
                 </div>
@@ -349,7 +333,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            27
+                            26
                         </p>
                     </a>
                 </div>
@@ -381,7 +365,7 @@
         </nav>
         
         <div class="level">
-            <a class="level-item button is-link is-rounded" href="https://github.com/ppoffice" target="_blank" rel="noopener">
+            <a class="level-item button is-link is-rounded" href="https://github.com/wangthing" target="_blank" rel="noopener">
                 关注我</a>
         </div>
         
@@ -390,7 +374,7 @@
         <div class="level is-mobile">
             
             <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
-                title="Github" href="https://github.com/ppoffice">
+                title="Github" href="https://github.com/wangthing">
                 
                 <i class="fab fa-github"></i>
                 
@@ -400,13 +384,6 @@
                 title="Facebook" href="https://facebook.com">
                 
                 <i class="fab fa-facebook"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
-                title="Twitter" href="https://twitter.com">
-                
-                <i class="fab fa-twitter"></i>
                 
             </a>
             
@@ -644,7 +621,7 @@
                     <span class="level-item">十二月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">7</span>
+                    <span class="level-item tag">6</span>
                 </span>
             </a>
         </li>
@@ -1074,7 +1051,7 @@
                     <span class="level-item">十二月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">7</span>
+                    <span class="level-item tag">6</span>
                 </span>
             </a>
         </li>
@@ -1361,6 +1338,11 @@
                 &copy; 2020 John Doe&nbsp;
                 Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> & <a
                         href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a>
+                
+                <br>
+                <span id="busuanzi_container_site_uv">
+                共<span id="busuanzi_value_site_uv">0</span>个访客
+                </span>
                 
                 </p>
             </div>

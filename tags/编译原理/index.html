@@ -24,11 +24,13 @@
 
 
 
+<link rel="canonical" href="/images/head.jpg" />
 
 
 
 
-<link rel="icon" href="/images/favicon.svg">
+
+<link rel="icon" href="/images/head.jpg">
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
@@ -66,7 +68,7 @@
     <link rel="stylesheet" href="/css/progressbar.css">
 <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
     
-    
+    <script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     
 
 
@@ -90,7 +92,7 @@
                 href="/">主页</a>
                 
                 <a class="navbar-item"
-                href="/archives">成就</a>
+                href="/archives">归档</a>
                 
                 <a class="navbar-item"
                 href="/categories">分类</a>
@@ -99,7 +101,7 @@
                 href="/tags">标签</a>
                 
                 <a class="navbar-item"
-                href="/about">About</a>
+                href="/about">关于</a>
                 
             </div>
             
@@ -151,7 +153,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    8 分钟 读完 (大约 1219 个字)
+                    8 分钟 读完 (大约 1220 个字)
                 </span>
                 
                 
@@ -169,78 +171,16 @@
 <p>1、    翻译程序与解释程序之间根本区别是什么？<br>2、    翻译程序与解释程序各自优势？<br>3、    编译程序与翻译程序之间的关系？<br>4、    词法分析中，“单词”的理解？具体包括哪几类？<br>5、    语法分析中，“语法单位/短语”的理解？具体包括哪些？<br>6、    语法分析中，引入“语法树”这个工具，有什么好处？<br>7、    语义法分析中，“静态语义”与“动态语义”的运行阶段？<br>8、    为什么引入“中间代码”？<br>9、    代码优化从效率角度讲，应考虑哪几个要素？<br>10、“绝对地址的机器指令代码”与“可重定位的指令代码”的理解。</p>
 <p>判断题<br>1、编译程序是指将高级语言转化为机器语言的翻译程序。（ ）<br>2、编译程序属于系统软件。（ ）<br>3、在编译程序的设计中，代码优化是必须的。（ ）<br>4、在源代码的编译程序处理过程中，数组越界属于语义错误。（ ）<br>5、C语言的编译器可以用C语言来编写。（ ）</p>
 </blockquote>
-<h2 id="本课程的特点、难点和目的"><a href="#本课程的特点、难点和目的" class="headerlink" title="本课程的特点、难点和目的"></a>本课程的特点、难点和目的</h2><ul>
-<li>特点<ul>
-<li>抽象难懂</li>
-<li>算法多且算法复杂，不同于数据结构中的算法</li>
-</ul>
-</li>
-<li>难点<ul>
-<li>形式语言基本理论</li>
-<li>自动机基本理论</li>
-<li>语义分析（重点）</li>
-</ul>
-</li>
-<li>目的<ul>
-<li>训练抽象思维和形式化描述问题的能力</li>
-<li>加深对程序设计语言本质的理解</li>
-<li>了解一个变异程序的构造原理和方法</li>
-</ul>
-</li>
-</ul>
-<h2 id="计算机中的软件可以主要分为两类"><a href="#计算机中的软件可以主要分为两类" class="headerlink" title="计算机中的软件可以主要分为两类"></a>计算机中的软件可以主要分为两类</h2><ul>
-<li>系统软件（操作系统软件，对性能和准确率要求非常高）</li>
-<li>应用软件</li>
-</ul>
-<h2 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h2><p>编译原理指的是编译程序的构造原理和技术</p>
-<h3 id="计算机语言的分类"><a href="#计算机语言的分类" class="headerlink" title="计算机语言的分类"></a>计算机语言的分类</h3><ul>
-<li>低级语言<ul>
-<li>机器语言（唯一能被计算机执行的语言）</li>
-<li>汇编语言</li>
-</ul>
-</li>
-<li>高级语言<ul>
-<li>C、C++</li>
-<li>Java</li>
-<li>等等</li>
-</ul>
-</li>
-</ul>
-<p>​    我们用户用的都是高级设计语言，如果直接交给计算机执行的话肯定是不能够被计算机执行的，所以我们需要把高级语言程序或者汇编语言程序转换成计算机可以识别的机器语言。</p>
-<p>转化的方法就是 <strong>翻译或者解释</strong></p>
-<h3 id="翻译程序"><a href="#翻译程序" class="headerlink" title="翻译程序"></a>翻译程序</h3><blockquote>
-<p>它能够把某一种语言程序（称为源语言程序）转化成另一种语言程序（称为目标语言程序），而后者与前者在逻辑上是等价的</p>
-</blockquote>
-<h2 id="编译程序"><a href="#编译程序" class="headerlink" title="编译程序"></a>编译程序</h2><p>​    在翻译程序的基础之上， 如果源语言程序是一种 <code>C++ Java</code> 之类的高级语言，而目标语言是汇编语言或者机器语言之类的低级语言，那么这样的一个翻译程序就可以叫做 <code>编译程序</code></p>
-<p>​    而<code>汇编程序</code> 是用于特定计算机上的汇编语言的翻译程序</p>
-<h4 id="对编译程序的分类"><a href="#对编译程序的分类" class="headerlink" title="对编译程序的分类"></a>对编译程序的分类</h4><ul>
-<li><p>交叉编译程序</p>
-<p>源程序的编译和目标程序的执行不一定在同一种计算机上(比如在windows系统编译的程序要在 Linux系统上运行，甚至是Android系统)。当源程序由另外一种计算机的编译程序进行编译是，我们将此程序成为交叉编译程序。需要注意的是两个计算机是不是同一个操作系统，如果两个机器是同一个操作系统则不算是交叉编译程序。</p>
-</li>
-<li><p>诊断编译程序</p>
-<p>专门用于帮助程序开发和调试程序的编译程序</p>
-</li>
-<li><p>优化编译程序</p>
-<p>着重提高目标代码效率的编译程序</p>
-</li>
-</ul>
-<h2 id="解释程序"><a href="#解释程序" class="headerlink" title="解释程序"></a>解释程序</h2><p>定义： 把源程序作为一种输入，<strong>而且不会产生目标程序</strong>，而是边解释边执行源程序的本身。</p>
-<p>与编译程序的主要区别是： 会不会产生目标程序。</p>
-<h2 id="编译过程的概述"><a href="#编译过程的概述" class="headerlink" title="编译过程的概述"></a>编译过程的概述</h2><h3 id="编译程序的组成"><a href="#编译程序的组成" class="headerlink" title="编译程序的组成"></a>编译程序的组成</h3><p>举个例子：比如将一段英文翻译成中文，我们会经过一下一些步骤</p>
-<ul>
-<li>识别句子中的一个个单词         =》 词法分析</li>
-<li>分析一个句子的语法结构              =》语法分析</li>
-<li>分析句子的含义                              =》 语义分析</li>
-<li>进行初步翻译：                              =》 中间代码生成</li>
-<li>对译文进行修饰                               =》 中间代码优化</li>
-<li>写出最后的译文                              =》 目标程序生成</li>
-</ul>
-<h4 id="1-词法分析"><a href="#1-词法分析" class="headerlink" title="1. 词法分析"></a>1. 词法分析</h4><ul>
-<li>​</li>
-</ul>
-
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2020/03/09/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0-%E7%AC%AC%E4%B8%80%E8%8A%82/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -259,7 +199,7 @@
 
 
 
-<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left is-sticky">
     
         
 <div class="card widget">
@@ -269,22 +209,22 @@
                 <div>
                     
                     <figure class="image is-128x128 has-mb-6">
-                        <img class="" src="/images/avatar.png" alt="Your name">
+                        <img class="" src="/images/head.jpg" alt="wangthing">
                     </figure>
                     
                     <p class="is-size-4 is-block">
-                        Your name
+                        wangthing
                     </p>
                     
                     
                     <p class="is-size-6 is-block">
-                        Your title
+                        前端练习生
                     </p>
                     
                     
                     <p class="is-size-6 is-flex is-flex-center has-text-grey">
                         <i class="fas fa-map-marker-alt has-mr-7"></i>
-                        <span>Your location</span>
+                        <span>南昌</span>
                     </p>
                     
                 </div>
@@ -298,7 +238,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            27
+                            26
                         </p>
                     </a>
                 </div>
@@ -330,7 +270,7 @@
         </nav>
         
         <div class="level">
-            <a class="level-item button is-link is-rounded" href="https://github.com/ppoffice" target="_blank" rel="noopener">
+            <a class="level-item button is-link is-rounded" href="https://github.com/wangthing" target="_blank" rel="noopener">
                 关注我</a>
         </div>
         
@@ -339,7 +279,7 @@
         <div class="level is-mobile">
             
             <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
-                title="Github" href="https://github.com/ppoffice">
+                title="Github" href="https://github.com/wangthing">
                 
                 <i class="fab fa-github"></i>
                 
@@ -349,13 +289,6 @@
                 title="Facebook" href="https://facebook.com">
                 
                 <i class="fab fa-facebook"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
-                title="Twitter" href="https://twitter.com">
-                
-                <i class="fab fa-twitter"></i>
                 
             </a>
             
@@ -593,7 +526,7 @@
                     <span class="level-item">十二月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">7</span>
+                    <span class="level-item tag">6</span>
                 </span>
             </a>
         </li>
@@ -1023,7 +956,7 @@
                     <span class="level-item">十二月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">7</span>
+                    <span class="level-item tag">6</span>
                 </span>
             </a>
         </li>
@@ -1310,6 +1243,11 @@
                 &copy; 2020 John Doe&nbsp;
                 Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> & <a
                         href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a>
+                
+                <br>
+                <span id="busuanzi_container_site_uv">
+                共<span id="busuanzi_value_site_uv">0</span>个访客
+                </span>
                 
                 </p>
             </div>

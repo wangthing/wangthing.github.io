@@ -19,7 +19,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
 <meta property="article:published_time" content="2020-01-20T13:43:01.000Z">
-<meta property="article:modified_time" content="2020-01-21T03:41:42.055Z">
+<meta property="article:modified_time" content="2020-03-09T08:54:28.074Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="DOM">
 <meta name="twitter:card" content="summary">
@@ -27,11 +27,13 @@
 
 
 
+<link rel="canonical" href="/images/head.jpg" />
 
 
 
 
-<link rel="icon" href="/images/favicon.svg">
+
+<link rel="icon" href="/images/head.jpg">
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
@@ -69,7 +71,7 @@
     <link rel="stylesheet" href="/css/progressbar.css">
 <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
     
-    
+    <script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     
 
 
@@ -93,7 +95,7 @@
                 href="/">主页</a>
                 
                 <a class="navbar-item"
-                href="/archives">成就</a>
+                href="/archives">归档</a>
                 
                 <a class="navbar-item"
                 href="/categories">分类</a>
@@ -102,7 +104,7 @@
                 href="/tags">标签</a>
                 
                 <a class="navbar-item"
-                href="/about">About</a>
+                href="/about">关于</a>
                 
             </div>
             
@@ -143,9 +145,14 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    19 分钟 读完 (大约 2910 个字)
+                    19 分钟 读完 (大约 2911 个字)
                 </span>
                 
+                
+                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_page_pv">0</span>次访问
+                </span>
                 
             </div>
         </div>
@@ -162,6 +169,8 @@
 <blockquote>
 <p>需要注意的是IE中的所有<code>DOM</code> 对象都是以COM对象的形式实现的。这意味着IE中的DOM对象与原始的<code>JavaScript</code> 对象的行为或者活动特点并不一致。</p>
 </blockquote>
+<a id="more"></a>
+
 <h2 id="操作DOM节点"><a href="#操作DOM节点" class="headerlink" title="操作DOM节点"></a>操作DOM节点</h2><ul>
 <li><p><code>appendChild（）</code> 是向 <code>childNodes</code> 列表的末尾添加一个节点，并返回新的节点</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var returnedNodes &#x3D; someNode.appendChild(newNode) </span><br><span class="line">   alert(returnedNodes &#x3D;&#x3D;&#x3D; newNode)			&#x2F;&#x2F;true</span><br><span class="line">   alert(someNode.lastChild &#x3D;&#x3D;&#x3D; newNode)	&#x2F;&#x2F;true</span><br></pre></td></tr></table></figure>
@@ -268,13 +277,16 @@
 <li><code>className</code> 与元素的class对应，即为元素指定CSS类。</li>
 </ul>
 <h5 id="获取特性"><a href="#获取特性" class="headerlink" title="获取特性"></a>获取特性</h5><ul>
-<li><code>getAttribute()</code></li>
-<li><code>setAttribute()</code></li>
-<li><code>removeAttribute()</code></li>
-</ul>
+<li><p><code>getAttribute()</code></p>
+</li>
+<li><p><code>setAttribute()</code></p>
+</li>
+<li><p><code>removeAttribute()</code></p>
 <blockquote>
-<p>需要注意的是getAttribute()    传入的特性名应该与实际的特性名相同，所以想要获取到class的话需要‘class’，而非‘className’，而且还可以获取自定义属性（即标准HTML语言当中没有的特性）</p>
+<p>需要注意的是getAttribute()传入的特性名应该与实际的特性名相同，所以想要获取到class的话需要‘class’，而非‘className’，而且还可以获取自定义属性（即标准HTML语言当中没有的特性）</p>
 </blockquote>
+</li>
+</ul>
 <p>任何元素的所有特性都可以通过DOM元素本身的属性来访问，当然 HTMLElement也会有5个属性与相应的特性意义对应。不过只有公认的特性（非自定义）才会添加到DOM对象中。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id&#x3D;&quot;myDiv&quot; align&#x3D;&quot;left&quot; myAttribute&#x3D;&quot;hello&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line"></span><br><span class="line">alert(div.id)		&#x2F;&#x2F;&quot;myDiv&quot;</span><br><span class="line">alert(div.align)	&#x2F;&#x2F;&quot;left&quot;</span><br><span class="line">alert(div.myAttribute)	&#x2F;&#x2F;undefined(IE除外)</span><br></pre></td></tr></table></figure>
 
@@ -303,31 +315,6 @@
         <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
         <div class="buttons is-centered">
             
-                
-<div class="notification is-danger">
-    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
-</div>
-
-                
-                
-<div class="notification is-danger">
-    You forgot to set the <code>qrcode</code> for Wechat. Please set it in <code>_config.yml</code>.
-</div>
-
-                
-                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
-
-<div class="notification is-danger">
-    You forgot to set the <code>business</code> and <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.
-</div>
-
-                
-                
-<div class="notification is-danger">
-    You forgot to set the <code>url</code> Patreon. Please set it in <code>_config.yml</code>.
-</div>
-
-                
         </div>
     </div>
 </div>
@@ -362,7 +349,7 @@
 
 
 
-<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left is-sticky">
     
         
 <div class="card widget">
@@ -372,22 +359,22 @@
                 <div>
                     
                     <figure class="image is-128x128 has-mb-6">
-                        <img class="" src="/images/avatar.png" alt="Your name">
+                        <img class="" src="/images/head.jpg" alt="wangthing">
                     </figure>
                     
                     <p class="is-size-4 is-block">
-                        Your name
+                        wangthing
                     </p>
                     
                     
                     <p class="is-size-6 is-block">
-                        Your title
+                        前端练习生
                     </p>
                     
                     
                     <p class="is-size-6 is-flex is-flex-center has-text-grey">
                         <i class="fas fa-map-marker-alt has-mr-7"></i>
-                        <span>Your location</span>
+                        <span>南昌</span>
                     </p>
                     
                 </div>
@@ -401,7 +388,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            27
+                            26
                         </p>
                     </a>
                 </div>
@@ -433,7 +420,7 @@
         </nav>
         
         <div class="level">
-            <a class="level-item button is-link is-rounded" href="https://github.com/ppoffice" target="_blank" rel="noopener">
+            <a class="level-item button is-link is-rounded" href="https://github.com/wangthing" target="_blank" rel="noopener">
                 关注我</a>
         </div>
         
@@ -442,7 +429,7 @@
         <div class="level is-mobile">
             
             <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
-                title="Github" href="https://github.com/ppoffice">
+                title="Github" href="https://github.com/wangthing">
                 
                 <i class="fab fa-github"></i>
                 
@@ -452,13 +439,6 @@
                 title="Facebook" href="https://facebook.com">
                 
                 <i class="fab fa-facebook"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
-                title="Twitter" href="https://twitter.com">
-                
-                <i class="fab fa-twitter"></i>
                 
             </a>
             
@@ -696,7 +676,7 @@
                     <span class="level-item">十二月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">7</span>
+                    <span class="level-item tag">6</span>
                 </span>
             </a>
         </li>
@@ -1126,7 +1106,7 @@
                     <span class="level-item">十二月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">7</span>
+                    <span class="level-item tag">6</span>
                 </span>
             </a>
         </li>
@@ -1413,6 +1393,11 @@
                 &copy; 2020 John Doe&nbsp;
                 Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> & <a
                         href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a>
+                
+                <br>
+                <span id="busuanzi_container_site_uv">
+                共<span id="busuanzi_value_site_uv">0</span>个访客
+                </span>
                 
                 </p>
             </div>

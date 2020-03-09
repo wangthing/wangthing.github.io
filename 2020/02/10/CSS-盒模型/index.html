@@ -10,16 +10,16 @@
 <title>CSS-盒模型 - 欢迎</title>
 
 
-    <meta name="description" content="问题 基本概念：标准模型+IE模型 标准模型和IE模型的区别 CSS如何设置这两种模型 JS如何设置获取盒模型对应的宽度和高度 根据盒模型解释边距重叠 BFC（编剧重叠解决方案）  ##IE模型和标准模型 标准模型：宽度和高度是content的大小,设置方法 box-sizing:content-box IE模型： 宽高是content + padding + boeder，也就是我们说的 boe">
+    <meta name="description" content="问题 基本概念：标准模型+IE模型 标准模型和IE模型的区别 CSS如何设置这两种模型 JS如何设置获取盒模型对应的宽度和高度 根据盒模型解释边距重叠 BFC（编剧重叠解决方案）  ##IE模型和标准模型">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSS-盒模型">
 <meta property="og:url" content="http://yoursite.com/2020/02/10/CSS-%E7%9B%92%E6%A8%A1%E5%9E%8B/index.html">
 <meta property="og:site_name" content="欢迎">
-<meta property="og:description" content="问题 基本概念：标准模型+IE模型 标准模型和IE模型的区别 CSS如何设置这两种模型 JS如何设置获取盒模型对应的宽度和高度 根据盒模型解释边距重叠 BFC（编剧重叠解决方案）  ##IE模型和标准模型 标准模型：宽度和高度是content的大小,设置方法 box-sizing:content-box IE模型： 宽高是content + padding + boeder，也就是我们说的 boe">
+<meta property="og:description" content="问题 基本概念：标准模型+IE模型 标准模型和IE模型的区别 CSS如何设置这两种模型 JS如何设置获取盒模型对应的宽度和高度 根据盒模型解释边距重叠 BFC（编剧重叠解决方案）  ##IE模型和标准模型">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
 <meta property="article:published_time" content="2020-02-10T01:12:38.000Z">
-<meta property="article:modified_time" content="2020-02-11T13:45:32.583Z">
+<meta property="article:modified_time" content="2020-03-09T08:54:28.075Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="CSS">
 <meta property="article:tag" content="盒模型">
@@ -28,11 +28,13 @@
 
 
 
+<link rel="canonical" href="/images/head.jpg" />
 
 
 
 
-<link rel="icon" href="/images/favicon.svg">
+
+<link rel="icon" href="/images/head.jpg">
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
@@ -70,7 +72,7 @@
     <link rel="stylesheet" href="/css/progressbar.css">
 <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
     
-    
+    <script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     
 
 
@@ -94,7 +96,7 @@
                 href="/">主页</a>
                 
                 <a class="navbar-item"
-                href="/archives">成就</a>
+                href="/archives">归档</a>
                 
                 <a class="navbar-item"
                 href="/categories">分类</a>
@@ -103,7 +105,7 @@
                 href="/tags">标签</a>
                 
                 <a class="navbar-item"
-                href="/about">About</a>
+                href="/about">关于</a>
                 
             </div>
             
@@ -144,9 +146,14 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    2 分钟 读完 (大约 265 个字)
+                    2 分钟 读完 (大约 266 个字)
                 </span>
                 
+                
+                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_page_pv">0</span>次访问
+                </span>
                 
             </div>
         </div>
@@ -166,6 +173,8 @@
 <li>BFC（编剧重叠解决方案）</li>
 </ul>
 <p>##IE模型和标准模型</p>
+<a id="more"></a>
+
 <p>标准模型：宽度和高度是content的大小,设置方法 <code>box-sizing:content-box</code></p>
 <p>IE模型： 宽高是<code>content + padding + boeder</code>，也就是我们说的 <code>boeder-box</code></p>
 <h2 id="JS如何获取盒模型对应的高和宽"><a href="#JS如何获取盒模型对应的高和宽" class="headerlink" title="JS如何获取盒模型对应的高和宽"></a>JS如何获取盒模型对应的高和宽</h2><ul>
@@ -212,31 +221,6 @@
         <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
         <div class="buttons is-centered">
             
-                
-<div class="notification is-danger">
-    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
-</div>
-
-                
-                
-<div class="notification is-danger">
-    You forgot to set the <code>qrcode</code> for Wechat. Please set it in <code>_config.yml</code>.
-</div>
-
-                
-                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
-
-<div class="notification is-danger">
-    You forgot to set the <code>business</code> and <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.
-</div>
-
-                
-                
-<div class="notification is-danger">
-    You forgot to set the <code>url</code> Patreon. Please set it in <code>_config.yml</code>.
-</div>
-
-                
         </div>
     </div>
 </div>
@@ -271,7 +255,7 @@
 
 
 
-<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left is-sticky">
     
         
 <div class="card widget">
@@ -281,22 +265,22 @@
                 <div>
                     
                     <figure class="image is-128x128 has-mb-6">
-                        <img class="" src="/images/avatar.png" alt="Your name">
+                        <img class="" src="/images/head.jpg" alt="wangthing">
                     </figure>
                     
                     <p class="is-size-4 is-block">
-                        Your name
+                        wangthing
                     </p>
                     
                     
                     <p class="is-size-6 is-block">
-                        Your title
+                        前端练习生
                     </p>
                     
                     
                     <p class="is-size-6 is-flex is-flex-center has-text-grey">
                         <i class="fas fa-map-marker-alt has-mr-7"></i>
-                        <span>Your location</span>
+                        <span>南昌</span>
                     </p>
                     
                 </div>
@@ -310,7 +294,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            27
+                            26
                         </p>
                     </a>
                 </div>
@@ -342,7 +326,7 @@
         </nav>
         
         <div class="level">
-            <a class="level-item button is-link is-rounded" href="https://github.com/ppoffice" target="_blank" rel="noopener">
+            <a class="level-item button is-link is-rounded" href="https://github.com/wangthing" target="_blank" rel="noopener">
                 关注我</a>
         </div>
         
@@ -351,7 +335,7 @@
         <div class="level is-mobile">
             
             <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
-                title="Github" href="https://github.com/ppoffice">
+                title="Github" href="https://github.com/wangthing">
                 
                 <i class="fab fa-github"></i>
                 
@@ -361,13 +345,6 @@
                 title="Facebook" href="https://facebook.com">
                 
                 <i class="fab fa-facebook"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
-                title="Twitter" href="https://twitter.com">
-                
-                <i class="fab fa-twitter"></i>
                 
             </a>
             
@@ -605,7 +582,7 @@
                     <span class="level-item">十二月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">7</span>
+                    <span class="level-item tag">6</span>
                 </span>
             </a>
         </li>
@@ -1035,7 +1012,7 @@
                     <span class="level-item">十二月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">7</span>
+                    <span class="level-item tag">6</span>
                 </span>
             </a>
         </li>
@@ -1322,6 +1299,11 @@
                 &copy; 2020 John Doe&nbsp;
                 Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> & <a
                         href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a>
+                
+                <br>
+                <span id="busuanzi_container_site_uv">
+                共<span id="busuanzi_value_site_uv">0</span>个访客
+                </span>
                 
                 </p>
             </div>

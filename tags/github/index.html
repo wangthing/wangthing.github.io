@@ -24,11 +24,13 @@
 
 
 
+<link rel="canonical" href="/images/head.jpg" />
 
 
 
 
-<link rel="icon" href="/images/favicon.svg">
+
+<link rel="icon" href="/images/head.jpg">
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
@@ -66,7 +68,7 @@
     <link rel="stylesheet" href="/css/progressbar.css">
 <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
     
-    
+    <script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     
 
 
@@ -90,7 +92,7 @@
                 href="/">主页</a>
                 
                 <a class="navbar-item"
-                href="/archives">成就</a>
+                href="/archives">归档</a>
                 
                 <a class="navbar-item"
                 href="/categories">分类</a>
@@ -99,7 +101,7 @@
                 href="/tags">标签</a>
                 
                 <a class="navbar-item"
-                href="/about">About</a>
+                href="/about">关于</a>
                 
             </div>
             
@@ -151,7 +153,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    24 分钟 读完 (大约 3544 个字)
+                    24 分钟 读完 (大约 3545 个字)
                 </span>
                 
                 
@@ -166,114 +168,16 @@
         <div class="content">
             <h1 id="git-年末大总结"><a href="#git-年末大总结" class="headerlink" title="git 年末大总结"></a>git 年末大总结</h1><p><img src="https://user-gold-cdn.xitu.io/2019/12/24/16f35d82d9848d00?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="在这里插入图片描述"></p>
 <p>原文链接：<a href="https://juejin.im/post/5e017f096fb9a016043a5c96#heading-21">掘金</a></p>
-<h2 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h2><p>Git是目前世界上最先进的分布式版本控制系统。</p>
-<h3 id="1-版本控制"><a href="#1-版本控制" class="headerlink" title="1. 版本控制"></a>1. 版本控制</h3><p>所谓版本控制就是在文件的修改历程中保留修改历史，让你可以方便地查询历史提交记录以及撤销之前对文件的修改操作。版本控制系统主要有集中式版本控制系统和分布式版本控制系统两种。</p>
-<h4 id="1-1-集中式版本控制系统"><a href="#1-1-集中式版本控制系统" class="headerlink" title="1.1 集中式版本控制系统"></a><strong>1.1 集中式版本控制系统</strong></h4><p>集中式版本控制系统，版本库是集中存放在中央服务器的，工作时需要先从中央服务器取得最新的版本，然后开始干活，干完活了，再把自己的活推送给中央服务器。</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/12/24/16f35d82dbc869cb?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="在这里插入图片描述"></p>
-<h4 id="1-2-分布式版本控制系统"><a href="#1-2-分布式版本控制系统" class="headerlink" title="1.2 分布式版本控制系统"></a><strong>1.2 分布式版本控制系统</strong></h4><p>分布式版本控制系统根本没有“中央服务器”，每个人的电脑上都是一个完整的版本库，这样，你工作的时候，就不需要联网了，因为版本库就在你自己的电脑上。既然每个人电脑上都有一个完整的版本库，那多个人如何协作呢？比方说你在自己电脑上改了文件A，你的同事也在他的电脑上改了文件A，这时，你们俩之间只需把各自的修改推送给对方，就可以互相看到对方的修改了。</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/12/24/16f35d82dcf34761?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="在这里插入图片描述"></p>
-<h3 id="2-Git理论基础"><a href="#2-Git理论基础" class="headerlink" title="2. Git理论基础"></a>2. Git理论基础</h3><p>学习git首先需要了解其中涉及到的四个重要概念：</p>
-<ol>
-<li>远程仓库(Remote Directory)</li>
-<li>工作目录（Working Directory）</li>
-<li>暂存区(Stage/Index)</li>
-<li>版本库(Repository或Git Directory)</li>
-</ol>
-<p>对于以上四个概念，我们依次理解。</p>
-<h4 id="2-1-远程仓库-Remote-Directory"><a href="#2-1-远程仓库-Remote-Directory" class="headerlink" title="2.1 远程仓库(Remote Directory)"></a>2.1 远程仓库(Remote Directory)</h4><p>远程仓库(Remote Directory)就是我们在远程服务器上面创建的一个仓库，通常这个仓库存储我们的代码，我们拿GitHub来做个demo，我们在GitHub上面创建一个远程仓库<a href="https://github.com/crazyandcoder/awesome-git">awesome-git</a>，这个仓库空空如也，刚创建的，等会我们便拿这个仓库进行学习git的相关操作。后面我们需要对这个仓库进行操作，如pull，push，branch，tag，reset等等命令，这些命令后面会详细了解。</p>
-<h4 id="2-2-工作目录（Working-Directory）"><a href="#2-2-工作目录（Working-Directory）" class="headerlink" title="2.2 工作目录（Working Directory）"></a>2.2 工作目录（Working Directory）</h4><p>在上个小节，我们创建了一个远程仓库<a href="https://github.com/crazyandcoder/awesome-git">awesome-git</a>，我们需要将它先放到本地进行相关操作，如存放在本地电脑awesome-git目录下，这个本地文件夹awesome-git就是我们的工作目录，这个就是我们平时存放项目代码的地方。</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/12/24/16f35d82de541579?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="在这里插入图片描述"></p>
-<h4 id="2-3-暂存区-Stage-Index"><a href="#2-3-暂存区-Stage-Index" class="headerlink" title="2.3 暂存区(Stage/Index)"></a>2.3 暂存区(Stage/Index)</h4><p>我们在上个小节中工作目录下面会看见一个.git的文件夹，其实这是一个隐藏的文件夹，这个文件夹是Git的版本库，他是存放Git管理信息的目录，初始化仓库的时候自动创建。暂存区英文叫stage, 或index。一般存放在 “.git目录下” 下的index文件（.git/index）中，所以我们把暂存区有时也叫作索引（index）。其次，Git为我们自动创建的第一个分支master，以及指向master的一个指针叫HEAD。</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/12/24/16f35d82df141096?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="在这里插入图片描述"></p>
-<h4 id="2-4-版本库-Repository或Git-Directory"><a href="#2-4-版本库-Repository或Git-Directory" class="headerlink" title="2.4 版本库(Repository或Git Directory)"></a>2.4 版本库(Repository或Git Directory)</h4><p>工作目录中有一个隐藏目录.git，这个就是Git的版本库。</p>
-<h3 id="3-Git工作流程"><a href="#3-Git工作流程" class="headerlink" title="3. Git工作流程"></a>3. Git工作流程</h3><p>我们用一张图来表示这四个区域之间的联系：</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/12/24/16f35d82df36273c?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="在这里插入图片描述"></p>
-<p>上面的这张图就是整个git的工作流程，整体如下：</p>
-<ol>
-<li>我们将文件存放到工作目录中，譬如我们新建的代码文件</li>
-<li>用git add把工作目录中的文件添加到暂存区，此时暂存区的目录树被更新</li>
-<li>用git commit提交就是把暂存区的所有内容提交到当前分支，如当前分支是master上面，此时master 分支会做相应的更新。</li>
-</ol>
-<p>经过以上三个步骤的操作，此时工作目录中的文件状态会经历三种过程：已修改（modified）=&gt; 已暂存（staged）=&gt; 已提交(committed)</p>
-<h4 id="3-1-实战练习"><a href="#3-1-实战练习" class="headerlink" title="3.1 实战练习"></a>3.1 实战练习</h4><p>上面一系列操作文件的状态会发生变化，我们来实际学习一下，上面我们创建的awesome-git这个仓库之后会生成一个README.md这个文件，打开看一下里面内容：里面只有一行“# awesome-git”</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/12/24/16f35d8305f7a551?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
-<p>我们在这个文件里面添加一行注释 “深入理解git” 变成下面：</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/12/24/16f35d83060903f8?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="在这里插入图片描述"></p>
-<p>此时我们更改了文件，我们通过一个命令 <strong>git status</strong> 来查看此时的文件状态：</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/12/24/16f35d8306f23aad?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
-<p>git add</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/12/24/16f35d83073d7bcd?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
-<p>git commit</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/12/24/16f35d830ce3345d?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="在这里插入图片描述"></p>
-<p>此刻我们经过一系列的操作，已经提交到master分支上了，同时工作区里面没有改动了：</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/12/24/16f35d830f5e0eda?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="在这里插入图片描述"></p>
-<p>经过一系列上述的操作，此刻文件已经放到了master分支上，接下来我们需要将这个文件push到远程仓库中去，</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/12/24/16f35d833075d639?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="在这里插入图片描述"></p>
-<p>git push</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/12/24/16f35d833511fe05?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="在这里插入图片描述"></p>
-<p>此刻已经推送到了远程仓库中去了。这是最简单git操作了，下面我们将在第7小节中讨论其他一系列复杂的操作。</p>
-<h3 id="4-Git分支管理"><a href="#4-Git分支管理" class="headerlink" title="4. Git分支管理"></a>4. Git分支管理</h3><p>我们开发项目一般都是进行在分支上面开发的，而不是直接在master分支，当开发完成之后我们再将在其他分支上面的代码合并到master分支。接下来我们将详细学习分支的常用操作。我们每次提交，Git都把它们串成一条时间线，这条时间线就是一个分支。截止到目前，只有一条时间线，在Git里，这个分支叫主分支，即master分支。HEAD严格来说不是指向提交，而是指向master，master才是指向提交的，所以，HEAD指向的就是当前分支。</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/12/24/16f35d833520a920?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="在这里插入图片描述"></p>
-<p>一开始的时候，master分支是一条线，Git用master指向最新的提交，每次提交，master分支都会向前移动一步，这样，随着你不断提交，master分支的线也越来越长。</p>
-<h4 id="4-1-新建分支"><a href="#4-1-新建分支" class="headerlink" title="4.1 新建分支"></a>4.1 新建分支</h4><p>我们通过以下命令来创建一个分支：</p>
-<h5 id="4-1-1-创建分支"><a href="#4-1-1-创建分支" class="headerlink" title="4.1.1 创建分支"></a>4.1.1 创建分支</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;新建dev分支</span><br><span class="line">git branch dev</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-
-<h5 id="4-1-2-查看所有分支"><a href="#4-1-2-查看所有分支" class="headerlink" title="4.1.2 查看所有分支"></a>4.1.2 查看所有分支</h5><p>通过以上命令即可创建一个新分支dev，我们查看以下目前这个repo包含哪些branch</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;查看分支</span><br><span class="line">git branch </span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://user-gold-cdn.xitu.io/2019/12/24/16f35d8339a40f40?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="在这里插入图片描述"></p>
-<h4 id="4-2-切换分支"><a href="#4-2-切换分支" class="headerlink" title="4.2 切换分支"></a>4.2 切换分支</h4><p>可以看到目前存在两个分支，dev和master分支，master分支前面有个*号表示当前分支是在master上面。我们可以通过下面命令来切换分支：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;切换到dev分支</span><br><span class="line">git checkout dev</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://user-gold-cdn.xitu.io/2019/12/24/16f35d8339ff984c?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="在这里插入图片描述"></p>
-<h4 id="4-3-合并分支"><a href="#4-3-合并分支" class="headerlink" title="4.3 合并分支"></a>4.3 合并分支</h4><p>上面我们已经创建了新分支dev，假设我们在新分支上面开发了一些内容譬如新建一个文件dev.md，我们把这个文件提交到dev分支，通过以下命令即可完成：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;将dev.md这个文件添加到stage</span><br><span class="line">git add dev.md</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;将dev.md这个文件提交到dev分支</span><br><span class="line">git commit -m &quot;add new file to branch dev&quot;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-
-<p>![在这里插入图片描述](data:image/svg+xml;utf8,<?xml version="1.0"?><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="1176" height="428"></svg>)</p>
-<p><strong>1.首先要切回到master分支</strong></p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/12/24/16f35d83568428a0?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="在这里插入图片描述"></p>
-<p><strong>2.合并dev分支</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;合并语法</span><br><span class="line">git merge 分支名</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://user-gold-cdn.xitu.io/2019/12/24/16f35d8362ef10b2?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="在这里插入图片描述"></p>
-<p>冲突</p>
-<p><strong>3.解决冲突</strong></p>
-<p>首先，我们切回到dev分支，然后在dev.md这个文件中将里面的内容替换一下：</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/12/24/16f35d8357cbfcd3?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="在这里插入图片描述"></p>
-<p>替换成：</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/12/24/16f35d83634dbe98?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="在这里插入图片描述"></p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/12/24/16f35d8366b0be95?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="在这里插入图片描述"></p>
-<p>现在尝试合并dev分支就会出现冲突：</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/12/24/16f35d836c11f0e0?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="在这里插入图片描述"></p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/12/24/16f35d838484b5e1?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="在这里插入图片描述"></p>
-<p>Git用&lt;&lt;&lt;&lt;&lt;&lt;&lt;，=======，&gt;&gt;&gt;&gt;&gt;&gt;&gt;标记出不同分支的内容，我们只需要确认哪些部分是需要的，删除不需要的部分即可。最后再冲洗提交到master分支。</p>
-<p>我们可以通过下面的命令查看分支合并情况：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git log --graph --pretty&#x3D;oneline --abbrev-commit</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://user-gold-cdn.xitu.io/2019/12/24/16f35d8386cb4ca1?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="在这里插入图片描述"></p>
-<h4 id="4-4-删除分支"><a href="#4-4-删除分支" class="headerlink" title="4.4 删除分支"></a>4.4 删除分支</h4><p>在dev分支上面开发好了之后把代码合并到master分支上面，这个dev分支就不需要了，我们将它删除并查看一下分支情况，可以发现只有一个master分支了：</p>
-<p>![在这里插入图片描述](data:image/svg+xml;utf8,<?xml version="1.0"?><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="868" height="162"></svg>)</p>
-<h3 id="5-Git标签管理"><a href="#5-Git标签管理" class="headerlink" title="5. Git标签管理"></a>5. Git标签管理</h3><p>发布一个版本时，我们通常先在版本库中打一个标签（tag），这样，就唯一确定了打标签时刻的版本。 tag 和 branch 有点相似，两者有何区别呢？tag 对应某次 commit, 是一个点，是不可移动的，branch 对应一系列 commit，是很多点连成的一根线，有一个HEAD 指针，是可以依靠 HEAD 指针移动的。所以，两者的区别决定了使用方式，改动代码用 branch ,不改动只查看用 tag。</p>
-<p>tag 和 branch 的相互配合使用，有时候起到非常方便的效果，例如 已经发布了 v1.0 v2.0 v3.0 三个版本，这个时候，我突然想不改现有代码的前提下，在 v2.0 的基础上加个新功能，作为 v4.0 发布。就可以 检出 v2.0 的代码作为一个 branch ，然后作为开发分支。</p>
-<h4 id="5-1-新建tag"><a href="#5-1-新建tag" class="headerlink" title="5.1 新建tag"></a>5.1 新建tag</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 新建tag语法</span><br><span class="line">git tag &lt;tag名&gt;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://user-gold-cdn.xitu.io/2019/12/24/16f35d83ae462808?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="在这里插入图片描述"></p>
-<h4 id="5-2-查看tag"><a href="#5-2-查看tag" class="headerlink" title="5.2 查看tag"></a>5.2 查看tag</h4><p><strong>注意:</strong> 标签不是按时间顺序列出，而是按字母排序的。可以用以下语法进行查看标签信息</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 查看tag语法</span><br><span class="line">git tag </span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://user-gold-cdn.xitu.io/2019/12/24/16f35d83975e5261?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="在这里插入图片描述"></p>
-<h4 id="5-3-删除tag"><a href="#5-3-删除tag" class="headerlink" title="5.3 删除tag"></a>5.3 删除tag</h4><p>要删除掉你本地仓库上的标签，可以使用如下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;删除tag语法</span><br><span class="line"> git tag -d   &lt;tag名&gt;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://user-gold-cdn.xitu.io/2019/12/24/16f35d83ae462808?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="在这里插入图片描述"></p>
-<p>通过以上命令我们删除v1.0的tag 然后再查看以下tag，发现只剩下v2.0的tag了。</p>
-<h3 id="6-Git远程操作"><a href="#6-Git远程操作" class="headerlink" title="6. Git远程操作"></a>6. Git远程操作</h3><p>GitHub 是最大的 Git 版本库托管商，是成千上万的开发者和项目能够合作进行的中心。 大部分 Git 版本库都托管在 GitHub，很多开源项目使用 GitHub 实现 Git 托管、问题追踪、代码审查以及其它事情。 所以，尽管这不是 Git 开源项目的直接部分，但如果想要专业地使用 Git，你将不可避免地与 GitHub 打交道，所以这依然是一个绝好的学习机会。</p>
-<p>在GitHub上面新建一个test的repo，可以进行以下的命令操作，即可以将本地的东西提交到GitHub上面的test仓库中：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;新建一个readme.md文件</span><br><span class="line">echo &quot;# test&quot; &gt;&gt; README.md</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;初始化本地仓库</span><br><span class="line">git init</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;将readme.md这个文件加入到stage中去</span><br><span class="line">git add README.md</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;将readme.md这个文件放到master分支上去</span><br><span class="line">git commit -m &quot;first commit&quot;</span><br><span class="line">git remote add origin https:&#x2F;&#x2F;github.com&#x2F;crazyandcoder&#x2F;test.git</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;将这个推送到远程的master分支上去</span><br><span class="line">git push -u origin master</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-
-<h2 id=""><a href="#" class="headerlink" title=""></a></h2>
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2019/12/26/git%E5%B8%B8%E8%A7%81%E6%8C%87%E4%BB%A4/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -299,7 +203,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    26 分钟 读完 (大约 3891 个字)
+                    26 分钟 读完 (大约 3892 个字)
                 </span>
                 
                 
@@ -351,317 +255,16 @@
 </li>
 </ol>
 <p>这样你的Hexo博客已经搭建在本地。</p>
-<h2 id="放到github服务器上"><a href="#放到github服务器上" class="headerlink" title="放到github服务器上"></a>放到github服务器上</h2><ol>
-<li><p>创建<a href="https://github.com/">Github</a>账号</p>
-</li>
-<li><p>创建仓库， 仓库名为：&lt;Github账号名称&gt;.github.io</p>
-</li>
-<li><p>将本地Hexo博客推送到GithubPages</p>
-<p>3.1. 安装<code>hexo-deployer-git</code>插件。在命令行（即Git Bash）运行以下命令即可：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-
-<p>3.2. 添加SSH key。</p>
-<ul>
-<li><p>创建一个 SSH key 。在命令行（即Git Bash）输入以下命令， 回车三下即可：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C &quot;邮箱地址&quot;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>添加到 github。 复制密钥文件内容（路径形如<code>C:\Users\Administrator\.ssh\id_rsa.pub</code>），粘贴到<a href="https://github.com/settings/keys">New SSH Key</a>即可。</p>
-</li>
-<li><p>测试是否添加成功。在命令行（即Git Bash）依次输入以下命令，返回“You’ve successfully authenticated”即成功：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br><span class="line">$ yes</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<p>3.3. 修改<code>_config.yml</code>（在站点目录下）。文件末尾修改为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: https:&#x2F;&#x2F;hexo.io&#x2F;docs&#x2F;deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:&lt;Github账号名称&gt;&#x2F;&lt;Github账号名称&gt;.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-
-<p>注意：上面仓库地址写ssh地址，不写http地址。</p>
-<p>3.4. 推送到GithubPages。在命令行（即Git Bash）依次输入以下命令， 返回<code>INFO Deploy done: git</code>即成功推送：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>等待1分钟左右，浏览器访问网址： <code>https://&lt;Github账号名称&gt;.github.io</code></p>
-</li>
-</ol>
-<p>Hexo博客已经搭建在GithubPages, 域名为<code>https://&lt;Github账号名称&gt;.github.io</code>。</p>
-<h3 id="主题优化"><a href="#主题优化" class="headerlink" title="主题优化"></a>主题优化</h3><h4 id="选择主题"><a href="#选择主题" class="headerlink" title="选择主题"></a>选择主题</h4><p>Hexo默认的主题是landscape，推荐以下主题：</p>
-<ol>
-<li><a href="https://github.com/shenliyang/hexo-theme-snippet#hexo-theme-snippet">snippet</a></li>
-<li><a href="https://github.com/iTimeTraveler/hexo-theme-hiero#hiero">Hiero</a></li>
-<li><a href="https://github.com/tangkunyin/hexo-theme-jsimple#jsimple">JSimple</a></li>
-<li><a href="https://github.com/chaooo/hexo-theme-BlueLake#bluelake">BlueLake</a></li>
-</ol>
-<p>详见：<a href="https://github.com/search?q=hexo-theme">https://github.com/search?q=hexo-theme</a></p>
-<h4 id="应用主题"><a href="#应用主题" class="headerlink" title="应用主题"></a>应用主题</h4><ol>
-<li>下载主题</li>
-<li>将下载好的主题文件夹，粘贴到站点目录的<code>themes</code>下。</li>
-<li>更改站点配置文件<code>_config.yml</code> 的theme字段，为主题文件夹的名称：</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Extensions</span><br><span class="line">## Plugins: https:&#x2F;&#x2F;hexo.io&#x2F;plugins&#x2F;</span><br><span class="line">## Themes: https:&#x2F;&#x2F;hexo.io&#x2F;themes&#x2F;</span><br><span class="line">theme: &lt;主题文件夹的名称&gt;</span><br></pre></td></tr></table></figure>
-
-<h4 id="主题优化-1"><a href="#主题优化-1" class="headerlink" title="主题优化"></a>主题优化</h4><p>以上主题都有比较详细的说明文档，本节主要解决主题优化的常见问题。</p>
-<p>主题优化一般包括：</p>
-<ul>
-<li><p><strong>设置「RSS」</strong></p>
-</li>
-<li><p><strong>添加「标签」页面</strong></p>
-</li>
-<li><p><strong>添加「分类」页面</strong></p>
-</li>
-<li><p><strong>设置「字体」</strong></p>
-<p>问题：引用国外字体镜像较慢。</p>
-<p>解决：可以改用国内的。将\themes*\layout_partials\head external-fonts.swig文件中fonts.google.com改成fonts.lug.ustc.edu.cn。</p>
-</li>
-<li><p><strong>设置「代码高亮主题」</strong></p>
-</li>
-<li><p><strong>侧边栏社交链接</strong></p>
-<p>问题：图标哪里找？</p>
-<p>解决：<a href="https://fontawesome.com/icons?d=gallery">Font Awesome</a></p>
-</li>
-<li><p><strong>开启打赏功能</strong></p>
-<p>问题：微信支付宝二维码不美观，规格不一。</p>
-<p>解决：<a href="https://cli.im/weixin">在线生成二维码</a></p>
-</li>
-<li><p><strong>设置友情链接</strong></p>
-</li>
-<li><p><strong>腾讯公益404页面</strong></p>
-</li>
-<li><p><strong>站点建立时间</strong></p>
-</li>
-<li><p><strong>订阅微信公众号</strong></p>
-</li>
-<li><p><strong>设置「动画效果」</strong></p>
-<p>问题：慢，需要等待 JavaScript 脚本完全加载完毕后才会显示内容。<br>解决：将主题配置文件<code>_config.yml</code>中，use_motion字段的值设为 <code>false</code> 来关闭动画。</p>
-</li>
-<li><p><strong>设置「背景动画」</strong></p>
-</li>
-</ul>
-<p>主题优化还包括：</p>
-<h5 id="添加背景图"><a href="#添加背景图" class="headerlink" title="添加背景图"></a>添加背景图</h5><p>在 themes/*/source/css/_custom/custom.styl 中添加如下代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">body&#123;</span><br><span class="line">    background:url(&#x2F;images&#x2F;bg.jpg);</span><br><span class="line">    background-size:cover;</span><br><span class="line">    background-repeat:no-repeat;</span><br><span class="line">    background-attachment:fixed;</span><br><span class="line">    background-position:center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h5 id="修改Logo字体"><a href="#修改Logo字体" class="headerlink" title="修改Logo字体"></a>修改Logo字体</h5><p>在 <code>themes/*/source/css/_custom/custom.styl</code> 中添加如下代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@font-face &#123;</span><br><span class="line">    font-family: Zitiming;</span><br><span class="line">    src: url(&#39;&#x2F;fonts&#x2F;Zitiming.ttf&#39;);</span><br><span class="line">&#125;</span><br><span class="line">.site-title &#123;</span><br><span class="line">    font-size: 40px !important;</span><br><span class="line">	font-family: &#39;Zitiming&#39; !important;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>其中字体文件在 <code>themes/next/source/fonts</code> 目录下，里面有个 <code>.gitkeep</code> 的隐藏文件，打开写入你要保留的字体文件，比如我的是就是写入 <code>Zitiming.ttf</code> ，具体字库自己从网上下载即可。</p>
-<h5 id="修改内容区域的宽度"><a href="#修改内容区域的宽度" class="headerlink" title="修改内容区域的宽度"></a>修改内容区域的宽度</h5><p>编辑主题的 <code>source/css/_variables/custom.styl</code> 文件，新增变量：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 修改成你期望的宽度</span><br><span class="line">$content-desktop &#x3D; 700px</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 当视窗超过 1600px 后的宽度</span><br><span class="line">$content-desktop-large &#x3D; 900px</span><br></pre></td></tr></table></figure>
-
-<h5 id="网站标题栏背景颜色"><a href="#网站标题栏背景颜色" class="headerlink" title="网站标题栏背景颜色"></a>网站标题栏背景颜色</h5><p>打开 <code>themes/*/source/css/_custom/custom.styl</code> ,在里面写下如下代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.site-meta &#123;</span><br><span class="line">  background: $blue; &#x2F;&#x2F;修改为自己喜欢的颜色</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h5 id="自定义鼠标样式"><a href="#自定义鼠标样式" class="headerlink" title="自定义鼠标样式"></a>自定义鼠标样式</h5><p>打开 <code>themes/*/source/css/_custom/custom.styl</code> ,在里面写下如下代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 鼠标样式</span><br><span class="line">  * &#123;</span><br><span class="line">      cursor: url(&quot;http:&#x2F;&#x2F;om8u46rmb.bkt.clouddn.com&#x2F;sword2.ico&quot;),auto!important</span><br><span class="line">  &#125;</span><br><span class="line">  :active &#123;</span><br><span class="line">      cursor: url(&quot;http:&#x2F;&#x2F;om8u46rmb.bkt.clouddn.com&#x2F;sword1.ico&quot;),auto!important</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-
-<h5 id="文章加密访问"><a href="#文章加密访问" class="headerlink" title="文章加密访问"></a>文章加密访问</h5><p>打开 <code>themes/*/layout/_partials/head.swig</code>文件,在 ``之前插入代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    (function()&#123;</span><br><span class="line">        if(&#39;&#123;&#123; page.password &#125;&#125;&#39;)&#123;</span><br><span class="line">            if (prompt(&#39;请输入密码&#39;) !&#x3D;&#x3D; &#39;&#123;&#123; page.password &#125;&#125;&#39;)&#123;</span><br><span class="line">                alert(&#39;密码错误&#39;);</span><br><span class="line">                history.back();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)();</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
-
-<p>写文章时加上<code>password: *</code>：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 2018</span><br><span class="line">date: 2018-10-25 16:10:03</span><br><span class="line">password: 123456</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-
-<h5 id="实现点击出现桃心效果"><a href="#实现点击出现桃心效果" class="headerlink" title="实现点击出现桃心效果"></a>实现点击出现桃心效果</h5><ol>
-<li>在<code>/themes/*/source/js/src</code>下新建文件<code>click.js</code>，接着把以下粘贴到<code>click.js</code>文件中。<br>代码如下：</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!function(e,t,a)&#123;function n()&#123;c(&quot;.heart&#123;width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);&#125;.heart:after,.heart:before&#123;content: &#39;&#39;;width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;&#125;.heart:after&#123;top: -5px;&#125;.heart:before&#123;left: -5px;&#125;&quot;),o(),r()&#125;function r()&#123;for(var e&#x3D;0;e&lt;d.length;e++)d[e].alpha&lt;&#x3D;0?(t.body.removeChild(d[e].el),d.splice(e,1)):(d[e].y--,d[e].scale+&#x3D;.004,d[e].alpha-&#x3D;.013,d[e].el.style.cssText&#x3D;&quot;left:&quot;+d[e].x+&quot;px;top:&quot;+d[e].y+&quot;px;opacity:&quot;+d[e].alpha+&quot;;transform:scale(&quot;+d[e].scale+&quot;,&quot;+d[e].scale+&quot;) rotate(45deg);background:&quot;+d[e].color+&quot;;z-index:99999&quot;);requestAnimationFrame(r)&#125;function o()&#123;var t&#x3D;&quot;function&quot;&#x3D;&#x3D;typeof e.onclick&amp;&amp;e.onclick;e.onclick&#x3D;function(e)&#123;t&amp;&amp;t(),i(e)&#125;&#125;function i(e)&#123;var a&#x3D;t.createElement(&quot;div&quot;);a.className&#x3D;&quot;heart&quot;,d.push(&#123;el:a,x:e.clientX-5,y:e.clientY-5,scale:1,alpha:1,color:s()&#125;),t.body.appendChild(a)&#125;function c(e)&#123;var a&#x3D;t.createElement(&quot;style&quot;);a.type&#x3D;&quot;text&#x2F;css&quot;;try&#123;a.appendChild(t.createTextNode(e))&#125;catch(t)&#123;a.styleSheet.cssText&#x3D;e&#125;t.getElementsByTagName(&quot;head&quot;)[0].appendChild(a)&#125;function s()&#123;return&quot;rgb(&quot;+~~(255*Math.random())+&quot;,&quot;+~~(255*Math.random())+&quot;,&quot;+~~(255*Math.random())+&quot;)&quot;&#125;var d&#x3D;[];e.requestAnimationFrame&#x3D;function()&#123;return e.requestAnimationFrame||e.webkitRequestAnimationFrame||e.mozRequestAnimationFrame||e.oRequestAnimationFrame||e.msRequestAnimationFrame||function(e)&#123;setTimeout(e,1e3&#x2F;60)&#125;&#125;(),n()&#125;(window,document);</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li>在<code>\themes\*\layout\_layout.swig</code>文件末尾添加：</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 页面点击小红心 --&gt;</span><br><span class="line">&lt;script type&#x3D;&quot;text&#x2F;javascript&quot; src&#x3D;&quot;&#x2F;js&#x2F;src&#x2F;clicklove.js&quot;&gt;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
-
-<h5 id="静态资源压缩"><a href="#静态资源压缩" class="headerlink" title="静态资源压缩"></a>静态资源压缩</h5><p>在站点目录下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install gulp -g</span><br></pre></td></tr></table></figure>
-
-<p>安装gulp插件：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm install gulp-minify-css --save</span><br><span class="line">npm install gulp-uglify --save</span><br><span class="line">npm install gulp-htmlmin --save</span><br><span class="line">npm install gulp-htmlclean --save</span><br><span class="line">npm install gulp-imagemin --save</span><br></pre></td></tr></table></figure>
-
-<p>在 <code>Hexo</code> 站点下新建 <code>gulpfile.js</code>文件，文件内容如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">var gulp &#x3D; require(&#39;gulp&#39;);</span><br><span class="line">var minifycss &#x3D; require(&#39;gulp-minify-css&#39;);</span><br><span class="line">var uglify &#x3D; require(&#39;gulp-uglify&#39;);</span><br><span class="line">var htmlmin &#x3D; require(&#39;gulp-htmlmin&#39;);</span><br><span class="line">var htmlclean &#x3D; require(&#39;gulp-htmlclean&#39;);</span><br><span class="line">var imagemin &#x3D; require(&#39;gulp-imagemin&#39;);</span><br><span class="line">&#x2F;&#x2F; 压缩css文件</span><br><span class="line">gulp.task(&#39;minify-css&#39;, function() &#123;</span><br><span class="line">  return gulp.src(&#39;.&#x2F;public&#x2F;**&#x2F;*.css&#39;)</span><br><span class="line">  .pipe(minifycss())</span><br><span class="line">  .pipe(gulp.dest(&#39;.&#x2F;public&#39;));</span><br><span class="line">&#125;);</span><br><span class="line">&#x2F;&#x2F; 压缩html文件</span><br><span class="line">gulp.task(&#39;minify-html&#39;, function() &#123;</span><br><span class="line">  return gulp.src(&#39;.&#x2F;public&#x2F;**&#x2F;*.html&#39;)</span><br><span class="line">  .pipe(htmlclean())</span><br><span class="line">  .pipe(htmlmin(&#123;</span><br><span class="line">    removeComments: true,</span><br><span class="line">    minifyJS: true,</span><br><span class="line">    minifyCSS: true,</span><br><span class="line">    minifyURLs: true,</span><br><span class="line">  &#125;))</span><br><span class="line">  .pipe(gulp.dest(&#39;.&#x2F;public&#39;))</span><br><span class="line">&#125;);</span><br><span class="line">&#x2F;&#x2F; 压缩js文件</span><br><span class="line">gulp.task(&#39;minify-js&#39;, function() &#123;</span><br><span class="line">    return gulp.src([&#39;.&#x2F;public&#x2F;**&#x2F;.js&#39;,&#39;!.&#x2F;public&#x2F;js&#x2F;**&#x2F;*min.js&#39;])</span><br><span class="line">        .pipe(uglify())</span><br><span class="line">        .pipe(gulp.dest(&#39;.&#x2F;public&#39;));</span><br><span class="line">&#125;);</span><br><span class="line">&#x2F;&#x2F; 压缩 public&#x2F;demo 目录内图片</span><br><span class="line">gulp.task(&#39;minify-images&#39;, function() &#123;</span><br><span class="line">    gulp.src(&#39;.&#x2F;public&#x2F;demo&#x2F;**&#x2F;*.*&#39;)</span><br><span class="line">        .pipe(imagemin(&#123;</span><br><span class="line">           optimizationLevel: 5, &#x2F;&#x2F;类型：Number  默认：3  取值范围：0-7（优化等级）</span><br><span class="line">           progressive: true, &#x2F;&#x2F;类型：Boolean 默认：false 无损压缩jpg图片</span><br><span class="line">           interlaced: false, &#x2F;&#x2F;类型：Boolean 默认：false 隔行扫描gif进行渲染</span><br><span class="line">           multipass: false, &#x2F;&#x2F;类型：Boolean 默认：false 多次优化svg直到完全优化</span><br><span class="line">        &#125;))</span><br><span class="line">        .pipe(gulp.dest(&#39;.&#x2F;public&#x2F;uploads&#39;));</span><br><span class="line">&#125;);</span><br><span class="line">&#x2F;&#x2F; 默认任务</span><br><span class="line">gulp.task(&#39;default&#39;, [</span><br><span class="line">  &#39;minify-html&#39;,&#39;minify-css&#39;,&#39;minify-js&#39;,&#39;minify-images&#39;</span><br><span class="line">]);</span><br></pre></td></tr></table></figure>
-
-<p>只需要每次在执行 <code>generate</code> 命令后执行 <code>gulp</code> 就可以实现对静态资源的压缩，压缩完成后执行 <code>deploy</code> 命令同步到服务器：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">gulp</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-
-<h5 id="修改访问URL路径"><a href="#修改访问URL路径" class="headerlink" title="修改访问URL路径"></a>修改访问URL路径</h5><p>默认情况下访问URL路径为：<code>domain/2018/10/18/关于本站</code>,修改为 <code>domain/About/关于本站</code>。 编辑 <code>Hexo</code> 站点下的 <code>_config.yml</code> 文件，修改其中的 <code>permalink</code>字段：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">permalink: :category&#x2F;:title&#x2F;</span><br></pre></td></tr></table></figure>
-
-<h5 id="博文置顶"><a href="#博文置顶" class="headerlink" title="博文置顶"></a>博文置顶</h5><ol>
-<li><p>安装插件</p>
-<p>$ npm uninstall hexo-generator-index –save<br>$ npm install hexo-generator-index-pin-top –save</p>
-</li>
-</ol>
-<p>然后在需要置顶的文章的Front-matter中加上top即可：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 2018</span><br><span class="line">date: 2018-10-25 16:10:03</span><br><span class="line">top: 10</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li>设置置顶标志</li>
-</ol>
-<p>打开：/themes/*/layout/_macro/post.swig，定位到</p>
-<p>，插入以下代码即可：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;% if post.top %&#125;</span><br><span class="line">  &lt;i class&#x3D;&quot;fa fa-thumb-tack&quot;&gt;&lt;&#x2F;i&gt;</span><br><span class="line">  &lt;font color&#x3D;7D26CD&gt;置顶&lt;&#x2F;font&gt;</span><br><span class="line">  &lt;span class&#x3D;&quot;post-meta-divider&quot;&gt;|&lt;&#x2F;span&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
-
-<h5 id="在右上角或者左上角实现fork-me-on-github"><a href="#在右上角或者左上角实现fork-me-on-github" class="headerlink" title="在右上角或者左上角实现fork me on github"></a>在右上角或者左上角实现fork me on github</h5><ol>
-<li>选择样式<a href="https://blog.github.com/2008-12-19-github-ribbons/">GitHub Ribbons</a>,</li>
-<li>修改图片跳转链接,将<code>&lt;a href=&quot;https://github.com/you&quot;&gt;</code>中的链接换为自己Github链接：</li>
-<li>打开 <code>themes/next/layout/_layout.swig</code> 文件，把代码复制到<code>&lt;div class=&quot;headband&quot;&gt;&lt;/div&gt;</code>下面。</li>
-</ol>
-<h5 id="主页文章添加边框阴影效果"><a href="#主页文章添加边框阴影效果" class="headerlink" title="主页文章添加边框阴影效果"></a>主页文章添加边框阴影效果</h5><p>打开 <code>themes/*/source/css/_custom/custom.styl</code> ,向里面加代码:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 主页文章添加阴影效果</span><br><span class="line">.post &#123;</span><br><span class="line">   margin-top: 0px;</span><br><span class="line">   margin-bottom: 60px;</span><br><span class="line">   padding: 25px;</span><br><span class="line">   -webkit-box-shadow: 0 0 5px rgba(202, 203, 203, .5);</span><br><span class="line">   -moz-box-shadow: 0 0 5px rgba(202, 203, 204, .5);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h5 id="显示当前浏览进度"><a href="#显示当前浏览进度" class="headerlink" title="显示当前浏览进度"></a>显示当前浏览进度</h5><p>修改<code>themes/*/_config.yml</code>，把 <code>false</code> 改为 <code>true</code>：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Back to top in sidebar</span><br><span class="line">b2t: true</span><br><span class="line"></span><br><span class="line"># Scroll percent label in b2t button</span><br><span class="line">scrollpercent: true</span><br></pre></td></tr></table></figure>
-
-<h5 id="创建分类页"><a href="#创建分类页" class="headerlink" title="创建分类页"></a>创建分类页</h5><p>在终端窗口下，定位到 <code>Hexo</code> 站点目录下，新建：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd &lt;站点目录&gt;</span><br><span class="line">$ hexo new page categories</span><br></pre></td></tr></table></figure>
-
-<h5 id="加入-广告"><a href="#加入-广告" class="headerlink" title="加入 广告"></a>加入 广告</h5><p>主要有两种：<a href="https://ssp.baidu.com/static/register.html">百度SSP</a>和<a href="https://www.google.com/adsense/start/#/?modal_active=none">谷歌Adsense</a>。方法类似：</p>
-<ol>
-<li><p>注册，复制广告代码</p>
-</li>
-<li><p>部署到网站。</p>
-<p>2.1. 新建 <code>theme/*/layout/_custom/google_ad.swig</code>，将 AdSense 上的代码粘贴进去</p>
-<p>2.2. 头部。在 <code>theme/*/layout/_custom/head.swig</code> 中也粘贴一份</p>
-<p>2.3. 每篇博客。在 <code>theme/*/layout/post.swig</code> 里中在希望看到的地方加上：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% include &#39;_custom&#x2F;google_ad.swig&#39; %&#125;</span><br></pre></td></tr></table></figure>
-
-<p>例如：在 <code>&lt;div id=&quot;posts&quot; class=&quot;posts-expand&quot;&gt; &lt;/div&gt;</code> 中间插入，总代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;% block content %&#125;</span><br><span class="line">  &lt;div id&#x3D;&quot;posts&quot; class&#x3D;&quot;posts-expand&quot;&gt;</span><br><span class="line">    &#123;&#123; post_template.render(page) &#125;&#125;</span><br><span class="line">    &#123;% include &#39;_custom&#x2F;google_ad.swig&#39; %&#125;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">&#123;% endblock %&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>等待审核通过。如果失败，可再次申请。</p>
-</li>
-</ol>
-<h5 id="添加萌萌哒（进入二次元）"><a href="#添加萌萌哒（进入二次元）" class="headerlink" title="添加萌萌哒（进入二次元）"></a>添加萌萌哒（进入二次元）</h5><ol>
-<li><p>安装插件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save hexo-helper-live2d</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>复制你喜欢的模型名字：</p>
-<blockquote>
-<p>hijiki   </p>
-<p>Unitychan</p>
-<p> haruto </p>
-<p>hibiki </p>
-<p>z16 </p>
-<p>wanko </p>
-<p>tsumiki </p>
-<p>shizuku </p>
-<p>nito </p>
-<p>nipsilon</p>
-<p>nietzche </p>
-<p>nico </p>
-<p>ni-j </p>
-<p>miku </p>
-<p>haru </p>
-<p>Gantzert_</p>
-<p>Felixander</p>
-<p>Epsilon2.1</p>
-</blockquote>
-<ol>
-<li><p>将以下代码添加到主题配置文件<code>_config.yml</code>，修改&lt;你喜欢的模型名字&gt;：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">live2d:</span><br><span class="line">  enable: true</span><br><span class="line">  scriptFrom: local</span><br><span class="line">  pluginRootPath: live2dw&#x2F;</span><br><span class="line">  pluginJsPath: lib&#x2F;</span><br><span class="line">  pluginModelPath: assets&#x2F;</span><br><span class="line">  tagMode: false</span><br><span class="line">  log: false</span><br><span class="line">  model:</span><br><span class="line">    use: live2d-widget-model-&lt;你喜欢的模型名字&gt;</span><br><span class="line">  display:</span><br><span class="line">    position: right</span><br><span class="line">    width: 150</span><br><span class="line">    height: 300</span><br><span class="line">  mobile:</span><br><span class="line">    show: true</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. 建配置文件</span><br><span class="line"></span><br><span class="line">   4.1. 在站点目录下建文件夹&#96;live2d_models&#96;，</span><br><span class="line"></span><br><span class="line">   4.2. 再在&#96;live2d_models&#96;下建文件夹&#96;&lt;你喜欢的模型名字&gt;&#96;,</span><br><span class="line"></span><br><span class="line">   4.3. 再在&#96;&lt;你喜欢的模型名字&gt;&#96;下建json文件：&lt;你喜欢的模型名字&gt;.model.json</span><br><span class="line"></span><br><span class="line">2. 安装模型。在命令行（即Git Bash）运行以下命令即可：</span><br><span class="line"></span><br><span class="line">   &gt; npm install --save live2d-widget-model-&lt;你喜欢的模型名字&gt;</span><br><span class="line"></span><br><span class="line">3. 在命令行（即Git Bash）运行以下命令， 在&#96;http:&#x2F;&#x2F;127.0.0.1:4000&#x2F;&#96;查看测试结果:</span><br><span class="line"></span><br><span class="line">   &gt; hexo clean &amp;&amp; hexo g &amp;&amp; hexo s</span><br><span class="line"></span><br><span class="line">### 插件配置</span><br><span class="line"></span><br><span class="line">   以下插件（评论系统、数据统计与分析、内容分享服务、搜索服务）各选一个即可。</span><br><span class="line"></span><br><span class="line">#### 评论系统</span><br><span class="line"></span><br><span class="line">|                                          | 推荐指数 | 优点                 | 缺点           |</span><br><span class="line">| ---------------------------------------- | ---- | ------------------ | ------------ |</span><br><span class="line">| [Valine](https:&#x2F;&#x2F;valine.js.org&#x2F;)         | 4    | 每天30000条评论，10GB的储存 | 作者评论无标识      |</span><br><span class="line">| [来必力&#x2F;livere](https:&#x2F;&#x2F;livere.com&#x2F;)        | 4    | 多种账号登录             | 评论无法导出       |</span><br><span class="line">| [畅言](http:&#x2F;&#x2F;changyan.kuaizhan.com&#x2F;)      | 3    | 美观                 | 必须备案域名       |</span><br><span class="line">| [gitment](https:&#x2F;&#x2F;github.com&#x2F;imsun&#x2F;gitment) | 3    | 简洁                 | 只能登陆github评论 |</span><br><span class="line">| Disqus                                   | 1    |                    | 需要翻*墙        |</span><br><span class="line"></span><br><span class="line">##### Valine</span><br><span class="line"></span><br><span class="line">   1.1. 获取APP ID 和 APP Key</span><br><span class="line"></span><br><span class="line">   请先登录或注册 [LeanCloud](https:&#x2F;&#x2F;leancloud.cn&#x2F;), 进入控制台后点击左下角创建应用，</span><br><span class="line"></span><br><span class="line">   进入刚刚创建的应用，选择左下角的&#96;设置&#96;&gt;&#96;应用Key&#96;，然后就能看到你的&#96;APP ID&#96;和&#96;APP Key&#96;了。</span><br><span class="line"></span><br><span class="line">   1.2. 填写APP ID 和 APP Key到主题配置文件&#96;_config.yml&#96;</span><br><span class="line"></span><br><span class="line">   1.3. 运行&#96;hexo g&amp;&amp;hexo d&#96;推送到博客。</span><br><span class="line"></span><br><span class="line">##### 来必力&#x2F;livere</span><br><span class="line"></span><br><span class="line">   2.1. 登陆 [来必力](https:&#x2F;&#x2F;livere.com&#x2F;) 获取你的 LiveRe UID。</span><br><span class="line"></span><br><span class="line">   2.2. 填写LiveRe UID到主题配置文件&#96;_config.yml&#96;</span><br><span class="line"></span><br><span class="line">##### 畅言</span><br><span class="line"></span><br><span class="line">   3.1.获取APP ID 和 APP Key</span><br><span class="line"></span><br><span class="line">   请先登录或注册 [畅言](http:&#x2F;&#x2F;changyan.kuaizhan.com&#x2F;), 点击“立即免费获取畅言”，</span><br><span class="line"></span><br><span class="line">   新建站点，点击管理，点击评论插件&gt;评论管理，</span><br><span class="line"></span><br><span class="line">   点击后台总览，然后就能看到你的&#96;APP ID&#96;和&#96;APP Key&#96;了。</span><br><span class="line"></span><br><span class="line">   3.2. 填写APP ID 和 APP Key到主题配置文件&#96;_config.yml&#96;</span><br><span class="line"></span><br><span class="line">   3.3. 运行&#96;hexo g&amp;&amp;hexo d&#96;推送到博客。</span><br><span class="line"></span><br><span class="line">##### gitment</span><br><span class="line"></span><br><span class="line">   4.1. 安装插件：</span><br><span class="line"></span><br><span class="line">&gt; npm i --save gitment</span><br><span class="line"></span><br><span class="line">   4.2. 申请应用</span><br><span class="line"></span><br><span class="line">   在[New OAuth App](https:&#x2F;&#x2F;github.com&#x2F;settings&#x2F;applications&#x2F;new)为你的博客应用一个密钥:</span><br></pre></td></tr></table></figure>
-<p>   Application name:随便写<br>   Homepage URL:这个也可以随意写,就写你的博客地址就行<br>   Application description:描述,也可以随意写<br>   Authorization callback URL:这个必须写你的博客地址</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">4.3. 配置</span><br><span class="line"></span><br><span class="line">编辑主题配置文件&#96;themes&#x2F;*&#x2F;_config.yml&#96;:</span><br></pre></td></tr></table></figure>
-<h1 id="Gitment"><a href="#Gitment" class="headerlink" title="Gitment"></a>Gitment</h1><h1 id="Introduction-https-imsun-net-posts-gitment-introduction"><a href="#Introduction-https-imsun-net-posts-gitment-introduction" class="headerlink" title="Introduction: https://imsun.net/posts/gitment-introduction/"></a>Introduction: <a href="https://imsun.net/posts/gitment-introduction/">https://imsun.net/posts/gitment-introduction/</a></h1><p>   gitment:<br>     enable: true<br>     mint: true # RECOMMEND, A mint on Gitment, to support count, language and proxy_gateway<br>     count: true # Show comments count in post meta area<br>     lazy: false # Comments lazy loading with a button<br>     cleanly: false # Hide ‘Powered by …’ on footer, and more<br>     language: # Force language, or auto switch by theme<br>     github_user: {you github user id}<br>     github_repo: 公开的git仓库,评论会作为那个项目的issue<br>     client_id: {刚才申请的ClientID}<br>     client_secret: {刚才申请的Client Secret}<br>     proxy_gateway: # Address of api proxy, See: <a href="https://github.com/aimingoo/intersect">https://github.com/aimingoo/intersect</a><br>     redirect_protocol: # Protocol of redirect_uri with force_redirect_pro</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">##### Disqus</span><br><span class="line"></span><br><span class="line">   编辑 主题配置文件&#96;themes&#x2F;*&#x2F;_config.yml&#96;， 将 disqus 下的 enable 设定为 true，同时提供您的 shortname。count 用于指定是否显示评论数量。</span><br></pre></td></tr></table></figure>
-<p>   disqus:<br>     enable: false<br>     shortname:<br>     count: true</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 数据统计与分析</span><br><span class="line"></span><br><span class="line">|                                          | 推荐指数 | 优点                      | 缺点   |</span><br><span class="line">| ---------------------------------------- | ---- | ----------------------- | ---- |</span><br><span class="line">| [不蒜子](http:&#x2F;&#x2F;ibruce.info&#x2F;2015&#x2F;04&#x2F;04&#x2F;busuanzi&#x2F;) | 4    | 可直接将访问次数显示在您在网页上（也可不显示） | 只计数  |</span><br><span class="line">| 百度统计                                     | 3    |                         | 收录慢  |</span><br><span class="line"></span><br><span class="line">##### 不蒜子</span><br><span class="line"></span><br><span class="line">   编辑 主题配置文件 &#96;themes&#x2F;*&#x2F;_config.yml&#96;中的&#96;busuanzi_count&#96;的配置项即可。</span><br><span class="line"></span><br><span class="line">- 当&#96;enable: true&#96;时，代表开启全局开关。</span><br><span class="line">- 若&#96;site_uv&#96;（本站访客数）、&#96;site_pv&#96;（本站访客数）、&#96;page_pv&#96;（本文总阅读量）的值均为&#96;false&#96;时，不蒜子仅作记录而不会在页面上显示。</span><br><span class="line"></span><br><span class="line">   注意：</span><br></pre></td></tr></table></figure>
-<p>   不蒜子官方因七牛强制过期原有的『dn-lbstatics.qbox.me』域名（预计2018年10月初），与客服沟通数次无果，即使我提出为此付费也不行，只能更换域名到『busuanzi.ibruce.info』！</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">   解决办法：</span><br><span class="line"></span><br><span class="line">1. 找到主题调用不蒜子的swig文件。一般在”\themes*\layout_third-party\analytics\busuanzi-counter.swig”</span><br><span class="line"></span><br><span class="line">2. 更改域名</span><br></pre></td></tr></table></figure>
-<p>   把原有的：<br>   <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script><br>   域名改一下即可：<br>   <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></p>
-   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h5 id="百度统计"><a href="#百度统计" class="headerlink" title="百度统计"></a>百度统计</h5><ol>
-<li>登录 <a href="http://tongji.baidu.com/">百度统计</a>，定位到站点的代码获取页面</li>
-<li>复制统计脚本 id，如图：<br><a href="http://theme-next.iissnan.com/uploads/five-minutes-setup/analytics-baidu-id.png"><img src="http://theme-next.iissnan.com/uploads/five-minutes-setup/analytics-baidu-id.png" alt="img"></a></li>
-<li>编辑 主题配置文件<code>themes/*/_config.yml</code>，修改字段 <code>google_analytics</code>，值设置成你的统计脚本 id。</li>
-</ol>
-<h4 id="内容分享服务"><a href="#内容分享服务" class="headerlink" title="内容分享服务"></a>内容分享服务</h4><table>
-<thead>
-<tr>
-<th></th>
-<th>推荐指数</th>
-<th>优点</th>
-<th>缺点</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><a href="http://share.baidu.com/">百度分享</a></td>
-<td>4</td>
-<td>稳定</td>
-<td>不太美观</td>
-</tr>
-<tr>
-<td><a href="https://github.com/revir/need-more-share2">need-more-share2</a></td>
-<td>4</td>
-<td>美观</td>
-<td>更新不及时（比如微信分享API）</td>
-</tr>
-</tbody></table>
-<h5 id="百度分享"><a href="#百度分享" class="headerlink" title="百度分享"></a>百度分享</h5><p>   编辑 主题配置文件，添加/修改字段 <code>baidushare</code>，值为 <code>true</code>即可。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 百度分享服务</span><br><span class="line">baidushare: true</span><br></pre></td></tr></table></figure>
-
-<h5 id="need-more-share2"><a href="#need-more-share2" class="headerlink" title="need-more-share2"></a>need-more-share2</h5><p>   编辑 主题配置文件，添加/修改字段 <code>needmoreshare2</code>，值为 <code>true</code>即可。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">needmoreshare2:</span><br><span class="line">  enable: true</span><br></pre></td></tr></table></figure>
-
-<h4 id="搜索服务"><a href="#搜索服务" class="headerlink" title="搜索服务"></a>搜索服务</h4><table>
-<thead>
-<tr>
-<th></th>
-<th>推荐指数</th>
-<th>优点</th>
-<th>缺点</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Local Search</td>
-<td>4</td>
-<td>配置方便</td>
-<td></td>
-</tr>
-<tr>
-<td>Swiftype</td>
-<td>2</td>
-<td></td>
-<td>需注册</td>
-</tr>
-<tr>
-<td>Algolia</td>
-<td>2</td>
-<td></td>
-<td>需注册</td>
-</tr>
-</tbody></table>
-<h5 id="Local-Search"><a href="#Local-Search" class="headerlink" title="Local Search"></a>Local Search</h5><p>   添加百度/谷歌/本地 自定义站点内容搜索</p>
-<ol>
-<li><p>安装 <code>hexo-generator-searchdb</code>，在站点的根目录下执行以下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. 编辑 站点配置文件，新增以下内容到任意位置：</span><br></pre></td></tr></table></figure>
-<p>   search:<br>     path: search.xml<br>     field: post<br>     format: html<br>     limit: 10000</p>
-   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ol>
-<li><p>编辑 主题配置文件，启用本地搜索功能：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># Local search</span><br><span class="line">local_search:</span><br><span class="line">  enable: true</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2019/12/23/hexo/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -680,7 +283,7 @@
 
 
 
-<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left is-sticky">
     
         
 <div class="card widget">
@@ -690,22 +293,22 @@
                 <div>
                     
                     <figure class="image is-128x128 has-mb-6">
-                        <img class="" src="/images/avatar.png" alt="Your name">
+                        <img class="" src="/images/head.jpg" alt="wangthing">
                     </figure>
                     
                     <p class="is-size-4 is-block">
-                        Your name
+                        wangthing
                     </p>
                     
                     
                     <p class="is-size-6 is-block">
-                        Your title
+                        前端练习生
                     </p>
                     
                     
                     <p class="is-size-6 is-flex is-flex-center has-text-grey">
                         <i class="fas fa-map-marker-alt has-mr-7"></i>
-                        <span>Your location</span>
+                        <span>南昌</span>
                     </p>
                     
                 </div>
@@ -719,7 +322,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            27
+                            26
                         </p>
                     </a>
                 </div>
@@ -751,7 +354,7 @@
         </nav>
         
         <div class="level">
-            <a class="level-item button is-link is-rounded" href="https://github.com/ppoffice" target="_blank" rel="noopener">
+            <a class="level-item button is-link is-rounded" href="https://github.com/wangthing" target="_blank" rel="noopener">
                 关注我</a>
         </div>
         
@@ -760,7 +363,7 @@
         <div class="level is-mobile">
             
             <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
-                title="Github" href="https://github.com/ppoffice">
+                title="Github" href="https://github.com/wangthing">
                 
                 <i class="fab fa-github"></i>
                 
@@ -770,13 +373,6 @@
                 title="Facebook" href="https://facebook.com">
                 
                 <i class="fab fa-facebook"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
-                title="Twitter" href="https://twitter.com">
-                
-                <i class="fab fa-twitter"></i>
                 
             </a>
             
@@ -1014,7 +610,7 @@
                     <span class="level-item">十二月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">7</span>
+                    <span class="level-item tag">6</span>
                 </span>
             </a>
         </li>
@@ -1444,7 +1040,7 @@
                     <span class="level-item">十二月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">7</span>
+                    <span class="level-item tag">6</span>
                 </span>
             </a>
         </li>
@@ -1731,6 +1327,11 @@
                 &copy; 2020 John Doe&nbsp;
                 Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> & <a
                         href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a>
+                
+                <br>
+                <span id="busuanzi_container_site_uv">
+                共<span id="busuanzi_value_site_uv">0</span>个访客
+                </span>
                 
                 </p>
             </div>

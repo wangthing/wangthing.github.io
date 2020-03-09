@@ -24,11 +24,13 @@
 
 
 
+<link rel="canonical" href="/images/head.jpg" />
 
 
 
 
-<link rel="icon" href="/images/favicon.svg">
+
+<link rel="icon" href="/images/head.jpg">
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
@@ -66,7 +68,7 @@
     <link rel="stylesheet" href="/css/progressbar.css">
 <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
     
-    
+    <script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     
 
 
@@ -90,7 +92,7 @@
                 href="/">主页</a>
                 
                 <a class="navbar-item"
-                href="/archives">成就</a>
+                href="/archives">归档</a>
                 
                 <a class="navbar-item"
                 href="/categories">分类</a>
@@ -99,7 +101,7 @@
                 href="/tags">标签</a>
                 
                 <a class="navbar-item"
-                href="/about">About</a>
+                href="/about">关于</a>
                 
             </div>
             
@@ -151,7 +153,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    8 分钟 读完 (大约 1219 个字)
+                    8 分钟 读完 (大约 1220 个字)
                 </span>
                 
                 
@@ -172,86 +174,16 @@
 <li>介绍一下async/await（和promise的区别、联系）</li>
 <li>总结一下当前JS解决异步的方案</li>
 </ul>
-<h2 id="1-什么是单线程，和异步的关系"><a href="#1-什么是单线程，和异步的关系" class="headerlink" title="1. 什么是单线程，和异步的关系"></a>1. 什么是单线程，和异步的关系</h2><ul>
-<li>单线程-只有一个线程，同时只能做一件事</li>
-<li>原因：避免DOM渲染的冲突<ul>
-<li>浏览器需要渲染DOM</li>
-<li>JS可以修改DOM结构</li>
-<li>JS执行的时候，浏览器DOM渲染会暂停</li>
-<li>两端JS也不能同时执行（都修改DOM就冲突了）</li>
-<li>webworker支持多线程，但不能访问DOM（可以说明单线程目的是为了避免DOM渲染冲突）</li>
-</ul>
-</li>
-<li>解决方案（单线程）-异步</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    var i,sum&#x3D;0;</span><br><span class="line">    console.log(&quot;start&quot;);</span><br><span class="line">    for(i &#x3D; 0; i &lt; 1000000000; i++)&#123;</span><br><span class="line">        sum++</span><br><span class="line">    &#125;    &#x2F;&#x2F;必须等for循环执行完，才会执行下面的代码</span><br><span class="line">    alert(&quot;hello&quot;) &#x2F;&#x2F;必须点击确认，才会执行下面的</span><br><span class="line">    console.log(sum);</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
-
-<h4 id="解决方案–异步"><a href="#解决方案–异步" class="headerlink" title="解决方案–异步"></a>解决方案–异步</h4><h5 id="callback"><a href="#callback" class="headerlink" title="callback"></a>callback</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">console.log(&#39;start-1&#39;)</span><br><span class="line">setTimeout (function () &#123;  &#x2F;&#x2F;this is a callback</span><br><span class="line">    console.log(&#39;start-2&#39;)</span><br><span class="line">&#125;,1000)</span><br><span class="line">&#x2F;&#x2F;  先把定时器放在一边，继续执行下面的</span><br><span class="line">console.log(&#39;start-3&#39;)</span><br><span class="line">console.log(&#39;end&#39;)</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;ajax</span><br><span class="line">console.log(&#39;start&#39;)</span><br><span class="line">$.ajax(&#123;</span><br><span class="line">    url:&quot;xxx&quot;,</span><br><span class="line">    success: function (res) &#123; &#x2F;&#x2F;this is a callback</span><br><span class="line">        console.log(res)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">console.log(&#39;end&#39;)</span><br></pre></td></tr></table></figure>
-
-<h5 id="存在的问题"><a href="#存在的问题" class="headerlink" title="存在的问题"></a>存在的问题</h5><ul>
-<li>没有按照书写方式执行，可读性查</li>
-<li>callback hell的问题，不利于维护，耦合度太高</li>
-</ul>
-<h2 id="2-什么是event-loop"><a href="#2-什么是event-loop" class="headerlink" title="2. 什么是event-loop"></a>2. 什么是event-loop</h2><ul>
-<li>事件轮询，JS实现异步的具体解决方案</li>
-<li>同步代码，直接执行</li>
-<li>异步函数先放在 异步队列当中</li>
-<li>待同步函数执行完毕，轮询执行 异步队列的函数</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(function () &#123;</span><br><span class="line">    console.log(1)</span><br><span class="line">&#125;,0)  &#x2F;&#x2F;虽然是0ms，但是会先加入异步队列</span><br><span class="line">console.log(1)</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;结果：</span><br><span class="line">&#x2F;&#x2F;2 </span><br><span class="line">&#x2F;&#x2F;1</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-jQuery中的Deferred"><a href="#3-jQuery中的Deferred" class="headerlink" title="3. jQuery中的Deferred"></a>3. jQuery中的Deferred</h2><ul>
-<li>jQuery 1.5的变化（加入了Deferred）</li>
-<li>使用jQuery Deferred</li>
-<li>初步引入Promise概念</li>
-<li>无法改变JS异步和单线程的本质</li>
-<li>只能从写法上杜绝 callback 这种形式</li>
-<li>它是一种语法糖形式，但是解耦了代码</li>
-<li>很好的体现：开放封闭原则</li>
-</ul>
-<h4 id="jQuery1-5之前"><a href="#jQuery1-5之前" class="headerlink" title="jQuery1.5之前"></a>jQuery1.5之前</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var ajax &#x3D; $.ajax(&#123;</span><br><span class="line">    url:&quot;&quot;,</span><br><span class="line">    success: function (res) &#123;</span><br><span class="line">        console.log(res)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h4 id="jQuery1-5之后加入Deferred"><a href="#jQuery1-5之后加入Deferred" class="headerlink" title="jQuery1.5之后加入Deferred"></a>jQuery1.5之后加入Deferred</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">var ajax &#x3D; $.ajax(&quot;.&#x2F;data.json&quot;)</span><br><span class="line"></span><br><span class="line">ajax.done(function () &#123;</span><br><span class="line">    console.log(&quot;success&quot;)</span><br><span class="line">&#125;).fail(function () &#123;</span><br><span class="line">    console.log(&quot;fail&quot;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">function waitHandle() &#123;</span><br><span class="line">    var dtd &#x3D; $.Deferred();</span><br><span class="line">    var wait &#x3D; function (dtd) &#123;</span><br><span class="line">        var task &#x3D; function () &#123;</span><br><span class="line">            console.log(&quot;success!&quot;)</span><br><span class="line">            dtd.resolve()</span><br><span class="line">        &#125;</span><br><span class="line">        setTimeout(task,200)</span><br><span class="line">        return dtd.promise  &#x2F;&#x2F;返回一个promise对象</span><br><span class="line">    &#125;</span><br><span class="line">    return wait(dtd)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var w &#x3D; waitHandle()</span><br><span class="line">$.when(w)</span><br><span class="line">.then(function () &#123;</span><br><span class="line">    console.log(&quot;ok 1&quot;)</span><br><span class="line">&#125;)</span><br><span class="line">.then(function () &#123;</span><br><span class="line">    console.log(&quot;ok 2&quot;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h2 id="4-Promise-的基本使用和原理"><a href="#4-Promise-的基本使用和原理" class="headerlink" title="4. Promise 的基本使用和原理"></a>4. Promise 的基本使用和原理</h2><ul>
-<li>基本语法</li>
-<li>异常捕获</li>
-<li>多个串联（顺序执行）</li>
-<li>Promise.all 和 Promise.race</li>
-<li>Promise的标准</li>
-</ul>
-<h2 id="解决Callback-Hell"><a href="#解决Callback-Hell" class="headerlink" title="解决Callback Hell"></a>解决Callback Hell</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">function loadImg (src,callback,fail) &#123;</span><br><span class="line"></span><br><span class="line">    var img &#x3D; document.createElement(&#39;img&#39;);</span><br><span class="line"></span><br><span class="line">    img.onload &#x3D; function () &#123;</span><br><span class="line">        callback(img)</span><br><span class="line">    &#125;</span><br><span class="line">    img.onerror &#x3D; function () &#123;</span><br><span class="line">        fail()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    img.src &#x3D; src;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var src &#x3D; &quot;http:&#x2F;&#x2F;www.imooc.com&#x2F;static&#x2F;img&#x2F;index&#x2F;logo_new.png&quot;</span><br><span class="line"></span><br><span class="line">loadImg(src,function (img) &#123;</span><br><span class="line">    alert(img.width)</span><br><span class="line">&#125;,function () &#123;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h2 id="使用-Promise语法"><a href="#使用-Promise语法" class="headerlink" title="使用 Promise语法"></a>使用 Promise语法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">function loadImg (src) &#123;</span><br><span class="line">    const promise &#x3D; new Promise(function(resolve,reject) &#123;</span><br><span class="line">        var img &#x3D; document.createElement(&quot;img&quot;)</span><br><span class="line">        img.onload &#x3D; function () &#123;</span><br><span class="line">            resolve(img)</span><br><span class="line">        &#125;</span><br><span class="line">        img.onerror &#x3D; function () &#123;</span><br><span class="line">            reject()</span><br><span class="line">        &#125;</span><br><span class="line">        img.src &#x3D; src </span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    return promise</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var src &#x3D; &quot;http:&#x2F;&#x2F;www.imooc.com&#x2F;static&#x2F;img&#x2F;index&#x2F;logo_new.png&quot;</span><br><span class="line"></span><br><span class="line">loadImg(src)</span><br><span class="line">.then(function (img) &#123;</span><br><span class="line">    alert(img.width)</span><br><span class="line">    document.body.append(img)</span><br><span class="line">&#125;,function () &#123;</span><br><span class="line">    alert(&quot;loading fail&quot;)</span><br><span class="line">&#125;)</span><br><span class="line">.catch(function () &#123;</span><br><span class="line">    alert(&quot;error&quot;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;串联Promise</span><br><span class="line">var src1 &#x3D; &quot;http:&#x2F;&#x2F;www.imooc.com&#x2F;static&#x2F;img&#x2F;index&#x2F;logo_new.png&quot;</span><br><span class="line"></span><br><span class="line">var src2 &#x3D; &quot;http:&#x2F;&#x2F;www.imooc.com&#x2F;static&#x2F;img&#x2F;index&#x2F;logo_new.png&quot;</span><br><span class="line"></span><br><span class="line">var res1 &#x3D; loadImg(src1)</span><br><span class="line">var res2 &#x3D; loadImg(src2)</span><br><span class="line"></span><br><span class="line">res1.then(function (img)&#123;</span><br><span class="line">    console.log(&quot;第一个图片加载完毕！&quot;)</span><br><span class="line">    document.body.append(img)</span><br><span class="line">    return res2</span><br><span class="line">&#125;)</span><br><span class="line">.then(function (img) &#123;</span><br><span class="line">    console.log(&quot;第二张图片加载完毕！&quot;)</span><br><span class="line">    document.body.append(img)</span><br><span class="line">&#125;)</span><br><span class="line">.catch(function (err) &#123;</span><br><span class="line">    alert(err)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h4 id="Promise-all-amp-Promise-race"><a href="#Promise-all-amp-Promise-race" class="headerlink" title="Promise.all &amp; Promise.race"></a>Promise.all &amp; Promise.race</h4><p>Promise.all 接收一个promise 对象的数组，待全部完成之后，统一执行 success</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var src1 &#x3D; &quot;http:&#x2F;&#x2F;www.imooc.com&#x2F;static&#x2F;img&#x2F;index&#x2F;logo_new.png&quot;</span><br><span class="line">var src2 &#x3D; &quot;http:&#x2F;&#x2F;www.imooc.com&#x2F;static&#x2F;img&#x2F;index&#x2F;logo_new.png&quot;</span><br><span class="line"></span><br><span class="line">var res1 &#x3D; loadImg(src1)</span><br><span class="line">var res2 &#x3D; loadImg(src2)</span><br><span class="line"></span><br><span class="line">Promise.all([res1,res2]).then(function (datas) &#123;</span><br><span class="line">    console.log(datas[0])</span><br><span class="line">    console.log(datas[1])</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>Promise.race接收一个数组,race的意思就是比赛的意思，第一个完成的Promise对象会被作为参数传给回调函数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var src1 &#x3D; &quot;http:&#x2F;&#x2F;www.imooc.com&#x2F;static&#x2F;img&#x2F;index&#x2F;logo_ne2w.png&quot;</span><br><span class="line">var src2 &#x3D; &quot;http:&#x2F;&#x2F;www.imooc.com&#x2F;static&#x2F;img&#x2F;index&#x2F;logo_new.png&quot;</span><br><span class="line"></span><br><span class="line">var res1 &#x3D; loadImg(src1)</span><br><span class="line">var res2 &#x3D; loadImg(src2)</span><br><span class="line"></span><br><span class="line">Promise.race([res1,res2]).then(function (data) &#123;</span><br><span class="line">    console.log(&#39;race&#39;,data)</span><br><span class="line">    </span><br><span class="line">&#125;)</span><br><span class="line">.catch(function (err) &#123;</span><br><span class="line">    alert(err)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-
-<h1 id="关于-async-await"><a href="#关于-async-await" class="headerlink" title="关于 async/await"></a>关于 async/await</h1><ul>
-<li>then只是将callback拆分了</li>
-<li>async/await是最直接的同步写法</li>
-<li>使用 await，函数必须用async表示</li>
-<li>await 后面跟的是一个Promise实例</li>
-<li>需要babel-polyfill<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">function loadImg (src) &#123;</span><br><span class="line">    const promise &#x3D; new Promise(function(resolve,reject) &#123;</span><br><span class="line">        var img &#x3D; document.createElement(&quot;img&quot;)</span><br><span class="line">        img.onload &#x3D; function () &#123;</span><br><span class="line">            resolve(img)</span><br><span class="line">        &#125;</span><br><span class="line">        img.onerror &#x3D; function () &#123;</span><br><span class="line">            reject()</span><br><span class="line">        &#125;</span><br><span class="line">        img.src &#x3D; src </span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    return promise</span><br><span class="line">&#125;</span><br><span class="line">var src1 &#x3D; &quot;http:&#x2F;&#x2F;www.imooc.com&#x2F;static&#x2F;img&#x2F;index&#x2F;logo_ne2w.png&quot;</span><br><span class="line">var src2 &#x3D; &quot;http:&#x2F;&#x2F;www.imooc.com&#x2F;static&#x2F;img&#x2F;index&#x2F;logo_new.png&quot;</span><br><span class="line"></span><br><span class="line">const load &#x3D; async function () &#123;</span><br><span class="line">    const result1 &#x3D; await loadImg(src1)</span><br><span class="line">    console.log(result1)</span><br><span class="line">    const result1 &#x3D; await loadImg(src1)</span><br><span class="line">    console.log(result1)</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">load()</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h2 id="关于-Generator"><a href="#关于-Generator" class="headerlink" title="关于 Generator"></a>关于 Generator</h2><ul>
-<li>原理比较复杂</li>
-<li>不是异步的直接代替方式</li>
-<li>有更好简洁的的解决方案 aysnc/await</li>
-<li>koa 也放弃了Generator去使用 aysnc/await</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">function* gen () &#123;</span><br><span class="line">    yield asyncLog(1);</span><br><span class="line">    yield asyncLog(2);</span><br><span class="line">    yield asyncLog(3);</span><br><span class="line">    yield asyncLog(4);</span><br><span class="line">    &#x2F;&#x2F; return true;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function asyncLog (num) &#123;</span><br><span class="line">    setTimeout(() &#x3D;&gt; &#123;</span><br><span class="line">        console.log(&#96;这是第$&#123;num&#125;次的调用&#96;);</span><br><span class="line">    &#125;, 2000);</span><br><span class="line"></span><br><span class="line">    return num;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function* f1 () &#123;</span><br><span class="line">    for(let i &#x3D;0;i;i++)&#123;</span><br><span class="line">        var reset &#x3D; yield i;</span><br><span class="line">        if(reset) &#123;</span><br><span class="line">            i &#x3D;-1;</span><br><span class="line">            console.log(&quot;true&quot;);</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var g1  &#x3D; f1()</span><br></pre></td></tr></table></figure>
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2020/01/07/js%E4%B8%AD%E4%B8%BA%E4%BB%80%E4%B9%88%E5%BC%82%E6%AD%A5%E5%92%8C%E5%8D%95%E7%BA%BF%E7%A8%8B%EF%BC%8C%E6%80%8E%E4%B9%88%E5%A4%84%E7%90%86%E5%BC%82%E6%AD%A5/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -277,7 +209,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    4 分钟 读完 (大约 609 个字)
+                    4 分钟 读完 (大约 610 个字)
                 </span>
                 
                 
@@ -292,56 +224,16 @@
         <div class="content">
             <h1 id="模块化-babel-js"><a href="#模块化-babel-js" class="headerlink" title="模块化 babel.js"></a>模块化 babel.js</h1><h2 id="export-default-是一个的话，就可以直接引入"><a href="#export-default-是一个的话，就可以直接引入" class="headerlink" title="export default 是一个的话，就可以直接引入"></a>export default 是一个的话，就可以直接引入</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;utils.js</span><br><span class="line">export default &#123;</span><br><span class="line">    name:&quot;Wang Junping&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;index.js</span><br><span class="line">import utils from &#39;.&#x2F;utils.js&#39;</span><br><span class="line">console.log(utils.name)  </span><br><span class="line">&#x2F;&#x2F;报错</span><br></pre></td></tr></table></figure>
 <p>使用 babel-node index.js就没问题了  我觉得应该是不支持 import语法吧</p>
-<p>##Babel 使用</p>
-<ol>
-<li><p>下载babel：cnpm install –save-dev babel-core babel-preset-es2015 babel-preset-latest</p>
-</li>
-<li><p>在根目录下新建 <code>.babelrc</code> 文件并写入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;presets&quot;: [&quot;es2015&quot;,&quot;latest&quot;],</span><br><span class="line">    &quot;plugins&quot;: []</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<ol start="3">
-<li>下载babel-cli <code>npm install -g babel-cli</code></li>
-</ol>
-<ol start="4">
-<li>在src文件夹下新建index.js,用ES6箭头函数语法写代码<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var arr &#x3D; [1,2,3].map((item) &#x3D;&gt; item+1)</span><br></pre></td></tr></table></figure></li>
-<li>命令行输入<code>babel ./src/index.js</code></li>
-</ol>
-<h2 id="开发环境-webpack"><a href="#开发环境-webpack" class="headerlink" title="开发环境- webpack"></a>开发环境- webpack</h2><ul>
-<li>npm install webpack babel-loader –save-dev</li>
-<li>配置 webpack.config.js</li>
-<li>配置 package.json中的scripts</li>
-<li>运行 npm start</li>
-</ul>
-<h1 id="Class和普通构造函数有什么区别"><a href="#Class和普通构造函数有什么区别" class="headerlink" title="Class和普通构造函数有什么区别"></a>Class和普通构造函数有什么区别</h1><h2 id="JS构造函数"><a href="#JS构造函数" class="headerlink" title="JS构造函数"></a>JS构造函数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function MathHandle (x,y) &#123;</span><br><span class="line">    this.x &#x3D; x;</span><br><span class="line">    this.y &#x3D; y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">MathHandle.prototype.add &#x3D; function (x,y) &#123;</span><br><span class="line">    return this.x + this.y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var m &#x3D; new MathHandle(2,3)</span><br><span class="line">console.log(m.add())  &#x2F;&#x2F;5</span><br></pre></td></tr></table></figure>
-
-<h2 id="Class语法"><a href="#Class语法" class="headerlink" title="Class语法"></a>Class语法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">class MathHandle &#123;</span><br><span class="line">    constructor(x,y) &#123;</span><br><span class="line">        this.x &#x3D; x;</span><br><span class="line">        this.y &#x3D; y;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    add() &#123;</span><br><span class="line">        return this.x + this.y;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const m &#x3D; new MathHandle(1,2);</span><br><span class="line">console.log(m.add()) &#x2F;&#x2F;3</span><br><span class="line"></span><br><span class="line">console.log(typeof MathHandle2) &#x2F;&#x2F; &quot;function&quot;</span><br><span class="line">console.log(MathHandle2.prototype.constructor &#x3D;&#x3D;&#x3D; MathHandle2) &#x2F;&#x2F;true</span><br><span class="line">console.log(m2.__proto__ &#x3D;&#x3D;&#x3D; MathHandle2.prototype) &#x2F;&#x2F;true</span><br></pre></td></tr></table></figure>
-<h4 id="所以Class本身是一个语法糖，本质还是构造函数"><a href="#所以Class本身是一个语法糖，本质还是构造函数" class="headerlink" title="所以Class本身是一个语法糖，本质还是构造函数"></a>所以Class本身是一个语法糖，本质还是构造函数</h4><h2 id="继承-JS"><a href="#继承-JS" class="headerlink" title="继承-JS"></a>继承-JS</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">function Animal () &#123;</span><br><span class="line">    this.eat &#x3D; function () &#123;</span><br><span class="line">        console.log(&quot;animal eat&quot;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;狗</span><br><span class="line">function Dog () &#123;</span><br><span class="line">    this.bark &#x3D; function () &#123;</span><br><span class="line">        console,log(&quot;dog bark&quot;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Dog.prototy &#x3D; new Animal()</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;哈士奇</span><br><span class="line">var hashiqi &#x3D; new Dog()</span><br></pre></td></tr></table></figure>
-
-<h2 id="继承-Class"><a href="#继承-Class" class="headerlink" title="继承 Class"></a>继承 Class</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">class Animal &#123;</span><br><span class="line">    constructor(name) &#123;</span><br><span class="line">        this.name &#x3D; name</span><br><span class="line">    &#125;</span><br><span class="line">    eat() &#123;</span><br><span class="line">        console.log(&#96;$&#123;this.name&#125; eat&#96;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Dog extends Animal &#123;</span><br><span class="line">    constructor(name) &#123;</span><br><span class="line">        super(name)         &#x2F;&#x2F;只要是extends的，super()是一定要加上的</span><br><span class="line">        this.name &#x3D; name</span><br><span class="line">    &#125;</span><br><span class="line">    say() &#123;</span><br><span class="line">        console.log(&#96;$&#123;this.name&#125; eat &#96;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const dog &#x3D; new Dog(&quot;哈士奇&quot;)</span><br><span class="line">dog.say()  &#x2F;&#x2F;哈士奇 bark </span><br><span class="line">dog.eat()  &#x2F;&#x2F;哈士奇 eat</span><br></pre></td></tr></table></figure>
-
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
-<li>Class 在语法上更加贴合面向对象的写法</li>
-<li>Class 在实现继承上更加易读、理解</li>
-<li>更易于写Java等后端语言的使用</li>
-<li>本质是语法糖，还是使用 prototype</li>
-</ul>
-<h1 id="Promise-的基本使用"><a href="#Promise-的基本使用" class="headerlink" title="Promise 的基本使用"></a>Promise 的基本使用</h1><h2 id="解决Callback-Hell"><a href="#解决Callback-Hell" class="headerlink" title="解决Callback Hell"></a>解决Callback Hell</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">function loadImg (src,callback,fail) &#123;</span><br><span class="line"></span><br><span class="line">    var img &#x3D; document.createElement(&#39;img&#39;);</span><br><span class="line"></span><br><span class="line">    img.onload &#x3D; function () &#123;</span><br><span class="line">        callback(img)</span><br><span class="line">    &#125;</span><br><span class="line">    img.onerror &#x3D; function () &#123;</span><br><span class="line">        fail()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    img.src &#x3D; src;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var src &#x3D; &quot;http:&#x2F;&#x2F;www.imooc.com&#x2F;static&#x2F;img&#x2F;index&#x2F;logo_new.png&quot;</span><br><span class="line"></span><br><span class="line">loadImg(src,function (img) &#123;</span><br><span class="line">    alert(img.width)</span><br><span class="line">&#125;,function () &#123;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h2 id="使用-Promise语法"><a href="#使用-Promise语法" class="headerlink" title="使用 Promise语法"></a>使用 Promise语法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">function loadImg (src) &#123;</span><br><span class="line">    const promise &#x3D; new Promise(function(resolve,reject) &#123;</span><br><span class="line">        var img &#x3D; document.createElement(&quot;img&quot;)</span><br><span class="line">        img.onload &#x3D; function () &#123;</span><br><span class="line">            resolve(img)</span><br><span class="line">        &#125;</span><br><span class="line">        img.onerror &#x3D; function () &#123;</span><br><span class="line">            reject()</span><br><span class="line">        &#125;</span><br><span class="line">        img.src &#x3D; src </span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    return promise</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var src &#x3D; &quot;http:&#x2F;&#x2F;www.imooc.com&#x2F;static&#x2F;img&#x2F;index&#x2F;logo_new.png&quot;</span><br><span class="line"></span><br><span class="line">loadImg(src)</span><br><span class="line">.then(function (img) &#123;</span><br><span class="line">    alert(img.width)</span><br><span class="line">    document.body.append(img)</span><br><span class="line">&#125;,function () &#123;</span><br><span class="line">    alert(&quot;loading fail&quot;)</span><br><span class="line">&#125;)</span><br><span class="line">.catch(function () &#123;</span><br><span class="line">    alert(&quot;error&quot;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h2 id="总结一下ES6-其他常用功能"><a href="#总结一下ES6-其他常用功能" class="headerlink" title="总结一下ES6 其他常用功能"></a>总结一下ES6 其他常用功能</h2><ul>
-<li><code>let/const</code></li>
-<li>多行字符串/模板变量 <code>${}</code></li>
-<li>解构赋值</li>
-<li>块级作用域</li>
-<li>函数默认参数</li>
-<li>箭头函数（清晰了this指向）</li>
-</ul>
-
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2020/01/06/ES6%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -360,7 +252,7 @@
 
 
 
-<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left is-sticky">
     
         
 <div class="card widget">
@@ -370,22 +262,22 @@
                 <div>
                     
                     <figure class="image is-128x128 has-mb-6">
-                        <img class="" src="/images/avatar.png" alt="Your name">
+                        <img class="" src="/images/head.jpg" alt="wangthing">
                     </figure>
                     
                     <p class="is-size-4 is-block">
-                        Your name
+                        wangthing
                     </p>
                     
                     
                     <p class="is-size-6 is-block">
-                        Your title
+                        前端练习生
                     </p>
                     
                     
                     <p class="is-size-6 is-flex is-flex-center has-text-grey">
                         <i class="fas fa-map-marker-alt has-mr-7"></i>
-                        <span>Your location</span>
+                        <span>南昌</span>
                     </p>
                     
                 </div>
@@ -399,7 +291,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            27
+                            26
                         </p>
                     </a>
                 </div>
@@ -431,7 +323,7 @@
         </nav>
         
         <div class="level">
-            <a class="level-item button is-link is-rounded" href="https://github.com/ppoffice" target="_blank" rel="noopener">
+            <a class="level-item button is-link is-rounded" href="https://github.com/wangthing" target="_blank" rel="noopener">
                 关注我</a>
         </div>
         
@@ -440,7 +332,7 @@
         <div class="level is-mobile">
             
             <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
-                title="Github" href="https://github.com/ppoffice">
+                title="Github" href="https://github.com/wangthing">
                 
                 <i class="fab fa-github"></i>
                 
@@ -450,13 +342,6 @@
                 title="Facebook" href="https://facebook.com">
                 
                 <i class="fab fa-facebook"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
-                title="Twitter" href="https://twitter.com">
-                
-                <i class="fab fa-twitter"></i>
                 
             </a>
             
@@ -694,7 +579,7 @@
                     <span class="level-item">十二月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">7</span>
+                    <span class="level-item tag">6</span>
                 </span>
             </a>
         </li>
@@ -1124,7 +1009,7 @@
                     <span class="level-item">十二月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">7</span>
+                    <span class="level-item tag">6</span>
                 </span>
             </a>
         </li>
@@ -1411,6 +1296,11 @@
                 &copy; 2020 John Doe&nbsp;
                 Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> & <a
                         href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a>
+                
+                <br>
+                <span id="busuanzi_container_site_uv">
+                共<span id="busuanzi_value_site_uv">0</span>个访客
+                </span>
                 
                 </p>
             </div>

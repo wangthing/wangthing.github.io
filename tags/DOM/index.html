@@ -24,11 +24,13 @@
 
 
 
+<link rel="canonical" href="/images/head.jpg" />
 
 
 
 
-<link rel="icon" href="/images/favicon.svg">
+
+<link rel="icon" href="/images/head.jpg">
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
@@ -66,7 +68,7 @@
     <link rel="stylesheet" href="/css/progressbar.css">
 <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
     
-    
+    <script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     
 
 
@@ -90,7 +92,7 @@
                 href="/">主页</a>
                 
                 <a class="navbar-item"
-                href="/archives">成就</a>
+                href="/archives">归档</a>
                 
                 <a class="navbar-item"
                 href="/categories">分类</a>
@@ -99,7 +101,7 @@
                 href="/tags">标签</a>
                 
                 <a class="navbar-item"
-                href="/about">About</a>
+                href="/about">关于</a>
                 
             </div>
             
@@ -151,7 +153,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    3 分钟 读完 (大约 422 个字)
+                    3 分钟 读完 (大约 423 个字)
                 </span>
                 
                 
@@ -172,57 +174,17 @@
 <li>Event对象的常见应用</li>
 <li><strong>自定义事件</strong></li>
 </ul>
-<h2 id="DOM事件的级别"><a href="#DOM事件的级别" class="headerlink" title="DOM事件的级别"></a>DOM事件的级别</h2><ul>
-<li><code>DOM0</code> </li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">element.onclick &#x3D; function () &#123;</span><br><span class="line">     &#x2F;&#x2F;do something</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p><code>DOM2</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">element.addEventListener(&#39;click&#39;,function () &#123;&#125;, false)</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;最后一个参数为true代表捕获阶段触发，false代表冒泡阶段触发</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>DOM3</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">element.addEventListener(&#39;keyup&#39;, function () &#123;&#125;, false)</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<blockquote>
-<p>DOM1标准也存在，只是没有定义和事件有关的</p>
-</blockquote>
-<h2 id="事件模型"><a href="#事件模型" class="headerlink" title="事件模型"></a>事件模型</h2><p>先捕获再冒泡</p>
-<h2 id="事件流"><a href="#事件流" class="headerlink" title="事件流"></a>事件流</h2><p>浏览器在和用户交互的过程中，事件产生的流程</p>
-<p>第一阶段：捕获</p>
-<p>第二阶段：事件通过捕获到达目标阶段</p>
-<p>第三阶段：从目标阶段通过冒泡传递到window对象</p>
-<p>捕获：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"> window &#x3D;&gt; document &#x3D;&gt; html &#x3D;&gt; body &#x3D;&gt; target </span><br><span class="line"> var event &#x3D; document.getElementById(&#39;event&#39;);</span><br><span class="line"></span><br><span class="line">        window.addEventListener(&#39;click&#39;,function () &#123;</span><br><span class="line">            console.log(&#39;window capture!&#39;);</span><br><span class="line">        &#125;, true)        </span><br><span class="line"></span><br><span class="line">        document.addEventListener(&#39;click&#39;,function () &#123;</span><br><span class="line">            console.log(&quot;document capture&quot;);</span><br><span class="line">        &#125;, true)</span><br><span class="line">        document.documentElement.addEventListener(&#39;click&#39;, function () &#123;</span><br><span class="line">            console.log(&quot;HTML capture!&quot;);</span><br><span class="line">        &#125;, true)</span><br><span class="line">        document.body.addEventListener(&#39;click&#39;,function (e) &#123;</span><br><span class="line">            console.log(&quot;body capture&quot;);</span><br><span class="line">        &#125;,true)</span><br><span class="line">        event.addEventListener(&#39;click&#39;, function (e) &#123;</span><br><span class="line">            console.log(&quot;event&quot;);</span><br><span class="line">        &#125;, true)</span><br><span class="line">        </span><br><span class="line">        window capture!</span><br><span class="line">        document capture</span><br><span class="line"> 		HTML capture!</span><br><span class="line">7 		body capture</span><br><span class="line">		event</span><br></pre></td></tr></table></figure>
-
-<p>冒泡和上面相反</p>
-<h2 id="Event对象的常见应用"><a href="#Event对象的常见应用" class="headerlink" title="Event对象的常见应用"></a>Event对象的常见应用</h2><ul>
-<li><p><code>event.preventDefault()</code></p>
-<p>阻止默认的行为，比如 a标签的页面跳转</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var link &#x3D; document.getElementById(&#39;link&#39;)</span><br><span class="line">    link.onclick &#x3D; function (e) &#123;</span><br><span class="line">        e.preventDefault();</span><br><span class="line"> &#125;</span><br><span class="line"> form.onclick &#x3D; function (e) &#123;</span><br><span class="line">        e.preventDefault()</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-
-<p>​</p>
-</li>
-<li><p><code>event.stopPropagation()</code></p>
-</li>
-<li><p><code>event.stopImmediatePropogation()</code></p>
-</li>
-</ul>
-<p><strong>下面这两个主要是用于事件委托</strong></p>
-<ul>
-<li><code>event.currentTarget</code></li>
-<li><code>event.target</code></li>
-</ul>
-<h2 id="自定义事件"><a href="#自定义事件" class="headerlink" title="自定义事件"></a>自定义事件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var event &#x3D; new Event(&#39;custome&#39;)</span><br><span class="line">var btn1 &#x3D; document.getElementById(&#39;btn1&#39;)</span><br><span class="line">btn1.addEventListener(&#39;custome&#39;, function () &#123;</span><br><span class="line">     console.log(&#39;custome event&#39;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">btn1.dispatchEvent(event)</span><br></pre></td></tr></table></figure>
-
-<p>还有 <code>customEvent</code> 可以自定义事件，并且可以传递数据</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 首先创建一个事件</span><br><span class="line">let myEvent &#x3D; new CustomEvent(&quot;userLogin&quot;, &#123;</span><br><span class="line">    detail: &#123;</span><br><span class="line">        username: &quot;davidwalsh&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"> btn.addEventListener(&quot;userLogin&quot;, function(e) &#123;</span><br><span class="line"> console.info(&quot;Event is: &quot;, e);</span><br><span class="line"> console.info(&quot;Custom data is: &quot;, e.detail);</span><br><span class="line"> &#125;)</span><br><span class="line"></span><br><span class="line">myElement.dispatchEvent(myEvent);</span><br></pre></td></tr></table></figure>
-
-
+<h2 id="DOM事件的级别"><a href="#DOM事件的级别" class="headerlink" title="DOM事件的级别"></a>DOM事件的级别</h2>
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2020/02/09/DOM-%E4%BA%8B%E4%BB%B6/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -248,7 +210,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    19 分钟 读完 (大约 2910 个字)
+                    19 分钟 读完 (大约 2911 个字)
                 </span>
                 
                 
@@ -267,126 +229,16 @@
 <blockquote>
 <p>需要注意的是IE中的所有<code>DOM</code> 对象都是以COM对象的形式实现的。这意味着IE中的DOM对象与原始的<code>JavaScript</code> 对象的行为或者活动特点并不一致。</p>
 </blockquote>
-<h2 id="操作DOM节点"><a href="#操作DOM节点" class="headerlink" title="操作DOM节点"></a>操作DOM节点</h2><ul>
-<li><p><code>appendChild（）</code> 是向 <code>childNodes</code> 列表的末尾添加一个节点，并返回新的节点</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var returnedNodes &#x3D; someNode.appendChild(newNode) </span><br><span class="line">   alert(returnedNodes &#x3D;&#x3D;&#x3D; newNode)			&#x2F;&#x2F;true</span><br><span class="line">   alert(someNode.lastChild &#x3D;&#x3D;&#x3D; newNode)	&#x2F;&#x2F;true</span><br></pre></td></tr></table></figure>
-
-<p>如果传入的节点已经存在于被传入的对象中了，那么会将该对象放到 <code>childNodes</code> 的末尾。这样我们可以把第一个子节点传入 <code>appendChild</code> 中，从而将第一个节点放到末尾。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var returnedNode &#x3D; someNode.appendChild(someNode.firstChild)</span><br><span class="line">alert(returnedNode &#x3D;&#x3D;&#x3D; someNode.lastChild)		&#x2F;&#x2F;true</span><br><span class="line">alert(returnedNode &#x3D;&#x3D;&#x3D; someNode.first)			&#x2F;&#x2F;false</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>如果想要把节点放到对象 <code>childNodes</code> 列表的某个特定位置，而不是像 <code>appendChild</code> 一样只能放到末尾，那么我们可以使用 <code>insertBefore()</code> 方法。这个方法接收 <strong>两个参数</strong> ：要插入的节点和作为参照的节点。插入节点时会变成被参照节点的一个同胞节点（即<code>previousSibling</code>），同返回时被插入的节点 。如果第二个参数为 <code>null</code> ，那就相当于执行了 <code>appendChild()</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;被参照的节点为 null</span><br><span class="line">var returnedNode &#x3D; someNode.insertBefore(newNode,null)</span><br><span class="line">alert(newNode &#x3D;&#x3D;&#x3D; someNode.lastNode)		&#x2F;&#x2F;true</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;将节点插入到第一个节点</span><br><span class="line">var returnedNode &#x3D; someNode.insertBefore(newNode,someNode.firstChild)</span><br><span class="line">alert(returnedNode &#x3D;&#x3D;&#x3D; newNode) 			&#x2F;&#x2F;true</span><br><span class="line">alert(newNode &#x3D;&#x3D;&#x3D; someNode.firstNode)		&#x2F;&#x2F;true</span><br></pre></td></tr></table></figure>
-
-<p>虽然有 <code>insertBefore()</code> 但是没有 <code>insertAfter()</code>,其实有没有都无所谓，用一个就可以实现了。</p>
-</li>
-<li><p>前面两个方法都是插入节点，下面这个方法 <code>replaceChild</code> 可以移除节点，该方法接收两个<strong>参数</strong>： 要插入的节点和要替换的节点，要替换的节点将有这个方法返回并从文档树中移除，同时由要插入的节点代替。直接看下面的例子吧：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 替换第一个节点</span><br><span class="line">var returnedNode &#x3D; someNode.replaceChild(newNode,someNode.firstChild)</span><br><span class="line">alert(newNode &#x3D;&#x3D;&#x3D; someNode.firstChild )			&#x2F;&#x2F;true</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;替换第n个节点</span><br><span class="line">someNode.replaceChild(newNode,someNode.childNodes[n])</span><br><span class="line">someNode.replaceChild(newNode,someNode.childNodes.item(n))</span><br></pre></td></tr></table></figure>
-
-<p>使用 <code>replaceCHild()</code> 插入一个节点后，被替换的节点的所有关系指针都会被新插入的节点所复制，从技术上来看我们还是可以访问的到这个被替换的节点，但是这个节点已经脱离了文档，可以理解<strong>为文档游离碎片</strong>。</p>
-</li>
-<li><p>如果只想移除节点而非替换，可以使用 <code>removeChild()</code> 。这个方法只接受一个参数，不用想都知道就是我们需要移除的节点，并且返回被移除的节点。直接看代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;移除最后一个节点</span><br><span class="line">var removedNode &#x3D; someNode.replaceChild(someNode.lastNode)</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;移除节点本身</span><br><span class="line">childNode.pare</span><br></pre></td></tr></table></figure>
-
-<p>和上面替换方法一样，被移除的节点还是存在于文档，但是在文档当中没了一席之位，也算是<strong>文档游离碎片</strong>。</p>
-</li>
-</ul>
-<p>前面介绍的四个方法操作的都是某个节点的子节点，也就是说使用这些方法必须先获取到 父节点，但是并不是所有节点都有子节点，如果在不支持子节点的节点使用这些方法会报错。下面两种方法是所有节点都有的</p>
-<ul>
-<li><p><code>cloneNode()</code>方法的作用是复制节点， 该方法接收一个布尔值参数，表示是否执行深拷贝。复制后返回的节点归文档所有，但此时并没有父节点。使用如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;html</span><br><span class="line">&lt;ul&gt;</span><br><span class="line">	&lt;li&gt;item 1&lt;&#x2F;li&gt;</span><br><span class="line">	&lt;li&gt;item 1&lt;&#x2F;li&gt;</span><br><span class="line">	&lt;li&gt;item 1&lt;&#x2F;li&gt;</span><br><span class="line">&lt;&#x2F;ul&gt;</span><br><span class="line"></span><br><span class="line">var deepList &#x3D; myList.cloneNode(true)</span><br><span class="line">allert(deepList.childNodes.length)		&#x2F;&#x2F;3(IE &lt; 9) or 7(other browers)</span><br><span class="line"></span><br><span class="line">var shallowList &#x3D; myList.cloneNode(false)</span><br><span class="line">allert(shallowList.childNodes.length)		&#x2F;&#x2F;0</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>cloneNode() 不会复制 添加到DOM节点的 JavaScript 属性，例如时间处理程序。这个方法只复制特性、在明确指明第一个参数true的情况下会复制所有子节点，其他一切都不会复制。IE在此存在一个bug，即他会复制事件处理程序，在我们复制前最好移除事件处理程序。</p>
-</blockquote>
-</li>
-<li><p>最后一个方法是 <code>normalize()</code> ，该方法的唯一作用是处理文档树中的文本节点。由于解析器的实现或者DOM操作等原因，可能会出现文本节点不包含文本或者连续出现两个文本节点的情况。在一个节点调用此方法后，会在该节点的子节点上进行查找。如果发现了空节点则删除；如果找到了相邻的文本节点则将他们合并成一个节点。</p>
-</li>
-</ul>
-<h2 id="Document-类型"><a href="#Document-类型" class="headerlink" title="Document 类型"></a>Document 类型</h2><p>​    <code>JavaScript</code>通过  <code>Document</code>  类型表示文档。在浏览器中，document 对象是 HTMLDocument(继承自Document类型) 的一个实例。即 <code>document.__prototype__ === HTMLDocumentt.prototype</code> 。表示整个HTML页面。而且 <code>document</code> 对象是 <code>window</code> 对象的一个属性，可以作为全局变量来访问。 Document节点具有以下特点：</p>
-<ul>
-<li><code>nodeType</code>的值为9</li>
-<li><code>nodeName</code> 的值为“#document”</li>
-<li><code>nodeValue</code> 的值为 null</li>
-<li><code>parentNode</code> 的值为null</li>
-<li><code>ownerDocument</code>的值为null</li>
-<li>其子节点可能是一个DocumentType（最多是一个）、<code>Element</code> （最多一个）、<code>ProcessingInstruction</code>或 <code>Comment</code></li>
-</ul>
-<p><code>document</code> 对象提供了两个方法快捷访问其子节点</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var html &#x3D; document.documentElement</span><br><span class="line">alert(html &#x3D;&#x3D;&#x3D; document.childNodes[0])			&#x2F;&#x2F;true</span><br><span class="line">alert(html &#x3D;&#x3D;&#x3D; document.firstChild)				&#x2F;&#x2F;true</span><br><span class="line"></span><br><span class="line">var body &#x3D; document.body</span><br><span class="line">&#x2F;&#x2F;这个方法是平时开发比较常见的</span><br></pre></td></tr></table></figure>
-
-<p>还有一个方法是获取到<code>DocumentType</code> 的，通常将 &lt;!DOCTYPE&gt;标签看做一个与文档其他部分不同的实体，可以通过doctype属性访问到。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var doctype &#x3D; document.doctype</span><br><span class="line">&#x2F;&#x2F;获得对&lt;!DOCTYPE&gt;的引用</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="文档类型"><a href="#文档类型" class="headerlink" title="文档类型"></a>文档类型</h4><p>​    作为 <code>HTMLDocument</code> 的一个实例， <code>document</code> 对象还有一些 标准的 <code>Document</code> 对象所没有的属性。这些属性提供了 document 对象所表现的网页的一些信息。其中第一个属性是 <code>title</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;取得文档标题</span><br><span class="line">var originTitle &#x3D; document.title</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;修改文档标题</span><br><span class="line">document.title &#x3D; &quot;A new title&quot;</span><br></pre></td></tr></table></figure>
-
-<p>​    下面三个属性都是对网页的请求有关，他们是 <code>URL</code>、 <code>domain</code> 、 <code>referrer</code>。 URL 属性包含页面完整的URL，domain属性只包含页面的域名，而 referrer则保存了链接到当前页面的那个页面的URL，即由哪个页面跳转过来的。在没有来源页面的情况下，referrer属性可能会包含空字符串。</p>
-<p>​    所有这些信息都会存在于请求的 <code>HTTP</code> 头部，只不过是通过这些属性让我们可以在 JavaScript 中访问到而已，来看下面的例子。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;取得完整的URL</span><br><span class="line">var url &#x3D; document.URL</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;取得域名</span><br><span class="line">var domain &#x3D; document.domain</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;取得来源页面的URL</span><br><span class="line">var referrer &#x3D; document.referrer</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>在这三个属性当中只有 domain是可以设置的，但是出于安全考虑也不是可以设置成任何值。如果URL中包含一个子域名，例如 p2p.wrox.com，那么就只能将domain设置成“”wrox.com“。不能将domain设置为URL不包含的域</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;假设页面来自 &quot;p2p.wrox.com&quot;</span><br><span class="line">document.domain &#x3D; &quot;wrox.com&quot;		&#x2F;&#x2F;OK</span><br><span class="line">document.domian &#x3D; &quot;baidu.com&quot;		&#x2F;&#x2F;报错</span><br></pre></td></tr></table></figure>
-
-<p>​    <code>document.domain</code> 的设置还有一个限制，如果域名一开始是松散的（loose），那么就不能在设置为紧绷的（tight）。如下面例子所示。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;假设页面来自 &quot;p2p.wrox.com&quot;</span><br><span class="line">document.domain &#x3D; &quot;wrox.com&quot;		&#x2F;&#x2F;这是可以的</span><br><span class="line">document.domian &#x3D; &quot;p2p.wrox.com&quot;	&#x2F;&#x2F;不能再往下加子域名</span><br></pre></td></tr></table></figure>
-
-<h4 id="查找元素"><a href="#查找元素" class="headerlink" title="查找元素"></a>查找元素</h4><ul>
-<li><p><code>document.getElementById()</code>这个方法就不多说了，返回与传入参数匹配的元素，没找到则返回null。需要注意的是在IE7及以下的版本对参数是不区分大小写的，还有如果有表元素的name属性和要查找的元素id相同，且表单元素在前面，那就完蛋了，你可能就获取不到你想要查找的元素了。</p>
-</li>
-<li><p><code>document.getElementsByTagName()</code>返回一个HTMLCollection ，和nodeList很相似有一点不同的是访问<code>HTMLCollection</code> 时除了通过索引和 <code>item()</code>方法之外 ，还支持 <code>namedItem()</code>,可以快速通过名字定位到我们想要的元素。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src&#x3D;&quot;xxx.jpg&quot; name&#x3D;&quot;myImg&quot;&#x2F;&gt;</span><br><span class="line"></span><br><span class="line">var imgs &#x3D; document.getElementsByTagName(&#39;img&#39;)</span><br><span class="line">var myImg &#x3D; imgs.namedItem(&#39;myImg&#39;)</span><br><span class="line">&#x2F;&#x2F;还可通过下面的形式</span><br><span class="line">var myImg &#x3D; imgs[&#39;myImg&#39;]  		&#x2F;&#x2F;最终会调用 namedItem()</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>虽然说标准规定标签名需要区分大小写，但是为了最大限度地与既有的HTML页面兼容，穿给 gelElementsByTagNma() 是可以不区分大小写的。但是对于XML包括XHTML来说是需要区分大小写的。</p>
-</blockquote>
-</li>
-</ul>
-<p>关于查找元素就先介绍到这里。</p>
-<h2 id="Element类型"><a href="#Element类型" class="headerlink" title="Element类型"></a>Element类型</h2><p>​    除了 <code>Document</code> 类型之外， <code>Element</code> 类型要算是最常用的类型了。具有以下特点：</p>
-<ul>
-<li><p><code>nodeType</code> 的值为1</p>
-</li>
-<li><p><code>nodeName</code> 的值为元素的标签名</p>
-</li>
-<li><p><code>nodeValue</code> 的值为null</p>
-</li>
-<li><p><code>parentNode</code>可能是Document或者Element</p>
-</li>
-<li><p>其子节点可能是Element、Text、ProcessingInstruction、、CDATASection 或</p>
-<p>EntityReference。</p>
-</li>
-</ul>
-<p>要访问元素的标签名，可以使用 nodeName 属性，也可以使用 tagName 属性；这两个属性会返回</p>
-<p>相同的值（使用后者主要是为了清晰起见）。以下面的元素为例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id&#x3D;&quot;myDiv&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line"></span><br><span class="line">var div &#x3D; document.getElementById(&#39;myDIv&#39;)</span><br><span class="line">alert(div.tagName)	&#x2F;&#x2F;&#39;DIV&#39;</span><br><span class="line">alert(div.tagName &#x3D;&#x3D;&#x3D; div.nodeName)		&#x2F;&#x2F;true</span><br></pre></td></tr></table></figure>
-
-<h4 id="1-HTML元素"><a href="#1-HTML元素" class="headerlink" title="1. HTML元素"></a>1. HTML元素</h4><p>​    所有HTML元素都有 <code>HTMLElement</code> 类型表示，不是直接通过这个类型，而是子类型。 <code>HTMLElement</code>类型也是继承了Element并添加了一些属性。 添加的这些属性分别相应于每个HTML元素都存在下列标准特性：</p>
-<ul>
-<li><code>id</code>, 元素在文档中的唯一标识符</li>
-<li><code>title</code> ，有关元素的附加说明信息，一般通过工具提示条显示出来。</li>
-<li><code>lang</code> ，元素内容的语言代码，很少使用</li>
-<li><code>dir</code> ，语言的方向，值为”ltr“（left to right），或者”rlt”,也很少使用</li>
-<li><code>className</code> 与元素的class对应，即为元素指定CSS类。</li>
-</ul>
-<h5 id="获取特性"><a href="#获取特性" class="headerlink" title="获取特性"></a>获取特性</h5><ul>
-<li><code>getAttribute()</code></li>
-<li><code>setAttribute()</code></li>
-<li><code>removeAttribute()</code></li>
-</ul>
-<blockquote>
-<p>需要注意的是getAttribute()    传入的特性名应该与实际的特性名相同，所以想要获取到class的话需要‘class’，而非‘className’，而且还可以获取自定义属性（即标准HTML语言当中没有的特性）</p>
-</blockquote>
-<p>任何元素的所有特性都可以通过DOM元素本身的属性来访问，当然 HTMLElement也会有5个属性与相应的特性意义对应。不过只有公认的特性（非自定义）才会添加到DOM对象中。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id&#x3D;&quot;myDiv&quot; align&#x3D;&quot;left&quot; myAttribute&#x3D;&quot;hello&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line"></span><br><span class="line">alert(div.id)		&#x2F;&#x2F;&quot;myDiv&quot;</span><br><span class="line">alert(div.align)	&#x2F;&#x2F;&quot;left&quot;</span><br><span class="line">alert(div.myAttribute)	&#x2F;&#x2F;undefined(IE除外)</span><br></pre></td></tr></table></figure>
-
-<p>​    </p>
-
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2020/01/20/%E6%96%87%E6%A1%A3%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8BDOM/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -405,7 +257,7 @@
 
 
 
-<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left is-sticky">
     
         
 <div class="card widget">
@@ -415,22 +267,22 @@
                 <div>
                     
                     <figure class="image is-128x128 has-mb-6">
-                        <img class="" src="/images/avatar.png" alt="Your name">
+                        <img class="" src="/images/head.jpg" alt="wangthing">
                     </figure>
                     
                     <p class="is-size-4 is-block">
-                        Your name
+                        wangthing
                     </p>
                     
                     
                     <p class="is-size-6 is-block">
-                        Your title
+                        前端练习生
                     </p>
                     
                     
                     <p class="is-size-6 is-flex is-flex-center has-text-grey">
                         <i class="fas fa-map-marker-alt has-mr-7"></i>
-                        <span>Your location</span>
+                        <span>南昌</span>
                     </p>
                     
                 </div>
@@ -444,7 +296,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            27
+                            26
                         </p>
                     </a>
                 </div>
@@ -476,7 +328,7 @@
         </nav>
         
         <div class="level">
-            <a class="level-item button is-link is-rounded" href="https://github.com/ppoffice" target="_blank" rel="noopener">
+            <a class="level-item button is-link is-rounded" href="https://github.com/wangthing" target="_blank" rel="noopener">
                 关注我</a>
         </div>
         
@@ -485,7 +337,7 @@
         <div class="level is-mobile">
             
             <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
-                title="Github" href="https://github.com/ppoffice">
+                title="Github" href="https://github.com/wangthing">
                 
                 <i class="fab fa-github"></i>
                 
@@ -495,13 +347,6 @@
                 title="Facebook" href="https://facebook.com">
                 
                 <i class="fab fa-facebook"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
-                title="Twitter" href="https://twitter.com">
-                
-                <i class="fab fa-twitter"></i>
                 
             </a>
             
@@ -739,7 +584,7 @@
                     <span class="level-item">十二月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">7</span>
+                    <span class="level-item tag">6</span>
                 </span>
             </a>
         </li>
@@ -1169,7 +1014,7 @@
                     <span class="level-item">十二月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">7</span>
+                    <span class="level-item tag">6</span>
                 </span>
             </a>
         </li>
@@ -1456,6 +1301,11 @@
                 &copy; 2020 John Doe&nbsp;
                 Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> & <a
                         href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a>
+                
+                <br>
+                <span id="busuanzi_container_site_uv">
+                共<span id="busuanzi_value_site_uv">0</span>个访客
+                </span>
                 
                 </p>
             </div>

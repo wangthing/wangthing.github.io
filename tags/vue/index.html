@@ -24,11 +24,13 @@
 
 
 
+<link rel="canonical" href="/images/head.jpg" />
 
 
 
 
-<link rel="icon" href="/images/favicon.svg">
+
+<link rel="icon" href="/images/head.jpg">
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
@@ -66,7 +68,7 @@
     <link rel="stylesheet" href="/css/progressbar.css">
 <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
     
-    
+    <script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     
 
 
@@ -90,7 +92,7 @@
                 href="/">主页</a>
                 
                 <a class="navbar-item"
-                href="/archives">成就</a>
+                href="/archives">归档</a>
                 
                 <a class="navbar-item"
                 href="/categories">分类</a>
@@ -99,7 +101,7 @@
                 href="/tags">标签</a>
                 
                 <a class="navbar-item"
-                href="/about">About</a>
+                href="/about">关于</a>
                 
             </div>
             
@@ -151,7 +153,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    16 分钟 读完 (大约 2408 个字)
+                    16 分钟 读完 (大约 2409 个字)
                 </span>
                 
                 
@@ -166,126 +168,16 @@
         <div class="content">
             <p>​    心态有点崩，刚刚写了一个小时居然没有保存，然后不小心关电脑了，前面写的一大堆废话都没了。不管了先从现在看的写，前面写的有空的话再不回来。多按按 <code>ctrl+s</code> ，别总是按 <code>ctrl+a ctrl+c  ctrl+v</code></p>
 <p>​    第二天过来补充，没想到昨天状态还不错，读到了快1200行，工具函数读完之后就到了响应式的实现了，响应式的实现主要是<strong>发布监听</strong>来实现，通过拦截传入的数据，赋值到this上面，然后通过 <code>Object.defineProperty()</code>来设置属性的 <code>getter、setter</code> 方法，在设置了 <code>__ob__</code>的值上面会在数据发生变化时通知 订阅 更新。当然还有特殊的对象比如数组，可以拦截 <code>sort splice push unshift</code> 等这些会改变数组的方法。</p>
-<h2 id="现在开始"><a href="#现在开始" class="headerlink" title="现在开始"></a>现在开始</h2><p>之前说过在710行出现 <code>uid</code> 之前的代码都是一些变量和工具函数的定义。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"> &#x2F;&#x2F; 阻止修改1现有属性的特性和值，也不能添加新的属性</span><br><span class="line"> var emptyObject &#x3D; Object.freeze(&#123;&#125;);</span><br><span class="line">  </span><br><span class="line">&#x2F;&#x2F;判断一个变量的值是不是 undefined或者是null</span><br><span class="line"> function isUndef (v) &#123;</span><br><span class="line">   return v &#x3D;&#x3D;&#x3D; undefined || v &#x3D;&#x3D;&#x3D; null</span><br><span class="line"> &#125;</span><br><span class="line">&#x2F;&#x2F;判断一个变量的值是否定义了，也就是不为undefine和null</span><br><span class="line"> function isDef (v) &#123;</span><br><span class="line">   return v !&#x3D;&#x3D; undefined &amp;&amp; v !&#x3D;&#x3D; null</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"> &#x2F;&#x2F;判断一个布尔值真假，也就是是不是真的等于 true</span><br><span class="line"> &#x2F;&#x2F;而不是 &#x3D;&#x3D; 会发生隐式转化后为true</span><br><span class="line"> function isTrue (v) &#123;</span><br><span class="line">   return v &#x3D;&#x3D;&#x3D; true</span><br><span class="line"> &#125;</span><br><span class="line">&#x2F;&#x2F;和上面是一样的</span><br><span class="line"> function isFalse (v) &#123;</span><br><span class="line">   return v &#x3D;&#x3D;&#x3D; false</span><br><span class="line"> &#125;</span><br><span class="line">  </span><br><span class="line">&#x2F;&#x2F; 判断是否为原始值</span><br><span class="line">&#x2F;&#x2F; ES5原始值有 string number boolean</span><br><span class="line">&#x2F;&#x2F; ES6新增了 symbol</span><br><span class="line"> function isPrimitive (value) &#123;</span><br><span class="line">   return (</span><br><span class="line">     typeof value &#x3D;&#x3D;&#x3D; &#39;string&#39; ||</span><br><span class="line">     typeof value &#x3D;&#x3D;&#x3D; &#39;number&#39; ||</span><br><span class="line">     &#x2F;&#x2F; $flow-disable-line</span><br><span class="line">     typeof value &#x3D;&#x3D;&#x3D; &#39;symbol&#39; ||</span><br><span class="line">     typeof value &#x3D;&#x3D;&#x3D; &#39;boolean&#39;</span><br><span class="line">   )</span><br><span class="line"> &#125;</span><br><span class="line"> 	</span><br><span class="line"> </span><br><span class="line"> &#x2F;&#x2F;判断是原始值还是对象，当我们知道值是</span><br><span class="line">&#x2F;&#x2F;json 兼容型</span><br><span class="line"> function isObject (obj) &#123;</span><br><span class="line">   return obj !&#x3D;&#x3D; null &amp;&amp; typeof obj &#x3D;&#x3D;&#x3D; &#39;object&#39;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>判断一个值的原始类型字符串，利用Objet原型上的 <code>toString()</code> 方法,因为Object下面各个对象都重写了自己的 <code>toString()</code> 方法，而Object上的就是返回原始类型的字符串的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var _toString &#x3D; Object.prototype.toString;</span><br><span class="line">  	  </span><br><span class="line">function toRawType (value) &#123;</span><br><span class="line">  return _toString.call(value).slice(8, -1)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>判断一个值是不是真的JavaScript对象，比如 node节点 <code>typeof</code> 返回的是 <code>object</code>,但是严格上来讲是 <code>NodeList</code> ，而不是我们认为的 json对象那种</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function isPlainObject (obj) &#123;</span><br><span class="line">     return _toString.call(obj) &#x3D;&#x3D;&#x3D; &#39;[object Object]&#39;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>判断是不是一个合格的数组下标</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function isValidArrayIndex (val) &#123;</span><br><span class="line">     var n &#x3D; parseFloat(String(val));</span><br><span class="line">     return n &gt;&#x3D; 0 &amp;&amp; Math.floor(n) &#x3D;&#x3D;&#x3D; n &amp;&amp; isFinite(val)</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>判断是不是一个 <code>Promise</code> 值</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function isPromise (val) &#123;</span><br><span class="line">  return (</span><br><span class="line">    isDef(val) &amp;&amp;</span><br><span class="line">    typeof val.then &#x3D;&#x3D;&#x3D; &#39;function&#39; &amp;&amp;</span><br><span class="line">    typeof val.catch &#x3D;&#x3D;&#x3D; &#39;function&#39;</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>把一个值转化成实际所呈现出来的字符串（不是很能理解）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function toString (val) &#123;</span><br><span class="line">  return val &#x3D;&#x3D; null			&#x2F;&#x2F;null或者undefined就返回空字符串而不是&#39;null&#39;、&#39;undefined&#39;</span><br><span class="line">  ? &#39;&#39;</span><br><span class="line">  :Array.isArray(val) || （isPlainObject(val) &amp;&amp; val.toString &#x3D;&#x3D;&#x3D; _toString）</span><br><span class="line">  &#x2F;&#x2F;是一个数组或者是原始对象的话就可以</span><br><span class="line">  	? JSON.stringify(val, null, 2)</span><br><span class="line">  	: String(val)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>将字符串转化为数字，如果转化失败，也就是 <code>NaN</code>，那么就直接返回字符串</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function toNumber (val) &#123;</span><br><span class="line">     var n &#x3D; parseFloat(val);</span><br><span class="line">     return isNaN(n) ? val : n</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>把传入的字符串创建一个 map，返回一个函数可以检查 key 是否存在于map当中，第二个参数来决定是否区分大小写</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function makeMap (str, expectLowercase) &#123;</span><br><span class="line">     	var map &#x3D; Object.create(null);&#x2F;&#x2F;创建一个真的空对象</span><br><span class="line">     	var list &#x3D; str.split(&#39;,&#39;);</span><br><span class="line">     	for(var i &#x3D; 0; i&lt;list.length; i++) &#123;</span><br><span class="line">         map[list[i]] &#x3D; true</span><br><span class="line">     	&#125;</span><br><span class="line">     	return expectLowercase</span><br><span class="line">     	? function (val) &#123; return map[val.toLowerCase()]&#125;</span><br><span class="line">     	: function (val) &#123; return map[val]&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>移除数组中的一项，当你不知道该项在数组中的索引的时候</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function remove (arr, item) &#123;</span><br><span class="line">  if(arr.length) &#123;</span><br><span class="line">    var index &#x3D; arr.indexOf(item);</span><br><span class="line">    if(index &gt; -1) &#123;</span><br><span class="line">      return arr.splice(index,1)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>检查一个对象是否自己有这个 属性</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var hasOwnProperty &#x3D; Object.prototype.hasOwnProperty;</span><br><span class="line">function hasOwn (obj, key) &#123;</span><br><span class="line">	return hasOwnProperty.call(obj,key);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>返回一个函数并该函数返回一个已经缓存的字符串，也就是结果吧</p>
-<ul>
-<li>利用了闭包将已经计算好了的结果缓存在一个 <code>catch</code> 对象</li>
-<li>在我们重复调用函数但是可能这些值我们已经计算过了，就直接返回缓存中存了的</li>
-<li>在下面有些方法中会使用到</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function catched (fn) &#123;</span><br><span class="line">     var catch &#x3D; Object.create(null);</span><br><span class="line">     return (function catchedFn (str) &#123;</span><br><span class="line">       var hit &#x3D; catch[str];</span><br><span class="line">       return hit || catch[str] &#x3D; fn(str);</span><br><span class="line">     &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>把用连字符分割字符串变成驼峰命名，比如   v-model&gt;vModel</p>
-</li>
-<li><p>将首字母变成大写</p>
-</li>
-<li><p>把驼峰命名字符串变成连字符链接 比如 aBc &gt; a-bc</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">var camelizeRE &#x3D; &#x2F;-(\w)&#x2F;g;</span><br><span class="line">var camelize &#x3D; cached(function (str) &#123;</span><br><span class="line">  return str.replace(camelizeRE, function (_, c) &#123; return c ? c.toUpperCase() : &#39;&#39;; &#125;)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">var capitalize &#x3D; cached(function (str) &#123;</span><br><span class="line">  return str.charAt(0).toUpperCase() + str.slice(1)</span><br><span class="line">&#125;);</span><br><span class="line">&#x2F;&#x2F;举个例子，如果我在下面</span><br><span class="line">var str &#x3D; capitalize(&#39;javascript&#39;);</span><br><span class="line">&#x2F;&#x2F;会将我传入的字符串 &#39;javascript&#39;变成&#39;Javascript&#39;</span><br><span class="line">&#x2F;&#x2F;同时由于我已经转化过一次了，将它存在缓存当中，catch也就是闭包所引用的</span><br><span class="line">var str1 &#x3D; capitalize(&#39;javascript&#39;)</span><br><span class="line">&#x2F;&#x2F;z这时候就是直接从缓存当中获取了</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">var hyphenateRE &#x3D; &#x2F;\B([A-Z])&#x2F;g;</span><br><span class="line">var hyphenate &#x3D; cached(function (str) &#123;</span><br><span class="line">  return str.replace(hyphenateRE, &#39;-$1&#39;).toLowerCase()</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>这是一个 <code>bind polyfill</code>,虽然大部分可以说是所有的浏览器都支持 <code>bind</code>，但是还是不排除有憨憨使用的浏览器太感人了，算是 <strong>优雅降级</strong>吧。不得不说 Vue的开发者想的太周到了，内力雄厚啊。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;绑定函数，并且改变上下文</span><br><span class="line">function polyfillBind (fn, ctx) &#123;</span><br><span class="line">     function boundFn (a) &#123;</span><br><span class="line">       var l &#x3D; arguments.length;</span><br><span class="line">       return l</span><br><span class="line">       ? l&gt;1</span><br><span class="line">         ? fn.apply(ctx,arguments)</span><br><span class="line">         : fn.call(ctx,a)</span><br><span class="line">       : fn.call(ctx)</span><br><span class="line">     &#125;</span><br><span class="line">     boundFn._length &#x3D; fn.length;</span><br><span class="line">     return boundFn</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;原始的bind</span><br><span class="line">function nativeBind （fn,ctx) &#123;</span><br><span class="line">     return fn.bind(ctx);</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;判断是否支持bind</span><br><span class="line">var bind &#x3D; Function.prototype.bind</span><br><span class="line">	? nativeBind</span><br><span class="line">	: polyfillBind</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ul>
-<ul>
-<li><p>把一个类数组变成一个数组</p>
-<blockquote>
-<p>当然也可以使用 <code>Array.prototype.slice.call(list)</code> ，如果不需要项下面这样可能会只要部分</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function toArray (list,start) &#123;</span><br><span class="line">     start &#x3D; start || 0;</span><br><span class="line">     var i &#x3D; list.length - start;</span><br><span class="line">     var ret &#x3D; new Array(i);</span><br><span class="line">     while (i--) &#123;</span><br><span class="line">       ret[i] &#x3D; list[i+start];</span><br><span class="line">     &#125;</span><br><span class="line">     return ret</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>把属性混入到目标属性</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function extend (to,_from) &#123;</span><br><span class="line">     for(var key in _from) &#123;</span><br><span class="line">       to[key] &#x3D; _from[key];</span><br><span class="line">     &#125;</span><br><span class="line">     return to</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>合并数组里面的对象到一个对象里面，是浅拷贝</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function toObject (arr) &#123;</span><br><span class="line">     var res &#x3D; &#123;&#125;;</span><br><span class="line">     for (var i &#x3D; 0; i &lt; arr.length; i++) &#123;</span><br><span class="line">       if(arr[i]) &#123;</span><br><span class="line">         extend(res,arr[i]);</span><br><span class="line">       &#125;</span><br><span class="line">     &#125;</span><br><span class="line">     return res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>下面这几个函数就比较让人摸不着头脑，不知道是干什么用的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;**</span><br><span class="line">    * Perform no operation.</span><br><span class="line">    * Stubbing args to make Flow happy without leaving useless transpiled code</span><br><span class="line">    * with ...rest (https:&#x2F;&#x2F;flow.org&#x2F;blog&#x2F;2017&#x2F;05&#x2F;07&#x2F;Strict-Function-Call-Arity&#x2F;).</span><br><span class="line">    *&#x2F;</span><br><span class="line">   function noop (a, b, c) &#123;&#125;</span><br><span class="line"> </span><br><span class="line">   &#x2F;**</span><br><span class="line">    * Always return false.</span><br><span class="line">    *&#x2F;</span><br><span class="line">   var no &#x3D; function (a, b, c) &#123; return false; &#125;;</span><br><span class="line"> </span><br><span class="line">   &#x2F;* eslint-enable no-unused-vars *&#x2F;</span><br><span class="line"> </span><br><span class="line">   &#x2F;**</span><br><span class="line">    * Return the same value.</span><br><span class="line">    *&#x2F;</span><br><span class="line">   var identity &#x3D; function (_) &#123; return _; &#125;;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>生成一个字符串，用 <code>,</code> 连接起来，用来连接数组对象中的 <code>stacticKeys key</code>值 ， <code>[{stacticKeys:1},{stacticKeys:2},{stacticKeys:3}]</code>变成一个字符串 <code>1,2，3</code>‘   <strong>还不知道使用来干啥的</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function genStaticKeys (module) &#123;</span><br><span class="line">     return module.reduce(function (keys, m) &#123;</span><br><span class="line">       return keys.concat(m.staticKeys || [])</span><br><span class="line">     &#125;, []).join(&#39;,&#39;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>判断两个值是不是 宽松的 相等，如果是两个不同的对象，虽然引用不同，==判断也是不相等的。但是他们看起来可能会一样  比如 <code>var a = {a:&#39;a&#39;}  var b = {a:&#39;a&#39;}</code>,还比如两个数组长度相等，且每一项相等</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">function looseEqual (a,b) &#123;</span><br><span class="line">     if (a &#x3D;&#x3D;&#x3D; b) return true;</span><br><span class="line">     var isObjectA &#x3D; isObject(A);</span><br><span class="line">     var isObjectB &#x3D; isObject(B);</span><br><span class="line">     if(isObjectA &amp;&amp; isObjectB) &#123;</span><br><span class="line">      &#x2F;&#x2F;如果都是对象进入这一步</span><br><span class="line">      try&#123;</span><br><span class="line">        	var isArrayA &#x3D; Array.isArray(a);</span><br><span class="line">       	var isArrayB &#x3D; Array.isArray(b);</span><br><span class="line">       	if (isArrayA &amp;&amp; isArrayB) &#123;</span><br><span class="line">             &#x2F;&#x2F;两个都是数组</span><br><span class="line">             return a.length &#x3D;&#x3D;&#x3D; b.length &amp;&amp; b.every(function (e, i) &#123;</span><br><span class="line">               return looseEqual(e,a[i]);&#x2F;&#x2F;长度相同，且递归判断每一项是否相等</span><br><span class="line">             &#125;)</span><br><span class="line">       	&#125;else if (a instance of Date &amp;&amp; b instanceof Date) &#123;</span><br><span class="line">             return a.getTime() &#x3D;&#x3D;&#x3D; b.getTime()</span><br><span class="line">             &#x2F;&#x2F;还可以判断两个date对象的时间是不是相等的</span><br><span class="line">       	&#125;else if(!isArrayA &amp;&amp; !isArrayB)&#123;</span><br><span class="line">             &#x2F;&#x2F;两个都不是数组，但是是对象</span><br><span class="line">             var keysA &#x3D; Object.keys(a);</span><br><span class="line">             var keysB &#x3D; Object.keys(b);</span><br><span class="line">             return keysA.length &#x3D;&#x3D;&#x3D; keysB.length &amp;&amp; keysB.every(function (key) &#123;</span><br><span class="line">               return looseEqual(a[key],b[key]);</span><br><span class="line">               &#x2F;&#x2F;a b 的keys长度相等，递归判断两者属性是否相等</span><br><span class="line">             &#125;)</span><br><span class="line">       	&#125; else &#123;</span><br><span class="line">             return false</span><br><span class="line">       	&#125;</span><br><span class="line">      &#125; catch(e) &#123;</span><br><span class="line">        return false;</span><br><span class="line">      &#125;</span><br><span class="line">       </span><br><span class="line">     &#125;else if(!isObjectA &amp;&amp; !isObjectB)&#123;</span><br><span class="line">       return String(a) &#x3D;&#x3D;&#x3D; String(b);</span><br><span class="line">     &#125;else &#123;</span><br><span class="line">       return false</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>判断数组中是否有一个值与传入的值相等,并返回第一个值的索引</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function looseIndexOf (arr,val) &#123;</span><br><span class="line">     for (var i &#x3D; 0; i&lt;arr.length; i++) &#123;</span><br><span class="line">       if(looseEqual(arr[i], val)) &#123;</span><br><span class="line">         return i;</span><br><span class="line">       &#125;</span><br><span class="line">     &#125;</span><br><span class="line">     return -1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>确保这个函数只被调用一次,闭包函数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function once (fn) &#123;</span><br><span class="line">     var called &#x3D; false;</span><br><span class="line">     return function () &#123;</span><br><span class="line">       if(!called) &#123;</span><br><span class="line">         called &#x3D; true;</span><br><span class="line">         fn.apply(this, arguments)</span><br><span class="line">       &#125;</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>下面一些都是一些标识符和配置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;ssr标记属性，ssr就是服务端渲染</span><br><span class="line">var SSR_ATTR &#x3D; &#39;data-server-rendered&#39;;</span><br><span class="line"> </span><br><span class="line"> 	&#x2F;&#x2F; 组件指令  定义指令 、 过滤器指令</span><br><span class="line">   var ASSET_TYPES &#x3D; [</span><br><span class="line">     &#39;component&#39;,</span><br><span class="line">     &#39;directive&#39;,</span><br><span class="line">     &#39;filter&#39;</span><br><span class="line">   ];</span><br><span class="line"> </span><br><span class="line">   var LIFECYCLE_HOOKS &#x3D; [</span><br><span class="line">     &#39;beforeCreate&#39;,	&#x2F;&#x2F;生命周期，开始实例化 vue 指令</span><br><span class="line">     &#39;created&#39;,		&#x2F;&#x2F;生命周期， 结束实例化 vue 指令</span><br><span class="line">     &#39;beforeMount&#39;,	&#x2F;&#x2F;生命周期，开始渲染虚拟 dom，挂载 event 事件 </span><br><span class="line">     &#39;mounted&#39;,		&#x2F;&#x2F;生命周期，渲染虚拟dom，挂载 event结束了 </span><br><span class="line">     &#39;beforeUpdate&#39;,	&#x2F;&#x2F;生命周期，开始更新view数据 指令</span><br><span class="line">     &#39;updated&#39;,		&#x2F;&#x2F;生命周期，结束更新view数据 指令</span><br><span class="line">     &#39;beforeDestroy&#39;,	&#x2F;&#x2F;生命周期，开始销毁 new 出来的实例</span><br><span class="line">     &#39;destroyed&#39;,		&#x2F;&#x2F;生命周期，结束销毁实例</span><br><span class="line">     &#39;activated&#39;,		&#x2F;&#x2F;keep-alive 组件激活时使用</span><br><span class="line">     &#39;deactivated&#39;,	&#x2F;&#x2F;keep-alive 组件停用时调用</span><br><span class="line">     &#39;errorCaptured&#39;,&#x2F;&#x2F; 具有此钩子的组件捕获其子组件树（不包括其自身）中的所有错误（不包括在异步回调中调用的那些）</span><br><span class="line">     &#39;serverPrefetch&#39; &#x2F;&#x2F; 暂时不清楚</span><br><span class="line">   ];</span><br><span class="line"> </span><br><span class="line">   &#x2F;*  *&#x2F;</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">   var config &#x3D; (&#123;</span><br><span class="line">     &#x2F;**</span><br><span class="line">      * Option merge strategies (used in core&#x2F;util&#x2F;options)</span><br><span class="line">      *&#x2F;</span><br><span class="line">     &#x2F;&#x2F; $flow-disable-line</span><br><span class="line">     &#x2F;&#x2F;合并对象策略</span><br><span class="line">     optionMergeStrategies: Object.create(null),</span><br><span class="line"> </span><br><span class="line">     &#x2F;**</span><br><span class="line">      * Whether to suppress warnings.</span><br><span class="line">      *&#x2F;</span><br><span class="line">     silent: false,</span><br><span class="line"> </span><br><span class="line">     &#x2F;**</span><br><span class="line">      * Show production mode tip message on boot?</span><br><span class="line">      *&#x2F;</span><br><span class="line">     productionTip: &quot;development&quot; !&#x3D;&#x3D; &#39;production&#39;,</span><br><span class="line"> </span><br><span class="line">     &#x2F;**</span><br><span class="line">      * Whether to enable devtools</span><br><span class="line">      *&#x2F;</span><br><span class="line">     devtools: &quot;development&quot; !&#x3D;&#x3D; &#39;production&#39;,</span><br><span class="line"> </span><br><span class="line">     &#x2F;**</span><br><span class="line">      * Whether to record perf</span><br><span class="line">      *&#x2F;</span><br><span class="line">     performance: false,</span><br><span class="line"> </span><br><span class="line">     &#x2F;**</span><br><span class="line">      * Error handler for watcher errors</span><br><span class="line">      *&#x2F;</span><br><span class="line">     errorHandler: null,</span><br><span class="line"> </span><br><span class="line">     &#x2F;**</span><br><span class="line">      * Warn handler for watcher warns</span><br><span class="line">      *&#x2F;</span><br><span class="line">     warnHandler: null,</span><br><span class="line"> </span><br><span class="line">     &#x2F;**</span><br><span class="line">      * Ignore certain custom elements</span><br><span class="line">      *&#x2F;</span><br><span class="line">     ignoredElements: [],</span><br><span class="line"> </span><br><span class="line">     &#x2F;**</span><br><span class="line">      * Custom user key aliases for v-on</span><br><span class="line">      *&#x2F;</span><br><span class="line">     &#x2F;&#x2F; $flow-disable-line</span><br><span class="line">     keyCodes: Object.create(null),</span><br><span class="line"> </span><br><span class="line">     &#x2F;**</span><br><span class="line">      * Check if a tag is reserved so that it cannot be registered as a</span><br><span class="line">      * component. This is platform-dependent and may be overwritten.</span><br><span class="line">      *&#x2F;</span><br><span class="line">     isReservedTag: no,</span><br><span class="line"> </span><br><span class="line">     &#x2F;**</span><br><span class="line">      * Check if an attribute is reserved so that it cannot be used as a component</span><br><span class="line">      * prop. This is platform-dependent and may be overwritten.</span><br><span class="line">      *&#x2F;</span><br><span class="line">     isReservedAttr: no,</span><br><span class="line"> </span><br><span class="line">     &#x2F;**</span><br><span class="line">      * Check if a tag is an unknown element.</span><br><span class="line">      * Platform-dependent.</span><br><span class="line">      *&#x2F;</span><br><span class="line">     isUnknownElement: no,</span><br><span class="line"> </span><br><span class="line">     &#x2F;**</span><br><span class="line">      * Get the namespace of an element</span><br><span class="line">      *&#x2F;</span><br><span class="line">     getTagNamespace: noop,</span><br><span class="line"> </span><br><span class="line">     &#x2F;**</span><br><span class="line">      * Parse the real tag name for the specific platform.</span><br><span class="line">      *&#x2F;</span><br><span class="line">     parsePlatformTagName: identity,</span><br><span class="line"> </span><br><span class="line">     &#x2F;**</span><br><span class="line">      * Check if an attribute must be bound using property, e.g. value</span><br><span class="line">      * Platform-dependent.</span><br><span class="line">      *&#x2F;</span><br><span class="line">     mustUseProp: no,</span><br><span class="line"> </span><br><span class="line">     &#x2F;**</span><br><span class="line">      * Perform updates asynchronously. Intended to be used by Vue Test Utils</span><br><span class="line">      * This will significantly reduce performance if set to false.</span><br><span class="line">      *&#x2F;</span><br><span class="line">     async: true,</span><br><span class="line"> </span><br><span class="line">     &#x2F;**</span><br><span class="line">      * Exposed for legacy reasons</span><br><span class="line">      *&#x2F;</span><br><span class="line">     _lifecycleHooks: LIFECYCLE_HOOKS</span><br><span class="line">   &#125;);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>检查一个字符串是否以$或者_开头</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function isReserved (str) &#123;</span><br><span class="line">     var c &#x3D; (str + &#39;&#39;).charCodeAt(0);</span><br><span class="line">     return c &#x3D;&#x3D;&#x3D; 0x24 || c &#x3D;&#x3D;&#x3D; 0x5F</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>定义对象的属性</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function def (obj, key, val, enumerable) &#123;</span><br><span class="line">     Object.defineProperty(obj,key,&#123;</span><br><span class="line">       value: val,</span><br><span class="line">       enumerable: !!enumerable,</span><br><span class="line">       writable: true,</span><br><span class="line">       configurable: true</span><br><span class="line">     &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>匹配不是 数字字母下划线 $符号   开头的（正则表达式还不是很会，下次再来看）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var bailRE &#x3D; new RegExp((&quot;[^&quot; + (unicodeRegExp.source) + &quot;.$_\\d]&quot;));</span><br><span class="line">   function parsePath (path) &#123;</span><br><span class="line">     if (bailRE.test(path)) &#123;</span><br><span class="line">       return</span><br><span class="line">     &#125;</span><br><span class="line">     var segments &#x3D; path.split(&#39;.&#39;);</span><br><span class="line">     return function (obj) &#123;</span><br><span class="line">       for (var i &#x3D; 0; i &lt; segments.length; i++) &#123;</span><br><span class="line">         if (!obj) &#123; return &#125;</span><br><span class="line">         obj &#x3D; obj[segments[i]];</span><br><span class="line">       &#125;</span><br><span class="line">       return obj</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>我们能不能用 <code>__proto__</code>  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var hasProto &#x3D; &#39;__proto__&#39; in &#123;&#125;;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>判断浏览器和设备</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var inBrowser &#x3D; typeof window !&#x3D;&#x3D; undefined 		&#x2F;&#x2F;判断是不是浏览器</span><br><span class="line">var inWeex &#x3D; typeof WXEnvironment !&#x3D;&#x3D; &#39;undefined&#39; &amp;&amp; !!WXEnvironment.platform;</span><br><span class="line">   var weexPlatform &#x3D; inWeex &amp;&amp; WXEnvironment.platform.toLowerCase();</span><br><span class="line">   var UA &#x3D; inBrowser &amp;&amp; window.navigator.userAgent.toLowerCase();</span><br><span class="line">   var isIE &#x3D; UA &amp;&amp; &#x2F;msie|trident&#x2F;.test(UA);</span><br><span class="line">   var isIE9 &#x3D; UA &amp;&amp; UA.indexOf(&#39;msie 9.0&#39;) &gt; 0;</span><br><span class="line">   var isEdge &#x3D; UA &amp;&amp; UA.indexOf(&#39;edge&#x2F;&#39;) &gt; 0;</span><br><span class="line">   var isAndroid &#x3D; (UA &amp;&amp; UA.indexOf(&#39;android&#39;) &gt; 0) || (weexPlatform &#x3D;&#x3D;&#x3D; &#39;android&#39;);</span><br><span class="line">   var isIOS &#x3D; (UA &amp;&amp; &#x2F;iphone|ipad|ipod|ios&#x2F;.test(UA)) || (weexPlatform &#x3D;&#x3D;&#x3D; &#39;ios&#39;);</span><br><span class="line">   var isChrome &#x3D; UA &amp;&amp; &#x2F;chrome\&#x2F;\d+&#x2F;.test(UA) &amp;&amp; !isEdge;</span><br><span class="line">   var isPhantomJS &#x3D; UA &amp;&amp; &#x2F;phantomjs&#x2F;.test(UA);</span><br><span class="line">   var isFF &#x3D; UA &amp;&amp; UA.match(&#x2F;firefox\&#x2F;(\d+)&#x2F;);</span><br><span class="line">   </span><br><span class="line">   &#x2F;&#x2F; Firefox has a &quot;watch&quot; function on Object.prototype...</span><br><span class="line">   var nativeWatch &#x3D; (&#123;&#125;).watch;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>兼容火狐浏览器的写法 （还是看不懂）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var supportsPassive &#x3D; false;</span><br><span class="line">if (inBrowser) &#123;</span><br><span class="line">  try &#123;</span><br><span class="line">    var opts &#x3D; &#123;&#125;;</span><br><span class="line">    Object.defineProperty(opts, &#39;passive&#39;, (&#123;</span><br><span class="line">      get: function get () &#123;</span><br><span class="line">        &#x2F;* istanbul ignore next *&#x2F;</span><br><span class="line">        supportsPassive &#x3D; true;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)); &#x2F;&#x2F; https:&#x2F;&#x2F;github.com&#x2F;facebook&#x2F;flow&#x2F;issues&#x2F;285</span><br><span class="line">    window.addEventListener(&#39;test-passive&#39;, null, opts);</span><br><span class="line">  &#125; catch (e) &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>#####这里好像是设置服务器渲染的，也还是不太懂</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; this needs to be lazy-evaled because vue may be required before</span><br><span class="line">&#x2F;&#x2F; vue-server-renderer can set VUE_ENV</span><br><span class="line">    &#x2F;&#x2F;vue 服务器渲染 可以设置   VUE_ENV</span><br><span class="line">    var _isServer;</span><br><span class="line">&#x2F;&#x2F;判断是不是node 服务器环境</span><br><span class="line">    var isServerRendering &#x3D; function () &#123;</span><br><span class="line">        if (_isServer &#x3D;&#x3D;&#x3D; undefined) &#123;</span><br><span class="line">            &#x2F;* istanbul ignore if *&#x2F;</span><br><span class="line">            &#x2F;&#x2F;如果不是浏览器 并且global 对象存在，那么有可能是node 脚本</span><br><span class="line">            if (!inBrowser &amp;&amp; typeof global !&#x3D;&#x3D; &#39;undefined&#39;) &#123;</span><br><span class="line">                &#x2F;&#x2F;</span><br><span class="line">                &#x2F;&#x2F; detect presence of vue-server-renderer and avoid</span><br><span class="line">                &#x2F;&#x2F; Webpack shimming the process</span><br><span class="line">                &#x2F;&#x2F;_isServer 设置是服务器渲染</span><br><span class="line">                _isServer &#x3D; global[&#39;process&#39;].env.VUE_ENV &#x3D;&#x3D;&#x3D; &#39;server&#39;;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                _isServer &#x3D; false;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return _isServer</span><br><span class="line">    &#125;;</span><br><span class="line">    </span><br><span class="line">    &#x2F;&#x2F; detect devtools 检测工具</span><br><span class="line">    var devtools &#x3D; inBrowser &amp;&amp; window.__VUE_DEVTOOLS_GLOBAL_HOOK__;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>判断该函数是不是系统内置函数</p>
-</li>
-<li><p>判断是否支持 <code>Symbol</code> 数据类型</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function isNative (Ctor) &#123;</span><br><span class="line">    return typeof Ctor &#x3D;&#x3D;&#x3D; &#39;function&#39; &amp;&amp; &#x2F;native code&#x2F;.test(Ctor.toString())</span><br><span class="line">  &#125;</span><br><span class="line">   </span><br><span class="line">   </span><br><span class="line">    var hasSymbol &#x3D;</span><br><span class="line">    typeof Symbol !&#x3D;&#x3D; &#39;undefined&#39; &amp;&amp; isNative(Symbol) &amp;&amp;</span><br><span class="line">    typeof Reflect !&#x3D;&#x3D; &#39;undefined&#39; &amp;&amp; isNative(Reflect.ownKeys);</span><br><span class="line">    &#x2F;&#x2F; Reflect.ownKeys方法用于返回对象的所有属性，基本等同于Object.getOwnPropertyNames与Object.getOwnPropertySymbols之和。</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>判断是否有ES6的 <code>Set</code>数据结构，如果没有自己写一个</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">var _Set;</span><br><span class="line">if( typeof Set !&#x3D;&#x3D; &#39;undefined&#39; &amp;&amp; isNative(Set)) &#123;</span><br><span class="line">     _Set &#x3D; Set;</span><br><span class="line">&#125; else &#123;</span><br><span class="line">&#x2F;&#x2F;a non-standard Set polyfill that only works with primitive keys. 非标准的</span><br><span class="line">     _Set &#x3D; (function () &#123;</span><br><span class="line">       function Set () &#123;</span><br><span class="line">         this.set &#x3D; Object.create(null);</span><br><span class="line">       &#125;</span><br><span class="line">       Set.prototype.has &#x3D; function has (key) &#123;</span><br><span class="line">         return this.set[key] &#x3D;&#x3D;&#x3D; true</span><br><span class="line">       &#125;;</span><br><span class="line">       Set.prototype.add &#x3D; function add (key) &#123;</span><br><span class="line">         this.set[key] &#x3D; true;</span><br><span class="line">       &#125;;</span><br><span class="line">       Set.prototype.clear &#x3D; function clear () &#123;</span><br><span class="line">         this.set &#x3D; Object.create(null);</span><br><span class="line">       &#125;;</span><br><span class="line">       return Set</span><br><span class="line">     &#125;)()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>一直到这里似乎都和<code>Vue</code> 本身没啥关系，这些都是工具函数，方便以后的使用，jQuery也有好多类似的方法。</p>
-<p>​</p>
-</li>
-</ul>
-
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2020/01/31/%E6%88%91%E8%AF%BBVue%E6%BA%90%E7%A0%81-1/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -304,7 +196,7 @@
 
 
 
-<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left is-sticky">
     
         
 <div class="card widget">
@@ -314,22 +206,22 @@
                 <div>
                     
                     <figure class="image is-128x128 has-mb-6">
-                        <img class="" src="/images/avatar.png" alt="Your name">
+                        <img class="" src="/images/head.jpg" alt="wangthing">
                     </figure>
                     
                     <p class="is-size-4 is-block">
-                        Your name
+                        wangthing
                     </p>
                     
                     
                     <p class="is-size-6 is-block">
-                        Your title
+                        前端练习生
                     </p>
                     
                     
                     <p class="is-size-6 is-flex is-flex-center has-text-grey">
                         <i class="fas fa-map-marker-alt has-mr-7"></i>
-                        <span>Your location</span>
+                        <span>南昌</span>
                     </p>
                     
                 </div>
@@ -343,7 +235,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            27
+                            26
                         </p>
                     </a>
                 </div>
@@ -375,7 +267,7 @@
         </nav>
         
         <div class="level">
-            <a class="level-item button is-link is-rounded" href="https://github.com/ppoffice" target="_blank" rel="noopener">
+            <a class="level-item button is-link is-rounded" href="https://github.com/wangthing" target="_blank" rel="noopener">
                 关注我</a>
         </div>
         
@@ -384,7 +276,7 @@
         <div class="level is-mobile">
             
             <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
-                title="Github" href="https://github.com/ppoffice">
+                title="Github" href="https://github.com/wangthing">
                 
                 <i class="fab fa-github"></i>
                 
@@ -394,13 +286,6 @@
                 title="Facebook" href="https://facebook.com">
                 
                 <i class="fab fa-facebook"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
-                title="Twitter" href="https://twitter.com">
-                
-                <i class="fab fa-twitter"></i>
                 
             </a>
             
@@ -638,7 +523,7 @@
                     <span class="level-item">十二月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">7</span>
+                    <span class="level-item tag">6</span>
                 </span>
             </a>
         </li>
@@ -1068,7 +953,7 @@
                     <span class="level-item">十二月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">7</span>
+                    <span class="level-item tag">6</span>
                 </span>
             </a>
         </li>
@@ -1356,6 +1241,11 @@
                 Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> & <a
                         href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a>
                 
+                <br>
+                <span id="busuanzi_container_site_uv">
+                共<span id="busuanzi_value_site_uv">0</span>个访客
+                </span>
+                
                 </p>
             </div>
             <div class="level-end">
@@ -1523,132 +1413,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <link rel="stylesheet" href="/css/insight.css">
     
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/haruto.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body>
-</html>   <div class="control">
-                    <a class="tags has-addons" href="/tags/%E6%A0%88/">
-                        <span class="tag">栈</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/">
-                        <span class="tag">源码阅读</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%E7%9B%92%E6%A8%A1%E5%9E%8B/">
-                        <span class="tag">盒模型</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="tag">算法</span>
-                        <span class="tag is-grey">3</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
-                        <span class="tag">编译原理</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%E8%99%9A%E6%8B%9FDOM/">
-                        <span class="tag">虚拟DOM</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%E8%B4%AA%E5%BF%83/">
-                        <span class="tag">贪心</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%E9%93%BE%E8%A1%A8/">
-                        <span class="tag">链表</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/%E9%98%9F%E5%88%97/">
-                        <span class="tag">队列</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-            </div>
-        </div>
-    </div>
-</div>
-    
-    
-</div>
-
-            </div>
-        </div>
-    </section>
-    <footer class="footer">
-    <div class="container">
-        <div class="level">
-            <div class="level-start has-text-centered-mobile">
-                <a class="footer-logo is-block has-mb-6" href="/">
-                
-                    <img src="/images/logo.svg" alt="欢迎" height="28">
-                
-                </a>
-                <p class="is-size-7">
-                &copy; 2020 John Doe&nbsp;
-                Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> & <a
-                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a>
-                
-                </p>
-            </div>
-            <div class="level-end">
-            
-                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
-                
-                <p class="control">
-                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/">
-                        
-                        <i class="fab fa-creative-commons"></i>
-                        
-                    </a>
-                </p>
-                
-                <p class="control">
-                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
-                        
-                        <i class="fab fa-creative-commons-by"></i>
-                        
-                    </a>
-                </p>
-                
-                <p class="control">
-                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
-                        
-                        <i class="fab fa-github"></i>
-                        
-                    </a>
-                </p>
-                
-                </div>
-            
-            </div>
-        </div>
-    </div>
-</footer>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+</html>"></script>
 <script>moment.locale("zh-CN");</script>
 
 
