@@ -7,20 +7,21 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>CSS-实现三栏布局 - 欢迎</title>
+<title>算法学习专题-位运算 - 欢迎</title>
 
 
-    <meta name="description" content="快乐的麻瓜---博客">
+    <meta name="description" content="首先了解一下一下常用的位运算  &amp; 只有 1 和 1 相与才为1  | 0和0 相或等于0  ^ 亦或， 两个不一样的为1， 一样的为0，可以看做不进位的加法 12a ^ a &#x3D; 0		两个数一样亦或为0a ^ 0 &#x3D; a		任何数亦或0都是它本身， 因为可以看做不进位加法  ​  ~ 取反  &lt;&lt;  1101 &lt;&lt;  2 &#x3D; 110100  左">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSS-实现三栏布局">
-<meta property="og:url" content="http://yoursite.com/2020/02/09/CSS-%E5%AE%9E%E7%8E%B0%E4%B8%89%E6%A0%8F%E5%B8%83%E5%B1%80/index.html">
+<meta property="og:title" content="算法学习专题-位运算">
+<meta property="og:url" content="http://yoursite.com/2020/03/10/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E4%B8%93%E9%A2%98-%E4%BD%8D%E8%BF%90%E7%AE%97/index.html">
 <meta property="og:site_name" content="欢迎">
-<meta property="og:description" content="快乐的麻瓜---博客">
+<meta property="og:description" content="首先了解一下一下常用的位运算  &amp; 只有 1 和 1 相与才为1  | 0和0 相或等于0  ^ 亦或， 两个不一样的为1， 一样的为0，可以看做不进位的加法 12a ^ a &#x3D; 0		两个数一样亦或为0a ^ 0 &#x3D; a		任何数亦或0都是它本身， 因为可以看做不进位加法  ​  ~ 取反  &lt;&lt;  1101 &lt;&lt;  2 &#x3D; 110100  左">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
-<meta property="article:published_time" content="2020-02-09T12:46:58.000Z">
-<meta property="article:modified_time" content="2020-03-09T08:54:28.115Z">
+<meta property="article:published_time" content="2020-03-10T01:04:09.000Z">
+<meta property="article:modified_time" content="2020-03-10T01:04:09.372Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="位运算">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
 
@@ -82,7 +83,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="CSS-实现三栏布局" height="28">
+                <img src="/images/logo.svg" alt="算法学习专题-位运算" height="28">
             
             </a>
         </div>
@@ -138,13 +139,17 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-02-09T12:46:58.000Z">2020-02-09</time>
+                <time class="level-item has-text-grey" datetime="2020-03-10T01:04:09.000Z">2020-03-10</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/%E7%AE%97%E6%B3%95/%E4%BD%8D%E8%BF%90%E7%AE%97/">位运算</a>
+                </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    几秒 读完 (大约 0 个字)
+                    12 分钟 读完 (大约 1843 个字)
                 </span>
                 
                 
@@ -158,11 +163,132 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                CSS-实现三栏布局
+                算法学习专题-位运算
             
         </h1>
         <div class="content">
-            
+            <p>首先了解一下一下常用的位运算</p>
+<ul>
+<li><p><code>&amp;</code> 只有 1 和 1 相与才为1</p>
+</li>
+<li><p><code>|</code> 0和0 相或等于0</p>
+</li>
+<li><p><code>^</code> 亦或， 两个不一样的为1， 一样的为0，可以看做不进位的加法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a ^ a &#x3D; 0		两个数一样亦或为0</span><br><span class="line">a ^ 0 &#x3D; a		任何数亦或0都是它本身， 因为可以看做不进位加法</span><br></pre></td></tr></table></figure>
+
+<p>​</p>
+</li>
+<li><p><code>~</code> 取反</p>
+</li>
+<li><p><code>&lt;&lt;</code>  1101 &lt;&lt;  2 = 110100  左移和右移可以看做乘以2或除以2</p>
+</li>
+<li><p><code>&gt;&gt;</code>   1101 &gt;&gt; 2 = 11 </p>
+</li>
+</ul>
+<a id="more"></a>
+
+<h2 id="1-2的整数次冥"><a href="#1-2的整数次冥" class="headerlink" title="1. 2的整数次冥"></a>1. 2的整数次冥</h2><p>给定一个整数，编写一个函数来判断它是否是 2 的幂次方。</p>
+<p><strong>示例 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: 1</span><br><span class="line">输出: true</span><br><span class="line">解释: 20 &#x3D; 1</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: 16</span><br><span class="line">输出: true</span><br><span class="line">解释: 24 &#x3D; 16</span><br></pre></td></tr></table></figure>
+
+<h3 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h3><p>首先我们来看一下2的冥次方都是怎么样的</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2</span>^<span class="number">3</span> = <span class="number">1000</span></span><br><span class="line"><span class="number">2</span>^<span class="number">5</span> = <span class="number">100000</span></span><br></pre></td></tr></table></figure>
+
+<p>和明显只有最前面的一个1， 后面的全是0，我们可以用一个数减1然后再与原来的数相与,为0的话就是2的冥次方</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">x: 2^3 &#x3D; 1000        x-1 &#x3D; 0111</span><br><span class="line">x &amp; x-1 &#x3D; 0</span><br><span class="line"></span><br><span class="line">x &#x3D; 10011           x-1 &#x3D; 10010</span><br><span class="line">x &amp; x-1 &#x3D; 10010</span><br></pre></td></tr></table></figure>
+
+<p>代码实现：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">n</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;boolean&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> isPowerOfTwo = <span class="function"><span class="keyword">function</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> n&lt;=<span class="number">0</span> ? <span class="literal">false</span> : (n &amp;= n<span class="number">-1</span>) === <span class="number">0</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//还有一种方法是 n &amp; -n === n</span></span><br><span class="line"><span class="comment">//如果不是2的冥次方 得出的结果是小于n的</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="2-二进制表示中质数个计算置位"><a href="#2-二进制表示中质数个计算置位" class="headerlink" title="2.二进制表示中质数个计算置位"></a>2.二进制表示中质数个计算置位</h2><p>给定两个整数 L 和 R ，找到闭区间 [L, R] 范围内，计算置位位数为质数的整数个数。</p>
+<p>（注意，计算置位代表二进制表示中1的个数。例如 21 的二进制表示 10101 有 3 个计算置位。还有，1 不是质数。）</p>
+<p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/prime-number-of-set-bits-in-binary-representation">https://leetcode-cn.com/problems/prime-number-of-set-bits-in-binary-representation</a></p>
+<p><strong>示例 1:</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">输入: L = <span class="number">6</span>, R = <span class="number">10</span></span><br><span class="line">输出: <span class="number">4</span></span><br><span class="line">解释:</span><br><span class="line"><span class="number">6</span> -&gt; <span class="number">110</span> (<span class="number">2</span> 个计算置位，<span class="number">2</span> 是质数)</span><br><span class="line"><span class="number">7</span> -&gt; <span class="number">111</span> (<span class="number">3</span> 个计算置位，<span class="number">3</span> 是质数)</span><br><span class="line"><span class="number">9</span> -&gt; <span class="number">1001</span> (<span class="number">2</span> 个计算置位，<span class="number">2</span> 是质数)</span><br><span class="line"><span class="number">10</span>-&gt; <span class="number">1010</span> (<span class="number">2</span> 个计算置位，<span class="number">2</span> 是质数)</span><br></pre></td></tr></table></figure>
+
+<p><strong>实例2：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">输入: L &#x3D; 10, R &#x3D; 15</span><br><span class="line">输出: 5</span><br><span class="line">解释:</span><br><span class="line">10 -&gt; 1010 (2 个计算置位, 2 是质数)</span><br><span class="line">11 -&gt; 1011 (3 个计算置位, 3 是质数)</span><br><span class="line">12 -&gt; 1100 (2 个计算置位, 2 是质数)</span><br><span class="line">13 -&gt; 1101 (3 个计算置位, 3 是质数)</span><br><span class="line">14 -&gt; 1110 (3 个计算置位, 3 是质数)</span><br><span class="line">15 -&gt; 1111 (4 个计算置位, 4 不是质数)</span><br></pre></td></tr></table></figure>
+
+<p>这题的直接意思就是统计一个二进制数中 1 出现的个数，</p>
+<ul>
+<li>x &amp; x-1相当于把这个数中第一个1去掉，如果等于0就说明1已经移除完了</li>
+<li>也可以直接使用 <code>&gt;&gt;</code> 右移运算，如果第一位是1的话就统计数加1</li>
+</ul>
+<p>还有一个关键的，由于数的位数是有限的，我们可以认为1的个数不会超过19</p>
+<h3 id="解法一-每次右移1位，末尾是1的话就数量加1"><a href="#解法一-每次右移1位，末尾是1的话就数量加1" class="headerlink" title="解法一(每次右移1位，末尾是1的话就数量加1)"></a>解法一(每次右移1位，末尾是1的话就数量加1)</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">L</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">R</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> countPrimeSetBits = <span class="function"><span class="keyword">function</span>(<span class="params">L, R</span>) </span>&#123;</span><br><span class="line">  <span class="comment">//这里是因为2进制的位数有限</span></span><br><span class="line">  <span class="keyword">var</span> primes = [<span class="number">2</span>, <span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">11</span>, <span class="number">13</span>, <span class="number">17</span>, <span class="number">19</span>];</span><br><span class="line">  <span class="keyword">var</span> res = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> i = L; i &lt;= R; i++) &#123;</span><br><span class="line">    <span class="keyword">let</span> count = <span class="number">0</span>;	<span class="comment">//每个二进制数1出现的个数</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> k = i; k ; k &gt;&gt;= <span class="number">1</span>) count += k&amp;<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(primes.indexOf(count) !== <span class="number">-1</span>) res++;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="解法二-（n-amp-n-1-来统计1-出现的个数）"><a href="#解法二-（n-amp-n-1-来统计1-出现的个数）" class="headerlink" title="解法二 （n &amp;= n-1 来统计1 出现的个数）"></a>解法二 （n &amp;= n-1 来统计1 出现的个数）</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> countPrimeSetBits = <span class="function"><span class="keyword">function</span>(<span class="params">L, R</span>) </span>&#123;</span><br><span class="line">  <span class="comment">//这里是因为2进制的位数有限</span></span><br><span class="line">  <span class="keyword">var</span> primes = [<span class="number">2</span>, <span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">11</span>, <span class="number">13</span>, <span class="number">17</span>, <span class="number">19</span>];</span><br><span class="line">  <span class="keyword">var</span> res = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> i = L; i &lt;= R; i++) &#123;</span><br><span class="line">    <span class="keyword">let</span> count = <span class="number">0</span>, k = i;</span><br><span class="line">    <span class="keyword">while</span>(k) &#123;</span><br><span class="line">      <span class="comment">//如果不为0的话，说明还有1</span></span><br><span class="line">      k &amp;= k<span class="number">-1</span>;</span><br><span class="line">      count++</span><br><span class="line">    &#125;</span><br><span class="line"> 	<span class="keyword">if</span>(primes.indexOf(count) !== <span class="number">-1</span>) res++;   </span><br><span class="line">  &#125;  	</span><br><span class="line">  <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="3-只出现一次的数字"><a href="#3-只出现一次的数字" class="headerlink" title="3. 只出现一次的数字"></a>3. 只出现一次的数字</h2><p>给定一个非空整数数组，除了某个元素只出现一次以外，其余每个元素均出现两次。找出那个只出现了一次的元素。</p>
+<p>说明：</p>
+<p>你的算法应该具有线性时间复杂度。 你可以不使用额外空间来实现吗？</p>
+<p>来源：力扣（LeetCode）<a href="https://leetcode-cn.com/problems/single-number">链接：</a></p>
+<p><strong>示例 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: [2,2,1]</span><br><span class="line">输出: 1</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: [4,1,2,1,2]</span><br><span class="line">输出: 4</span><br></pre></td></tr></table></figure>
+
+<h4 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h4><p>因为其他数都会出现两次，根据亦或的原理，一个数亦或它本身结果为0，那么最后一个只出现了一次的数亦或0还是会等于本身，所以只要将所有数亦或，返回最后的结果</p>
+<p>代码实现：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[]&#125;</span> <span class="variable">nums</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> singleNumber = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123; </span><br><span class="line">	<span class="keyword">var</span> res = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">    res ^= nums[i];</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-只出现一次的数字（11）"><a href="#4-只出现一次的数字（11）" class="headerlink" title="4. 只出现一次的数字（11）"></a>4. 只出现一次的数字（11）</h2><p>给定一个<strong>非空</strong>整数数组，除了某个元素只出现一次以外，其余每个元素均出现了三次。找出那个只出现了一次的元素。</p>
+<p>你的算法应该具有线性时间复杂度。 你可以不使用额外空间来实现吗？</p>
+<p><strong>示例 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: [2,2,3,2]</span><br><span class="line">输出: 3</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: [0,1,0,1,0,1,99]</span><br><span class="line">输出: 99</span><br></pre></td></tr></table></figure>
+
+<h4 id="解题思路："><a href="#解题思路：" class="headerlink" title="解题思路："></a>解题思路：</h4><p>把每一个数看做一个32位二进制数，统计在每一位中1和0的个数，因为要么是3个或者要么是1个，所以在每一位出现1和0的总和应该是 <code>3N</code> 或者 <code>3N+1</code> ，3N的话表示目标数在这里1没有出现， 3N+1的话表示目标数在这一位有出现过1。</p>
+<p><strong>代码实现：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[]&#125;</span> <span class="variable">nums</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> singleNumber = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line"> 	<span class="keyword">let</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> bit = <span class="number">0</span>; bit &lt; <span class="number">32</span>; bit++) &#123;</span><br><span class="line">		<span class="keyword">let</span> counter = <span class="number">0</span>;</span><br><span class="line">      	<span class="keyword">for</span>(<span class="keyword">let</span> num <span class="keyword">of</span> nums) counter += (num &gt;&gt; bit) &amp; <span class="number">1</span>;</span><br><span class="line">      	res += (counter % <span class="number">3</span>) &lt;&lt; bit</span><br><span class="line">    &#125;</span><br><span class="line">  	<span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-只出现一次的数字（111）"><a href="#5-只出现一次的数字（111）" class="headerlink" title="5.只出现一次的数字（111）"></a>5.只出现一次的数字（111）</h2><p>给定一个整数数组 <code>nums</code>，其中恰好有两个元素只出现一次，其余所有元素均出现两次。 找出只出现一次的那两个元素。</p>
+<p><strong>示例 :</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: [1,2,1,3,2,5]</span><br><span class="line">输出: [3,5]</span><br></pre></td></tr></table></figure>
+
+<p><strong>解题思路：</strong></p>
+<p>这题除了那两个单独出现的数之外，可以肯定其他的数依次亦或起来肯定是等于0的，最后一次亦或的结果应该那两个单独出现的数亦或的结果，既然这两个数不相等，<strong>那它们两个亦或的结果肯定至少有一位是1的</strong>，否则的话它们两个不就相等了。</p>
+<p>在上面的思路基础之上，把亦或出来的结果找到出现 1 的位数 k，也就是第 k 位，再把第 k位按照0 和 1 分为两组，为1的一组有一个只出现了一次的数 <code>single1</code>， 为2的一组有一个只出现了一次的数 <code>single2</code>，再把这两组其中一组亦或出的结果就是我们要求的一个数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;在求出single1的基础之上</span><br><span class="line">single &#x3D; single1 ^ single2</span><br><span class="line">single2 &#x3D; single ^ single1</span><br></pre></td></tr></table></figure>
+
+<p><strong>代码实现：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[]&#125;</span> <span class="variable">nums</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number[]&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> singleNumber = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> s = <span class="number">0</span>;</span><br><span class="line">  <span class="comment">//求出所有数亦或后的结果，也就是 s1和s2亦或的结果</span></span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> num <span class="keyword">of</span> nums) s ^= num;</span><br><span class="line">  <span class="comment">//统计在第K位，出现了1</span></span><br><span class="line">  <span class="keyword">let</span> k = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">while</span>( !((s &gt;&gt; k) &amp; <span class="number">1</span>) ) k++;</span><br><span class="line">  <span class="comment">//找到第一个单独出现的数字</span></span><br><span class="line">  <span class="keyword">let</span> s1 = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> num <span class="keyword">of</span> nums)&#123;</span><br><span class="line">    <span class="keyword">if</span>( (num &gt;&gt; k) &amp; <span class="number">1</span> ) s1 ^= num;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> [s1, s ^ s1]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="6-数字的补数"><a href="#6-数字的补数" class="headerlink" title="6.数字的补数"></a>6.数字的补数</h2><p>给定一个正整数，输出它的补数。补数是对该数的二进制表示取反。</p>
+<p><strong>示例 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: 5</span><br><span class="line">输出: 2</span><br><span class="line">解释: 5 的二进制表示为 101（没有前导零位），其补数为 010。所以你需要输出 2 。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: 1</span><br><span class="line">输出: 0</span><br><span class="line">解释: 1 的二进制表示为 1（没有前导零位），其补数为 0。所以你需要输出 0 。</span><br></pre></td></tr></table></figure>
+
+<h4 id="解题思路：-1"><a href="#解题思路：-1" class="headerlink" title="解题思路："></a>解题思路：</h4><p>首先搞清楚取反简单的理解就是 二进位上的 1 变成0 ，0变成1，比如 <code>10010</code> 变成 <code>01101</code></p>
+<p>我们可以依次对该数的第一位取反然后左移这一位对应的位数，再把它加到结果上。</p>
+<p>比如第三为是1， 那么 <code>res += 0 &lt;&lt; 3</code></p>
+<p><strong>代码实现：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">num</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> findComplement = <span class="function"><span class="keyword">function</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line"> 	<span class="keyword">var</span> res = <span class="number">0</span>, place = <span class="number">0</span>;</span><br><span class="line">  	<span class="keyword">while</span>(num) &#123;</span><br><span class="line">    	res += ( (num &amp; <span class="number">1</span>) ? <span class="number">0</span> : <span class="number">1</span> ) &lt;&lt; place++;</span><br><span class="line">      	num &gt;&gt; <span class="number">1</span>;</span><br><span class="line">  	&#125;</span><br><span class="line">  	<span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/" rel="tag">位运算</a>
+                </div>
+            </div>
         </div>
         
         
@@ -186,17 +312,10 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/02/10/CSS-%E7%9B%92%E6%A8%A1%E5%9E%8B/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">CSS-盒模型</span>
-            </a>
-        </div>
-        
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2020/02/09/DOM-%E4%BA%8B%E4%BB%B6/">
-                <span class="level-item">DOM 事件</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/03/09/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0-%E7%AC%AC%E4%B8%80%E8%8A%82/">
+                <span class="level-item">编译原理学习-第一节</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -1286,7 +1405,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="CSS-实现三栏布局" height="28">
+                    <img src="/images/logo.svg" alt="算法学习专题-位运算" height="28">
                 
                 </a>
                 <p class="is-size-7">

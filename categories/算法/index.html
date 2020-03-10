@@ -7,19 +7,17 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>CSS-实现三栏布局 - 欢迎</title>
+<title>分类: 算法 - 欢迎</title>
 
 
     <meta name="description" content="快乐的麻瓜---博客">
-<meta property="og:type" content="article">
-<meta property="og:title" content="CSS-实现三栏布局">
-<meta property="og:url" content="http://yoursite.com/2020/02/09/CSS-%E5%AE%9E%E7%8E%B0%E4%B8%89%E6%A0%8F%E5%B8%83%E5%B1%80/index.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="欢迎">
+<meta property="og:url" content="http://yoursite.com/categories/%E7%AE%97%E6%B3%95/index.html">
 <meta property="og:site_name" content="欢迎">
 <meta property="og:description" content="快乐的麻瓜---博客">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
-<meta property="article:published_time" content="2020-02-09T12:46:58.000Z">
-<meta property="article:modified_time" content="2020-03-09T08:54:28.115Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
@@ -82,7 +80,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="CSS-实现三栏布局" height="28">
+                <img src="/images/logo.svg" alt="欢迎" height="28">
             
             </a>
         </div>
@@ -131,40 +129,76 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    <div class="card-content">
+        <nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+            <li><a href="/categories">分类</a></li>
+            
+            <li class="is-active"><a href="#" aria-current="page">算法</a></li>
+        </ul>
+        </nav>
+    </div>
+</div>
+
+    
 <div class="card">
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-02-09T12:46:58.000Z">2020-02-09</time>
+                <time class="level-item has-text-grey" datetime="2020-03-10T01:04:09.000Z">2020-03-10</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/%E7%AE%97%E6%B3%95/%E4%BD%8D%E8%BF%90%E7%AE%97/">位运算</a>
+                </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    几秒 读完 (大约 0 个字)
+                    12 分钟 读完 (大约 1843 个字)
                 </span>
                 
-                
-                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
-                    <i class="far fa-eye"></i>
-                    <span id="busuanzi_value_page_pv">0</span>次访问
-                </span>
                 
             </div>
         </div>
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                CSS-实现三栏布局
+                <a class="has-link-black-ter" href="/2020/03/10/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E4%B8%93%E9%A2%98-%E4%BD%8D%E8%BF%90%E7%AE%97/">算法学习专题-位运算</a>
             
         </h1>
         <div class="content">
-            
+            <p>首先了解一下一下常用的位运算</p>
+<ul>
+<li><p><code>&amp;</code> 只有 1 和 1 相与才为1</p>
+</li>
+<li><p><code>|</code> 0和0 相或等于0</p>
+</li>
+<li><p><code>^</code> 亦或， 两个不一样的为1， 一样的为0，可以看做不进位的加法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a ^ a &#x3D; 0		两个数一样亦或为0</span><br><span class="line">a ^ 0 &#x3D; a		任何数亦或0都是它本身， 因为可以看做不进位加法</span><br></pre></td></tr></table></figure>
+
+<p>​</p>
+</li>
+<li><p><code>~</code> 取反</p>
+</li>
+<li><p><code>&lt;&lt;</code>  1101 &lt;&lt;  2 = 110100  左移和右移可以看做乘以2或除以2</p>
+</li>
+<li><p><code>&gt;&gt;</code>   1101 &gt;&gt; 2 = 11 </p>
+</li>
+</ul>
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2020/03/10/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E4%B8%93%E9%A2%98-%E4%BD%8D%E8%BF%90%E7%AE%97/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -172,37 +206,9 @@
 
 
 
-<div class="card">
-    <div class="card-content">
-        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
-        <div class="buttons is-centered">
-            
-        </div>
-    </div>
-</div>
 
 
 
-<div class="card card-transparent">
-    <div class="level post-navigation is-flex-wrap is-mobile">
-        
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/02/10/CSS-%E7%9B%92%E6%A8%A1%E5%9E%8B/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">CSS-盒模型</span>
-            </a>
-        </div>
-        
-        
-        <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2020/02/09/DOM-%E4%BA%8B%E4%BB%B6/">
-                <span class="level-item">DOM 事件</span>
-                <i class="level-item fas fa-chevron-right"></i>
-            </a>
-        </div>
-        
-    </div>
-</div>
 
 
 </div>
@@ -1286,7 +1292,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="CSS-实现三栏布局" height="28">
+                    <img src="/images/logo.svg" alt="欢迎" height="28">
                 
                 </a>
                 <p class="is-size-7">
