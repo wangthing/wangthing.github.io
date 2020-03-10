@@ -7,22 +7,21 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>MVVM设计框架-vue如何实现的 - 欢迎</title>
+<title>编译原理学习-第二节 - 欢迎</title>
 
 
-    <meta name="description" content="MVVM设计框架##问题  说一下使用jQuery和使用vue、react等框架的区别 说一下对MVVM的理解 vue 中如何实现响应式 vue 中如何解析模板 vue 的整个实现流程">
+    <meta name="description" content="首先带着以下问题进行学习  1．编译程序各模块主要功能是什么？2．编译过程引入“前段&#x2F;后端”概念的好处？3．假设两个团队分别各自开发同一语言编译器，邀请你作为评审专家，谈谈你优先考虑的几个因素？4．理解文法与语言的关系5．空符号串ε的理解6．两个符号串乘积运算与离散数学中集合里哪个运算相似？7．设Σ&#x3D;{a,b}，则Σn 表示什么？用一句通俗的话描述8．闭包与正闭包表示的集合范围关系。判断题1、">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MVVM设计框架-vue如何实现的">
-<meta property="og:url" content="http://yoursite.com/2020/01/08/MVVM%E8%AE%BE%E8%AE%A1%E6%A1%86%E6%9E%B6-vue%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E7%9A%84/index.html">
+<meta property="og:title" content="编译原理学习-第二节">
+<meta property="og:url" content="http://yoursite.com/2020/03/10/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0-%E7%AC%AC%E4%BA%8C%E8%8A%82/index.html">
 <meta property="og:site_name" content="欢迎">
-<meta property="og:description" content="MVVM设计框架##问题  说一下使用jQuery和使用vue、react等框架的区别 说一下对MVVM的理解 vue 中如何实现响应式 vue 中如何解析模板 vue 的整个实现流程">
+<meta property="og:description" content="首先带着以下问题进行学习  1．编译程序各模块主要功能是什么？2．编译过程引入“前段&#x2F;后端”概念的好处？3．假设两个团队分别各自开发同一语言编译器，邀请你作为评审专家，谈谈你优先考虑的几个因素？4．理解文法与语言的关系5．空符号串ε的理解6．两个符号串乘积运算与离散数学中集合里哪个运算相似？7．设Σ&#x3D;{a,b}，则Σn 表示什么？用一句通俗的话描述8．闭包与正闭包表示的集合范围关系。判断题1、">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
-<meta property="article:published_time" content="2020-01-08T10:12:00.000Z">
-<meta property="article:modified_time" content="2020-03-09T08:54:28.080Z">
+<meta property="article:published_time" content="2020-03-10T11:12:04.000Z">
+<meta property="article:modified_time" content="2020-03-10T11:12:04.202Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="MVVM">
-<meta property="article:tag" content="vue">
+<meta property="article:tag" content="编译原理">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
 
@@ -84,7 +83,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="MVVM设计框架-vue如何实现的" height="28">
+                <img src="/images/logo.svg" alt="编译原理学习-第二节" height="28">
             
             </a>
         </div>
@@ -140,13 +139,17 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-01-08T10:12:00.000Z">2020-01-08</time>
+                <time class="level-item has-text-grey" datetime="2020-03-10T11:12:04.000Z">2020-03-10</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">编译原理</a>
+                </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    7 分钟 读完 (大约 1029 个字)
+                    2 分钟 读完 (大约 296 个字)
                 </span>
                 
                 
@@ -160,112 +163,14 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                MVVM设计框架-vue如何实现的
+                编译原理学习-第二节
             
         </h1>
         <div class="content">
-            <h1 id="MVVM设计框架"><a href="#MVVM设计框架" class="headerlink" title="MVVM设计框架"></a>MVVM设计框架</h1><p>##问题</p>
-<ul>
-<li>说一下使用jQuery和使用vue、react等框架的区别</li>
-<li>说一下对<code>MVVM</code>的理解</li>
-<li>vue 中如何实现响应式</li>
-<li>vue 中如何解析模板</li>
-<li>vue 的整个实现流程</li>
-</ul>
-<a id="more"></a>
-
-<h2 id="1-说一下使用jQuery和使用vue、react等框架的区别"><a href="#1-说一下使用jQuery和使用vue、react等框架的区别" class="headerlink" title="1. 说一下使用jQuery和使用vue、react等框架的区别"></a>1. 说一下使用jQuery和使用vue、react等框架的区别</h2><ul>
-<li>jQuery 实现 todo-list</li>
-<li>vue 实现 todo-list</li>
-<li>jQuery和框架的区别</li>
-</ul>
-<h3 id="jQuery-实现-todo-list"><a href="#jQuery-实现-todo-list" class="headerlink" title="jQuery 实现 todo-list"></a>jQuery 实现 todo-list</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;input type&#x3D;&quot;text&quot; name&#x3D;&quot;&quot; id&#x3D;&quot;text-title&quot;&gt;</span><br><span class="line">        &lt;button id&#x3D;&quot;btn&quot;&gt;提交&lt;&#x2F;button&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;ul id&#x3D;&quot;list&quot;&gt;&lt;&#x2F;ul&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    var textTitle &#x3D; $(&quot;#text-title&quot;)</span><br><span class="line">    var btn &#x3D; $(&quot;#btn&quot;)</span><br><span class="line">    var list &#x3D; $(&quot;#list&quot;)</span><br><span class="line"></span><br><span class="line">    btn.click(function () &#123;</span><br><span class="line">        &#x2F;&#x2F; dom 和数据耦合在一起</span><br><span class="line">        var title &#x3D; textTitle.val()</span><br><span class="line">        if(!title)&#123;</span><br><span class="line">            return;</span><br><span class="line">        &#125;</span><br><span class="line">        var li &#x3D; $(&#96;&lt;li&gt;$&#123;title&#125;&lt;&#x2F;li&gt;&#96;)</span><br><span class="line">        list.append(li)</span><br><span class="line">        textTitle.val(&#39;&#39;)</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="vue-实现-todo-list"><a href="#vue-实现-todo-list" class="headerlink" title="vue 实现 todo-list"></a>vue 实现 todo-list</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id&#x3D;&quot;app&quot;&gt;</span><br><span class="line">        &lt;input type&#x3D;&quot;text&quot; v-model&#x3D;&quot;title&quot;&gt;</span><br><span class="line">        &lt;button @click&#x3D;&quot;add&quot;&gt;submit&lt;&#x2F;button&gt;</span><br><span class="line">        &lt;ul&gt;</span><br><span class="line">            &lt;li v-for&#x3D;&quot;(item, index) in list&quot; :key&#x3D;&quot;index&quot;&gt;&#123;&#123;item&#125;&#125;&lt;&#x2F;li&gt;</span><br><span class="line">        &lt;&#x2F;ul&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line"></span><br><span class="line">    var vm &#x3D; new Vue(&#123;</span><br><span class="line">        el:&quot;#app&quot;,</span><br><span class="line">        data:&#123;</span><br><span class="line">            &#x2F;&#x2F; 数据驱动视图</span><br><span class="line">            title:&#39;&#39;,</span><br><span class="line">            list:[]</span><br><span class="line">        &#125;,</span><br><span class="line">        methods: &#123;</span><br><span class="line">            add()&#123;</span><br><span class="line">                &#x2F;&#x2F; 修改数据，视图的修改vue会帮你做</span><br><span class="line">                &#x2F;&#x2F; 利用diff算法去优化了DOM操作</span><br><span class="line">                this.list.push(this.title)</span><br><span class="line">                this.title &#x3D; &quot;&quot;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="这两个案例可以看出来两者的区别"><a href="#这两个案例可以看出来两者的区别" class="headerlink" title="这两个案例可以看出来两者的区别"></a>这两个案例可以看出来两者的区别</h3><ul>
-<li>数据和视图的分离，解耦（开放封闭原则）</li>
-<li>以数据驱动视图，只关心数据变化，DOM操作被封装</li>
-</ul>
-<h2 id="2-说一下对-MVVM-的理解"><a href="#2-说一下对-MVVM-的理解" class="headerlink" title="2. 说一下对 MVVM 的理解"></a>2. 说一下对 <code>MVVM</code> 的理解</h2><ul>
-<li><p>什么是MVC</p>
-<ul>
-<li>Model 数据</li>
-<li>View 用户视图</li>
-<li>Controller 控制器</li>
-</ul>
-</li>
-<li><p>MVVM</p>
-<ul>
-<li>Model  数据 Data</li>
-<li>View  视图HTML</li>
-<li>ViewModel <strong>连接View和Model</strong></li>
-</ul>
-</li>
-<li><p>MVVM不算是一种创新</p>
-</li>
-<li><p>但是其中的 <code>ViewModel</code> 是一种创新</p>
-</li>
-<li><p>真正的结合前端场景应用的创建</p>
-</li>
-</ul>
-<h3 id="MVVM框架的三大要素"><a href="#MVVM框架的三大要素" class="headerlink" title="MVVM框架的三大要素"></a>MVVM框架的三大要素</h3><ul>
-<li>响应式：vue如何监听到 data 的每个属性的变化？</li>
-<li>模板引擎： vue的模板如何被解析，指令如何处理？</li>
-<li>渲染： vue的模板如何被渲染成html？以及渲染过程</li>
-</ul>
-<h2 id="3-vue中如何实现响应式"><a href="#3-vue中如何实现响应式" class="headerlink" title="3. vue中如何实现响应式"></a>3. vue中如何实现响应式</h2><ul>
-<li><p>什么是响应式</p>
-<ul>
-<li>修改data属性之后，vue立刻监听到</li>
-<li>data 属性被代理到vm上</li>
-<li>演示</li>
-</ul>
-</li>
-<li><p>Object.defineProperty  将data属性代理到vm上</p>
-</li>
-<li><p>模拟</p>
-<h3 id="利用Object-defineProperty模拟响应式"><a href="#利用Object-defineProperty模拟响应式" class="headerlink" title="利用Object.defineProperty模拟响应式"></a>利用Object.defineProperty模拟响应式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">var obj &#x3D; &#123;</span><br><span class="line">    name: &quot;wang&quot;,</span><br><span class="line">    age: 22</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function Proxy (obj) &#123;</span><br><span class="line">    Object.keys(obj).forEach( (key) &#x3D;&gt; &#123;</span><br><span class="line">        &#x2F;&#x2F;这里是核心，把obj数据代理到w上</span><br><span class="line">        Object.defineProperty(vm,key,&#123;</span><br><span class="line">            get: function () &#123;</span><br><span class="line">                return obj[key];</span><br><span class="line">            &#125;,</span><br><span class="line">            set: function (newValue) &#123;</span><br><span class="line">                if(newValue &#x3D;&#x3D;&#x3D; obj[key])&#123;</span><br><span class="line">                    return obj[key]</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    obj[key] &#x3D; newValue</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ul>
-<h2 id="4-Vue中如何解析模板"><a href="#4-Vue中如何解析模板" class="headerlink" title="4. Vue中如何解析模板"></a>4. Vue中如何解析模板</h2><ul>
-<li>模板是什么</li>
-<li><code>render</code> 函数</li>
-<li><code>render</code> 函数与 vdom</li>
-</ul>
-<h3 id="模板是什么"><a href="#模板是什么" class="headerlink" title="模板是什么"></a>模板是什么</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id&#x3D;&quot;app&quot;&gt;</span><br><span class="line">    &lt;input type&#x3D;&quot;text&quot; v-model&#x3D;&quot;title&quot;&gt;</span><br><span class="line">    &lt;button @click&#x3D;&quot;add&quot;&gt;submit&lt;&#x2F;button&gt;</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">        &lt;li v-for&#x3D;&quot;(item, index) in list&quot; :key&#x3D;&quot;index&quot;&gt;&#123;&#123;item&#125;&#125;&lt;&#x2F;li&gt;</span><br><span class="line">    &lt;&#x2F;ul&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><strong>模板的本质就是字符串</strong></li>
-<li><strong>是有逻辑的字符串，v-if、v-for。。。  还可以嵌入JS变量</strong></li>
-<li><strong>类似html格式，但是有很大区别</strong></li>
-<li><strong>最终会被转换成html来显示</strong></li>
-<li><strong>最终必须转换成JS代码（有逻辑，JS是图灵完备语言）</strong></li>
-<li><strong>需要一个JS函数（render函数）</strong></li>
-</ul>
-<h3 id="render函数-with的用法"><a href="#render函数-with的用法" class="headerlink" title="render函数  with的用法"></a>render函数  with的用法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">var obj &#x3D; &#123;</span><br><span class="line">    name: &#39;张三&#39;,</span><br><span class="line">    age: 20,</span><br><span class="line">    getAddress: function () &#123;</span><br><span class="line">        alert(&#39;nanchang&#39;)</span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;不用with</span><br><span class="line"></span><br><span class="line">function fn() &#123;</span><br><span class="line">    alert(obj.name)</span><br><span class="line">    alert(obj.age)</span><br><span class="line">    obj.getAddress()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;使用with    不建议自己实际开发的时候使用</span><br><span class="line">&#x2F;&#x2F;vue 里面用了，但也只是它内部使用</span><br><span class="line">function fn2 () &#123;</span><br><span class="line">    with(obj) &#123;</span><br><span class="line">        alert(name)</span><br><span class="line">        alert(age)</span><br><span class="line">        getAddress()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="5-render-函数和-vnode"><a href="#5-render-函数和-vnode" class="headerlink" title="5. render 函数和 vnode"></a>5. render 函数和 vnode</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">vm._update(vnode) &#123;</span><br><span class="line">    const preVnode &#x3D; vm._vnode</span><br><span class="line">    vm._vnodee &#x3D; vnode</span><br><span class="line">    if(!preVnode) &#123;</span><br><span class="line">        vm.$el &#x3D; vm.__patch__(vm.$el, vnoded)</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        vm.$el &#x3D; vm.__patch__(preVnode, vnoded)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function updateComponent () &#123;</span><br><span class="line">    &#x2F;&#x2F;vm._render 即上面的render 函数，并返回vnode</span><br><span class="line">    vm._update(vm._render())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><code>updateComponent</code>中实现了vdom和patch</li>
-<li>页面首次渲染执行 <code>updateComponent</code></li>
-<li>data中每次修改属性值，执行updateComponent</li>
-</ul>
-<h2 id="6-Vue-的整个实现流程"><a href="#6-Vue-的整个实现流程" class="headerlink" title="6. Vue 的整个实现流程"></a>6. <code>Vue</code> 的整个实现流程</h2><ul>
-<li>第一步： 解析模板成<code>render</code>函数</li>
-<li>第二步： 响应式开始监听</li>
-<li>第三步： 首次渲染，显示页面，且绑定依赖<ul>
-<li>为什么监听 get，只监听set不行吗</li>
-<li>data 中有很多属性，有些会被用到，有些可能不会被用到</li>
-<li>未走 get 中的属性， set的时候我们也无需关心</li>
-<li>避免不必要的重新渲染</li>
-</ul>
-</li>
-<li>第四步： data属性变化，触发 <code>rerender</code>函数</li>
-</ul>
-<h3 id="根据Demo-说明"><a href="#根据Demo-说明" class="headerlink" title="根据Demo 说明"></a>根据Demo 说明</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">                                &#x2F;&#x2F;第一步： 解析模板成 render 函数</span><br><span class="line">    &lt;div id&#x3D;&quot;app&quot;&gt;</span><br><span class="line">        &lt;input type&#x3D;&quot;text&quot; v-model&#x3D;&quot;title&quot;&gt;</span><br><span class="line">        &lt;button @click&#x3D;&quot;add&quot;&gt;submit&lt;&#x2F;button&gt;</span><br><span class="line">        &lt;ul&gt;</span><br><span class="line">            &lt;li v-for&#x3D;&quot;(item, index) in list&quot; :key&#x3D;&quot;index&quot;&gt;&#123;&#123;item&#125;&#125;&lt;&#x2F;li&gt;</span><br><span class="line">        &lt;&#x2F;ul&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line"></span><br><span class="line">    var vm &#x3D; new Vue(&#123;</span><br><span class="line">        el:&quot;#app&quot;,</span><br><span class="line">        data:&#123;                  &#x2F;&#x2F;第二步： 响应式开始监听   将data中数据通过 Object.defineProperty 绑定到vm中</span><br><span class="line">            &#x2F;&#x2F; 数据驱动视图</span><br><span class="line">            title:&#39;&#39;,</span><br><span class="line">            list:[]</span><br><span class="line">        &#125;,</span><br><span class="line">        methods: &#123;</span><br><span class="line">            add()&#123;</span><br><span class="line">                &#x2F;&#x2F; 修改数据，视图的修改vue会帮你做</span><br><span class="line">                &#x2F;&#x2F; 利用diff算法去优化了DOM操作</span><br><span class="line">                this.list.push(this.title)</span><br><span class="line">                this.title &#x3D; &quot;&quot;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;&#x2F;script&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                                &#x2F;&#x2F;第三步： 首次渲染，显示页面，且绑定依赖</span><br></pre></td></tr></table></figure>
+            <p>首先带着以下问题进行学习</p>
+<blockquote>
+<p>1．编译程序各模块主要功能是什么？<br>2．编译过程引入“前段/后端”概念的好处？<br>3．假设两个团队分别各自开发同一语言编译器，邀请你作为评审专家，谈谈你优先考虑的几个因素？<br>4．理解文法与语言的关系<br>5．空符号串ε的理解<br>6．两个符号串乘积运算与离散数学中集合里哪个运算相似？<br>7．设Σ={a,b}，则Σn 表示什么？用一句通俗的话描述<br>8．闭包与正闭包表示的集合范围关系。<br>判断题<br>1、    编译程序的生成目标代码若为机器语言，则可直接运行。（）<br>2、    编译程序的八大模块中，只有目标代码生成属于后端。（）<br>3、符号串x=AB，则其方幂x3 = ABABAB，  x0=0  （  ）<br>4、Σn表示字母表中长度为n的所有串构成的集合。（ ）<br>5、文法是描述语言语法规则的一种工具（ ）</p>
+</blockquote>
 
         </div>
         
@@ -273,7 +178,7 @@
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/MVVM/" rel="tag">MVVM</a>, <a class="has-link-grey -link" href="/tags/vue/" rel="tag">vue</a>
+                    <a class="has-link-grey -link" href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" rel="tag">编译原理</a>
                 </div>
             </div>
         </div>
@@ -299,17 +204,10 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/01/13/%C2%96%C2%96%E5%85%B3%E4%BA%8E-Background%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95%E5%92%8C%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">关于 Background的一些基本用法和使用技巧</span>
-            </a>
-        </div>
-        
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2020/01/08/virtual-dom%EF%BC%88%E8%99%9A%E6%8B%9FDOM%EF%BC%89/">
-                <span class="level-item">virtual dom（虚拟DOM）</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/03/10/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E4%B8%93%E9%A2%98-%E4%BD%8D%E8%BF%90%E7%AE%97/">
+                <span class="level-item">算法学习专题-位运算</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -1399,7 +1297,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="MVVM设计框架-vue如何实现的" height="28">
+                    <img src="/images/logo.svg" alt="编译原理学习-第二节" height="28">
                 
                 </a>
                 <p class="is-size-7">
