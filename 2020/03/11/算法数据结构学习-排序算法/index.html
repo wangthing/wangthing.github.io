@@ -10,16 +10,16 @@
 <title>算法数据结构学习-排序算法 - 欢迎</title>
 
 
-    <meta name="description" content="题目： 排序数组给定一个整数数组 nums，将该数组升序排列。 实例1 12输入：[5,2,3,1]输出：[1,2,3,5]  堕落的我一下子就想到了解法,你还别说还挺好使 1234567&#x2F;** * @param &amp;#123;number[]&amp;#125; nums * @return &amp;#123;number[]&amp;#125; *&#x2F;var sortArray &#x3D; function(nums) &amp;#1">
+    <meta name="description" content="排序可以说是当我听到算法第一个想出来有关的名词，从头到尾好好学学吧。 题目： 排序数组给定一个整数数组 nums，将该数组升序排列。 实例1 12输入：[5,2,3,1]输出：[1,2,3,5]">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法数据结构学习-排序算法">
 <meta property="og:url" content="http://yoursite.com/2020/03/11/%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AD%A6%E4%B9%A0-%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/index.html">
 <meta property="og:site_name" content="欢迎">
-<meta property="og:description" content="题目： 排序数组给定一个整数数组 nums，将该数组升序排列。 实例1 12输入：[5,2,3,1]输出：[1,2,3,5]  堕落的我一下子就想到了解法,你还别说还挺好使 1234567&#x2F;** * @param &amp;#123;number[]&amp;#125; nums * @return &amp;#123;number[]&amp;#125; *&#x2F;var sortArray &#x3D; function(nums) &amp;#1">
+<meta property="og:description" content="排序可以说是当我听到算法第一个想出来有关的名词，从头到尾好好学学吧。 题目： 排序数组给定一个整数数组 nums，将该数组升序排列。 实例1 12输入：[5,2,3,1]输出：[1,2,3,5]">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
 <meta property="article:published_time" content="2020-03-11T04:58:29.000Z">
-<meta property="article:modified_time" content="2020-03-11T12:49:30.039Z">
+<meta property="article:modified_time" content="2020-03-13T15:16:13.541Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="算法">
 <meta property="article:tag" content="排序">
@@ -147,7 +147,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    5 分钟 读完 (大约 757 个字)
+                    7 分钟 读完 (大约 1046 个字)
                 </span>
                 
                 
@@ -165,9 +165,12 @@
             
         </h1>
         <div class="content">
-            <h2 id="题目：-排序数组"><a href="#题目：-排序数组" class="headerlink" title="题目： 排序数组"></a>题目： 排序数组</h2><p>给定一个整数数组 <code>nums</code>，将该数组升序排列。</p>
+            <p>排序可以说是当我听到算法第一个想出来有关的名词，从头到尾好好学学吧。</p>
+<h2 id="题目：-排序数组"><a href="#题目：-排序数组" class="headerlink" title="题目： 排序数组"></a>题目： 排序数组</h2><p>给定一个整数数组 <code>nums</code>，将该数组升序排列。</p>
 <p><strong>实例1</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：[5,2,3,1]</span><br><span class="line">输出：[1,2,3,5]</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
 
 <p>堕落的我一下子就想到了解法,你还别说还挺好使</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[]&#125;</span> <span class="variable">nums</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number[]&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> sortArray = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> nums.sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a-b);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -191,6 +194,18 @@
 <p>这种排序方法和我们摸牌放牌的过程是一样的，我们每次摸到一张新牌就会把它依次做对比，把这张牌放到一个合适的位置，因为前面的都是排序好的，到下一个的时候我们就把下一个元素依次和前面排序好了的进行比较，如果大于前面的就不用做什么了，直接待在原位就好了。如果小于的话，前面的数往后移，最后如果这个数到了第 -1 位或者比它前一位还要大的时候，第二重循环退出。退出后的 <code>nums[j+1] = tmp(也就是我们一开始的目标元素)</code>。为什么下标要加一呢， 因为我们退出循环后 <code>j++</code> 了， 如果是因为比前一个数大而退出时也是 <code>j++</code>之后了。</p>
 <p><strong>代码实现：</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">insertSort</span> (<span class="params">nums</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(nums.length &lt;= <span class="number">1</span>) <span class="keyword">return</span> nums;</span><br><span class="line">  <span class="comment">//第一张牌不用管，结合我们平时打牌就能知道</span></span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">    <span class="keyword">let</span> tmp = nums[i], j = i<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">for</span>( ; j &gt;= <span class="number">0</span>; j--) &#123;</span><br><span class="line">      <span class="keyword">if</span>(tmp &gt; nums[j]) <span class="keyword">break</span>;</span><br><span class="line">      <span class="keyword">else</span>&#123;</span><br><span class="line">        nums[j+<span class="number">1</span>] = nums[j];</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//这里为什么是 j+1 可以多体会一下这个过程</span></span><br><span class="line">    nums[j+<span class="number">1</span>] = tmp;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> nums;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-归并排序"><a href="#4-归并排序" class="headerlink" title="4. 归并排序"></a>4. 归并排序</h2><p><strong>图片演示：</strong></p>
+<p><img src="!%5Bimg%5D(https://www.runoob.com/wp-content/uploads/2019/03/mergeSort.gif" alt="归并排序"></p>
+<ol>
+<li>申请空间，使其大小为两个已经排序序列之和，该空间用来存放合并后的序列；</li>
+<li>设定两个指针，最初位置分别为两个已经排序序列的起始位置；</li>
+<li>比较两个指针所指向的元素，选择相对小的元素放入到合并空间，并移动指针到下一位置；</li>
+<li>重复步骤 3 直到某一指针达到序列尾；</li>
+<li>将另一序列剩下的所有元素直接复制到合并序列尾。</li>
+</ol>
+<p>代码实现：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[]&#125;</span> <span class="variable">nums</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number[]&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sortArray</span> (<span class="params">nums</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> len = nums.length;</span><br><span class="line">  <span class="keyword">if</span>(len &lt; <span class="number">2</span>) <span class="keyword">return</span> nums;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">let</span> mid = len &gt;&gt; <span class="number">1</span>,</span><br><span class="line">      left = nums.slice(<span class="number">0</span>, mid),</span><br><span class="line">      right = nums.slice(mid);</span><br><span class="line">  <span class="comment">//释放不要的数组空间</span></span><br><span class="line">  nums.length = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">return</span> mergeSort(sortArray (left), sortArray(right));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mergeSort</span> (<span class="params">L, R</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> res = [];</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">while</span>(L.length &amp;&amp; R.length) &#123;</span><br><span class="line">    <span class="keyword">if</span> (L[<span class="number">0</span>] &lt;= R[<span class="number">0</span>]) res.push(L.shift());</span><br><span class="line">    <span class="keyword">else</span> res.push(R.shift());</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">while</span> (L.length) res.push(L.shift());</span><br><span class="line">  <span class="keyword">while</span>(R.length) res.push(R.shift());</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
         </div>
