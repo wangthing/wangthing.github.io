@@ -147,7 +147,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    8 分钟 读完 (大约 1145 个字)
+                    9 分钟 读完 (大约 1389 个字)
                 </span>
                 
                 
@@ -167,17 +167,22 @@
 <p>上的平台，用于构建高速、可伸缩的网络程序。Node.js采用的事件驱动、非阻塞I/O模型，使它</p>
 <p>既轻量又高效，并成为构建运行在分布式设备上的数据密集型实时程序的完美选择。”</p>
 </blockquote>
-<h2 id="1-构建于JavaScript之上"><a href="#1-构建于JavaScript之上" class="headerlink" title="1. 构建于JavaScript之上"></a>1. 构建于JavaScript之上</h2><p>​    在服务器端编程，Node使用的是为Google Chrome提供动力的V8虚拟机。V8让Node在性能上得到了巨大的提升，因为它去掉了中间环节，执行的不是字节码，用的也不是解释器，而是直接编译成了本地机器码。Node在服务器端使用JavaScript还有其他好处。</p>
+<h3 id="1-构建于JavaScript之上"><a href="#1-构建于JavaScript之上" class="headerlink" title="1. 构建于JavaScript之上"></a>1. 构建于JavaScript之上</h3><p>​    在服务器端编程，Node使用的是为Google Chrome提供动力的V8虚拟机。V8让Node在性能上得到了巨大的提升，因为它去掉了中间环节，执行的不是字节码，用的也不是解释器，而是直接编译成了本地机器码。Node在服务器端使用JavaScript还有其他好处。</p>
 <ul>
-<li>开发人员用一种语言就能编写整个Web应用，这可以减少开发客户端和服务端时所需的语言切换。又或者说，找一个会 <code>JavaScript</code> 的程序员就可以干两个人的事，还省去了沟通的成本。</li>
-<li>JSON是目前非常流行的数据交换格式，并且还是JavaScript原生的。</li>
-<li>有些NoSQL数据库中用的就是JavaScript语言（比如CouchDB和MongoDB），所以跟它们简直是天作之合（比如MongoDB的管理和查询语言都是JavaScript；CouchDB的map/reduce也是JavaScript）。</li>
-<li>JavaScript是一门编译目标语言，现在有很多可以编译成JavaScript的语言。</li>
-<li>Node用的虚拟机（V8）会紧跟ECMAScript标准。换句话说，在Node中如果想用新的JavaScript语言特性，不用等到所有浏览器都支持。</li>
+<li><p>开发人员用一种语言就能编写整个Web应用，这可以减少开发客户端和服务端时所需的语言切换。又或者说，找一个会 <code>JavaScript</code> 的程序员就可以干两个人的事，还省去了沟通的成本。</p>
+</li>
+<li><p>JSON是目前非常流行的数据交换格式，并且还是JavaScript原生的。</p>
+</li>
+<li><p>有些NoSQL数据库中用的就是JavaScript语言（比如CouchDB和MongoDB），所以跟它们简直是天作之合（比如MongoDB的管理和查询语言都是JavaScript；CouchDB的map/reduce也是JavaScript）。</p>
+</li>
+<li><p>JavaScript是一门编译目标语言，现在有很多可以编译成JavaScript的语言。</p>
+</li>
+<li><p>Node用的虚拟机（V8）会紧跟ECMAScript标准。换句话说，在Node中如果想用新的JavaScript语言特性，不用等到所有浏览器都支持。</p>
+<h3 id="2-异步和事件触发：服务器"><a href="#2-异步和事件触发：服务器" class="headerlink" title="2. 异步和事件触发：服务器"></a>2. 异步和事件触发：服务器</h3></li>
 </ul>
-<h3 id="异步和事件触发：服务器"><a href="#异步和事件触发：服务器" class="headerlink" title="异步和事件触发：服务器"></a>异步和事件触发：服务器</h3><p>​    在Node中，I/O几乎总是在主事件轮询之外进行，使得服务器可以<strong>一直处于高效并且随时能够做出响应</strong>的状态，就像NGINX一样。这样进程就更加不会受I/O限制，因为I/O延迟不会拖垮服务器，或者像在阻塞方式下那样占用很多资源。因此一些在服务器上曾经是重量级的操作，在Node服务器上仍然可以是轻量级的。</p>
+<p>​    在Node中，I/O几乎总是在主事件轮询之外进行，使得服务器可以<strong>一直处于高效并且随时能够做出响应</strong>的状态，就像NGINX一样。这样进程就更加不会受I/O限制，因为I/O延迟不会拖垮服务器，或者像在阻塞方式下那样占用很多资源。因此一些在服务器上曾经是重量级的操作，在Node服务器上仍然可以是轻量级的。</p>
 <p>​    这个混杂了<strong>事件驱动和异步</strong>的模型，加上几乎随处可用的JavaScript语言，帮我们打开了一个精彩纷呈的数据密集型实时程序的世界。</p>
-<h3 id="简单的Node程序"><a href="#简单的Node程序" class="headerlink" title="简单的Node程序"></a>简单的Node程序</h3><ul>
+<h4 id="简单的Node程序"><a href="#简单的Node程序" class="headerlink" title="简单的Node程序"></a>简单的Node程序</h4><ul>
 <li><p>读取本地文件</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"></span><br><span class="line">fs.readFile(<span class="string">'./data.json'</span>, <span class="string">'utf-8'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err, data</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(err) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(err);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(data.toString());</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'end'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//输出</span></span><br><span class="line"><span class="comment">//end</span></span><br><span class="line"><span class="comment">// data.toString()</span></span><br></pre></td></tr></table></figure>
 </li>
@@ -198,8 +203,16 @@
 <p>就可以边读取边处理，这要比等着所有数据都缓存到内存中再处理效率高得多。</p>
 </li>
 </ul>
-<h3 id="使用http服务器，把图片流到客服端"><a href="#使用http服务器，把图片流到客服端" class="headerlink" title="使用http服务器，把图片流到客服端"></a>使用http服务器，把图片流到客服端</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="使用http服务器，把图片流到客服端"><a href="#使用http服务器，把图片流到客服端" class="headerlink" title="使用http服务器，把图片流到客服端"></a>使用http服务器，把图片流到客服端</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>)</span><br><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>)</span><br><span class="line"></span><br><span class="line">http.createServer(<span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.writeHead(<span class="number">200</span>, &#123;<span class="string">'Content-type'</span>: <span class="string">'image/png'</span>&#125;);</span><br><span class="line">    fs.createReadStream(<span class="string">'../images/222.jpg'</span>).pipe(res);</span><br><span class="line"></span><br><span class="line">&#125;).listen(<span class="number">3000</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"running on localhost:3000"</span>);</span><br></pre></td></tr></table></figure>
 
+<p>​    在这行代码中，数据从文件中读进来<code>（fs.createReadStream）</code>，然后数据随着进来就被送到<code>（.pipe）</code>客户端<code>（res）</code>。在数据流动时，事件轮询还能处理其他事件。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>​    Node跟所有技术一样，并不是万能灵药。它只能解决特定的问题，并为我们开创新的可能性。Node比较有意思的一点是，它让从事系统各方面工作的人走到了一起。很多进入Node世界的是客户端JavaScript程序员，此外还有服务端程序员以及系统层面的程序员。</p>
+<p>总的来说，<code>Node</code>是</p>
+<ul>
+<li>构建在 <code>JavaScript</code> 之上的；</li>
+<li>事件触发和异步的</li>
+<li>专为数据密集型实时程序设计的。</li>
+</ul>
 
         </div>
         
