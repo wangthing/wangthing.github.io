@@ -19,7 +19,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
 <meta property="article:published_time" content="2020-03-18T13:45:11.000Z">
-<meta property="article:modified_time" content="2020-03-18T14:30:34.588Z">
+<meta property="article:modified_time" content="2020-03-19T03:20:27.553Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="面试">
 <meta name="twitter:card" content="summary">
@@ -149,7 +149,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    3 分钟 读完 (大约 519 个字)
+                    3 分钟 读完 (大约 521 个字)
                 </span>
                 
                 
@@ -177,7 +177,7 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn1</span> (<span class="params">nums</span>) </span>&#123;</span><br><span class="line">     <span class="keyword">if</span>(nums.length &lt; <span class="number">2</span>) <span class="keyword">return</span> nums;</span><br><span class="line">  <span class="keyword">var</span> res = [];</span><br><span class="line">     <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">       <span class="keyword">if</span>( !res.includes(nums[i]) ) &#123;</span><br><span class="line">         res.push(nums[i])</span><br><span class="line">       &#125; </span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">return</span> res;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p><code>reduce</code>函数加 <code>includes</code> 判断是否存在</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn2</span> (<span class="params">nums</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> nums.reduce(<span class="function"><span class="keyword">function</span> (<span class="params">pre, cur, index</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>( !pre.includes(cur)) &#123;</span><br><span class="line">      pre = pre.push(cur);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> pre;</span><br><span class="line">  &#125;, [])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn2</span> (<span class="params">nums</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> nums.reduce(<span class="function"><span class="keyword">function</span> (<span class="params">pre, cur, index</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>( !pre.includes(cur)) &#123;</span><br><span class="line">      pre.push(cur);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> pre;</span><br><span class="line">  &#125;, [])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>用 ES6 的Set去重</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn3</span> (<span class="params">nums</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> [... new <span class="built_in">Set</span>(nums)]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -195,6 +195,10 @@
 
 <h2 id="4-使用一个原生代码实现一个-Events-模块，-可以实现自定义事件的订阅、触发、移除功能"><a href="#4-使用一个原生代码实现一个-Events-模块，-可以实现自定义事件的订阅、触发、移除功能" class="headerlink" title="4. 使用一个原生代码实现一个 Events 模块， 可以实现自定义事件的订阅、触发、移除功能"></a>4. 使用一个原生代码实现一个 Events 模块， 可以实现自定义事件的订阅、触发、移除功能</h2><p>比如：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> object = <span class="keyword">new</span> Events();</span><br><span class="line"></span><br><span class="line">object.on(<span class="string">'sleep'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  alert(<span class="string">"I want to sleep"</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">object.trigger(<span class="string">'sleep'</span>)</span><br><span class="line"></span><br><span class="line">object.off(<span class="string">'sleep'</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Events</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
