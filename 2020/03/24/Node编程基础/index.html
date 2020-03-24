@@ -7,18 +7,21 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>标签: 虚拟DOM - 欢迎</title>
+<title>Node编程基础 - 欢迎</title>
 
 
-    <meta name="description" content="快乐的麻瓜---博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="欢迎">
-<meta property="og:url" content="http://yoursite.com/tags/%E8%99%9A%E6%8B%9FDOM/index.html">
+    <meta name="description" content="Node不像大多数开源平台一样， 它很容易设置，对内存和硬盘空间没有那么多要求。也不需要复杂的集成开发环境或者构建系统。但掌握一些基础知识会对你有很大的帮助，初学 Node 主要搞清楚下面两个问题  怎么做异步编程 用模块组织代码 用事件发射器处理重复性事件 实现串行和并行的流程控制 使用流程控制工具">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Node编程基础">
+<meta property="og:url" content="http://yoursite.com/2020/03/24/Node%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/index.html">
 <meta property="og:site_name" content="欢迎">
-<meta property="og:description" content="快乐的麻瓜---博客">
+<meta property="og:description" content="Node不像大多数开源平台一样， 它很容易设置，对内存和硬盘空间没有那么多要求。也不需要复杂的集成开发环境或者构建系统。但掌握一些基础知识会对你有很大的帮助，初学 Node 主要搞清楚下面两个问题  怎么做异步编程 用模块组织代码 用事件发射器处理重复性事件 实现串行和并行的流程控制 使用流程控制工具">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
+<meta property="article:published_time" content="2020-03-24T01:39:58.000Z">
+<meta property="article:modified_time" content="2020-03-24T15:22:34.967Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Node.js">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
 
@@ -80,7 +83,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="欢迎" height="28">
+                <img src="/images/logo.svg" alt="Node编程基础" height="28">
             
             </a>
         </div>
@@ -129,68 +132,105 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
-    <div class="card-content">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-            <li><a href="/tags">标签</a></li>
-            <li class="is-active"><a href="#" aria-current="page">虚拟DOM</a></li>
-        </ul>
-        </nav>
-    </div>
-</div>
-
-    
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
 <div class="card">
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-01-08T03:20:56.000Z">2020-01-08</time>
+                <time class="level-item has-text-grey" datetime="2020-03-24T01:39:58.000Z">2020-03-24</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Node-js/">Node.js</a>
+                </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    8 分钟 读完 (大约 1185 个字)
+                    12 分钟 读完 (大约 1816 个字)
                 </span>
                 
+                
+                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_page_pv">0</span>次访问
+                </span>
                 
             </div>
         </div>
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2020/01/08/virtual-dom%EF%BC%88%E8%99%9A%E6%8B%9FDOM%EF%BC%89/">virtual dom（虚拟DOM）</a>
+                Node编程基础
             
         </h1>
         <div class="content">
-            <h1 id="virtual-dom（虚拟DOM）"><a href="#virtual-dom（虚拟DOM）" class="headerlink" title="virtual dom（虚拟DOM）"></a>virtual dom（虚拟DOM）</h1><ul>
-<li><p>vdom是vue和React的核心，先讲哪个都绕不开它</p>
-</li>
-<li><p>vdom比较独立，使用也比较简单</p>
-</li>
-<li><p>如果面试问到vue和React的实现，vdom是肯定会问的</p>
-</li>
-<li><p>关于vdom的几个问题</p>
+            <p><code>Node</code>不像大多数开源平台一样， 它很容易设置，对内存和硬盘空间没有那么多要求。也不需要复杂的集成开发环境或者构建系统。但掌握一些基础知识会对你有很大的帮助，初学 <code>Node</code> 主要搞清楚下面两个问题</p>
 <ul>
-<li>vdom是什么？为什么会存在vdom？jQuery它不香吗？</li>
-<li>vdom如何使用，核心API是什么？</li>
-<li>介绍一下 diff算法</li>
+<li>怎么做异步编程</li>
+<li>用模块组织代码</li>
+<li>用事件发射器处理重复性事件</li>
+<li>实现串行和并行的流程控制</li>
+<li>使用流程控制工具</li>
 </ul>
-</li>
+<a id="more"></a>
+
+
+
+<h2 id="创建一个模块"><a href="#创建一个模块" class="headerlink" title="创建一个模块"></a>创建一个模块</h2><p>​    模块既可以是一个文件，也可以包含一个或多个文件的目录。如果模块是目录，Node通常会在这个目录下寻找一个叫做 <code>index.js</code> 的文件作为木块的入口（当然这个默认设置也是可以重写的）</p>
+<p>​    典型的模块是一个包含 <code>exports</code> 对象属性定义的模块，这些属性可以是任意类型的数据，比如字符串、对象和函数。</p>
+<p>​    使用模块需要用到<code>Node</code> 的 <code>require</code> 函数， 该函数以你要用的模块的路径作为参数。Node以同步的方式寻找他，定位到这个模块并加载其中的内容。</p>
+<blockquote>
+<p>require是Node中少数几个同步I/O操作之一。因为经常用到模块，并且一般都是在文件顶端引入，所以把require做成同步的有助于保持代码的整洁、有序，还能增强可读性。但在程序中I/O密集的地方尽量不要用require。所有同步调用都会阻塞Node，直到调用完成才能做其他事情。比如你正在运行一个HTTP服务器，如果在每个进入的请求上都用了require，就会遇到性能问题。所以通常都只在程序最初加载时才使用require和其他同步操作。</p>
+</blockquote>
+<p><strong>需要注意的是 <code>exports</code> 导出一个的时候，不能直接赋值，比如下面的写法</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Currency = <span class="function"><span class="keyword">function</span> (<span class="params">canadianDollar</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.canadianDollar = canadianDollar</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Currency.prototype.roundTwoDecimals = <span class="function"><span class="keyword">function</span> (<span class="params">amount</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.round(amount*<span class="number">100</span>) / <span class="number">100</span>; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Currency.prototype.cannadianToUs = <span class="function"><span class="keyword">function</span> (<span class="params">canadian</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.roundTwoDecimals(canadian * <span class="keyword">this</span>.canadianDollar)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//错误写法</span></span><br><span class="line">exports = Currency;</span><br><span class="line"></span><br><span class="line"><span class="comment">//应该是</span></span><br><span class="line"><span class="built_in">module</span>.exports = Currency;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>最终在程序里导出的是module.exports。exports只是对module.exports的一个全局引用，最初被定义为一个可以添加属性的空对象。所以 <code>exports.myFunc</code> 只 是<code>module.exports.myFunc</code>的简写。</p>
+</blockquote>
+<p>​    还有一点需要注意的是，Node能把模块作为对象缓存起来。如果程序中的两个文件引入了相同的模块，第一个文件会把模块返回的数据存到程序的内存中，这样第二个文件就不用再去访问和计算模块的源文件了。实际上第二个引入有机会修改缓存的数据。这种“猴子补丁”（monkey patching）让一个模块可以改变另一个模块的行为，开发人员可以不用创建它的新版本。</p>
+<h2 id="异步编程技术"><a href="#异步编程技术" class="headerlink" title="异步编程技术"></a>异步编程技术</h2><h3 id="1-用回调函数处理一次性事件"><a href="#1-用回调函数处理一次性事件" class="headerlink" title="1. 用回调函数处理一次性事件"></a>1. 用回调函数处理一次性事件</h3><p>​    回调是一个函数，它被当做参数传递给异步函数，它描述了异步操作完成之后要做什么。回调在 <code>Node</code> 开发中使用很频繁，比事件发射器使用的多，并且简单。</p>
+<p>我们来创建一个 <code>HTTP</code> 服务器，实现以下功能：</p>
+<ul>
+<li>异步获取存放在 <code>JSON</code> 文件当中的文章标题</li>
+<li>异步的获取简单的 <code>HTML</code> 模板；</li>
+<li>把那些标题组装到 <code>HTML</code>页面里面</li>
+<li>把 <code>HTML</code> 页面发送到用户</li>
 </ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>)</span><br><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>)</span><br><span class="line"></span><br><span class="line">http.createServer(<span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(req.url == <span class="string">'/'</span>) &#123;</span><br><span class="line">        fs.readFile(<span class="string">'./title.json'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err, data</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(err) &#123;</span><br><span class="line">                <span class="built_in">console</span>.log(err.toString());</span><br><span class="line">                res.end(<span class="string">'Server Error'</span>)</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">var</span> title = <span class="built_in">JSON</span>.parse(data.toString())</span><br><span class="line">                fs.readFile(<span class="string">'./template.html'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err, data</span>) </span>&#123;</span><br><span class="line">                    <span class="keyword">if</span>(err) &#123;</span><br><span class="line">                        res.end(<span class="string">'Server Error'</span>)</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">else</span> &#123;</span><br><span class="line">                        <span class="keyword">var</span> tmpl = data.toString();</span><br><span class="line"></span><br><span class="line">                        <span class="keyword">var</span> html = tmpl.replace(<span class="string">'%'</span>, title.join(<span class="string">'&lt;/li&gt;&lt;li&gt;'</span>));</span><br><span class="line">                        res.writeHead(<span class="number">200</span>,&#123;<span class="string">'Content-Type'</span>: <span class="string">'text/html'</span>&#125;);</span><br><span class="line">                        res.end(html)</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;)</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;).listen(<span class="number">3000</span>, <span class="string">'127.0.0.1'</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>从这上面的代码可以看出来回调如果有多层嵌套的话，当然可把上面的方法封装起来，这样可以让代码简洁</strong></p>
+<h4 id="Node-当中异步回调的惯例"><a href="#Node-当中异步回调的惯例" class="headerlink" title="Node 当中异步回调的惯例"></a><code>Node</code> 当中异步回调的惯例</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在Node回调函数中，第一个参数放错误参数， 第二个表示回调成功的结果</span></span><br><span class="line">fs.readFile(<span class="string">'./title.json'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err, data</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(err) <span class="keyword">return</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(data.toString())</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="用事件发射器处理重复事件"><a href="#用事件发射器处理重复事件" class="headerlink" title="用事件发射器处理重复事件"></a>用事件发射器处理重复事件</h3><p>​    事件发射器会触发事件，并且在那些事件触发时能够处理他们。一些重要的 <code>Node API</code> 组件，比如 <code>HTTP服务器、 TCP服务器、 流</code> ，都被做成了事件发射器。</p>
+<p>​    事件是通过监听器进行处理的，监听器跟事件是相关联的，方有一个事件出现时就会触发回调函数。</p>
+<h4 id="下面搭建一个简单的-echo-服务器"><a href="#下面搭建一个简单的-echo-服务器" class="headerlink" title="下面搭建一个简单的 echo 服务器"></a>下面搭建一个简单的 <code>echo</code> 服务器</h4><p>用下面代码实现一个 echo 服务器， 当有客户端连接上来时， 他就会创建一个 <code>socket</code> 。<code>socket</code> 是这个事件发射器，可以用 on 方法添加监听响应。只要socket上有新数据过来就会触发。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> net = <span class="built_in">require</span>(<span class="string">'net'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> server = net.createServer(<span class="function"><span class="keyword">function</span> (<span class="params">socket</span>) </span>&#123;</span><br><span class="line">    socket.on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">        socket.write(data)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">server.listen(<span class="number">8888</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="响应只发生一次的事件"><a href="#响应只发生一次的事件" class="headerlink" title="响应只发生一次的事件"></a>响应只发生一次的事件</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> net = reuqire(<span class="string">'net'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> server  = net.createServer(<span class="function"><span class="keyword">function</span> (<span class="params">socket</span>) </span>&#123;</span><br><span class="line">  socket.once(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">    socket.write(data)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="创建事件发射器，一个发布-订阅的例子"><a href="#创建事件发射器，一个发布-订阅的例子" class="headerlink" title="创建事件发射器，一个发布/订阅的例子"></a>创建事件发射器，一个发布/订阅的例子</h4><p>​    前面的例子用了一个带事件发射器的Node内置API。然而你可以用Node内置的事件模块创建自己的事件发射器。</p>
+<p>​    下面的代码定义了一个channel事件发射器，带有一个监听器，可以向加入频道的人做出响应。注意这里用on（或者用比较长的<code>addListener</code>）方法给事件发射器添加了监听器：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> EventEmitter = <span class="built_in">require</span>(<span class="string">'events'</span>).EventEmitter;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> channel = <span class="keyword">new</span> EventEmitter();</span><br><span class="line">channel.on(<span class="string">'join'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"Welcome"</span>);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">//定时器触发事件</span></span><br><span class="line">    channel.emit(<span class="string">'join'</span>)</span><br><span class="line">&#125;, <span class="number">2000</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="通过事件发射器，创建一个简单的聊天服务器"><a href="#通过事件发射器，创建一个简单的聊天服务器" class="headerlink" title="通过事件发射器，创建一个简单的聊天服务器"></a>通过事件发射器，创建一个简单的聊天服务器</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> events = <span class="built_in">require</span>(<span class="string">'events'</span>)</span><br><span class="line"><span class="keyword">var</span> net = <span class="built_in">require</span>(<span class="string">'net'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> channel = <span class="keyword">new</span> events.EventEmitter();</span><br><span class="line">channel.clients = &#123;&#125;;</span><br><span class="line">channel.subs = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">channel.on(<span class="string">'join'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">id, client</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"welcome"</span>);</span><br><span class="line">    <span class="keyword">this</span>.clients[id] = client;</span><br><span class="line">    <span class="keyword">this</span>.subs[id] = <span class="function"><span class="keyword">function</span> (<span class="params">senderId, message</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(id !== senderId) &#123;</span><br><span class="line">            <span class="keyword">this</span>.clients[id].write(message);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">this</span>.on(<span class="string">'broadcast'</span>, <span class="keyword">this</span>.subs[id]);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> server = net.createServer(<span class="function"><span class="keyword">function</span> (<span class="params">client</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> id = client.remoteAddress + <span class="string">':'</span> + client.remotePort;</span><br><span class="line">    </span><br><span class="line">    client.on(<span class="string">'connect'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        channel.emit(<span class="string">'join'</span>, id, client);</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    client.on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">        data = data.toString();</span><br><span class="line">        channel.emit(<span class="string">'broadcast'</span>, id, data);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">server.listen(<span class="number">8888</span>)</span><br></pre></td></tr></table></figure>
+
+<p>​    这个聊天服务器还有个问题，在用户关闭连接离开聊天室后，原来那个监听器还在，仍会尝试向已经断开的连接写数据。这样自然就会出错。为了解决这个问题，你还要按照下面的代码清单把监听器添加到频道事件发射器上，并且向服务器的close事件监听器中添加发射频道的<code>leave</code>事件的处理逻辑。<code>leave</code>事件本质上就是要移除原来给客户端添加的<code>broadcast</code>监听器。</p>
+
         </div>
         
-        
-        <div class="level is-mobile">
+        <div class="level is-size-7 is-uppercase">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2020/01/08/virtual-dom%EF%BC%88%E8%99%9A%E6%8B%9FDOM%EF%BC%89/#more">阅读更多</a>
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/Node-js/" rel="tag">Node.js</a>
                 </div>
             </div>
         </div>
+        
         
         
     </div>
@@ -198,9 +238,30 @@
 
 
 
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+        </div>
+    </div>
+</div>
 
 
 
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/03/21/%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0%E4%B8%8E%E6%99%AE%E9%80%9A%E5%87%BD%E6%95%B0%E7%9A%84%E5%8C%BA%E5%88%AB/">
+                <span class="level-item">箭头函数与普通函数的区别</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
 
 
 </div>
@@ -1408,7 +1469,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="欢迎" height="28">
+                    <img src="/images/logo.svg" alt="Node编程基础" height="28">
                 
                 </a>
                 <p class="is-size-7">
